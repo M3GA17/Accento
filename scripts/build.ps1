@@ -37,8 +37,15 @@ try {
             Copy-Item -LiteralPath $_.FullName -Destination (Join-Path $licenseFolder $_.Name)
         }
     }
-    Copy-Item -LiteralPath (Join-Path $destination 'Accento.exe') -Destination 'dist/Accento.exe'
+    try {
+        Copy-Item -LiteralPath (Join-Path $destination 'Accento.exe') -Destination 'dist/Accento.exe'
+    } catch {
+        $launcherPath = Join-Path $projectRoot 'dist/Accento.exe'
+        $runningLauncher = Get-Process Accento -ErrorAction SilentlyContinue | Where-Object Path -eq $launcherPath
+        if (-not $runningLauncher) { throw }
+        Write-Host "La precedente istanza è ancora aperta. La nuova versione è pronta in $destination/Accento.exe."
+    }
     Compress-Archive -Path (Join-Path $destination '*') -DestinationPath "dist/$packageName.zip" -Force
-    Get-FileHash -LiteralPath 'dist/Accento.exe' -Algorithm SHA256 | Format-List
-    Write-Host "Pronto: $(Join-Path $projectRoot 'dist/Accento.exe')"
+    Get-FileHash -LiteralPath (Join-Path $destination 'Accento.exe') -Algorithm SHA256 | Format-List
+    Write-Host "Pronto: $(Join-Path $destination 'Accento.exe')"
 } finally { Pop-Location }

@@ -16,7 +16,7 @@ def verify():
     doc=json.loads((OUT/'accento.inspection.json').read_text(encoding='utf-8'))
     nodes={n['id']:n for page in doc['pages'] for n in walk(page)}
     assert hashlib.sha256((OUT/manifest['file']).read_bytes()).hexdigest()==manifest['sha256']
-    assert [p['name'][:2] for p in doc['pages']]==[f'{i:02d}' for i in range(8)]
+    assert [p['name'][:2] for p in doc['pages']]==[f'{i:02d}' for i in range(len(doc['pages']))]
     assert sum(n['type']=='COMPONENT' for n in nodes.values())==manifest['mainComponents']
     assert sum(n['type']=='COMPONENT_SET' for n in nodes.values())==manifest['componentSets']
     links=[]

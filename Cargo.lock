@@ -4,11 +4,11 @@ version = 4
 
 [[package]]
 name = "accento-core"
-version = "0.2.0"
+version = "0.3.0"
 
 [[package]]
 name = "accento-windows"
-version = "0.2.0"
+version = "0.3.0"
 dependencies = [
  "accento-core",
  "serde",

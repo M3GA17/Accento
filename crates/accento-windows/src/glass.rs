@@ -1,5 +1,5 @@
 //! Shared optical treatment for the native picker and settings controls.
-use crate::render::{rect, rgba};
+use crate::render::rgba;
 use std::cell::RefCell;
 use windows::{
     Win32::{
@@ -24,28 +24,40 @@ pub struct Palette {
     pub tertiary: D2D1_COLOR_F,
     pub accent: D2D1_COLOR_F,
     pub inset: D2D1_COLOR_F,
+    pub surface: D2D1_COLOR_F,
+    pub separator: D2D1_COLOR_F,
+    pub selection: D2D1_COLOR_F,
+    pub error: D2D1_COLOR_F,
 }
 impl Palette {
     pub fn new(dark: bool) -> Self {
         if dark {
             Self {
                 dark,
-                canvas: rgba(0.075, 0.085, 0.115, 1.),
+                canvas: rgba(0.086, 0.102, 0.133, 1.),
                 ink: rgba(0.96, 0.97, 0.99, 1.),
                 secondary: rgba(0.64, 0.69, 0.77, 1.),
-                tertiary: rgba(0.45, 0.51, 0.60, 1.),
-                accent: rgba(0.43, 0.66, 1., 1.),
-                inset: rgba(0.09, 0.11, 0.16, 1.),
+                tertiary: rgba(0.53, 0.58, 0.66, 1.),
+                accent: rgba(0.54, 0.71, 1., 1.),
+                inset: rgba(0.078, 0.102, 0.137, 1.),
+                surface: rgba(0.125, 0.149, 0.188, 1.),
+                separator: rgba(0.84, 0.89, 1., 0.094),
+                selection: rgba(0.48, 0.66, 1., 0.11),
+                error: rgba(1., 0.61, 0.67, 1.),
             }
         } else {
             Self {
                 dark,
-                canvas: rgba(0.925, 0.94, 0.965, 1.),
+                canvas: rgba(0.969, 0.973, 0.980, 1.),
                 ink: rgba(0.12, 0.15, 0.20, 1.),
                 secondary: rgba(0.39, 0.44, 0.51, 1.),
-                tertiary: rgba(0.55, 0.59, 0.65, 1.),
-                accent: rgba(0.16, 0.37, 0.82, 1.),
-                inset: rgba(0.955, 0.966, 0.985, 1.),
+                tertiary: rgba(0.486, 0.529, 0.596, 1.),
+                accent: rgba(0.153, 0.361, 0.867, 1.),
+                inset: rgba(0.941, 0.949, 0.965, 1.),
+                surface: rgba(1., 1., 1., 1.),
+                separator: rgba(0.141, 0.208, 0.314, 0.086),
+                selection: rgba(0.2, 0.42, 0.91, 0.078),
+                error: rgba(0.71, 0.176, 0.267, 1.),
             }
         }
     }
@@ -208,160 +220,6 @@ impl Painter {
                 },
                 &brush,
             );
-        }
-        Ok(())
-    }
-    /// The rims stay neutral. Tint communicates selection rather than decorating every surface.
-    #[allow(clippy::too_many_arguments)]
-    pub fn card(
-        &self,
-        area: D2D_RECT_F,
-        radius: f32,
-        p: Palette,
-        selected: bool,
-        hovered: bool,
-        pressed: bool,
-        focused: bool,
-    ) -> Result<()> {
-        let dy = if pressed { 1.0 } else { 0.0 };
-        let a = rect(
-            area.left,
-            area.top + dy,
-            area.right - area.left,
-            area.bottom - area.top,
-        );
-        for (spread, alpha) in [(5., 0.012), (3., 0.018), (1., 0.035)] {
-            self.fill(
-                rect(
-                    a.left - spread,
-                    a.top + 3.,
-                    a.right - a.left + 2. * spread,
-                    a.bottom - a.top + spread,
-                ),
-                radius + spread,
-                rgba(0.02, 0.04, 0.09, if p.dark { alpha * 1.5 } else { alpha }),
-            )?;
-        }
-        let colors = if p.dark {
-            [
-                (0., rgba(0.25, 0.28, 0.34, 1.)),
-                (0.44, rgba(0.17, 0.19, 0.245, 1.)),
-                (1., rgba(0.13, 0.15, 0.20, 1.)),
-            ]
-        } else {
-            [
-                (0., rgba(1., 1., 1., 1.)),
-                (0.45, rgba(0.975, 0.982, 0.998, 1.)),
-                (1., rgba(0.875, 0.905, 0.95, 1.)),
-            ]
-        };
-        self.gradient(a, radius, &colors)?;
-        if selected {
-            self.fill(
-                a,
-                radius,
-                if p.dark {
-                    rgba(0.25, 0.47, 0.90, 0.22)
-                } else {
-                    rgba(0.38, 0.61, 1., 0.15)
-                },
-            )?;
-        }
-        if hovered {
-            self.fill(
-                a,
-                radius,
-                rgba(1., 1., 1., if p.dark { 0.075 } else { 0.30 }),
-            )?;
-        }
-        if pressed {
-            self.fill(a, radius, rgba(0.12, 0.22, 0.38, 0.07))?;
-        }
-        self.stroke(
-            rect(
-                a.left + 0.6,
-                a.top + 0.6,
-                a.right - a.left - 1.2,
-                a.bottom - a.top - 1.2,
-            ),
-            radius - 0.6,
-            if p.dark {
-                rgba(1., 1., 1., 0.22)
-            } else {
-                rgba(1., 1., 1., 0.96)
-            },
-            1.,
-        )?;
-        self.stroke(
-            rect(
-                a.left + 1.7,
-                a.top + 1.7,
-                a.right - a.left - 3.4,
-                a.bottom - a.top - 3.4,
-            ),
-            radius - 1.7,
-            if p.dark {
-                rgba(0., 0., 0., 0.28)
-            } else {
-                rgba(0.52, 0.61, 0.74, 0.22)
-            },
-            0.6,
-        )?;
-        if selected {
-            self.stroke(
-                rect(
-                    a.left + 0.7,
-                    a.top + 0.7,
-                    a.right - a.left - 1.4,
-                    a.bottom - a.top - 1.4,
-                ),
-                radius - 0.7,
-                if p.dark {
-                    rgba(0.48, 0.69, 1., 0.85)
-                } else {
-                    rgba(0.28, 0.49, 0.89, 0.65)
-                },
-                1.4,
-            )?;
-        }
-        if focused {
-            self.stroke(
-                rect(
-                    a.left - 2.5,
-                    a.top - 2.5,
-                    a.right - a.left + 5.,
-                    a.bottom - a.top + 5.,
-                ),
-                radius + 2.5,
-                p.accent,
-                2.,
-            )?;
-        }
-        Ok(())
-    }
-    pub fn check(&self, x: f32, y: f32, on: bool, p: Palette) -> Result<()> {
-        self.circle(
-            x,
-            y,
-            9.,
-            if on {
-                p.accent
-            } else {
-                if p.dark {
-                    rgba(1., 1., 1., 0.08)
-                } else {
-                    rgba(0.34, 0.42, 0.55, 0.07)
-                }
-            },
-        )?;
-        if on {
-            self.line((x - 3.5, y), (x - 0.5, y + 3.), rgba(1., 1., 1., 1.), 1.6)?;
-            self.line(
-                (x - 0.5, y + 3.),
-                (x + 4., y - 3.),
-                rgba(1., 1., 1., 1.),
-                1.6,
-            )?;
         }
         Ok(())
     }

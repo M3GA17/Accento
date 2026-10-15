@@ -1,4 +1,7 @@
-use crate::preferences::{Preferences, Theme};
+use crate::{
+    picker_material as material,
+    preferences::{Preferences, Theme},
+};
 use accento_core::View;
 use windows::{
     Win32::{
@@ -11,7 +14,7 @@ use windows::{
             Gdi::*,
         },
         System::Registry::*,
-        UI::{Accessibility::*, Controls::MARGINS, WindowsAndMessaging::*},
+        UI::{Accessibility::*, WindowsAndMessaging::*},
     },
     core::{Interface, Result},
 };
@@ -65,58 +68,19 @@ pub fn high_contrast() -> bool {
 pub fn text_scale() -> f32 {
     registry_number("Software\\Microsoft\\Accessibility", "TextScaleFactor", 100).clamp(100, 225)
         as f32
-        / 100.0
+        / 100.
 }
-pub fn glass(hwnd: HWND, p: &Preferences) -> bool {
-    unsafe {
-        let enabled = p.transparency
-            && !high_contrast()
-            && registry_number(
-                "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
-                "EnableTransparency",
-                1,
-            ) != 0;
-        let backdrop = if enabled {
-            DWMSBT_TRANSIENTWINDOW
-        } else {
-            DWMSBT_NONE
-        };
-        let result = DwmSetWindowAttribute(
-            hwnd,
-            DWMWA_SYSTEMBACKDROP_TYPE,
-            (&backdrop as *const DWM_SYSTEMBACKDROP_TYPE).cast(),
-            4,
-        );
-        let corner = DWMWCP_ROUND;
-        let _ = DwmSetWindowAttribute(
-            hwnd,
-            DWMWA_WINDOW_CORNER_PREFERENCE,
-            (&corner as *const DWM_WINDOW_CORNER_PREFERENCE).cast(),
-            4,
-        );
-        let dark = i32::from(dark(p));
-        let _ = DwmSetWindowAttribute(
-            hwnd,
-            DWMWA_USE_IMMERSIVE_DARK_MODE,
-            (&dark as *const i32).cast(),
-            4,
-        );
-        let margins = if enabled && result.is_ok() {
-            MARGINS {
-                cxLeftWidth: -1,
-                ..Default::default()
-            }
-        } else {
-            MARGINS::default()
-        };
-        let _ = DwmExtendFrameIntoClientArea(hwnd, &margins);
-        enabled && result.is_ok()
-    }
+pub fn glass_enabled(p: &Preferences) -> bool {
+    p.transparency
+        && !high_contrast()
+        && registry_number(
+            "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+            "EnableTransparency",
+            1,
+        ) != 0
 }
-
 pub fn settings_frame(hwnd: HWND, p: &Preferences) {
     unsafe {
-        // GDI text fields and owner-drawn controls require an opaque composition target.
         let dark = i32::from(dark(p));
         let _ = DwmSetWindowAttribute(
             hwnd,
@@ -133,13 +97,6 @@ pub fn settings_frame(hwnd: HWND, p: &Preferences) {
         );
     }
 }
-
-pub struct Renderer {
-    target: ID2D1HwndRenderTarget,
-    write: IDWriteFactory,
-    pub size: (u32, u32),
-}
-
 pub(crate) fn rgba(r: f32, g: f32, b: f32, a: f32) -> D2D1_COLOR_F {
     D2D1_COLOR_F { r, g, b, a }
 }
@@ -151,7 +108,7 @@ pub(crate) fn rect(x: f32, y: f32, w: f32, h: f32) -> D2D_RECT_F {
         bottom: y + h,
     }
 }
-fn system_color(index: SYS_COLOR_INDEX) -> D2D1_COLOR_F {
+pub(crate) fn system_color(index: SYS_COLOR_INDEX) -> D2D1_COLOR_F {
     let c = unsafe { GetSysColor(index) };
     rgba(
         (c & 255) as f32 / 255.,
@@ -161,201 +118,330 @@ fn system_color(index: SYS_COLOR_INDEX) -> D2D1_COLOR_F {
     )
 }
 
+/// A premultiplied BGRA surface presented with per-pixel alpha. No DWM backdrop
+/// is applied to the enclosing rectangle. Backdrop is sampled once per opening;
+/// navigating never captures our own keys or writes screen pixels to disk.
+pub struct Renderer {
+    hwnd: HWND,
+    dc: HDC,
+    bitmap: HBITMAP,
+    previous: HGDIOBJ,
+    pixels: *mut u8,
+    target: ID2D1DCRenderTarget,
+    write: IDWriteFactory,
+    backdrop: Vec<u8>,
+    pub size: (u32, u32),
+    dpi: f32,
+    sampled: bool,
+}
+impl Drop for Renderer {
+    fn drop(&mut self) {
+        unsafe {
+            SelectObject(self.dc, self.previous);
+            let _ = DeleteObject(HGDIOBJ(self.bitmap.0));
+            let _ = DeleteDC(self.dc);
+        }
+    }
+}
 impl Renderer {
-    pub fn new(hwnd: HWND, width: u32, height: u32, dpi: f32) -> Result<Self> {
+    pub fn new(hwnd: HWND, width: u32, height: u32, dpi: f32, sampled: bool) -> Result<Self> {
         unsafe {
             let factory: ID2D1Factory = D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, None)?;
-            let target = factory.CreateHwndRenderTarget(
-                &D2D1_RENDER_TARGET_PROPERTIES {
+            let target = factory.CreateDCRenderTarget(&D2D1_RENDER_TARGET_PROPERTIES {
+                pixelFormat: D2D1_PIXEL_FORMAT {
+                    format: DXGI_FORMAT_B8G8R8A8_UNORM,
+                    alphaMode: D2D1_ALPHA_MODE_PREMULTIPLIED,
+                },
+                dpiX: dpi,
+                dpiY: dpi,
+                ..Default::default()
+            })?;
+            let write = DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED)?;
+            let screen = GetDC(None);
+            let dc = CreateCompatibleDC(Some(screen));
+            if dc.0.is_null() {
+                ReleaseDC(None, screen);
+                return Err(windows::core::Error::from_thread());
+            }
+            let info = BITMAPINFO {
+                bmiHeader: BITMAPINFOHEADER {
+                    biSize: size_of::<BITMAPINFOHEADER>() as u32,
+                    biWidth: width as i32,
+                    biHeight: -(height as i32),
+                    biPlanes: 1,
+                    biBitCount: 32,
+                    biCompression: BI_RGB.0,
+                    ..Default::default()
+                },
+                ..Default::default()
+            };
+            let mut pixels = std::ptr::null_mut();
+            let bitmap =
+                match CreateDIBSection(Some(dc), &info, DIB_RGB_COLORS, &mut pixels, None, 0) {
+                    Ok(bitmap) => bitmap,
+                    Err(e) => {
+                        let _ = DeleteDC(dc);
+                        ReleaseDC(None, screen);
+                        return Err(e);
+                    }
+                };
+            let previous = SelectObject(dc, HGDIOBJ(bitmap.0));
+            let mut area = RECT::default();
+            let _ = GetWindowRect(hwnd, &mut area);
+            let copied = if sampled {
+                BitBlt(
+                    dc,
+                    0,
+                    0,
+                    width as i32,
+                    height as i32,
+                    Some(screen),
+                    area.left,
+                    area.top,
+                    SRCCOPY | CAPTUREBLT,
+                )
+            } else {
+                Err(windows::core::Error::empty())
+            };
+            let _ = GdiFlush();
+            ReleaseDC(None, screen);
+            let mut backdrop = vec![0; (width * height * 4) as usize];
+            let length = backdrop.len();
+            if copied.is_ok() {
+                backdrop.copy_from_slice(std::slice::from_raw_parts(pixels.cast::<u8>(), length));
+            } else {
+                backdrop.fill(210);
+            }
+            let backdrop = material::blur(
+                &backdrop,
+                width as usize,
+                height as usize,
+                (3. * dpi / 96.).round().max(1.) as usize,
+            );
+            let renderer = Self {
+                hwnd,
+                dc,
+                bitmap,
+                previous,
+                pixels: pixels.cast(),
+                target,
+                write,
+                backdrop,
+                size: (width, height),
+                dpi,
+                sampled,
+            };
+            renderer.target.BindDC(
+                dc,
+                &RECT {
+                    left: 0,
+                    top: 0,
+                    right: width as i32,
+                    bottom: height as i32,
+                },
+            )?;
+            renderer
+                .target
+                .SetTextAntialiasMode(D2D1_TEXT_ANTIALIAS_MODE_GRAYSCALE);
+            Ok(renderer)
+        }
+    }
+    pub fn resize(&mut self, width: u32, height: u32, dpi: f32) -> Result<()> {
+        if self.size != (width, height) || self.dpi != dpi {
+            unsafe {
+                let _ = ShowWindow(self.hwnd, SW_HIDE);
+            }
+            *self = Self::new(self.hwnd, width, height, dpi, self.sampled)?;
+        }
+        Ok(())
+    }
+    /// Called only by --self-test, after EndDraw. Checks the actual D2D surface,
+    /// not just the input to the compositor, and exports its alpha for review.
+    pub fn verify_test_surface(&self, folder: &std::path::Path, mode: usize) -> bool {
+        let bytes = unsafe {
+            std::slice::from_raw_parts(self.pixels, (self.size.0 * self.size.1 * 4) as usize)
+        };
+        let w = self.size.0 as usize;
+        let h = self.size.1 as usize;
+        let scale = self.dpi / 96. * text_scale();
+        let alpha = |x: usize, y: usize| bytes[(y * w + x) * 4 + 3];
+        let corners = [
+            alpha(0, 0),
+            alpha(w - 1, 0),
+            alpha(0, h - 1),
+            alpha(w - 1, h - 1),
+        ];
+        let count = material::visible_count(w as f32, scale);
+        let gaps = (0..count.saturating_sub(1)).all(|i| {
+            alpha(
+                ((76. + i as f32 * 72.) * scale).round() as usize,
+                (40. * scale).round() as usize,
+            ) <= 16
+        });
+        let _ = std::fs::write(folder.join(format!("accento-picker-{mode}.bgra")), bytes);
+        let _ = std::fs::write(
+            folder.join(format!("accento-picker-{mode}.json")),
+            format!(
+                "{{\"width\":{w},\"height\":{h},\"cornerAlpha\":{corners:?},\"gapsTransparent\":{gaps}}}"
+            ),
+        );
+        corners == [0; 4] && gaps && alpha((40. * scale) as usize, (40. * scale) as usize) > 230
+    }
+    pub fn picker(&self, view: &View, p: &Preferences, glass: bool, dpi: f32) -> Result<()> {
+        use crate::glass::{Painter, Palette};
+        let factor = text_scale();
+        let glass = glass && glass_enabled(p);
+        let scale = dpi / 96.;
+        let width = self.size.0 as f32 / scale;
+        let visible = material::visible_count(width, factor).min(view.candidates.len());
+        let first = view
+            .selected
+            .map(|s| s.saturating_sub(visible.saturating_sub(1)))
+            .unwrap_or(0);
+        let contrast = high_contrast();
+        let colors = Palette::new(dark(p));
+        let pixels = material::pixels(
+            self.size.0 as usize,
+            self.size.1 as usize,
+            scale * factor,
+            visible,
+            dark(p),
+            glass,
+            &self.backdrop,
+        );
+        let g = Painter::new(self.target.cast()?, self.write.clone());
+        unsafe {
+            self.target.BeginDraw();
+            self.target.Clear(Some(&rgba(0., 0., 0., 0.)));
+        }
+        let result = (|| unsafe {
+            let bitmap = self.target.CreateBitmap(
+                D2D_SIZE_U {
+                    width: self.size.0,
+                    height: self.size.1,
+                },
+                Some(pixels.as_ptr().cast()),
+                self.size.0 * 4,
+                &D2D1_BITMAP_PROPERTIES {
                     pixelFormat: D2D1_PIXEL_FORMAT {
                         format: DXGI_FORMAT_B8G8R8A8_UNORM,
                         alphaMode: D2D1_ALPHA_MODE_PREMULTIPLIED,
                     },
                     dpiX: dpi,
                     dpiY: dpi,
-                    ..Default::default()
-                },
-                &D2D1_HWND_RENDER_TARGET_PROPERTIES {
-                    hwnd,
-                    pixelSize: D2D_SIZE_U { width, height },
-                    presentOptions: D2D1_PRESENT_OPTIONS_NONE,
                 },
             )?;
-            target.SetTextAntialiasMode(D2D1_TEXT_ANTIALIAS_MODE_GRAYSCALE);
-            let write = DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED)?;
-            Ok(Self {
-                target,
-                write,
-                size: (width, height),
-            })
-        }
-    }
-    pub fn resize(&mut self, width: u32, height: u32, dpi: f32) -> Result<()> {
-        unsafe {
-            self.target.SetDpi(dpi, dpi);
-            self.target.Resize(&D2D_SIZE_U { width, height })?;
-        }
-        self.size = (width, height);
-        Ok(())
-    }
-    pub fn picker(&self, view: &View, p: &Preferences, material: bool, dpi: f32) -> Result<()> {
-        use crate::glass::{Painter, Palette};
-        let factor = text_scale();
-        let width = self.size.0 as f32 * 96. / dpi;
-        let height = self.size.1 as f32 * 96. / dpi;
-        let dark = dark(p);
-        let contrast = high_contrast();
-        let colors = Palette::new(dark);
-        let g = Painter::new(self.target.cast()?, self.write.clone());
-        unsafe {
-            self.target.BeginDraw();
-            self.target.Clear(Some(&rgba(0., 0., 0., 0.)));
-        }
-        let result = (|| {
-            let root = rect(0., 0., width, height);
-            if contrast {
-                g.fill(root, 24., system_color(COLOR_WINDOW))?;
-            } else {
-                let opacity = if material { 0.86 } else { 1. };
-                g.gradient(
-                    root,
-                    25.,
-                    &if dark {
-                        [
-                            (0., rgba(0.19, 0.22, 0.28, opacity)),
-                            (0.5, rgba(0.105, 0.13, 0.18, opacity)),
-                            (1., rgba(0.07, 0.09, 0.14, opacity)),
-                        ]
-                    } else {
-                        [
-                            (0., rgba(0.99, 1., 1., opacity)),
-                            (0.45, rgba(0.92, 0.95, 1., opacity)),
-                            (1., rgba(0.83, 0.88, 0.95, opacity)),
-                        ]
-                    },
-                )?;
-                g.stroke(
-                    rect(0.7, 0.7, width - 1.4, height - 1.4),
-                    24.3,
-                    if dark {
-                        rgba(1., 1., 1., 0.26)
-                    } else {
-                        rgba(1., 1., 1., 0.94)
-                    },
-                    1.,
-                )?;
-                g.stroke(
-                    rect(1.8, 1.8, width - 3.6, height - 3.6),
-                    23.2,
-                    if dark {
-                        rgba(0., 0., 0., 0.20)
-                    } else {
-                        rgba(0.40, 0.49, 0.65, 0.12)
-                    },
-                    0.7,
-                )?;
-            }
-            let ink = if contrast {
-                system_color(COLOR_WINDOWTEXT)
-            } else {
-                colors.ink
-            };
-            let muted = if contrast { ink } else { colors.secondary };
-            g.text(
-                &format!(
-                    "Varianti di {}",
-                    if view.candidates.first().is_some_and(|c| c.is_uppercase()) {
-                        view.base.to_uppercase().to_string()
-                    } else {
-                        view.base.to_string()
-                    }
-                ),
-                rect(18., 7., width - 36., 22. * factor),
-                11. * factor,
-                DWRITE_FONT_WEIGHT_MEDIUM,
-                muted,
-                false,
-            )?;
-            let cell = 64. * factor;
-            let gap = 12. * factor;
-            let step = cell + gap;
-            let visible = ((width - 24. + gap) / step).floor().max(1.) as usize;
-            let first = view
-                .selected
-                .map(|s| s.saturating_sub(visible - 1))
-                .unwrap_or(0);
-            let count = view.candidates.len().min(visible);
-            let start = (width - (count as f32 * step - gap)) / 2.;
-            for (index, c) in view.candidates.iter().enumerate().skip(first).take(visible) {
-                let x = start + (index - first) as f32 * step;
-                let box_rect = rect(x, 34. * factor, cell, cell);
-                let selected = view.selected == Some(index);
+            self.target.DrawBitmap(
+                &bitmap,
+                None,
+                1.,
+                D2D1_BITMAP_INTERPOLATION_MODE_LINEAR,
+                None,
+            );
+            for (local, c) in view.candidates.iter().skip(first).take(visible).enumerate() {
+                let selected = view.selected == Some(first + local);
+                let x = (8. + local as f32 * 72.) * factor;
+                let area = rect(x, 8. * factor, 64. * factor, 64. * factor);
                 if contrast {
                     g.fill(
-                        box_rect,
-                        14.,
-                        if selected {
-                            system_color(COLOR_HIGHLIGHT)
+                        area,
+                        17. * factor,
+                        system_color(if selected {
+                            COLOR_HIGHLIGHT
                         } else {
-                            system_color(COLOR_WINDOW)
-                        },
+                            COLOR_WINDOW
+                        }),
                     )?;
-                    g.stroke(box_rect, 14., ink, 1.)?;
+                    g.stroke(area, 17. * factor, system_color(COLOR_WINDOWTEXT), 1.)?;
                 } else {
-                    g.card(
-                        box_rect,
-                        16. * factor,
-                        colors,
-                        selected,
-                        false,
-                        false,
-                        false,
+                    if selected {
+                        g.fill(
+                            area,
+                            17. * factor,
+                            if colors.dark {
+                                rgba(0.48, 0.66, 1., 0.16)
+                            } else {
+                                rgba(0.2, 0.42, 0.92, 0.10)
+                            },
+                        )?;
+                    }
+                    g.stroke(
+                        rect(x + 0.5 * factor, 8.5 * factor, 63. * factor, 63. * factor),
+                        16.5 * factor,
+                        if colors.dark {
+                            rgba(1., 1., 1., 0.42)
+                        } else {
+                            rgba(1., 1., 1., 0.91)
+                        },
+                        factor,
+                    )?;
+                    g.stroke(
+                        rect(x + 1.5 * factor, 9.5 * factor, 61. * factor, 61. * factor),
+                        15.5 * factor,
+                        if selected {
+                            if colors.dark {
+                                rgba(0.55, 0.72, 1., 0.65)
+                            } else {
+                                rgba(0.24, 0.45, 0.93, 0.50)
+                            }
+                        } else if colors.dark {
+                            rgba(0., 0., 0., 0.30)
+                        } else {
+                            rgba(0.32, 0.39, 0.49, 0.20)
+                        },
+                        0.7 * factor,
                     )?;
                 }
                 g.text(
                     &c.to_string(),
-                    rect(x, 34. * factor, cell, cell - 4. * factor),
+                    area,
                     32. * factor,
-                    DWRITE_FONT_WEIGHT_MEDIUM,
-                    if selected {
-                        if contrast {
-                            system_color(COLOR_HIGHLIGHTTEXT)
+                    DWRITE_FONT_WEIGHT_NORMAL,
+                    if contrast {
+                        system_color(if selected {
+                            COLOR_HIGHLIGHTTEXT
                         } else {
-                            colors.accent
-                        }
+                            COLOR_WINDOWTEXT
+                        })
+                    } else if selected {
+                        colors.accent
                     } else {
-                        ink
+                        colors.ink
                     },
                     true,
                 )?;
-                if selected && !contrast {
-                    g.circle(x + cell / 2., 90. * factor, 1.8 * factor, colors.accent)?;
-                }
             }
-            g.text(
-                "← → scegli",
-                rect(18., 110. * factor, width / 2., 22. * factor),
-                10.5 * factor,
-                DWRITE_FONT_WEIGHT_NORMAL,
-                muted,
-                false,
-            )?;
-            g.text(
-                "Esc annulla",
-                rect(
-                    width - 100. * factor,
-                    110. * factor,
-                    84. * factor,
-                    22. * factor,
-                ),
-                10.5 * factor,
-                DWRITE_FONT_WEIGHT_NORMAL,
-                muted,
-                true,
-            )?;
             Ok(())
         })();
         let end = unsafe { self.target.EndDraw(None, None) };
-        result.and(end)
+        result.and(end)?;
+        unsafe {
+            let _ = GdiFlush();
+            let mut area = RECT::default();
+            GetWindowRect(self.hwnd, &mut area)?;
+            UpdateLayeredWindow(
+                self.hwnd,
+                None,
+                Some(&POINT {
+                    x: area.left,
+                    y: area.top,
+                }),
+                Some(&SIZE {
+                    cx: self.size.0 as i32,
+                    cy: self.size.1 as i32,
+                }),
+                Some(self.dc),
+                Some(&POINT::default()),
+                COLORREF(0),
+                Some(&BLENDFUNCTION {
+                    BlendOp: AC_SRC_OVER as u8,
+                    BlendFlags: 0,
+                    SourceConstantAlpha: 255,
+                    AlphaFormat: AC_SRC_ALPHA as u8,
+                }),
+                ULW_ALPHA,
+            )?;
+        }
+        Ok(())
     }
 }

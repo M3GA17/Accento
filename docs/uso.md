@@ -1,6 +1,6 @@
 # Usare Accento
 
-Accento 0.2.0 è un prototipo portabile per Windows 11 x64. Inserisce accenti con un selettore di box quadrate, lasciando il focus nel programma in cui scrivi. Non richiede PowerToys, .NET o WebView.
+Accento 0.3.0 è un prototipo portabile per Windows 11 x64. Inserisce accenti con tasti Glass indipendenti su fondo trasparente, lasciando il focus nel programma in cui scrivi. Non richiede PowerToys, .NET o WebView.
 
 ## Avvio
 
@@ -21,16 +21,16 @@ La prima pressione di Spazio apre la barra senza selezionare. Per navigare con S
 
 ## Preferenze
 
-Il campo di prova nelle impostazioni consente di sperimentare il gesto. Premi **Salva modifiche** per applicare e conservare le modifiche. Lingue, temi e materiale hanno ciascuno una tessera quadrata; il segno di spunta distingue le opzioni attive. Il tema cambia in anteprima nelle impostazioni. Il footer segnala modifiche pendenti, salvataggio o valori non validi.
+Le impostazioni sono divise in **Scrittura, Lingue, Aspetto e Applicazioni**. Il campo di prova in Scrittura consente di sperimentare il gesto. Premi **Salva modifiche** per applicare e conservare le modifiche; il pulsante resta disattivato finché non cambia una preferenza. Le lingue sono righe con selezione multipla, i temi formano un gruppo esclusivo e il materiale ha un interruttore distinto con anteprima. Il tema cambia subito nelle impostazioni. Il footer segnala modifiche pendenti, salvataggio o errore; un dato non valido resta nel campo e Salva riporta alla sezione da correggere.
 
-Il ritardo si scrive nel campo oppure si regola con i pulsanti − e + a passi di 50 ms. Tab attraversa i controlli; Spazio attiva la tessera focalizzata. Quando la finestra è più piccola, puoi scorrere verticalmente e il focus porta il comando in vista.
+Il ritardo si scrive nel campo oppure si regola con i pulsanti − e + a passi di 50 ms. Tab attraversa i controlli, Spazio attiva il pulsante focalizzato e le frecce cambiano sezione quando la navigazione ha il focus. Nella finestra compatta le sezioni diventano tab superiori e il testo conserva la sua dimensione. Scorre solo il contenuto: navigazione e Salva restano visibili. Il focus porta in vista i campi fuori dal viewport.
 
 | Preferenza | Comportamento |
 | --- | --- |
 | Ritardo | Da 100 a 1500 ms, inizialmente 300 ms dal primo Spazio |
 | Lingue | Italiano, francese, spagnolo e tedesco; almeno una selezionata |
 | Tema | Automatico, Chiaro o Scuro; anteprima nelle impostazioni e applicazione al selettore dopo il salvataggio |
-| Liquid Glass | Backdrop Acrylic nel selettore, con alternativa opaca; le impostazioni usano gradienti, bordi e ombre disegnati. Il backdrop segue anche contrasto elevato e trasparenza di sistema |
+| Liquid Glass | Tasti con sfocatura e rifrazione del piccolo rettangolo sottostante, campionato all'apertura e tenuto solo in memoria. Tinta, bordi e alpha sono composti per tasto; nessun pannello fra i caratteri. La superficie solida segue anche contrasto elevato e trasparenza di sistema |
 | Esclusioni | Nomi completi degli eseguibili separati da virgola, per esempio `notepad.exe, game.exe`; confronto esatto senza distinzione fra maiuscole e minuscole |
 
 Il catalogo comprende varianti comuni e precomposte, con ordine stabile e senza duplicati. Non è una mappa completa di tutti i caratteri delle lingue. L'italiano include `à`, `è`, `é`, `ì`, `ò`, `ó`, `ù`; gli altri set aggiungono per esempio `ç`, `ñ`, `ü`, `ß` e le maiuscole pertinenti.
@@ -39,7 +39,7 @@ Le preferenze sono in `%LOCALAPPDATA%\Accento\settings.json`. Un file non valido
 
 ## Requisiti e limiti della prima versione
 
-L'ambiente iniziale è Windows 11 x64, build 22621 o successiva. L'eseguibile è stato provato sulla build 26300; la build minima non ha ancora una verifica dedicata. Il materiale dipende dalle impostazioni e dal supporto DWM; se non disponibile viene usata la superficie opaca.
+L'ambiente iniziale è Windows 11 x64, build 22621 o successiva. L'eseguibile è stato provato sulla build 26300; la build minima non ha ancora una verifica dedicata. Il materiale è un adattamento Windows con composizione alpha per pixel, non l'effetto Apple. La rifrazione usa lo sfondo campionato all'apertura, senza aggiornamenti continui del campione durante il gesto. Con trasparenza disattivata non viene campionato lo sfondo.
 
 Sono ammessi layout latini italiani, US/UK, francesi, tedeschi e spagnoli riconosciuti. Altri layout non attivano il selettore. Per tasti morti e combinazioni incompatibili l'attivazione viene evitata; non si dichiara supporto generale per IME, desktop remoto o composizioni complesse.
 

@@ -1,18 +1,18 @@
 # Accento
 
-Accento è un'utility Windows autonoma per inserire accenti e varianti mentre scrivi. Il motore è scritto in Rust; il selettore nativo usa una superficie Glass ispirata ad Apple e adattata a Windows con Acrylic e alternativa opaca.
+Accento è un'utility Windows autonoma per inserire accenti e varianti mentre scrivi. Il motore è scritto in Rust; il selettore mostra solo tasti Liquid Glass indipendenti su una finestra trasparente, con alternativa solida.
 
-La versione 0.2.0 è un prototipo portabile per Windows 11 x64, con interfaccia ridisegnata e design system FigCraft modificabile. Non richiede PowerToys, .NET o WebView. Il sistema iniziale previsto è Windows 11 build 22621 o successiva; l'ambiente verificato è la build 26300.
+La versione 0.3.0 è un prototipo portabile per Windows 11 x64, con la UI del nuovo FigCraft implementata: popup senza pannello o label, quattro sezioni nelle impostazioni, temi chiaro/scuro e layout compatto. Non richiede PowerToys, .NET o WebView. Il sistema iniziale previsto è Windows 11 build 22621 o successiva; l'ambiente verificato è la build 26300.
 
 ## Stato del progetto
 
-Rework del 15 ottobre 2026: candidati in box quadrate, opzioni lingua e aspetto in tessere Glass, temi chiaro/scuro, focus visibile, feedback e validazione inline. Motore deterministico, hook Windows, tray, impostazioni locali e quattro set linguistici. Sono superati 16 test Rust e 26 controlli Windows. Compatibilità con altre applicazioni, Narrator e prestazioni richiedono ulteriori verifiche: [rapporto 0.2.0](docs/verifiche-0.2.0.md).
+Rework del 15 ottobre 2026: candidati 64 × 64, gap trasparenti, materiale con sfocatura e rifrazione del backdrop campionato all'apertura; impostazioni Scrittura, Lingue, Aspetto e Applicazioni con controlli nativi e footer stabile. Il motore del gesto è invariato. Sono superati 21 test Rust e 35 controlli Windows, inclusa la verifica dell'alpha effettivo del popup: [rapporto 0.3.0](docs/verifiche-0.3.0.md).
 
-Il [FigCraft aggiornato al design 0.3](design/figcraft/Accento-Design-System.figcraft) mostra le interfacce complete proposte: popup con soli tasti Liquid Glass su fondo trasparente, impostazioni divise in quattro sezioni, temi chiaro/scuro e layout compatto. Comprende 8 pagine, 28 componenti principali, 7 set, 41 variabili e 43 tavole esportate. Il runtime 0.2 mantiene ancora la UI precedente. [Contenuti, verifica e rigenerazione](design/figcraft/README.md).
+Il [FigCraft del design 0.3](design/figcraft/Accento-Design-System.figcraft) conserva le schermate editabili e il prototipo. Le catture del prodotto implementato sono in [evidenze/0.3.0](docs/evidenze/0.3.0). [Contenuti, verifica e rigenerazione](design/figcraft/README.md).
 
 ## Avvio e utilizzo
 
-Apri [dist/Accento.exe](dist/Accento.exe), oppure estrai [il pacchetto portabile](dist/Accento-0.2.0-windows-x64.zip) generato dalla compilazione. Si apre la finestra impostazioni con un campo di prova. La chiusura della finestra lascia l'app nell'area di notifica; dal menu dell'icona scegli Esci per terminarla.
+Apri [Accento 0.3.0](dist/Accento-0.3.0-windows-x64/Accento.exe), oppure estrai [il pacchetto portabile](dist/Accento-0.3.0-windows-x64.zip) generato dalla compilazione. Chiudi prima un'eventuale istanza precedente dal menu dell'icona. Si apre la finestra impostazioni con un campo di prova. La chiusura della finestra lascia l'app nell'area di notifica; dal menu dell'icona scegli Esci per terminarla.
 
 Tieni `e` premuta, premi e rilascia Spazio, attendi l'apertura e premi Destra. Rilascia `e` per inserire `è`. Esc annulla. Per le maiuscole inizia con Shift o Caps Lock. [Guida completa e limiti](docs/uso.md).
 

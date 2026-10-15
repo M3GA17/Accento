@@ -6,6 +6,7 @@ mod app;
 mod glass;
 #[cfg(windows)]
 mod input;
+mod picker_material;
 mod preferences;
 #[cfg(windows)]
 mod render;

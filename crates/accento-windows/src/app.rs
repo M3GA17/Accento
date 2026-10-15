@@ -29,6 +29,7 @@ const TEST_DONE: u32 = WM_APP + 11;
 const TEST_CONFIG: u32 = WM_APP + 12;
 const TEST_FOCUS: u32 = WM_APP + 13;
 const TEST_UI: u32 = WM_APP + 14;
+const TEST_RENDER: u32 = WM_APP + 15;
 const SETTINGS: u16 = 100;
 const PAUSE: u16 = 101;
 const EXIT: u16 = 102;
@@ -49,6 +50,7 @@ struct App {
     dirty: bool,
     validation_error: Option<String>,
     scroll: f32,
+    section: settings::Section,
     worker: Option<Worker>,
     events: Receiver<UiEvent>,
     view: Option<View>,
@@ -131,6 +133,14 @@ unsafe fn run_windows() -> windows::core::Result<()> {
         let cursor = LoadCursorW(None, IDC_ARROW)?;
         for (name, procedure, background) in [
             (
+                w!("Accento.Content"),
+                Some(
+                    settings::content_proc
+                        as unsafe extern "system" fn(HWND, u32, WPARAM, LPARAM) -> LRESULT,
+                ),
+                HBRUSH::default(),
+            ),
+            (
                 w!("Accento.Settings"),
                 Some(
                     settings_proc
@@ -178,7 +188,7 @@ unsafe fn run_windows() -> windows::core::Result<()> {
             None,
         )?;
         let overlay = CreateWindowExW(
-            WS_EX_NOACTIVATE | WS_EX_TOOLWINDOW,
+            WS_EX_NOACTIVATE | WS_EX_TOOLWINDOW | WS_EX_LAYERED,
             w!("Accento.Picker"),
             w!("Accento · Varianti"),
             WS_POPUP,
@@ -201,7 +211,7 @@ unsafe fn run_windows() -> windows::core::Result<()> {
             .map_err(|message| windows::core::Error::new(E_FAIL, message))?;
         let dpi = GetDpiForWindow(main);
         let font = CreateFontW(
-            -((15. * dpi as f32 / 96.) as i32),
+            -((13. * dpi as f32 / 96. * render::text_scale()) as i32),
             0,
             0,
             0,
@@ -239,6 +249,7 @@ unsafe fn run_windows() -> windows::core::Result<()> {
                 dirty: false,
                 validation_error: None,
                 scroll: 0.,
+                section: settings::Section::Writing,
                 worker: Some(worker),
                 events: receiver,
                 view: None,
@@ -379,7 +390,14 @@ unsafe fn build_settings(app: &mut App) {
     }
 }
 unsafe fn control(main: HWND, identifier: u16) -> HWND {
-    unsafe { GetDlgItem(Some(main), identifier as i32).unwrap_or_default() }
+    unsafe {
+        GetDlgItem(Some(main), identifier as i32)
+            .or_else(|_| {
+                let content = GetDlgItem(Some(main), settings::CONTENT as i32)?;
+                GetDlgItem(Some(content), identifier as i32)
+            })
+            .unwrap_or_default()
+    }
 }
 unsafe fn control_text(main: HWND, identifier: u16) -> String {
     unsafe {
@@ -428,42 +446,6 @@ unsafe extern "system" fn settings_proc(hwnd: HWND, msg: u32, wp: WPARAM, lp: LP
             WM_COMMAND => {
                 let command = (wp.0 & 0xffff) as u16;
                 if settings::command(hwnd, command, (wp.0 >> 16) as u16) {
-                    return LRESULT(0);
-                }
-                if command == SAVE {
-                    // No RefCell borrow is held across a modal dialog or window activation.
-                    let result = APP.with(|a| {
-                        let mut a = a.borrow_mut();
-                        let Some(a) = a.as_mut() else { return Ok(()) };
-                        let mut p = a.draft.clone();
-                        p.delay_ms = control_text(hwnd, DELAY).trim().parse().map_err(|_| {
-                            "Inserisci un ritardo numerico tra 100 e 1500 ms.".to_string()
-                        })?;
-                        p.excluded_apps = control_text(hwnd, EXCLUDED)
-                            .split([',', ';', '\n'])
-                            .map(str::trim)
-                            .filter(|s| !s.is_empty())
-                            .map(str::to_ascii_lowercase)
-                            .collect();
-                        p.save()?;
-                        if let Some(worker) = &a.worker {
-                            worker.configure(p.clone());
-                        }
-                        a.prefs = p.clone();
-                        a.draft = p;
-                        a.dirty = false;
-                        a.validation_error = None;
-                        status(hwnd, "Impostazioni salvate");
-                        Ok::<(), String>(())
-                    });
-                    if let Err(error) = result {
-                        APP.with(|a| {
-                            if let Some(a) = a.borrow_mut().as_mut() {
-                                a.validation_error = Some(error);
-                            }
-                        });
-                        let _ = InvalidateRect(Some(hwnd), None, false);
-                    }
                     return LRESULT(0);
                 }
                 if command == SETTINGS {
@@ -573,12 +555,26 @@ unsafe extern "system" fn settings_proc(hwnd: HWND, msg: u32, wp: WPARAM, lp: LP
             TEST_UI if std::env::args().any(|a| a == "--self-test") => {
                 return LRESULT(settings::verify_controls(hwnd) as isize);
             }
+            TEST_RENDER if std::env::args().any(|a| a == "--self-test") => {
+                let folder = std::env::current_exe()
+                    .unwrap()
+                    .parent()
+                    .unwrap()
+                    .to_path_buf();
+                let valid = APP.with(|a| {
+                    a.borrow()
+                        .as_ref()
+                        .and_then(|a| a.renderer.as_ref())
+                        .is_some_and(|r| r.verify_test_surface(&folder, wp.0))
+                });
+                return LRESULT(valid as isize);
+            }
             WM_DPICHANGED => {
                 APP.with(|a| {
                     if let Some(a) = a.borrow_mut().as_mut() {
                         let dpi = (wp.0 & 0xffff) as u32;
                         let font = CreateFontW(
-                            -((15. * dpi as f32 / 96.) as i32),
+                            -((13. * dpi as f32 / 96. * render::text_scale()) as i32),
                             0,
                             0,
                             0,
@@ -684,6 +680,11 @@ unsafe fn update_picker() {
         });
         let (hwnd, view, prefs) = state;
         let Some(view) = view else {
+            APP.with(|a| {
+                if let Some(a) = a.borrow_mut().as_mut() {
+                    a.renderer = None;
+                }
+            });
             let _ = ShowWindow(hwnd, SW_HIDE);
             let _ = SetWindowPos(
                 hwnd,
@@ -734,14 +735,17 @@ unsafe fn update_picker() {
             cbSize: size_of::<MONITORINFO>() as u32,
             ..Default::default()
         };
-        let _ = GetMonitorInfoW(monitor, &mut info);
+        if !GetMonitorInfoW(monitor, &mut info).as_bool() {
+            let _ = ShowWindow(hwnd, SW_HIDE);
+            return;
+        }
         let dpi = GetDpiForWindow(HWND(view.context.window as _)).max(96);
         let scale = dpi as f32 / 96.;
         let factor = render::text_scale();
         let width =
-            ((view.candidates.len() as f32 * 76. * factor + 24.).max(272. * factor) * scale) as i32;
+            (crate::picker_material::width(view.candidates.len()) * factor * scale).round() as i32;
         let width = width.min(info.rcWork.right - info.rcWork.left - 32);
-        let height = ((142. * factor) * scale) as i32;
+        let height = (crate::picker_material::HEIGHT * factor * scale).round() as i32;
         let x = info.rcWork.left + (info.rcWork.right - info.rcWork.left - width) / 2;
         let y = info.rcWork.bottom - height - (32. * scale) as i32;
         let _ = SetWindowPos(
@@ -753,7 +757,7 @@ unsafe fn update_picker() {
             height,
             SWP_NOACTIVATE,
         );
-        let material = render::glass(hwnd, &prefs);
+        let material = render::glass_enabled(&prefs);
         let result = APP.with(|a| {
             let mut a = a.borrow_mut();
             let a = a.as_mut().unwrap();
@@ -766,6 +770,7 @@ unsafe fn update_picker() {
                     width as u32,
                     height as u32,
                     dpi as f32,
+                    material,
                 )?);
             }
             a.renderer
@@ -894,15 +899,21 @@ unsafe extern "system" fn test_proc(hwnd: HWND, msg: u32, wp: WPARAM, lp: LPARAM
 }
 unsafe fn start_test(main: HWND) -> windows::core::Result<()> {
     unsafe {
+        let monitor = MonitorFromWindow(main, MONITOR_DEFAULTTONEAREST);
+        let mut info = MONITORINFO {
+            cbSize: size_of::<MONITORINFO>() as u32,
+            ..Default::default()
+        };
+        let _ = GetMonitorInfoW(monitor, &mut info);
         let target = CreateWindowExW(
             WINDOW_EX_STYLE(0),
             w!("Accento.Test"),
             w!("Accento · Collaudo input"),
             WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-            160,
-            140,
+            info.rcWork.left + (info.rcWork.right - info.rcWork.left - 660) / 2,
+            info.rcWork.bottom - 310,
             660,
-            250,
+            300,
             None,
             None,
             None,
@@ -963,6 +974,12 @@ unsafe fn start_test(main: HWND) -> windows::core::Result<()> {
                 "Errore di validazione inline",
                 "Scorrimento finestra compatta",
                 "Comando Salva raggiungibile",
+                "Bozza conservata fra sezioni",
+                "Errore riporta al campo nella sezione corretta",
+                "Focus scorre il campo nel viewport",
+                "Tab entra nei controlli della sezione",
+                "Visibilità controlli nelle quattro sezioni compatte",
+                "Salva disattivato senza modifiche",
             ]
             .iter()
             .enumerate()
@@ -1124,6 +1141,10 @@ unsafe fn start_test(main: HWND) -> windows::core::Result<()> {
                         .ok()
                         .filter(|w| IsWindowVisible(*w).as_bool());
                     results.push((label, visible.is_some()));
+                    results.push((
+                        "Alpha del popup e spazi trasparenti",
+                        send_message(HWND(main as _), TEST_RENDER, WPARAM(mode), LPARAM(0)).0 == 1,
+                    ));
                     if let Some(window) = visible {
                         let _ = capture_window(
                             window,
@@ -1178,7 +1199,20 @@ unsafe fn capture_window(hwnd: HWND, path: &std::path::Path) -> Result<(), Strin
                 Err(windows::core::Error::from_thread())
             }
         } else {
-            BitBlt(dc, 0, 0, width, height, Some(source), 0, 0, SRCCOPY)
+            let desktop = GetDC(None);
+            let result = BitBlt(
+                dc,
+                0,
+                0,
+                width,
+                height,
+                Some(desktop),
+                bounds.left,
+                bounds.top,
+                SRCCOPY | CAPTUREBLT,
+            );
+            ReleaseDC(None, desktop);
+            result
         };
         SelectObject(dc, previous);
         let mut info = BITMAPINFO {

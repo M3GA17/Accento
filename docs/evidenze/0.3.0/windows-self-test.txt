@@ -1,0 +1,35 @@
+PASS Tile lingua attivabile
+PASS Ultima lingua conservata
+PASS Temi esclusivi e anteprima
+PASS Controllo Glass attivabile
+PASS Stepper ritardo
+PASS Errore di validazione inline
+PASS Scorrimento finestra compatta
+PASS Comando Salva raggiungibile
+PASS Bozza conservata fra sezioni
+PASS Errore riporta al campo nella sezione corretta
+PASS Focus scorre il campo nel viewport
+PASS Tab entra nei controlli della sezione
+PASS Visibilità controlli nelle quattro sezioni compatte
+PASS Salva disattivato senza modifiche
+PASS e + selezione → è
+PASS Focus conservato
+PASS Maiuscola → È
+PASS Esc conserva e
+PASS Falsa partenza conserva e spazio
+PASS Nessuna selezione conserva e
+PASS Seconda pressione Spazio seleziona
+PASS Sinistra seleziona ultimo candidato
+PASS Cambio campo annulla senza invio
+PASS Pausa lascia passare la digitazione
+PASS Esclusione esatta del processo
+PASS Glass chiaro
+PASS Alpha del popup e spazi trasparenti
+PASS Inserimento dopo cambio aspetto
+PASS Glass scuro
+PASS Alpha del popup e spazi trasparenti
+PASS Inserimento dopo cambio aspetto
+PASS Modalità opaca
+PASS Alpha del popup e spazi trasparenti
+PASS Inserimento dopo cambio aspetto
+PASS Finestra di collaudo disponibile

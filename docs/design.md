@@ -1,6 +1,6 @@
 # Direzione visiva di Accento
 
-La fonte autorevole è [Accento-Design-System.figcraft](../design/figcraft/Accento-Design-System.figcraft), revisione **design 0.3** del 15 ottobre 2026. La prima pagina mostra le interfacce complete proposte per il prodotto finale, seguite dai componenti e dalle regole. Il runtime Rust 0.2 usa ancora il layout precedente: il lavoro parte dal FigCraft e rende esplicita la successiva consegna all'implementazione.
+La fonte autorevole è [Accento-Design-System.figcraft](../design/figcraft/Accento-Design-System.figcraft), revisione **design 0.3** del 15 ottobre 2026. La prima pagina mostra le interfacce complete editabili, seguite dai componenti e dalle regole. Il runtime Rust 0.3 implementa il design; la pagina 08 contiene le catture reali delle impostazioni e del popup. [Verifiche e limiti dell'implementazione](verifiche-0.3.0.md).
 
 ## Popup: solo i caratteri
 
@@ -18,11 +18,11 @@ I tasti usano l'effetto `glass` nativo di FigCraft: depth 12, refraction 0,65, d
 
 Le impostazioni usano superfici quiete, separatori sottili e una navigazione laterale. Il materiale flottante rimane sui candidati: la leggibilità dei campi e la gerarchia dei contenuti non dipendono da riflessi decorativi.
 
-Il renderer Windows deve riprodurre questo risultato sul compositor reale. Applicare un backdrop alla radice rettangolare del popup riempirebbe anche gli spazi fra tasti e violerebbe il design. Il prossimo intervento deve quindi affrontare insieme forma della finestra, composizione e disegno dei candidati. L'effetto FigCraft non certifica una realizzazione Liquid Glass su Windows.
+Il runtime Windows usa una finestra layered con alpha per pixel e senza backdrop DWM sulla radice. Il piccolo rettangolo sottostante viene campionato una volta all'apertura, sfocato e rifratto solo nei singoli tasti; il campione resta in memoria fino alla chiusura del gesto. In modalità solida il campionamento è saltato. L'adattamento mantiene geometria, contenuti e trasparenze del design, ma non usa il motore ottico di FigCraft e non aggiorna continuamente il campione. Le prove controllano anche l'alpha effettivamente disegnato da Direct2D.
 
 ## Impostazioni
 
-La finestra standard è **1000 × 740 DIP**, con sidebar di **216 DIP**, margine del contenuto di 40, campi e azioni alti 40. La gerarchia segue quattro destinazioni:
+La tavola della finestra standard è **1000 × 740 DIP**, con sidebar di **216 DIP**, margine del contenuto di 40, campi e azioni alti 40. Nel runtime la barra del titolo nativa sostituisce i 40 DIP di title bar disegnati: il client iniziale è 1000 × 700 DIP. La gerarchia segue quattro destinazioni:
 
 1. **Scrittura:** gesto Lettera + Spazio, ritardo, campo di prova.
 2. **Lingue:** quattro righe con nomi, caratteri rappresentativi e selezione multipla. Almeno una lingua resta attiva.
@@ -31,7 +31,7 @@ La finestra standard è **1000 × 740 DIP**, con sidebar di **216 DIP**, margine
 
 Il footer conserva la posizione di Salva modifiche e comunica dati salvati, modifiche pendenti o errore. Il salvataggio resta esplicito. Input non valido e relativa correzione sono visibili nella pagina Stati e feedback.
 
-La versione compatta è **720 × 820 DIP**: le quattro destinazioni diventano tab superiori, i contenuti si adattano alla larghezza e la tipografia mantiene la sua dimensione. Non viene più ridotto uniformemente tutto il canvas.
+La tavola compatta è **720 × 820 DIP**: le quattro destinazioni diventano tab superiori, i contenuti si adattano alla larghezza e la tipografia mantiene la sua dimensione. Il runtime cambia disposizione sotto 900 DIP e supporta anche finestre più basse: scorre un contenitore nativo che taglia correttamente il contenuto, mentre navigazione e footer restano fissi. Non viene più ridotto uniformemente tutto il canvas.
 
 ## Tipografia, accessibilità e interazione
 
@@ -41,4 +41,4 @@ Restano invariati il gesto, la deduplicazione del catalogo e i vincoli delle pre
 
 Il prototipo FigCraft collega sezioni, tema, materiale e un esempio di correzione/salvataggio. Le selezioni mostrate sono stati progettati, non una simulazione degli hook o della persistenza. Le prove con tastiera, Narrator, scala del testo, DPI differenti, contrasto elevato e trasparenza disattivata restano parte della verifica del prodotto implementato.
 
-[Inventario, anteprime e rigenerazione](../design/figcraft/README.md). [Differenze da implementare](../design/figcraft/handoff.json). La versione precedente è conservata nell'archivio del design; i rapporti del runtime 0.2 restano storici e non descrivono questa nuova UI.
+[Inventario, anteprime e rigenerazione](../design/figcraft/README.md). [Corrispondenza con l'implementazione](../design/figcraft/handoff.json). La versione precedente è conservata nell'archivio del design; i rapporti del runtime 0.2 restano storici e non descrivono questa nuova UI.

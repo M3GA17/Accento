@@ -1,9 +1,9 @@
 {
   "file": "Accento-Design-System.figcraft",
   "designVersion": "0.3.0",
-  "runtimeVersion": "0.2.0",
-  "sha256": "635d9489b59abc6c1b047d6871df0d39e9de889a61c4464b96a8378b6ff92882",
-  "pages": 8,
+  "runtimeVersion": "0.3.0",
+  "sha256": "8707abbf8e699616006dc0718e8df8cbff8fd16dfd0003826d57dccdda5ebd96",
+  "pages": 9,
   "mainComponents": 28,
   "componentSets": 7,
   "variables": 41,
@@ -395,6 +395,123 @@
       "height": 640,
       "kind": "spec",
       "preview": "area-notifica-dark.png"
+    },
+    {
+      "id": 2464,
+      "name": "runtime-settings-writing-light",
+      "mode": "Light",
+      "width": 1000,
+      "height": 731,
+      "kind": "runtime-capture",
+      "preview": "runtime-settings-writing-light-light.png"
+    },
+    {
+      "id": 2466,
+      "name": "runtime-settings-appearance-light",
+      "mode": "Light",
+      "width": 1000,
+      "height": 731,
+      "kind": "runtime-capture",
+      "preview": "runtime-settings-appearance-light-light.png"
+    },
+    {
+      "id": 2468,
+      "name": "runtime-settings-appearance-dark",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 731,
+      "kind": "runtime-capture",
+      "preview": "runtime-settings-appearance-dark-dark.png"
+    },
+    {
+      "id": 2470,
+      "name": "runtime-settings-languages",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 731,
+      "kind": "runtime-capture",
+      "preview": "runtime-settings-languages-dark.png"
+    },
+    {
+      "id": 2472,
+      "name": "runtime-settings-applications-error",
+      "mode": "Light",
+      "width": 1000,
+      "height": 731,
+      "kind": "runtime-capture",
+      "preview": "runtime-settings-applications-error-light.png"
+    },
+    {
+      "id": 2474,
+      "name": "runtime-settings-compact-writing",
+      "mode": "Light",
+      "width": 724,
+      "height": 642,
+      "kind": "runtime-capture",
+      "preview": "runtime-settings-compact-writing-light.png"
+    },
+    {
+      "id": 2476,
+      "name": "runtime-settings-compact-languages",
+      "mode": "Light",
+      "width": 724,
+      "height": 642,
+      "kind": "runtime-capture",
+      "preview": "runtime-settings-compact-languages-light.png"
+    },
+    {
+      "id": 2478,
+      "name": "runtime-settings-compact-appearance",
+      "mode": "Light",
+      "width": 724,
+      "height": 642,
+      "kind": "runtime-capture",
+      "preview": "runtime-settings-compact-appearance-light.png"
+    },
+    {
+      "id": 2480,
+      "name": "runtime-settings-compact-applications",
+      "mode": "Light",
+      "width": 724,
+      "height": 642,
+      "kind": "runtime-capture",
+      "preview": "runtime-settings-compact-applications-light.png"
+    },
+    {
+      "id": 2482,
+      "name": "runtime-settings-compact-scrolled",
+      "mode": "Light",
+      "width": 724,
+      "height": 642,
+      "kind": "runtime-capture",
+      "preview": "runtime-settings-compact-scrolled-light.png"
+    },
+    {
+      "id": 2484,
+      "name": "runtime-picker-light-alpha",
+      "mode": "Light",
+      "width": 152,
+      "height": 80,
+      "kind": "runtime-capture",
+      "preview": "runtime-picker-light-alpha-light.png"
+    },
+    {
+      "id": 2486,
+      "name": "runtime-picker-dark-alpha",
+      "mode": "Dark",
+      "width": 152,
+      "height": 80,
+      "kind": "runtime-capture",
+      "preview": "runtime-picker-dark-alpha-dark.png"
+    },
+    {
+      "id": 2488,
+      "name": "runtime-picker-solid-alpha",
+      "mode": "Dark",
+      "width": 152,
+      "height": 80,
+      "kind": "runtime-capture",
+      "preview": "runtime-picker-solid-alpha-dark.png"
     }
   ],
   "components": [
@@ -849,7 +966,7 @@
   ],
   "verification": "Saved, reopened, inspected, all boards exported; popup roots checked transparent and label-free.",
   "limitations": [
-    "Final proposed UI; Rust runtime still uses the 0.2 layout.",
+    "Windows glass uses a backdrop sampled once per gesture, not the FigCraft optical engine.",
     "Prototype navigation and save are demonstrations, not OS input or persistence.",
     "Native FigCraft glass does not prove Windows backdrop behaviour."
   ]

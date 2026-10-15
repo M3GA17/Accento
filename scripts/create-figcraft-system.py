@@ -517,7 +517,7 @@ class System:
                 self.text(b,value,xx,1080,336,[28,14,12][j],bold=j<2,h=48)
             self.text(b,'Glass nativo FigCraft: depth 12 · refraction 0,65 · dispersion 0,16 · frost 3.',48,1180,1104,13,'secondary',h=32)
             self.text(b,'Tasti 64 · gap 8 · raggio 17. Gruppi R16. Campi e pulsanti alti 40. Focus 2.',48,1224,1104,13,'secondary',h=32)
-            self.text(b,'Il renderer Windows dovrà riprodurre il risultato; il file di design non aggiorna l’eseguibile.',48,1268,1104,12,'secondary',h=40)
+            self.text(b,'Il runtime 0.3 riprende la geometria; il materiale Windows usa un compositore proprio con alpha per pixel.',48,1268,1104,12,'secondary',h=40)
 
     def handoff(self):
         p=self.page('06 / Interazione e consegna')
@@ -537,7 +537,7 @@ class System:
             self.text(b,title,104,yy,220,15,bold=True,h=40); self.text(b,body,340,yy,892,13,'secondary',h=52)
             self.line(b,48,yy+64,1184)
         self.text(b,'Stato della consegna',48,956,1184,22,bold=True,h=40)
-        self.text(b,'Queste sono le UI finali proposte, costruite con layer e componenti editabili.\nIl runtime Rust 0.2 usa ancora il layout precedente. Le differenze sono elencate in handoff.json.',48,1012,1184,14,'secondary',h=70)
+        self.text(b,'Il runtime Rust 0.3 implementa questa UI. La pagina 08 contiene le catture reali.\nIl glass Windows usa un backdrop campionato all’apertura e composizione alpha; non il motore ottico di FigCraft.',48,1012,1184,14,'secondary',h=70)
         self.text(b,'Prototipo: navigazione delle 4 sezioni, cambio Light/Dark, correzione e salvataggio dimostrativo.',48,1096,1184,12,'secondary',h=40)
 
     def tray(self):
@@ -560,7 +560,7 @@ class System:
         doc=self.m.call('inspect_document',depth=16,allPages=True)
         inventory=self.m.command('component.list')
         mains=[c for c in inventory if c['type']=='COMPONENT']; sets=[c for c in inventory if c['type']=='COMPONENT_SET']
-        assert len(doc['pages'])==8
+        assert len(doc['pages'])==len(self.pages)
         assert len(mains)==len(self.components)
         assert {s['name'] for s in sets}==set(self.sets)
         assert len(doc['styles'])==len(self.styles)
@@ -579,12 +579,12 @@ class System:
             self.m.call('export',ids=[b['id']],format='png',scale=1,includeBoundingBox=True,path=str(OUT/'previews'/filename))
         for old in (OUT/'previews').glob('*.png'):
             if old.name not in expected:old.unlink()
-        manifest={'file':path.name,'designVersion':'0.3.0','runtimeVersion':'0.2.0',
+        manifest={'file':path.name,'designVersion':'0.3.0','runtimeVersion':'0.3.0',
           'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'pages':len(doc['pages']),
           'mainComponents':len(mains),'componentSets':len(sets),'variables':len(self.variables),'textStyles':len(self.styles),
           'boards':self.boards,'components':inventory,
           'verification':'Saved, reopened, inspected, all boards exported; popup roots checked transparent and label-free.',
-          'limitations':['Final proposed UI; Rust runtime still uses the 0.2 layout.',
+          'limitations':['Windows glass uses a backdrop sampled once per gesture, not the FigCraft optical engine.',
              'Prototype navigation and save are demonstrations, not OS input or persistence.',
              'Native FigCraft glass does not prove Windows backdrop behaviour.']}
         (OUT/'accento.manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
@@ -592,32 +592,48 @@ class System:
            'font':'Segoe UI Variable','unit':'Windows DIP at 96 DPI','glass':GLASS,
            'popup':{'background':'none','labels':False,'widthFormula':'72 * candidateCount + 8',
                     'height':80,'tileSize':64,'gap':8,'padding':8}},ensure_ascii=False,indent=2),encoding='utf-8')
-        mapping={'designVersion':'0.3.0','runtimeVersion':'0.2.0','status':'design-ready / runtime-pending',
-          'sourceOfTruth':path.name,'unit':'DIP','implementationDelta':[
-            {'file':'crates/accento-windows/src/render.rs','current':'Panel with title and hints',
-             'target':'Transparent root; draw only 64 x 64 glass keys at x = 8 + 72i, y = 8.'},
-            {'file':'crates/accento-windows/src/app.rs','current':'Picker window dimensions and backdrop cover the root',
-             'target':'Width 72n+8, height 80; no rectangular backdrop between keys; preserve no-activate and bottom-centre placement.'},
-            {'file':'crates/accento-windows/src/app/settings.rs','current':'900 x 936 scaled canvas; large square options',
-             'target':'1000 x 740; four sections; 40px controls; compact tabs at 720. Reflow without scaling type.'},
-            {'file':'crates/accento-windows/src/glass.rs','current':'Opaque gradients with drawn optical borders',
-             'target':'Separate floating-key glass from quiet settings groups; reconcile with Windows compositor.'}],
+        mapping={'designVersion':'0.3.0','runtimeVersion':'0.3.0','status':'implemented / Windows self-test verified',
+          'sourceOfTruth':path.name,'unit':'DIP','implementedChanges':[
+            {'file':'crates/accento-windows/src/render.rs','implemented':'Layered BGRA surface, transparent root; independent keys at x = 8 + 72i, y = 8; no visible labels.'},
+            {'file':'crates/accento-windows/src/picker_material.rs','implemented':'Blurred and refracted backdrop sampled once per opening; solid alternative; alpha gaps at multiple DPI and text scales.'},
+            {'file':'crates/accento-windows/src/app.rs','implemented':'Width 72n+8, height 80; no rectangular DWM backdrop; preserve no-activate and bottom-centre placement.'},
+            {'file':'crates/accento-windows/src/app/settings.rs','implemented':'Four sections; 40-DIP controls; compact tabs below 900 DIP; real clipped viewport and pinned footer, without width-based scaling.'},
+            {'file':'crates/accento-windows/src/glass.rs','implemented':'Quiet settings palette and shared drawing primitives; native title bar replaces the design title bar.'}],
+          'evidence':'docs/evidenze/0.3.0/build.json; 21 Rust tests, 35 Windows self-test checks',
           'unchangedProductContract':['Four language sets, stable deduplication','Letter + Space; release letter confirms; Esc cancels',
              'Delay 100-1500 ms; theme system/light/dark; transparency preference','Explicit save, process-name exclusions, tray commands'],
           'prototype':'Four-section navigation; appearance links; error -> corrected draft -> saved demonstration.',
-          'limitations':'No input hook, native backdrop, accessibility or persistence verification is implied by this file.'}
+          'limitations':'Runtime verification is documented separately. The prototype does not execute hooks or persistence. Narrator, external apps and physical multi-monitor tests remain open.'}
         (OUT/'handoff.json').write_text(json.dumps(mapping,ensure_ascii=False,indent=2),encoding='utf-8')
         from figcraft_verify import verify
         verify()
         print(json.dumps({k:v for k,v in manifest.items() if k not in ['components','boards','limitations']},ensure_ascii=False),flush=True)
 
+    def runtime_evidence(self):
+        folder=OUT.parents[1]/'docs'/'evidenze'/'0.3.0'
+        report=folder/'build.json'
+        if not report.exists():return
+        data=json.loads(report.read_text(encoding='utf-8'))
+        p=self.page('08 / Prodotto implementato')
+        self.text(p,'Accento 0.3 / Catture reali su Windows',0,0,3200,28,'on-accent',True,h=52)
+        self.text(p,'Eseguibile verificato · 21 test Rust · 35 controlli Windows · SHA256 '+data['sha256'],0,64,3200,13,'on-accent',h=32)
+        self.text(p,'Le pagine 00–07 restano editabili. Qui sono incorporati i pixel effettivi del prodotto, inclusa la superficie con alpha.',0,108,3200,13,'on-accent',h=32)
+        for i,entry in enumerate(data['images']):
+            x,y=(i%3)*1100,220+(i//3)*860
+            self.text(p,entry['file'],x,y-36,1050,12,'on-accent',h=24)
+            imported=self.m.command('file.import',path=str(folder/entry['file']),x=x,y=y)
+            self.set(imported['id'],name='Runtime / '+entry['file'])
+            mode=entry['mode']
+            self.export_board(imported['id'],'runtime-'+entry['file'][:-4],mode,entry['width'],entry['height'],'runtime-capture')
+
 def build():
     s=System()
     try:
         s.page('00 / Prodotto finale'); s.library(); s.popup_library(); s.settings_screens(); s.states()
-        s.product(); s.foundations(); s.handoff(); s.tray()
+        s.product(); s.foundations(); s.handoff(); s.tray(); s.runtime_evidence()
         order=['00 / Prodotto finale','01 / Popup trasparente','02 / Impostazioni finali','03 / Stati e feedback',
                '04 / Componenti','05 / Materiale e token','06 / Interazione e consegna','07 / Area di notifica']
+        if len(s.pages)>8:order.append('08 / Prodotto implementato')
         pages=s.m.call('inspect_document')['pages']
         for i,name in enumerate(order):s.m.command('page.move',id=next(p['id'] for p in pages if p['name']==name),index=i)
         s.finish()

@@ -13,21 +13,21 @@
       "Move page",
       "Move page",
       "Move page",
+      "Move page",
+      "Set properties",
+      "Import",
       "Set properties",
       "Apply style",
       "Set fill",
       "Bind variable",
       "Create layer",
       "Set properties",
-      "Apply style",
-      "Set fill",
-      "Bind variable",
-      "Create layer",
+      "Import",
       "Set properties",
       "Apply style"
     ]
   },
-  "images": 0,
+  "images": 13,
   "name": "Accento / Interfacce finali · Liquid Glass",
   "pages": [
     {
@@ -93511,7 +93511,7 @@
               "boundVariables": {
                 "fill": "VariableID:5"
               },
-              "characters": "Il renderer Windows dovrà riprodurre il risultato; il file di design non aggiorna l’eseguibile.",
+              "characters": "Il runtime 0.3 riprende la geometria; il materiale Windows usa un compositore proprio con alpha per pixel.",
               "constraints": {
                 "horizontal": "left",
                 "vertical": "top"
@@ -93529,7 +93529,7 @@
               "id": 2294,
               "letterSpacing": "0%",
               "lineHeight": "16.8",
-              "name": "Il renderer Windows dovrà riprodurre il risultato; il file di design non aggiorna l’eseguibile.",
+              "name": "Il runtime 0.3 riprende la geometria; il materiale Windows usa un compositore proprio con alpha per pixel.",
               "sizing": {
                 "horizontal": "fixed",
                 "vertical": "fixed"
@@ -93546,7 +93546,7 @@
               "textStyleRanges": [
                 [
                   0,
-                  95,
+                  106,
                   "S:6"
                 ]
               ],
@@ -97034,7 +97034,7 @@
               "boundVariables": {
                 "fill": "VariableID:5"
               },
-              "characters": "Il renderer Windows dovrà riprodurre il risultato; il file di design non aggiorna l’eseguibile.",
+              "characters": "Il runtime 0.3 riprende la geometria; il materiale Windows usa un compositore proprio con alpha per pixel.",
               "constraints": {
                 "horizontal": "left",
                 "vertical": "top"
@@ -97052,7 +97052,7 @@
               "id": 2369,
               "letterSpacing": "0%",
               "lineHeight": "16.8",
-              "name": "Il renderer Windows dovrà riprodurre il risultato; il file di design non aggiorna l’eseguibile.",
+              "name": "Il runtime 0.3 riprende la geometria; il materiale Windows usa un compositore proprio con alpha per pixel.",
               "sizing": {
                 "horizontal": "fixed",
                 "vertical": "fixed"
@@ -97069,7 +97069,7 @@
               "textStyleRanges": [
                 [
                   0,
-                  95,
+                  106,
                   "S:6"
                 ]
               ],
@@ -99239,7 +99239,7 @@
               "boundVariables": {
                 "fill": "VariableID:5"
               },
-              "characters": "Queste sono le UI finali proposte, costruite con layer e componenti editabili.\nIl runtime Rust 0.2 usa ancora il layout precedente. Le differenze sono elencate in handoff.json.",
+              "characters": "Il runtime Rust 0.3 implementa questa UI. La pagina 08 contiene le catture reali.\nIl glass Windows usa un backdrop campionato all’apertura e composizione alpha; non il motore ottico di FigCraft.",
               "constraints": {
                 "horizontal": "left",
                 "vertical": "top"
@@ -99257,7 +99257,7 @@
               "id": 2416,
               "letterSpacing": "0%",
               "lineHeight": "19.6",
-              "name": "Queste sono le UI finali proposte, costruite con layer e componenti editabili.\nIl runtime Rust 0.2 usa ancora il layout precedente. Le differenze sono elencate in handoff.json.",
+              "name": "Il runtime Rust 0.3 implementa questa UI. La pagina 08 contiene le catture reali.\nIl glass Windows usa un backdrop campionato all’apertura e composizione alpha; non il motore ottico di FigCraft.",
               "sizing": {
                 "horizontal": "fixed",
                 "vertical": "fixed"
@@ -99274,7 +99274,7 @@
               "textStyleRanges": [
                 [
                   0,
-                  176,
+                  194,
                   "S:7"
                 ]
               ],
@@ -101174,6 +101174,1295 @@
       ],
       "id": 2418,
       "name": "07 / Area di notifica",
+      "type": "PAGE"
+    },
+    {
+      "background": "#353B47",
+      "children": [
+        {
+          "absoluteBounds": {
+            "height": 52.0,
+            "width": 3200.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "boundVariables": {
+            "fill": "VariableID:20"
+          },
+          "characters": "Accento 0.3 / Catture reali su Windows",
+          "fills": [
+            {
+              "color": "#FFFFFF",
+              "type": "solid"
+            }
+          ],
+          "fontFamily": "Segoe UI Variable",
+          "fontSize": 28.0,
+          "fontStyle": "Semibold",
+          "height": 52.0,
+          "id": 2460,
+          "letterSpacing": "0%",
+          "lineHeight": "39.2",
+          "name": "Accento 0.3 / Catture reali su Windows",
+          "sizing": {
+            "horizontal": "fixed",
+            "vertical": "fixed"
+          },
+          "styles": {
+            "effect": null,
+            "fill": null,
+            "grid": null,
+            "stroke": null,
+            "text": "S:2"
+          },
+          "textAlign": "left",
+          "textAutoResize": "none",
+          "textStyleRanges": [
+            [
+              0,
+              38,
+              "S:2"
+            ]
+          ],
+          "type": "TEXT",
+          "width": 3200.0,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 32.0,
+            "width": 3200.0,
+            "x": 0.0,
+            "y": 64.0
+          },
+          "boundVariables": {
+            "fill": "VariableID:20"
+          },
+          "characters": "Eseguibile verificato · 21 test Rust · 35 controlli Windows · SHA256 a866c10d3735809d7f9dab35fe916c7e6e815286019516d30238d0d0bd7538c9",
+          "fills": [
+            {
+              "color": "#FFFFFF",
+              "type": "solid"
+            }
+          ],
+          "fontFamily": "Segoe UI Variable",
+          "fontSize": 13.0,
+          "fontStyle": "Regular",
+          "height": 32.0,
+          "id": 2461,
+          "letterSpacing": "0%",
+          "lineHeight": "18.2",
+          "name": "Eseguibile verificato · 21 test Rust · 35 controlli Windows · SHA256 a866c10d3735809d7f9dab35fe916c7e6e815286019516d30238d0d0bd7538c9",
+          "sizing": {
+            "horizontal": "fixed",
+            "vertical": "fixed"
+          },
+          "styles": {
+            "effect": null,
+            "fill": null,
+            "grid": null,
+            "stroke": null,
+            "text": "S:10"
+          },
+          "textAlign": "left",
+          "textAutoResize": "none",
+          "textStyleRanges": [
+            [
+              0,
+              133,
+              "S:10"
+            ]
+          ],
+          "type": "TEXT",
+          "width": 3200.0,
+          "x": 0.0,
+          "y": 64.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 32.0,
+            "width": 3200.0,
+            "x": 0.0,
+            "y": 108.0
+          },
+          "boundVariables": {
+            "fill": "VariableID:20"
+          },
+          "characters": "Le pagine 00–07 restano editabili. Qui sono incorporati i pixel effettivi del prodotto, inclusa la superficie con alpha.",
+          "fills": [
+            {
+              "color": "#FFFFFF",
+              "type": "solid"
+            }
+          ],
+          "fontFamily": "Segoe UI Variable",
+          "fontSize": 13.0,
+          "fontStyle": "Regular",
+          "height": 32.0,
+          "id": 2462,
+          "letterSpacing": "0%",
+          "lineHeight": "18.2",
+          "name": "Le pagine 00–07 restano editabili. Qui sono incorporati i pixel effettivi del prodotto, inclusa la superficie con alpha.",
+          "sizing": {
+            "horizontal": "fixed",
+            "vertical": "fixed"
+          },
+          "styles": {
+            "effect": null,
+            "fill": null,
+            "grid": null,
+            "stroke": null,
+            "text": "S:10"
+          },
+          "textAlign": "left",
+          "textAutoResize": "none",
+          "textStyleRanges": [
+            [
+              0,
+              120,
+              "S:10"
+            ]
+          ],
+          "type": "TEXT",
+          "width": 3200.0,
+          "x": 0.0,
+          "y": 108.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 24.0,
+            "width": 1050.0,
+            "x": 0.0,
+            "y": 184.0
+          },
+          "boundVariables": {
+            "fill": "VariableID:20"
+          },
+          "characters": "settings-writing-light.png",
+          "fills": [
+            {
+              "color": "#FFFFFF",
+              "type": "solid"
+            }
+          ],
+          "fontFamily": "Segoe UI Variable",
+          "fontSize": 12.0,
+          "fontStyle": "Regular",
+          "height": 24.0,
+          "id": 2463,
+          "letterSpacing": "0%",
+          "lineHeight": "16.8",
+          "name": "settings-writing-light.png",
+          "sizing": {
+            "horizontal": "fixed",
+            "vertical": "fixed"
+          },
+          "styles": {
+            "effect": null,
+            "fill": null,
+            "grid": null,
+            "stroke": null,
+            "text": "S:6"
+          },
+          "textAlign": "left",
+          "textAutoResize": "none",
+          "textStyleRanges": [
+            [
+              0,
+              26,
+              "S:6"
+            ]
+          ],
+          "type": "TEXT",
+          "width": 1050.0,
+          "x": 0.0,
+          "y": 184.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 731.0,
+            "width": 1000.0,
+            "x": 0.0,
+            "y": 220.0
+          },
+          "fills": [
+            {
+              "blend": "normal",
+              "crop": null,
+              "filters": {
+                "contrast": 0.0,
+                "exposure": 0.0,
+                "highlights": 0.0,
+                "saturation": 0.0,
+                "shadows": 0.0,
+                "temperature": 0.0,
+                "tint": 0.0
+              },
+              "image": "9885a313923d8bd8455111cca0e41f1e1677c6bab8fa2853819e107e140029ff",
+              "opacity": 1.0,
+              "rotation": 0,
+              "scale": 1.0,
+              "scale_mode": "fill",
+              "type": "image",
+              "visible": true
+            }
+          ],
+          "height": 731.0,
+          "id": 2464,
+          "name": "Runtime / settings-writing-light.png",
+          "type": "RECTANGLE",
+          "width": 1000.0,
+          "x": 0.0,
+          "y": 220.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 24.0,
+            "width": 1050.0,
+            "x": 1100.0,
+            "y": 184.0
+          },
+          "boundVariables": {
+            "fill": "VariableID:20"
+          },
+          "characters": "settings-appearance-light.png",
+          "fills": [
+            {
+              "color": "#FFFFFF",
+              "type": "solid"
+            }
+          ],
+          "fontFamily": "Segoe UI Variable",
+          "fontSize": 12.0,
+          "fontStyle": "Regular",
+          "height": 24.0,
+          "id": 2465,
+          "letterSpacing": "0%",
+          "lineHeight": "16.8",
+          "name": "settings-appearance-light.png",
+          "sizing": {
+            "horizontal": "fixed",
+            "vertical": "fixed"
+          },
+          "styles": {
+            "effect": null,
+            "fill": null,
+            "grid": null,
+            "stroke": null,
+            "text": "S:6"
+          },
+          "textAlign": "left",
+          "textAutoResize": "none",
+          "textStyleRanges": [
+            [
+              0,
+              29,
+              "S:6"
+            ]
+          ],
+          "type": "TEXT",
+          "width": 1050.0,
+          "x": 1100.0,
+          "y": 184.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 731.0,
+            "width": 1000.0,
+            "x": 1100.0,
+            "y": 220.0
+          },
+          "fills": [
+            {
+              "blend": "normal",
+              "crop": null,
+              "filters": {
+                "contrast": 0.0,
+                "exposure": 0.0,
+                "highlights": 0.0,
+                "saturation": 0.0,
+                "shadows": 0.0,
+                "temperature": 0.0,
+                "tint": 0.0
+              },
+              "image": "36aebdf52cdbf18962dbcd9ae7b7e4d25843854df40dd70240dafcd51a349649",
+              "opacity": 1.0,
+              "rotation": 0,
+              "scale": 1.0,
+              "scale_mode": "fill",
+              "type": "image",
+              "visible": true
+            }
+          ],
+          "height": 731.0,
+          "id": 2466,
+          "name": "Runtime / settings-appearance-light.png",
+          "type": "RECTANGLE",
+          "width": 1000.0,
+          "x": 1100.0,
+          "y": 220.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 24.0,
+            "width": 1050.0,
+            "x": 2200.0,
+            "y": 184.0
+          },
+          "boundVariables": {
+            "fill": "VariableID:20"
+          },
+          "characters": "settings-appearance-dark.png",
+          "fills": [
+            {
+              "color": "#FFFFFF",
+              "type": "solid"
+            }
+          ],
+          "fontFamily": "Segoe UI Variable",
+          "fontSize": 12.0,
+          "fontStyle": "Regular",
+          "height": 24.0,
+          "id": 2467,
+          "letterSpacing": "0%",
+          "lineHeight": "16.8",
+          "name": "settings-appearance-dark.png",
+          "sizing": {
+            "horizontal": "fixed",
+            "vertical": "fixed"
+          },
+          "styles": {
+            "effect": null,
+            "fill": null,
+            "grid": null,
+            "stroke": null,
+            "text": "S:6"
+          },
+          "textAlign": "left",
+          "textAutoResize": "none",
+          "textStyleRanges": [
+            [
+              0,
+              28,
+              "S:6"
+            ]
+          ],
+          "type": "TEXT",
+          "width": 1050.0,
+          "x": 2200.0,
+          "y": 184.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 731.0,
+            "width": 1000.0,
+            "x": 2200.0,
+            "y": 220.0
+          },
+          "fills": [
+            {
+              "blend": "normal",
+              "crop": null,
+              "filters": {
+                "contrast": 0.0,
+                "exposure": 0.0,
+                "highlights": 0.0,
+                "saturation": 0.0,
+                "shadows": 0.0,
+                "temperature": 0.0,
+                "tint": 0.0
+              },
+              "image": "28d7d79b6db4bdd9b1d258ee3666db9931e6704075aa8e62c0b05b78e41ec7b1",
+              "opacity": 1.0,
+              "rotation": 0,
+              "scale": 1.0,
+              "scale_mode": "fill",
+              "type": "image",
+              "visible": true
+            }
+          ],
+          "height": 731.0,
+          "id": 2468,
+          "name": "Runtime / settings-appearance-dark.png",
+          "type": "RECTANGLE",
+          "width": 1000.0,
+          "x": 2200.0,
+          "y": 220.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 24.0,
+            "width": 1050.0,
+            "x": 0.0,
+            "y": 1044.0
+          },
+          "boundVariables": {
+            "fill": "VariableID:20"
+          },
+          "characters": "settings-languages.png",
+          "fills": [
+            {
+              "color": "#FFFFFF",
+              "type": "solid"
+            }
+          ],
+          "fontFamily": "Segoe UI Variable",
+          "fontSize": 12.0,
+          "fontStyle": "Regular",
+          "height": 24.0,
+          "id": 2469,
+          "letterSpacing": "0%",
+          "lineHeight": "16.8",
+          "name": "settings-languages.png",
+          "sizing": {
+            "horizontal": "fixed",
+            "vertical": "fixed"
+          },
+          "styles": {
+            "effect": null,
+            "fill": null,
+            "grid": null,
+            "stroke": null,
+            "text": "S:6"
+          },
+          "textAlign": "left",
+          "textAutoResize": "none",
+          "textStyleRanges": [
+            [
+              0,
+              22,
+              "S:6"
+            ]
+          ],
+          "type": "TEXT",
+          "width": 1050.0,
+          "x": 0.0,
+          "y": 1044.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 731.0,
+            "width": 1000.0,
+            "x": 0.0,
+            "y": 1080.0
+          },
+          "fills": [
+            {
+              "blend": "normal",
+              "crop": null,
+              "filters": {
+                "contrast": 0.0,
+                "exposure": 0.0,
+                "highlights": 0.0,
+                "saturation": 0.0,
+                "shadows": 0.0,
+                "temperature": 0.0,
+                "tint": 0.0
+              },
+              "image": "b712d5f5a401b617935134ec23c40461db5fd697f10decd288ca2345c5f934c9",
+              "opacity": 1.0,
+              "rotation": 0,
+              "scale": 1.0,
+              "scale_mode": "fill",
+              "type": "image",
+              "visible": true
+            }
+          ],
+          "height": 731.0,
+          "id": 2470,
+          "name": "Runtime / settings-languages.png",
+          "type": "RECTANGLE",
+          "width": 1000.0,
+          "x": 0.0,
+          "y": 1080.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 24.0,
+            "width": 1050.0,
+            "x": 1100.0,
+            "y": 1044.0
+          },
+          "boundVariables": {
+            "fill": "VariableID:20"
+          },
+          "characters": "settings-applications-error.png",
+          "fills": [
+            {
+              "color": "#FFFFFF",
+              "type": "solid"
+            }
+          ],
+          "fontFamily": "Segoe UI Variable",
+          "fontSize": 12.0,
+          "fontStyle": "Regular",
+          "height": 24.0,
+          "id": 2471,
+          "letterSpacing": "0%",
+          "lineHeight": "16.8",
+          "name": "settings-applications-error.png",
+          "sizing": {
+            "horizontal": "fixed",
+            "vertical": "fixed"
+          },
+          "styles": {
+            "effect": null,
+            "fill": null,
+            "grid": null,
+            "stroke": null,
+            "text": "S:6"
+          },
+          "textAlign": "left",
+          "textAutoResize": "none",
+          "textStyleRanges": [
+            [
+              0,
+              31,
+              "S:6"
+            ]
+          ],
+          "type": "TEXT",
+          "width": 1050.0,
+          "x": 1100.0,
+          "y": 1044.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 731.0,
+            "width": 1000.0,
+            "x": 1100.0,
+            "y": 1080.0
+          },
+          "fills": [
+            {
+              "blend": "normal",
+              "crop": null,
+              "filters": {
+                "contrast": 0.0,
+                "exposure": 0.0,
+                "highlights": 0.0,
+                "saturation": 0.0,
+                "shadows": 0.0,
+                "temperature": 0.0,
+                "tint": 0.0
+              },
+              "image": "2ddcd33b3e5e153b17ac7aef2ce188ba95acbaa1fce0d118da53080913f01462",
+              "opacity": 1.0,
+              "rotation": 0,
+              "scale": 1.0,
+              "scale_mode": "fill",
+              "type": "image",
+              "visible": true
+            }
+          ],
+          "height": 731.0,
+          "id": 2472,
+          "name": "Runtime / settings-applications-error.png",
+          "type": "RECTANGLE",
+          "width": 1000.0,
+          "x": 1100.0,
+          "y": 1080.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 24.0,
+            "width": 1050.0,
+            "x": 2200.0,
+            "y": 1044.0
+          },
+          "boundVariables": {
+            "fill": "VariableID:20"
+          },
+          "characters": "settings-compact-writing.png",
+          "fills": [
+            {
+              "color": "#FFFFFF",
+              "type": "solid"
+            }
+          ],
+          "fontFamily": "Segoe UI Variable",
+          "fontSize": 12.0,
+          "fontStyle": "Regular",
+          "height": 24.0,
+          "id": 2473,
+          "letterSpacing": "0%",
+          "lineHeight": "16.8",
+          "name": "settings-compact-writing.png",
+          "sizing": {
+            "horizontal": "fixed",
+            "vertical": "fixed"
+          },
+          "styles": {
+            "effect": null,
+            "fill": null,
+            "grid": null,
+            "stroke": null,
+            "text": "S:6"
+          },
+          "textAlign": "left",
+          "textAutoResize": "none",
+          "textStyleRanges": [
+            [
+              0,
+              28,
+              "S:6"
+            ]
+          ],
+          "type": "TEXT",
+          "width": 1050.0,
+          "x": 2200.0,
+          "y": 1044.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 642.0,
+            "width": 724.0,
+            "x": 2200.0,
+            "y": 1080.0
+          },
+          "fills": [
+            {
+              "blend": "normal",
+              "crop": null,
+              "filters": {
+                "contrast": 0.0,
+                "exposure": 0.0,
+                "highlights": 0.0,
+                "saturation": 0.0,
+                "shadows": 0.0,
+                "temperature": 0.0,
+                "tint": 0.0
+              },
+              "image": "69b0968972f670a422175b93aac304b12c0a8b884b272d0dc7189e745af96272",
+              "opacity": 1.0,
+              "rotation": 0,
+              "scale": 1.0,
+              "scale_mode": "fill",
+              "type": "image",
+              "visible": true
+            }
+          ],
+          "height": 642.0,
+          "id": 2474,
+          "name": "Runtime / settings-compact-writing.png",
+          "type": "RECTANGLE",
+          "width": 724.0,
+          "x": 2200.0,
+          "y": 1080.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 24.0,
+            "width": 1050.0,
+            "x": 0.0,
+            "y": 1904.0
+          },
+          "boundVariables": {
+            "fill": "VariableID:20"
+          },
+          "characters": "settings-compact-languages.png",
+          "fills": [
+            {
+              "color": "#FFFFFF",
+              "type": "solid"
+            }
+          ],
+          "fontFamily": "Segoe UI Variable",
+          "fontSize": 12.0,
+          "fontStyle": "Regular",
+          "height": 24.0,
+          "id": 2475,
+          "letterSpacing": "0%",
+          "lineHeight": "16.8",
+          "name": "settings-compact-languages.png",
+          "sizing": {
+            "horizontal": "fixed",
+            "vertical": "fixed"
+          },
+          "styles": {
+            "effect": null,
+            "fill": null,
+            "grid": null,
+            "stroke": null,
+            "text": "S:6"
+          },
+          "textAlign": "left",
+          "textAutoResize": "none",
+          "textStyleRanges": [
+            [
+              0,
+              30,
+              "S:6"
+            ]
+          ],
+          "type": "TEXT",
+          "width": 1050.0,
+          "x": 0.0,
+          "y": 1904.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 642.0,
+            "width": 724.0,
+            "x": 0.0,
+            "y": 1940.0
+          },
+          "fills": [
+            {
+              "blend": "normal",
+              "crop": null,
+              "filters": {
+                "contrast": 0.0,
+                "exposure": 0.0,
+                "highlights": 0.0,
+                "saturation": 0.0,
+                "shadows": 0.0,
+                "temperature": 0.0,
+                "tint": 0.0
+              },
+              "image": "aa3027e13d2f6609223ca35a989f17c27bb451881cbfce8c44c71156e82dad43",
+              "opacity": 1.0,
+              "rotation": 0,
+              "scale": 1.0,
+              "scale_mode": "fill",
+              "type": "image",
+              "visible": true
+            }
+          ],
+          "height": 642.0,
+          "id": 2476,
+          "name": "Runtime / settings-compact-languages.png",
+          "type": "RECTANGLE",
+          "width": 724.0,
+          "x": 0.0,
+          "y": 1940.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 24.0,
+            "width": 1050.0,
+            "x": 1100.0,
+            "y": 1904.0
+          },
+          "boundVariables": {
+            "fill": "VariableID:20"
+          },
+          "characters": "settings-compact-appearance.png",
+          "fills": [
+            {
+              "color": "#FFFFFF",
+              "type": "solid"
+            }
+          ],
+          "fontFamily": "Segoe UI Variable",
+          "fontSize": 12.0,
+          "fontStyle": "Regular",
+          "height": 24.0,
+          "id": 2477,
+          "letterSpacing": "0%",
+          "lineHeight": "16.8",
+          "name": "settings-compact-appearance.png",
+          "sizing": {
+            "horizontal": "fixed",
+            "vertical": "fixed"
+          },
+          "styles": {
+            "effect": null,
+            "fill": null,
+            "grid": null,
+            "stroke": null,
+            "text": "S:6"
+          },
+          "textAlign": "left",
+          "textAutoResize": "none",
+          "textStyleRanges": [
+            [
+              0,
+              31,
+              "S:6"
+            ]
+          ],
+          "type": "TEXT",
+          "width": 1050.0,
+          "x": 1100.0,
+          "y": 1904.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 642.0,
+            "width": 724.0,
+            "x": 1100.0,
+            "y": 1940.0
+          },
+          "fills": [
+            {
+              "blend": "normal",
+              "crop": null,
+              "filters": {
+                "contrast": 0.0,
+                "exposure": 0.0,
+                "highlights": 0.0,
+                "saturation": 0.0,
+                "shadows": 0.0,
+                "temperature": 0.0,
+                "tint": 0.0
+              },
+              "image": "0fdac5bca86b14719b749c4d05114278d13aff9a16ba5297680836f6ed29911a",
+              "opacity": 1.0,
+              "rotation": 0,
+              "scale": 1.0,
+              "scale_mode": "fill",
+              "type": "image",
+              "visible": true
+            }
+          ],
+          "height": 642.0,
+          "id": 2478,
+          "name": "Runtime / settings-compact-appearance.png",
+          "type": "RECTANGLE",
+          "width": 724.0,
+          "x": 1100.0,
+          "y": 1940.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 24.0,
+            "width": 1050.0,
+            "x": 2200.0,
+            "y": 1904.0
+          },
+          "boundVariables": {
+            "fill": "VariableID:20"
+          },
+          "characters": "settings-compact-applications.png",
+          "fills": [
+            {
+              "color": "#FFFFFF",
+              "type": "solid"
+            }
+          ],
+          "fontFamily": "Segoe UI Variable",
+          "fontSize": 12.0,
+          "fontStyle": "Regular",
+          "height": 24.0,
+          "id": 2479,
+          "letterSpacing": "0%",
+          "lineHeight": "16.8",
+          "name": "settings-compact-applications.png",
+          "sizing": {
+            "horizontal": "fixed",
+            "vertical": "fixed"
+          },
+          "styles": {
+            "effect": null,
+            "fill": null,
+            "grid": null,
+            "stroke": null,
+            "text": "S:6"
+          },
+          "textAlign": "left",
+          "textAutoResize": "none",
+          "textStyleRanges": [
+            [
+              0,
+              33,
+              "S:6"
+            ]
+          ],
+          "type": "TEXT",
+          "width": 1050.0,
+          "x": 2200.0,
+          "y": 1904.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 642.0,
+            "width": 724.0,
+            "x": 2200.0,
+            "y": 1940.0
+          },
+          "fills": [
+            {
+              "blend": "normal",
+              "crop": null,
+              "filters": {
+                "contrast": 0.0,
+                "exposure": 0.0,
+                "highlights": 0.0,
+                "saturation": 0.0,
+                "shadows": 0.0,
+                "temperature": 0.0,
+                "tint": 0.0
+              },
+              "image": "d50cec95eb161b608f74503f9325a8beb825d7850b2c26f5ede1ad0adaa3f1ee",
+              "opacity": 1.0,
+              "rotation": 0,
+              "scale": 1.0,
+              "scale_mode": "fill",
+              "type": "image",
+              "visible": true
+            }
+          ],
+          "height": 642.0,
+          "id": 2480,
+          "name": "Runtime / settings-compact-applications.png",
+          "type": "RECTANGLE",
+          "width": 724.0,
+          "x": 2200.0,
+          "y": 1940.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 24.0,
+            "width": 1050.0,
+            "x": 0.0,
+            "y": 2764.0
+          },
+          "boundVariables": {
+            "fill": "VariableID:20"
+          },
+          "characters": "settings-compact-scrolled.png",
+          "fills": [
+            {
+              "color": "#FFFFFF",
+              "type": "solid"
+            }
+          ],
+          "fontFamily": "Segoe UI Variable",
+          "fontSize": 12.0,
+          "fontStyle": "Regular",
+          "height": 24.0,
+          "id": 2481,
+          "letterSpacing": "0%",
+          "lineHeight": "16.8",
+          "name": "settings-compact-scrolled.png",
+          "sizing": {
+            "horizontal": "fixed",
+            "vertical": "fixed"
+          },
+          "styles": {
+            "effect": null,
+            "fill": null,
+            "grid": null,
+            "stroke": null,
+            "text": "S:6"
+          },
+          "textAlign": "left",
+          "textAutoResize": "none",
+          "textStyleRanges": [
+            [
+              0,
+              29,
+              "S:6"
+            ]
+          ],
+          "type": "TEXT",
+          "width": 1050.0,
+          "x": 0.0,
+          "y": 2764.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 642.0,
+            "width": 724.0,
+            "x": 0.0,
+            "y": 2800.0
+          },
+          "fills": [
+            {
+              "blend": "normal",
+              "crop": null,
+              "filters": {
+                "contrast": 0.0,
+                "exposure": 0.0,
+                "highlights": 0.0,
+                "saturation": 0.0,
+                "shadows": 0.0,
+                "temperature": 0.0,
+                "tint": 0.0
+              },
+              "image": "c4dd2347ec71b21b12f1708209856ea63c44d9f323a7441a5a5a7338a627ad3e",
+              "opacity": 1.0,
+              "rotation": 0,
+              "scale": 1.0,
+              "scale_mode": "fill",
+              "type": "image",
+              "visible": true
+            }
+          ],
+          "height": 642.0,
+          "id": 2482,
+          "name": "Runtime / settings-compact-scrolled.png",
+          "type": "RECTANGLE",
+          "width": 724.0,
+          "x": 0.0,
+          "y": 2800.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 24.0,
+            "width": 1050.0,
+            "x": 1100.0,
+            "y": 2764.0
+          },
+          "boundVariables": {
+            "fill": "VariableID:20"
+          },
+          "characters": "picker-light-alpha.png",
+          "fills": [
+            {
+              "color": "#FFFFFF",
+              "type": "solid"
+            }
+          ],
+          "fontFamily": "Segoe UI Variable",
+          "fontSize": 12.0,
+          "fontStyle": "Regular",
+          "height": 24.0,
+          "id": 2483,
+          "letterSpacing": "0%",
+          "lineHeight": "16.8",
+          "name": "picker-light-alpha.png",
+          "sizing": {
+            "horizontal": "fixed",
+            "vertical": "fixed"
+          },
+          "styles": {
+            "effect": null,
+            "fill": null,
+            "grid": null,
+            "stroke": null,
+            "text": "S:6"
+          },
+          "textAlign": "left",
+          "textAutoResize": "none",
+          "textStyleRanges": [
+            [
+              0,
+              22,
+              "S:6"
+            ]
+          ],
+          "type": "TEXT",
+          "width": 1050.0,
+          "x": 1100.0,
+          "y": 2764.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 80.0,
+            "width": 152.0,
+            "x": 1100.0,
+            "y": 2800.0
+          },
+          "fills": [
+            {
+              "blend": "normal",
+              "crop": null,
+              "filters": {
+                "contrast": 0.0,
+                "exposure": 0.0,
+                "highlights": 0.0,
+                "saturation": 0.0,
+                "shadows": 0.0,
+                "temperature": 0.0,
+                "tint": 0.0
+              },
+              "image": "bb82c0c97b6f48dc368ee1ce036a7ec1cf73f0d9baf28344ad0f20de0998d9f5",
+              "opacity": 1.0,
+              "rotation": 0,
+              "scale": 1.0,
+              "scale_mode": "fill",
+              "type": "image",
+              "visible": true
+            }
+          ],
+          "height": 80.0,
+          "id": 2484,
+          "name": "Runtime / picker-light-alpha.png",
+          "type": "RECTANGLE",
+          "width": 152.0,
+          "x": 1100.0,
+          "y": 2800.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 24.0,
+            "width": 1050.0,
+            "x": 2200.0,
+            "y": 2764.0
+          },
+          "boundVariables": {
+            "fill": "VariableID:20"
+          },
+          "characters": "picker-dark-alpha.png",
+          "fills": [
+            {
+              "color": "#FFFFFF",
+              "type": "solid"
+            }
+          ],
+          "fontFamily": "Segoe UI Variable",
+          "fontSize": 12.0,
+          "fontStyle": "Regular",
+          "height": 24.0,
+          "id": 2485,
+          "letterSpacing": "0%",
+          "lineHeight": "16.8",
+          "name": "picker-dark-alpha.png",
+          "sizing": {
+            "horizontal": "fixed",
+            "vertical": "fixed"
+          },
+          "styles": {
+            "effect": null,
+            "fill": null,
+            "grid": null,
+            "stroke": null,
+            "text": "S:6"
+          },
+          "textAlign": "left",
+          "textAutoResize": "none",
+          "textStyleRanges": [
+            [
+              0,
+              21,
+              "S:6"
+            ]
+          ],
+          "type": "TEXT",
+          "width": 1050.0,
+          "x": 2200.0,
+          "y": 2764.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 80.0,
+            "width": 152.0,
+            "x": 2200.0,
+            "y": 2800.0
+          },
+          "fills": [
+            {
+              "blend": "normal",
+              "crop": null,
+              "filters": {
+                "contrast": 0.0,
+                "exposure": 0.0,
+                "highlights": 0.0,
+                "saturation": 0.0,
+                "shadows": 0.0,
+                "temperature": 0.0,
+                "tint": 0.0
+              },
+              "image": "1312f37c6e719072cf075779b853b4d94def79b69a2bdc19772d410dc4abcb38",
+              "opacity": 1.0,
+              "rotation": 0,
+              "scale": 1.0,
+              "scale_mode": "fill",
+              "type": "image",
+              "visible": true
+            }
+          ],
+          "height": 80.0,
+          "id": 2486,
+          "name": "Runtime / picker-dark-alpha.png",
+          "type": "RECTANGLE",
+          "width": 152.0,
+          "x": 2200.0,
+          "y": 2800.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 24.0,
+            "width": 1050.0,
+            "x": 0.0,
+            "y": 3624.0
+          },
+          "boundVariables": {
+            "fill": "VariableID:20"
+          },
+          "characters": "picker-solid-alpha.png",
+          "fills": [
+            {
+              "color": "#FFFFFF",
+              "type": "solid"
+            }
+          ],
+          "fontFamily": "Segoe UI Variable",
+          "fontSize": 12.0,
+          "fontStyle": "Regular",
+          "height": 24.0,
+          "id": 2487,
+          "letterSpacing": "0%",
+          "lineHeight": "16.8",
+          "name": "picker-solid-alpha.png",
+          "sizing": {
+            "horizontal": "fixed",
+            "vertical": "fixed"
+          },
+          "styles": {
+            "effect": null,
+            "fill": null,
+            "grid": null,
+            "stroke": null,
+            "text": "S:6"
+          },
+          "textAlign": "left",
+          "textAutoResize": "none",
+          "textStyleRanges": [
+            [
+              0,
+              22,
+              "S:6"
+            ]
+          ],
+          "type": "TEXT",
+          "width": 1050.0,
+          "x": 0.0,
+          "y": 3624.0
+        },
+        {
+          "absoluteBounds": {
+            "height": 80.0,
+            "width": 152.0,
+            "x": 0.0,
+            "y": 3660.0
+          },
+          "fills": [
+            {
+              "blend": "normal",
+              "crop": null,
+              "filters": {
+                "contrast": 0.0,
+                "exposure": 0.0,
+                "highlights": 0.0,
+                "saturation": 0.0,
+                "shadows": 0.0,
+                "temperature": 0.0,
+                "tint": 0.0
+              },
+              "image": "635aeb167c0a132f8948daca22cd366c5d415bcf772874f455340491a6ea2125",
+              "opacity": 1.0,
+              "rotation": 0,
+              "scale": 1.0,
+              "scale_mode": "fill",
+              "type": "image",
+              "visible": true
+            }
+          ],
+          "height": 80.0,
+          "id": 2488,
+          "name": "Runtime / picker-solid-alpha.png",
+          "type": "RECTANGLE",
+          "width": 152.0,
+          "x": 0.0,
+          "y": 3660.0
+        }
+      ],
+      "id": 2459,
+      "name": "08 / Prodotto implementato",
       "type": "PAGE"
     }
   ],

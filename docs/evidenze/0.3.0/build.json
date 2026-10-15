@@ -1,0 +1,206 @@
+{
+  "version": "0.3.0",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "rust": "rustc 1.98.0 (88d9e12ae 2026-08-18)",
+  "executable": "dist/Accento-0.3.0-windows-x64/Accento.exe",
+  "sha256": "a866c10d3735809d7f9dab35fe916c7e6e815286019516d30238d0d0bd7538c9",
+  "unitTests": 21,
+  "windowsChecks": 35,
+  "images": [
+    {
+      "file": "settings-writing-light.png",
+      "width": 1000,
+      "height": 731,
+      "mode": "Light",
+      "kind": "native-window",
+      "source": "accento-settings-light.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-appearance-light.png",
+      "width": 1000,
+      "height": 731,
+      "mode": "Light",
+      "kind": "native-window",
+      "source": "accento-settings-appearance.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-appearance-dark.png",
+      "width": 1000,
+      "height": 731,
+      "mode": "Dark",
+      "kind": "native-window",
+      "source": "accento-settings-dark.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-languages.png",
+      "width": 1000,
+      "height": 731,
+      "mode": "Dark",
+      "kind": "native-window",
+      "source": "accento-settings-languages.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-applications-error.png",
+      "width": 1000,
+      "height": 731,
+      "mode": "Light",
+      "kind": "native-window",
+      "source": "accento-settings-error.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-compact-writing.png",
+      "width": 724,
+      "height": 642,
+      "mode": "Light",
+      "kind": "native-window",
+      "source": "accento-settings-compact-0.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-compact-languages.png",
+      "width": 724,
+      "height": 642,
+      "mode": "Light",
+      "kind": "native-window",
+      "source": "accento-settings-compact-1.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-compact-appearance.png",
+      "width": 724,
+      "height": 642,
+      "mode": "Light",
+      "kind": "native-window",
+      "source": "accento-settings-compact-2.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-compact-applications.png",
+      "width": 724,
+      "height": 642,
+      "mode": "Light",
+      "kind": "native-window",
+      "source": "accento-settings-compact-3.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-compact-scrolled.png",
+      "width": 724,
+      "height": 642,
+      "mode": "Light",
+      "kind": "native-window",
+      "source": "accento-settings-compact-scrolled.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "picker-light-alpha.png",
+      "width": 152,
+      "height": 80,
+      "kind": "native-surface",
+      "alpha": {
+        "width": 152,
+        "height": 80,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gapsTransparent": true
+      },
+      "mode": "Light"
+    },
+    {
+      "file": "picker-dark-alpha.png",
+      "width": 152,
+      "height": 80,
+      "kind": "native-surface",
+      "alpha": {
+        "width": 152,
+        "height": 80,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gapsTransparent": true
+      },
+      "mode": "Dark"
+    },
+    {
+      "file": "picker-solid-alpha.png",
+      "width": 152,
+      "height": 80,
+      "kind": "native-surface",
+      "alpha": {
+        "width": 152,
+        "height": 80,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gapsTransparent": true
+      },
+      "mode": "Dark"
+    }
+  ],
+  "scope": "Real UI from the owned test window. Popup backdrop is inside that owned window; normal use does not write captures."
+}

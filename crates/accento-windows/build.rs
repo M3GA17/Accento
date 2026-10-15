@@ -47,7 +47,7 @@ fn main() {
     let rc = out.join("Accento.rc");
     let manifest = root.join("Accento.manifest");
     let resource = format!(
-        "1 24 \"{}\"\n1 ICON \"{}\"\n1 VERSIONINFO\nFILEVERSION 0,2,0,0\nPRODUCTVERSION 0,2,0,0\nFILEOS 0x40004\nFILETYPE 1\nBEGIN\n BLOCK \"StringFileInfo\"\n BEGIN\n BLOCK \"040904b0\"\n BEGIN\n VALUE \"FileDescription\", \"Accento\"\n VALUE \"ProductName\", \"Accento\"\n VALUE \"FileVersion\", \"0.2.0\"\n END\n END\n BLOCK \"VarFileInfo\"\n BEGIN\n VALUE \"Translation\", 0x409, 1200\n END\nEND\n",
+        "1 24 \"{}\"\n1 ICON \"{}\"\n1 VERSIONINFO\nFILEVERSION 0,3,0,0\nPRODUCTVERSION 0,3,0,0\nFILEOS 0x40004\nFILETYPE 1\nBEGIN\n BLOCK \"StringFileInfo\"\n BEGIN\n BLOCK \"040904b0\"\n BEGIN\n VALUE \"FileDescription\", \"Accento\"\n VALUE \"ProductName\", \"Accento\"\n VALUE \"FileVersion\", \"0.3.0\"\n END\n END\n BLOCK \"VarFileInfo\"\n BEGIN\n VALUE \"Translation\", 0x409, 1200\n END\nEND\n",
         manifest.display().to_string().replace('\\', "/"),
         icon.display().to_string().replace('\\', "/")
     );
