@@ -1,0 +1,33 @@
+{
+  "version": "0.1.0",
+  "date": "2026-10-15",
+  "target": "x86_64-pc-windows-msvc",
+  "windows_build": "26300",
+  "rustc": "rustc 1.98.0 (88d9e12ae 2026-08-18)",
+  "rust_tests": 16,
+  "windows_checks": 18,
+  "clippy": "passed",
+  "format": "passed",
+  "crt": "static",
+  "imported_libraries": [
+    "advapi32.dll",
+    "api-ms-win-core-synch-l1-2-0.dll",
+    "api-ms-win-core-winrt-error-l1-1-0.dll",
+    "d2d1.dll",
+    "dwmapi.dll",
+    "dwrite.dll",
+    "gdi32.dll",
+    "kernel32.dll",
+    "ntdll.dll",
+    "ole32.dll",
+    "oleaut32.dll",
+    "shell32.dll",
+    "uiautomationcore.dll",
+    "user32.dll"
+  ],
+  "executable_bytes": 488960,
+  "executable_sha256": "c35c30af58b11ef6ec7a2f9d6c43f462a516c4eb212aa18faf81c03479b3fa15",
+  "archive_bytes": 355829,
+  "archive_sha256": "c506d52cdbfe240a794ce768366fb4c5fb901e6b8cf5064b8bd46819b882c4a0",
+  "cargo_lock_sha256": "d3ee2fb34b383655ed98dc4da4e91bf01474d24fda0b5167de8ed6e3c4ab4e56"
+}

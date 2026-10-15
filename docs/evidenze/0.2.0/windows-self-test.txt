@@ -1,0 +1,26 @@
+PASS Tile lingua attivabile
+PASS Ultima lingua conservata
+PASS Temi esclusivi e anteprima
+PASS Controllo Glass attivabile
+PASS Stepper ritardo
+PASS Errore di validazione inline
+PASS Scorrimento finestra compatta
+PASS Comando Salva raggiungibile
+PASS e + selezione → è
+PASS Focus conservato
+PASS Maiuscola → È
+PASS Esc conserva e
+PASS Falsa partenza conserva e spazio
+PASS Nessuna selezione conserva e
+PASS Seconda pressione Spazio seleziona
+PASS Sinistra seleziona ultimo candidato
+PASS Cambio campo annulla senza invio
+PASS Pausa lascia passare la digitazione
+PASS Esclusione esatta del processo
+PASS Glass chiaro
+PASS Inserimento dopo cambio aspetto
+PASS Glass scuro
+PASS Inserimento dopo cambio aspetto
+PASS Modalità opaca
+PASS Inserimento dopo cambio aspetto
+PASS Finestra di collaudo disponibile

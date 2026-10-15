@@ -1,0 +1,856 @@
+{
+  "file": "Accento-Design-System.figcraft",
+  "designVersion": "0.3.0",
+  "runtimeVersion": "0.2.0",
+  "sha256": "635d9489b59abc6c1b047d6871df0d39e9de889a61c4464b96a8378b6ff92882",
+  "pages": 8,
+  "mainComponents": 28,
+  "componentSets": 7,
+  "variables": 41,
+  "textStyles": 21,
+  "boards": [
+    {
+      "id": 3,
+      "name": "componenti",
+      "mode": "Light",
+      "width": 1160,
+      "height": 1640,
+      "kind": "spec",
+      "preview": "componenti-light.png"
+    },
+    {
+      "id": 155,
+      "name": "popup-specifica",
+      "mode": "Light",
+      "width": 1160,
+      "height": 950,
+      "kind": "spec",
+      "preview": "popup-specifica-light.png"
+    },
+    {
+      "id": 244,
+      "name": "popup-apertura",
+      "mode": "Light",
+      "width": 152,
+      "height": 80,
+      "kind": "transparent-popup",
+      "preview": "popup-apertura-light.png"
+    },
+    {
+      "id": 256,
+      "name": "popup-selezione",
+      "mode": "Light",
+      "width": 152,
+      "height": 80,
+      "kind": "transparent-popup",
+      "preview": "popup-selezione-light.png"
+    },
+    {
+      "id": 269,
+      "name": "popup-combinato",
+      "mode": "Light",
+      "width": 296,
+      "height": 80,
+      "kind": "transparent-popup",
+      "preview": "popup-combinato-light.png"
+    },
+    {
+      "id": 292,
+      "name": "popup-solido",
+      "mode": "Light",
+      "width": 152,
+      "height": 80,
+      "kind": "transparent-popup",
+      "preview": "popup-solido-light.png"
+    },
+    {
+      "id": 305,
+      "name": "popup-apertura",
+      "mode": "Dark",
+      "width": 152,
+      "height": 80,
+      "kind": "transparent-popup",
+      "preview": "popup-apertura-dark.png"
+    },
+    {
+      "id": 317,
+      "name": "popup-selezione",
+      "mode": "Dark",
+      "width": 152,
+      "height": 80,
+      "kind": "transparent-popup",
+      "preview": "popup-selezione-dark.png"
+    },
+    {
+      "id": 330,
+      "name": "popup-combinato",
+      "mode": "Dark",
+      "width": 296,
+      "height": 80,
+      "kind": "transparent-popup",
+      "preview": "popup-combinato-dark.png"
+    },
+    {
+      "id": 353,
+      "name": "popup-solido",
+      "mode": "Dark",
+      "width": 152,
+      "height": 80,
+      "kind": "transparent-popup",
+      "preview": "popup-solido-dark.png"
+    },
+    {
+      "id": 367,
+      "name": "impostazioni-scrittura",
+      "mode": "Light",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-screen",
+      "preview": "impostazioni-scrittura-light.png"
+    },
+    {
+      "id": 431,
+      "name": "impostazioni-lingue",
+      "mode": "Light",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-screen",
+      "preview": "impostazioni-lingue-light.png"
+    },
+    {
+      "id": 506,
+      "name": "impostazioni-aspetto",
+      "mode": "Light",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-screen",
+      "preview": "impostazioni-aspetto-light.png"
+    },
+    {
+      "id": 595,
+      "name": "impostazioni-applicazioni",
+      "mode": "Light",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-screen",
+      "preview": "impostazioni-applicazioni-light.png"
+    },
+    {
+      "id": 644,
+      "name": "impostazioni-scrittura",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-screen",
+      "preview": "impostazioni-scrittura-dark.png"
+    },
+    {
+      "id": 708,
+      "name": "impostazioni-lingue",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-screen",
+      "preview": "impostazioni-lingue-dark.png"
+    },
+    {
+      "id": 783,
+      "name": "impostazioni-aspetto",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-screen",
+      "preview": "impostazioni-aspetto-dark.png"
+    },
+    {
+      "id": 872,
+      "name": "impostazioni-applicazioni",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-screen",
+      "preview": "impostazioni-applicazioni-dark.png"
+    },
+    {
+      "id": 921,
+      "name": "compatta-scrittura",
+      "mode": "Light",
+      "width": 720,
+      "height": 820,
+      "kind": "product-screen",
+      "preview": "compatta-scrittura-light.png"
+    },
+    {
+      "id": 970,
+      "name": "compatta-lingue",
+      "mode": "Light",
+      "width": 720,
+      "height": 820,
+      "kind": "product-screen",
+      "preview": "compatta-lingue-light.png"
+    },
+    {
+      "id": 1030,
+      "name": "compatta-aspetto",
+      "mode": "Light",
+      "width": 720,
+      "height": 820,
+      "kind": "product-screen",
+      "preview": "compatta-aspetto-light.png"
+    },
+    {
+      "id": 1104,
+      "name": "compatta-applicazioni",
+      "mode": "Light",
+      "width": 720,
+      "height": 820,
+      "kind": "product-screen",
+      "preview": "compatta-applicazioni-light.png"
+    },
+    {
+      "id": 1139,
+      "name": "stato-dirty",
+      "mode": "Light",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-state",
+      "preview": "stato-dirty-light.png"
+    },
+    {
+      "id": 1187,
+      "name": "stato-error",
+      "mode": "Light",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-state",
+      "preview": "stato-error-light.png"
+    },
+    {
+      "id": 1236,
+      "name": "stato-saved",
+      "mode": "Light",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-state",
+      "preview": "stato-saved-light.png"
+    },
+    {
+      "id": 1285,
+      "name": "aspetto-light-dirty",
+      "mode": "Light",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-state",
+      "preview": "aspetto-light-dirty-light.png"
+    },
+    {
+      "id": 1373,
+      "name": "aspetto-light-saved",
+      "mode": "Light",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-state",
+      "preview": "aspetto-light-saved-light.png"
+    },
+    {
+      "id": 1462,
+      "name": "aspetto-dark-dirty",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-state",
+      "preview": "aspetto-dark-dirty-dark.png"
+    },
+    {
+      "id": 1550,
+      "name": "aspetto-dark-saved",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-state",
+      "preview": "aspetto-dark-saved-dark.png"
+    },
+    {
+      "id": 1639,
+      "name": "aspetto-solido-light-dirty",
+      "mode": "Light",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-state",
+      "preview": "aspetto-solido-light-dirty-light.png"
+    },
+    {
+      "id": 1727,
+      "name": "aspetto-solido-light-saved",
+      "mode": "Light",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-state",
+      "preview": "aspetto-solido-light-saved-light.png"
+    },
+    {
+      "id": 1816,
+      "name": "aspetto-solido-dark-dirty",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-state",
+      "preview": "aspetto-solido-dark-dirty-dark.png"
+    },
+    {
+      "id": 1904,
+      "name": "aspetto-solido-dark-saved",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-state",
+      "preview": "aspetto-solido-dark-saved-dark.png"
+    },
+    {
+      "id": 1993,
+      "name": "prodotto-scrittura",
+      "mode": "Light",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-screen",
+      "preview": "prodotto-scrittura-light.png"
+    },
+    {
+      "id": 2057,
+      "name": "prodotto-popup-in-uso",
+      "mode": "Light",
+      "width": 1000,
+      "height": 650,
+      "kind": "context",
+      "preview": "prodotto-popup-in-uso-light.png"
+    },
+    {
+      "id": 2078,
+      "name": "prodotto-scrittura",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 740,
+      "kind": "product-screen",
+      "preview": "prodotto-scrittura-dark.png"
+    },
+    {
+      "id": 2142,
+      "name": "prodotto-popup-in-uso",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 650,
+      "kind": "context",
+      "preview": "prodotto-popup-in-uso-dark.png"
+    },
+    {
+      "id": 2163,
+      "name": "glass-su-sfondi",
+      "mode": "Light",
+      "width": 2080,
+      "height": 560,
+      "kind": "spec",
+      "preview": "glass-su-sfondi-light.png"
+    },
+    {
+      "id": 2220,
+      "name": "fondamenti",
+      "mode": "Light",
+      "width": 1200,
+      "height": 1380,
+      "kind": "spec",
+      "preview": "fondamenti-light.png"
+    },
+    {
+      "id": 2295,
+      "name": "fondamenti",
+      "mode": "Dark",
+      "width": 1200,
+      "height": 1380,
+      "kind": "spec",
+      "preview": "fondamenti-dark.png"
+    },
+    {
+      "id": 2371,
+      "name": "consegna",
+      "mode": "Light",
+      "width": 1280,
+      "height": 1190,
+      "kind": "spec",
+      "preview": "consegna-light.png"
+    },
+    {
+      "id": 2419,
+      "name": "area-notifica",
+      "mode": "Light",
+      "width": 1040,
+      "height": 640,
+      "kind": "spec",
+      "preview": "area-notifica-light.png"
+    },
+    {
+      "id": 2439,
+      "name": "area-notifica",
+      "mode": "Dark",
+      "width": 1040,
+      "height": 640,
+      "kind": "spec",
+      "preview": "area-notifica-dark.png"
+    }
+  ],
+  "components": [
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Candidate"
+      ],
+      "id": 8,
+      "instances": 31,
+      "label": "Property 1=Default",
+      "name": "Property 1=Default",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Candidate"
+      ],
+      "id": 14,
+      "instances": 20,
+      "label": "Property 1=Variant2",
+      "name": "Property 1=Variant2",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Candidate"
+      ],
+      "id": 21,
+      "instances": 0,
+      "label": "Property 1=Variant3",
+      "name": "Property 1=Variant3",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Candidate"
+      ],
+      "id": 28,
+      "instances": 0,
+      "label": "Property 1=Variant4",
+      "name": "Property 1=Variant4",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Candidate"
+      ],
+      "id": 36,
+      "instances": 7,
+      "label": "Property 1=Variant5",
+      "name": "Property 1=Variant5",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Candidate"
+      ],
+      "id": 42,
+      "instances": 7,
+      "label": "Property 1=Variant6",
+      "name": "Property 1=Variant6",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light"
+      ],
+      "id": 49,
+      "instances": 0,
+      "label": "Candidate",
+      "name": "Candidate",
+      "page": 2,
+      "type": "COMPONENT_SET"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Navigation"
+      ],
+      "id": 51,
+      "instances": 63,
+      "label": "Property 1=Default",
+      "name": "Property 1=Default",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Navigation"
+      ],
+      "id": 55,
+      "instances": 21,
+      "label": "Property 1=Variant2",
+      "name": "Property 1=Variant2",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Navigation"
+      ],
+      "id": 60,
+      "instances": 0,
+      "label": "Property 1=Variant3",
+      "name": "Property 1=Variant3",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Navigation"
+      ],
+      "id": 65,
+      "instances": 0,
+      "label": "Property 1=Variant4",
+      "name": "Property 1=Variant4",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light"
+      ],
+      "id": 71,
+      "instances": 0,
+      "label": "Navigation",
+      "name": "Navigation",
+      "page": 2,
+      "type": "COMPONENT_SET"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Switch"
+      ],
+      "id": 73,
+      "instances": 4,
+      "label": "Property 1=Default",
+      "name": "Property 1=Default",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Switch"
+      ],
+      "id": 77,
+      "instances": 7,
+      "label": "Property 1=Variant2",
+      "name": "Property 1=Variant2",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Switch"
+      ],
+      "id": 81,
+      "instances": 0,
+      "label": "Property 1=Variant3",
+      "name": "Property 1=Variant3",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light"
+      ],
+      "id": 86,
+      "instances": 0,
+      "label": "Switch",
+      "name": "Switch",
+      "page": 2,
+      "type": "COMPONENT_SET"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Button"
+      ],
+      "id": 88,
+      "instances": 6,
+      "label": "Property 1=Default",
+      "name": "Property 1=Default",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Button"
+      ],
+      "id": 92,
+      "instances": 0,
+      "label": "Property 1=Variant2",
+      "name": "Property 1=Variant2",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Button"
+      ],
+      "id": 97,
+      "instances": 19,
+      "label": "Property 1=Variant3",
+      "name": "Property 1=Variant3",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light"
+      ],
+      "id": 102,
+      "instances": 0,
+      "label": "Button",
+      "name": "Button",
+      "page": 2,
+      "type": "COMPONENT_SET"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Field"
+      ],
+      "id": 104,
+      "instances": 4,
+      "label": "Property 1=Default",
+      "name": "Property 1=Default",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Field"
+      ],
+      "id": 109,
+      "instances": 1,
+      "label": "Property 1=Variant2",
+      "name": "Property 1=Variant2",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "Field"
+      ],
+      "id": 114,
+      "instances": 1,
+      "label": "Property 1=Variant3",
+      "name": "Property 1=Variant3",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light"
+      ],
+      "id": 120,
+      "instances": 0,
+      "label": "Field",
+      "name": "Field",
+      "page": 2,
+      "type": "COMPONENT_SET"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "LanguageRow"
+      ],
+      "id": 122,
+      "instances": 9,
+      "label": "Property 1=Default",
+      "name": "Property 1=Default",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "LanguageRow"
+      ],
+      "id": 131,
+      "instances": 3,
+      "label": "Property 1=Variant2",
+      "name": "Property 1=Variant2",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light",
+        "LanguageRow"
+      ],
+      "id": 141,
+      "instances": 0,
+      "label": "Property 1=Variant3",
+      "name": "Property 1=Variant3",
+      "page": 2,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "04 / Componenti",
+        "Controlli alla scala del prodotto / Light"
+      ],
+      "id": 152,
+      "instances": 0,
+      "label": "LanguageRow",
+      "name": "LanguageRow",
+      "page": 2,
+      "type": "COMPONENT_SET"
+    },
+    {
+      "folder": [
+        "01 / Popup trasparente",
+        "Solo la lettera. Tutto il resto scompare. / Light",
+        "Picker"
+      ],
+      "id": 161,
+      "instances": 2,
+      "label": "Property 1=Default",
+      "name": "Property 1=Default",
+      "page": 154,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "01 / Popup trasparente",
+        "Solo la lettera. Tutto il resto scompare. / Light",
+        "Picker"
+      ],
+      "id": 173,
+      "instances": 14,
+      "label": "Property 1=Variant2",
+      "name": "Property 1=Variant2",
+      "page": 154,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "01 / Popup trasparente",
+        "Solo la lettera. Tutto il resto scompare. / Light",
+        "Picker"
+      ],
+      "id": 186,
+      "instances": 0,
+      "label": "Property 1=Variant3",
+      "name": "Property 1=Variant3",
+      "page": 154,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "01 / Popup trasparente",
+        "Solo la lettera. Tutto il resto scompare. / Light",
+        "Picker"
+      ],
+      "id": 199,
+      "instances": 2,
+      "label": "Property 1=Variant4",
+      "name": "Property 1=Variant4",
+      "page": 154,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "01 / Popup trasparente",
+        "Solo la lettera. Tutto il resto scompare. / Light",
+        "Picker"
+      ],
+      "id": 222,
+      "instances": 0,
+      "label": "Property 1=Variant5",
+      "name": "Property 1=Variant5",
+      "page": 154,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "01 / Popup trasparente",
+        "Solo la lettera. Tutto il resto scompare. / Light",
+        "Picker"
+      ],
+      "id": 230,
+      "instances": 6,
+      "label": "Property 1=Variant6",
+      "name": "Property 1=Variant6",
+      "page": 154,
+      "type": "COMPONENT"
+    },
+    {
+      "folder": [
+        "01 / Popup trasparente",
+        "Solo la lettera. Tutto il resto scompare. / Light"
+      ],
+      "id": 242,
+      "instances": 0,
+      "label": "Picker",
+      "name": "Picker",
+      "page": 154,
+      "type": "COMPONENT_SET"
+    }
+  ],
+  "verification": "Saved, reopened, inspected, all boards exported; popup roots checked transparent and label-free.",
+  "limitations": [
+    "Final proposed UI; Rust runtime still uses the 0.2 layout.",
+    "Prototype navigation and save are demonstrations, not OS input or persistence.",
+    "Native FigCraft glass does not prove Windows backdrop behaviour."
+  ]
+}

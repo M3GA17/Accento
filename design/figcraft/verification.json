@@ -1,0 +1,127 @@
+{
+  "result": "passed",
+  "designVersion": "0.3.0",
+  "nativeSha256": "635d9489b59abc6c1b047d6871df0d39e9de889a61c4464b96a8378b6ff92882",
+  "pages": 8,
+  "boards": 43,
+  "inspectedNodes": 2458,
+  "prototypeLinks": 144,
+  "flows": 5,
+  "nativeGlassLayers": 55,
+  "popupPixelChecks": [
+    {
+      "file": "popup-apertura-light.png",
+      "size": [
+        152,
+        80
+      ],
+      "cornerAlpha": 0,
+      "gapAlpha": [
+        3
+      ]
+    },
+    {
+      "file": "popup-selezione-light.png",
+      "size": [
+        152,
+        80
+      ],
+      "cornerAlpha": 0,
+      "gapAlpha": [
+        3
+      ]
+    },
+    {
+      "file": "popup-combinato-light.png",
+      "size": [
+        296,
+        80
+      ],
+      "cornerAlpha": 0,
+      "gapAlpha": [
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "file": "popup-solido-light.png",
+      "size": [
+        152,
+        80
+      ],
+      "cornerAlpha": 0,
+      "gapAlpha": [
+        0
+      ]
+    },
+    {
+      "file": "popup-apertura-dark.png",
+      "size": [
+        152,
+        80
+      ],
+      "cornerAlpha": 0,
+      "gapAlpha": [
+        2
+      ]
+    },
+    {
+      "file": "popup-selezione-dark.png",
+      "size": [
+        152,
+        80
+      ],
+      "cornerAlpha": 0,
+      "gapAlpha": [
+        2
+      ]
+    },
+    {
+      "file": "popup-combinato-dark.png",
+      "size": [
+        296,
+        80
+      ],
+      "cornerAlpha": 0,
+      "gapAlpha": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "file": "popup-solido-dark.png",
+      "size": [
+        152,
+        80
+      ],
+      "cornerAlpha": 0,
+      "gapAlpha": [
+        0
+      ]
+    }
+  ],
+  "checks": [
+    "Native hash matches saved file",
+    "Page order and component inventory",
+    "All navigation destinations and flow starts resolve",
+    "Popup masters contain only one-character candidates",
+    "Popup master dimensions and unpainted roots",
+    "All PNG dimensions match the artboards",
+    "Transparent PNG corners and gap pixels",
+    "Native glass effects survive save and reopen"
+  ],
+  "visualReview": [
+    "Writing light/dark",
+    "Languages light + compact",
+    "Appearance light/dark + compact",
+    "Exclusions compact + inline error",
+    "Solid popup dark",
+    "Writing context dark",
+    "Component library",
+    "Foundations dark",
+    "Glass on white, dark and coloured contexts"
+  ],
+  "scope": "Design artifact verification; no Rust runtime or Windows compositor test."
+}

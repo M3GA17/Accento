@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "date": "2026-10-15",
+  "target": "x86_64-pc-windows-msvc",
+  "windows_build": "26300",
+  "rustc": "rustc 1.98.0 (88d9e12ae 2026-08-18)",
+  "rust_tests": 16,
+  "windows_checks": 26,
+  "clippy": "passed",
+  "format": "passed",
+  "crt": "static",
+  "executable_bytes": 537088,
+  "executable_sha256": "9471f6a2634499a4a031de4c9981063a4e41aba13ecc85f1ec58f3e7509122f9",
+  "archive_bytes": 377251,
+  "archive_sha256": "6065defe67a5395d3cb15ce5b9ae75e11af321061a6f28172e7c70b36a71b083",
+  "cargo_lock_sha256": "328884606afe605215d6d8c9b056868887c1a47dd81de7ccde8bfc1e8db397f3",
+  "figcraft_sha256": "695b52711f7e8fae4b350c4da437ad469c792d7955625bbc31022090f8bdc5e2",
+  "figcraft_pages": 8,
+  "figcraft_components": 42,
+  "figcraft_variables": 43
+}

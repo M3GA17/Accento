@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-15",
+  "rea_version": "6.5.0",
+  "artifact_version": "0.101.2362.0",
+  "source_tag": "v0.101.2362.0",
+  "source_commit": "389b1a3827b2cf577723288df15437490ef0663a",
+  "source_relation": "Version-matched public source reference; no proof of a reproducible binary build",
+  "artifacts": [
+    {
+      "name": "PowerAccent.Core.dll",
+      "path": "C:\\Users\\pc-enzo\\AppData\\Local\\PowerToys\\WinUI3Apps\\PowerAccent.Core.dll",
+      "bytes": 117600,
+      "sha256": "c519377787d21cbd3efcbd7f09d51f3caf59355ccde2327c7c108a2f70a7d498",
+      "file_version": "0.101.2362.0"
+    },
+    {
+      "name": "PowerAccent.Common.dll",
+      "path": "C:\\Users\\pc-enzo\\AppData\\Local\\PowerToys\\WinUI3Apps\\PowerAccent.Common.dll",
+      "bytes": 54624,
+      "sha256": "c46fe97e1ef28bc4c449dbb7f4bb29d9d42e90cc31945ba80bc66b6dfeb2b53e",
+      "file_version": "0.101.2362.0"
+    },
+    {
+      "name": "PowerToys.PowerAccent.dll",
+      "path": "C:\\Users\\pc-enzo\\AppData\\Local\\PowerToys\\WinUI3Apps\\PowerToys.PowerAccent.dll",
+      "bytes": 330592,
+      "sha256": "01f9b2ef9768dcb565f65aa54afcd26993755815f3c4f99993cfe228cdfe313c",
+      "file_version": "0.101.2362.0"
+    },
+    {
+      "name": "PowerToys.PowerAccentKeyboardService.dll",
+      "path": "C:\\Users\\pc-enzo\\AppData\\Local\\PowerToys\\WinUI3Apps\\PowerToys.PowerAccentKeyboardService.dll",
+      "bytes": 686944,
+      "sha256": "77b9d70273bb7935bfb62fe01e92df74287075b7eca6a92e3a45ebac4fdc8ad5",
+      "file_version": "0.101.2362.0"
+    },
+    {
+      "name": "PowerToys.PowerAccent.exe",
+      "path": "C:\\Users\\pc-enzo\\AppData\\Local\\PowerToys\\WinUI3Apps\\PowerToys.PowerAccent.exe",
+      "bytes": 408928,
+      "sha256": "bd5263cb9129a3cf1171f98bd950737bff4715e2cd4f6528b2addb2bbd7e8a20",
+      "file_version": "0.101.2362.0"
+    }
+  ],
+  "sources": [
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/microsoft/PowerToys/389b1a3827b2cf577723288df15437490ef0663a/LICENSE",
+      "bytes": 1120,
+      "sha256": "1eb3cbe7f022addbfc6d65cb2e39aca5b24333942ed843aa10c03befd71ee225"
+    },
+    {
+      "path": "src/modules/poweraccent/PowerAccent.Common/CharacterMappings.cs",
+      "url": "https://raw.githubusercontent.com/microsoft/PowerToys/389b1a3827b2cf577723288df15437490ef0663a/src/modules/poweraccent/PowerAccent.Common/CharacterMappings.cs",
+      "bytes": 37185,
+      "sha256": "17ad86e095ff33e68e85edc5fca1253441f6c7806d1cd2b1b87cdc7b0593d94e"
+    },
+    {
+      "path": "src/modules/poweraccent/PowerAccent.Core/DelayedDisplayState.cs",
+      "url": "https://raw.githubusercontent.com/microsoft/PowerToys/389b1a3827b2cf577723288df15437490ef0663a/src/modules/poweraccent/PowerAccent.Core/DelayedDisplayState.cs",
+      "bytes": 797,
+      "sha256": "30e8866a9e0918a38346de891ec43a240b8feb4559837b138a2dfffb4e81e96b"
+    },
+    {
+      "path": "src/modules/poweraccent/PowerAccent.Core/PowerAccent.cs",
+      "url": "https://raw.githubusercontent.com/microsoft/PowerToys/389b1a3827b2cf577723288df15437490ef0663a/src/modules/poweraccent/PowerAccent.Core/PowerAccent.cs",
+      "bytes": 16398,
+      "sha256": "68c862e4e7a96dda6ad0db28e2026e92fa8824de47a03a3bd88dfb3309fce93b"
+    },
+    {
+      "path": "src/modules/poweraccent/PowerAccent.Core/Tools/WindowsFunctions.cs",
+      "url": "https://raw.githubusercontent.com/microsoft/PowerToys/389b1a3827b2cf577723288df15437490ef0663a/src/modules/poweraccent/PowerAccent.Core/Tools/WindowsFunctions.cs",
+      "bytes": 6910,
+      "sha256": "5fd3906951a4e84942afbf2f12933a12e4105e44d21d45c9755afc6dd18b53ce"
+    },
+    {
+      "path": "src/modules/poweraccent/PowerAccent.UI/PowerAccentXAML/MainWindow.xaml.cs",
+      "url": "https://raw.githubusercontent.com/microsoft/PowerToys/389b1a3827b2cf577723288df15437490ef0663a/src/modules/poweraccent/PowerAccent.UI/PowerAccentXAML/MainWindow.xaml.cs",
+      "bytes": 10923,
+      "sha256": "75a428c2705c893b78216c9da503631cf33646d52bd4536302d5c8816eaf3d12"
+    },
+    {
+      "path": "src/modules/poweraccent/PowerAccent.UI/PowerAccentXAML/SelectorControl.xaml",
+      "url": "https://raw.githubusercontent.com/microsoft/PowerToys/389b1a3827b2cf577723288df15437490ef0663a/src/modules/poweraccent/PowerAccent.UI/PowerAccentXAML/SelectorControl.xaml",
+      "bytes": 9012,
+      "sha256": "e5a00f36938866c3b1cc4b28a6406811b71b9d42ab50e97cdb7352f05f299e90"
+    },
+    {
+      "path": "src/modules/poweraccent/PowerAccent.UI/SelectorViewModel.cs",
+      "url": "https://raw.githubusercontent.com/microsoft/PowerToys/389b1a3827b2cf577723288df15437490ef0663a/src/modules/poweraccent/PowerAccent.UI/SelectorViewModel.cs",
+      "bytes": 1414,
+      "sha256": "a2d8be6180aff79784e103e474f89bb33f14cf22e297bd8057e4e35c669192d2"
+    },
+    {
+      "path": "src/modules/poweraccent/PowerAccentKeyboardService/KeyboardListener.cpp",
+      "url": "https://raw.githubusercontent.com/microsoft/PowerToys/389b1a3827b2cf577723288df15437490ef0663a/src/modules/poweraccent/PowerAccentKeyboardService/KeyboardListener.cpp",
+      "bytes": 17910,
+      "sha256": "be927c541fbd1cb5a3391cb33132d74b2cf6b23fae90de524641f965ce7402af"
+    },
+    {
+      "path": "src/modules/poweraccent/PowerAccentKeyboardService/KeyboardListener.h",
+      "url": "https://raw.githubusercontent.com/microsoft/PowerToys/389b1a3827b2cf577723288df15437490ef0663a/src/modules/poweraccent/PowerAccentKeyboardService/KeyboardListener.h",
+      "bytes": 7337,
+      "sha256": "9715ea2c39b97d8d64442bd7ddd911894864b7fa574859dc035576eea2b5b66e"
+    }
+  ],
+  "native_provider": "Unavailable: GHIDRA_INSTALL_DIR not configured; Hopper unsupported on Windows; IDA not configured",
+  "runtime_tests_performed": false
+}
