@@ -4,7 +4,8 @@ Il registro `languages.json` è condiviso da selettore, set, Rust e documentazio
 
 - `cldr48.json`: snapshot attribuito e fissato dei repertori CLDR 48. Montenegrino e latino hanno integrazioni dichiarate nelle fonti. Non contiene automaticamente tutti i repertori ausiliari nell'output del popup.
 - `characters.json`: repertori, digrammi e associazioni ai tasti. I candidati sono stringhe Unicode, non scalari singoli. I tasti latini sono associazioni pratiche, non una traslitterazione normativa.
-- `messages.json`: 71 testi espliciti per ciascuna voce, incluse le guide. Nessun fallback inglese per lingue dichiarate supportate.
+- `currencies.json`: set speciale Valute, indipendente dalle lingue e attivo inizialmente. Le associazioni generano `CURRENCY_MAPS` in Rust e sono usate direttamente dal dettaglio UI e dalle guide; i simboli seguono le varianti linguistiche e non cambiano con Shift/Caps Lock. Le preferenze conservano la scelta in `currency_symbols`; i file precedenti senza questo campo la inizializzano a `true`.
+- `messages.json`: testi espliciti per ciascuna voce, incluse le guide e le etichette dei set speciali. Nessun fallback inglese per lingue dichiarate supportate.
 - `translation-status.json`: provenienza e stato della revisione. Le nuove traduzioni sono bozze automatiche/assistente, non revisionate da madrelingua. `overrides.json` registra correzioni terminologiche esplicite.
 - `LICENSE-UNICODE.txt`: licenza dei dati Unicode/CLDR.
 

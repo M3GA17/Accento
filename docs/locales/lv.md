@@ -6,6 +6,8 @@ atveriet Accento.exe operētājsistēmā Windows. Iestatījumu saskarne vienmēr
 
 Turiet burtu, nospiediet un atlaidiet atstarpes taustiņu, pēc tam atlaidiet burtu, lai ievietotu atlasīto rakstzīmi. Izmantojiet kreiso, labo vai atstarpes taustiņu, lai to mainītu. Bēgšana tiek atcelta.
 
+Vispārīgi → rakstzīmju kopas
+
 atveriet rakstzīmju kopas un iespējojiet valodas, kurās rakstāt. Saglabājiet vismaz vienu kopu aktīvu. Koplietotās rakstzīmes parādās tikai vienu reizi.
 
 Vispārīgi izvēlieties interfeisa valodu. Tas nemaina jūsu aktīvās rakstzīmju kopas.
@@ -35,5 +37,29 @@ a ā b c č d e ē f g ģ h i ī j k ķ l ļ m n ņ o p r s š t u ū v z ž
 | `s` | `š` · `Š` |
 | `u` | `ū` · `Ū` |
 | `z` | `ž` · `Ž` |
+
+## Īpašās rakstzīmju kopas · Valūtas
+
+Vispārīgi → rakstzīmju kopas → Īpašās rakstzīmju kopas → Valūtas
+
+| rakstīšana | Varianti |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

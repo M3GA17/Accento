@@ -2,7 +2,7 @@
 
 Accento usa React / TypeScript e Tauri 2 per le impostazioni. Le versioni sono fissate in `Cargo.lock` e `package-lock.json`. I pacchetti portabili conservano i testi originali disponibili nella cartella `licenses`.
 
-Per le dipendenze JavaScript vedere [inventario UI](docs/dependencies-ui.md), incluso nel pacchetto come `DEPENDENCIES-UI.md`. I pacchetti DimaLabs sono archivi locali della libreria del progetto; i loro manifest non dichiarano una licenza di distribuzione autonoma.
+Per le dipendenze JavaScript vedere [inventario UI](docs/dependencies-ui.md), incluso nel pacchetto come `DEPENDENCIES-UI.md`. I controlli e gli stili sono sorgenti locali di Accento; non sono distribuiti pacchetti DimaLabs. React Aria è una dipendenza diretta con licenza Apache-2.0.
 
 ## Integrazioni Linux e macOS
 

@@ -6,6 +6,8 @@ Otvorite Accento.exe na Windows-u. Interfejs postavki je uvijek taman.
 
 Držite slovo, pritisnite i otpustite razmak, zatim otpustite slovo da biste umetnuli odabrani znak. Koristite lijevo, desno ili razmak da ga promijenite. Escape se otkazuje.
 
+Općenito → Skupovi znakova
+
 Otvorite Skupove znakova i omogućite jezike na kojima pišete. Neka barem jedan skup bude aktivan. Zajednički likovi se pojavljuju samo jednom.
 
 Odaberite jezik interfejsa u Općenito. Ovo ne mijenja vaše aktivne skupove znakova.
@@ -30,5 +32,29 @@ a b c č ć d dž đ e f g h i j k l lj m n nj o p r s š t u v z ž
 | `n` | `nj` · `NJ` |
 | `s` | `š` · `Š` |
 | `z` | `ž` · `Ž` |
+
+## Posebni skupovi · Valute
+
+Općenito → Skupovi znakova → Posebni skupovi → Valute
+
+| Pisanje | Varijante |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

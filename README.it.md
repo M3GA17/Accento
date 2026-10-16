@@ -19,13 +19,15 @@ Per scrivere *caffè*, *français* o *piñata* non dovrebbe servire aprire una m
 
 Per le maiuscole, inizia con Shift o Caps Lock. Se termini il gesto prima dell'apertura, viene mantenuta la digitazione ordinaria.
 
+Il set **Valute** è attivo inizialmente: sulla `e` trovi anche `€`, dopo `è` e `é`. Puoi disattivarlo in **Generale → Set caratteri → Set speciali**, dove trovi tutte le associazioni, per esempio `s` → `$`, `l` → `£`, `y` → `¥`. [Come inserire le valute](docs/uso.md#valute).
+
 ## Stato della beta
 
-**0.5.0-beta.1 è in preparazione locale. Non è stata pubblicata alcuna release GitHub.** I pacchetti si generano con `npm run bundle`; i link di download saranno aggiunti quando decideremo di pubblicare.
+**[Scarica Accento 0.5.0-beta.2](https://github.com/M3GA17/Accento/releases/tag/v0.5.0-beta.2)** — installer Windows x64, ZIP portabile e checksum SHA-256. Il repository è privato: per scaricare serve l’accesso al repository. Questa release distribuisce binari solo per Windows; i backend Linux/macOS sono inclusi nei sorgenti. [Note della release](docs/releases/v0.5.0-beta.2.md).
 
 | Sistema | Stato |
 | --- | --- |
-| Windows 11 x64 Intel/AMD | Implementazione nativa; installer e ZIP portabile locali |
+| Windows 11 x64 Intel/AMD | Implementazione nativa; installer e ZIP portabile disponibili |
 | Linux X11 | Backend nativo implementato, build Linux e test reali di inserimento superati |
 | macOS Intel / Apple Silicon | Backend nativo implementato e verificato dal compilatore per entrambe le architetture; build completa e prova reale da eseguire su un Mac |
 
@@ -59,7 +61,7 @@ Accento non salva frasi digitate, cronologia dei tasti o contenuti dei campi e n
 
 ## Sviluppo
 
-Rust per il motore condiviso e le integrazioni native; React, TypeScript e Tauri 2 per le impostazioni e il picker Unix. Il popup Windows resta nativo. I pacchetti DimaLabs Flat Product sono inclusi in `vendor/`.
+Rust per il motore condiviso e le integrazioni native; React, TypeScript e Tauri 2 per le impostazioni e il picker Unix. Il popup Windows resta nativo. Componenti, stili e colori sono mantenuti direttamente in `ui/src/components` e `ui/src/theme.css`; React Aria gestisce le interazioni accessibili. Non servono pacchetti DimaLabs né checkout affiancati.
 
 ```powershell
 npm ci

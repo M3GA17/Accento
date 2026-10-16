@@ -6,6 +6,8 @@ Opne Accento.exe i Windows. Innstillingane har alltid mørk utsjånad.
 
 Hald ein bokstav nede, trykk og slepp mellomrom, og slepp så bokstaven for å setje inn det valde teiknet. Bruk venstre, høgre eller mellomrom for å byte. Escape avbryt.
 
+Generelt → Teiknsett
+
 Opne Teiknsett og slå på språka du skriv på. Hald minst eitt sett aktivt. Felles teikn vert berre viste éin gong.
 
 Vel språket for grensesnittet under Generelt. Dette endrar ikkje dei aktive teiknsetta.
@@ -27,5 +29,29 @@ a à b c d e é f g h i j k l m n o ó ò ô p q r s t u v w x y z æ ø å
 | `a` | `à` · `À` · `æ` · `Æ` · `å` · `Å` |
 | `e` | `é` · `É` |
 | `o` | `ó` · `Ó` · `ò` · `Ò` · `ô` · `Ô` · `ø` · `Ø` |
+
+## Spesielle teiknsett · Valutaer
+
+Generelt → Teiknsett → Spesielle teiknsett → Valutaer
+
+| Skriving | Variantar |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

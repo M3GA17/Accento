@@ -2,7 +2,12 @@ include!("catalog_generated.rs");
 
 /// Unicode text candidates, stable order and no duplicates across selected languages.
 /// Digraphs are typed normally; source coverage and optional extensions live in localization/.
-pub fn candidates(base: char, uppercase: bool, languages: &[Language]) -> Vec<String> {
+pub fn candidates(
+    base: char,
+    uppercase: bool,
+    languages: &[Language],
+    currency_symbols: bool,
+) -> Vec<String> {
     let mut result = Vec::new();
     for language in languages {
         if let Some((_, entries)) = CHARACTER_MAPS
@@ -23,6 +28,17 @@ pub fn candidates(base: char, uppercase: bool, languages: &[Language]) -> Vec<St
             }
         }
     }
+    // Symbols follow language variants, preserving the usual first selection.
+    // Currency symbols have no case and do not depend on the selected languages.
+    if currency_symbols
+        && let Some((_, symbols)) = CURRENCY_MAPS.iter().find(|(key, _)| *key == base)
+    {
+        for symbol in *symbols {
+            if !result.iter().any(|value| value == symbol) {
+                result.push((*symbol).to_owned());
+            }
+        }
+    }
     result
 }
 
@@ -30,20 +46,68 @@ pub fn candidates(base: char, uppercase: bool, languages: &[Language]) -> Vec<St
 mod tests {
     use super::*;
     #[test]
+    fn currencies_follow_accents_in_every_language_and_do_not_change_case() {
+        assert_eq!(
+            candidates('e', false, &[Language::Italian], true),
+            ["è", "é", "€"]
+        );
+        assert_eq!(
+            candidates('e', true, &[Language::Italian], true),
+            ["È", "É", "€"]
+        );
+        for language in Language::ALL {
+            for uppercase in [false, true] {
+                let original = candidates('e', uppercase, &[*language], false);
+                let extended = candidates('e', uppercase, &[*language], true);
+                assert!(extended.starts_with(&original), "{}", language.code());
+                assert_eq!(extended.iter().filter(|value| *value == "€").count(), 1);
+            }
+        }
+        assert_eq!(candidates('l', false, &[Language::Italian], true), ["£"]);
+        assert!(candidates('l', false, &[Language::Italian], false).is_empty());
+        assert_eq!(candidates('y', true, &[Language::Italian], true), ["¥"]);
+    }
+    #[test]
+    fn currency_data_matches_the_shared_registry_and_combined_lists_have_no_duplicates() {
+        let data: std::collections::BTreeMap<String, Vec<String>> =
+            serde_json::from_str(include_str!("../../../localization/currencies.json")).unwrap();
+        assert_eq!(data.len(), CURRENCY_MAPS.len());
+        for &(base, symbols) in CURRENCY_MAPS {
+            assert_eq!(data[&base.to_string()], symbols);
+            for uppercase in [false, true] {
+                let list = candidates(base, uppercase, Language::ALL, true);
+                for symbol in symbols {
+                    assert_eq!(
+                        list.iter()
+                            .filter(|value| value.as_str() == *symbol)
+                            .count(),
+                        1
+                    );
+                }
+                let unique: std::collections::HashSet<_> = list.iter().collect();
+                assert_eq!(list.len(), unique.len());
+            }
+        }
+    }
+    #[test]
     fn combined_sets_preserve_order_without_duplicates() {
         assert_eq!(
             candidates(
                 'e',
                 false,
-                &[Language::Italian, Language::French, Language::Spanish]
+                &[Language::Italian, Language::French, Language::Spanish],
+                false
             ),
             vec!["è", "é", "ê", "ë"]
         );
     }
     #[test]
     fn uppercase_is_one_precomposed_character() {
-        assert_eq!(candidates('s', true, &[Language::German]), vec!["ẞ"]);
-        assert_eq!(candidates('e', true, &[Language::Italian]), vec!["È", "É"]);
+        assert_eq!(candidates('s', true, &[Language::German], false), vec!["ẞ"]);
+        assert_eq!(
+            candidates('e', true, &[Language::Italian], false),
+            vec!["È", "É"]
+        );
     }
     #[test]
     fn new_sets_have_precomposed_letters_and_stable_codes() {
@@ -58,11 +122,11 @@ mod tests {
             let language = Language::from_code(code).unwrap();
             assert_eq!(language.code(), code);
             assert_eq!(
-                candidates(base, false, &[language]),
+                candidates(base, false, &[language], false),
                 lower.chars().map(|c| c.to_string()).collect::<Vec<_>>()
             );
             assert_eq!(
-                candidates(base, true, &[language]),
+                candidates(base, true, &[language], false),
                 upper.chars().map(|c| c.to_string()).collect::<Vec<_>>()
             );
         }
@@ -85,8 +149,8 @@ mod tests {
                 }
                 let mut reachable = Vec::new();
                 for base in ('a'..='z').chain(std::iter::once('\'')) {
-                    reachable.extend(candidates(base, false, &[*language]));
-                    reachable.extend(candidates(base, true, &[*language]));
+                    reachable.extend(candidates(base, false, &[*language], false));
+                    reachable.extend(candidates(base, true, &[*language], false));
                 }
                 assert!(
                     reachable.iter().any(|candidate| candidate == value),
@@ -107,7 +171,7 @@ mod tests {
             ("kk", 'a', 'ә'),
         ] {
             assert!(
-                candidates(base, false, &[Language::from_code(code).unwrap()])
+                candidates(base, false, &[Language::from_code(code).unwrap()], false)
                     .contains(&expected.to_string()),
                 "{code}"
             );
@@ -124,9 +188,14 @@ mod tests {
             ("el", 'i', true, "Ϊ́"),
         ] {
             assert!(
-                candidates(base, uppercase, &[Language::from_code(code).unwrap()])
-                    .iter()
-                    .any(|value| value == expected),
+                candidates(
+                    base,
+                    uppercase,
+                    &[Language::from_code(code).unwrap()],
+                    false
+                )
+                .iter()
+                .any(|value| value == expected),
                 "{code}: {expected}"
             );
         }

@@ -6,6 +6,8 @@ Otvorite Accento.exe na Vindovs-u. Interfejs podešavanja je uvek taman.
 
 Držite slovo, pritisnite i otpustite razmak, zatim otpustite slovo da biste umetnuli izabrani znak. Koristite levo, desno ili razmak da biste ga promenili. Escape se otkazuje.
 
+Opšte → Skupovi znakova
+
 Otvorite skupove znakova i omogućite jezike na kojima pišete. Neka najmanje jedan skup bude aktivan. Deljeni likovi se pojavljuju samo jednom.
 
 Izaberite jezik interfejsa u opštem. Ovo ne menja vaše aktivne skupove znakova.
@@ -30,5 +32,29 @@ a b c č ć d dž đ e f g h i j k l lj m n nj o p r s š t u v z ž ś ź
 | `n` | `nj` · `NJ` |
 | `s` | `š` · `Š` · `ś` · `Ś` |
 | `z` | `ž` · `Ž` · `ź` · `Ź` |
+
+## Posebni skupovi · Valute
+
+Opšte → Skupovi znakova → Posebni skupovi → Valute
+
+| Pisanje | Varijante |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

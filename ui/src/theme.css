@@ -1,0 +1,23 @@
+/* Accento dark theme. Values preserved from the previous settings UI. */
+[data-accento-theme="dark"]{
+--accento-color-background:rgba(15,15,15,1);
+--accento-color-secondary-foreground:rgba(241,241,241,1);
+--accento-color-danger:rgba(255,170,170,1);
+--accento-color-danger-soft:rgba(58,32,32,1);
+--accento-color-focus:rgba(62,166,255,1);
+--accento-color-input-surface:rgba(18,18,18,1);
+--accento-color-popup-surface:rgba(33,33,33,1);
+--accento-input-radius:24px;
+--accento-color-surface:rgba(24,24,24,1);
+--accento-color-container-surface:rgba(24,24,24,1);
+--accento-color-control-border:rgba(112,112,112,1);
+--accento-button-radius:999px;
+--accento-control-md:44px;
+--accento-color-foreground:rgba(241,241,241,1);
+--accento-color-muted:rgba(170,170,170,1);
+--accento-color-border:rgba(54,54,54,1);
+--accento-color-row-active:rgba(56,56,56,1);
+--accento-color-primary:rgba(241,241,241,1);
+--accento-color-primary-foreground:rgba(15,15,15,1);
+--accento-color-secondary:rgba(48,48,48,1);
+}

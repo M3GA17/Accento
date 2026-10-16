@@ -35,13 +35,15 @@ Writing *caffè*, *français* or *piñata* should not mean opening a character m
 
 For example: hold `e`, press and release Space, wait for the picker, then release `e` to insert `è`. Start with Shift or Caps Lock for uppercase variants. A quick gesture that ends before the picker opens preserves ordinary typing.
 
+The **Currency** special set is enabled initially: `e` also offers `€`, after the Italian accents `è` and `é`. Toggle it under **General → Character sets → Special sets** and expand its variants to see all key mappings, including `s` → `$`, `l` → `£` and `y` → `¥`. Symbols stay the same with Shift or Caps Lock.
+
 ## Get started
 
-**0.5.0-beta.1 is being prepared locally. No GitHub release has been published yet.** The earlier local Windows packages predate the platform port; cross-platform source does not turn those files into Linux/macOS packages. Installer and portable builds are generated with [`npm run bundle`](docs/DEVELOPMENT.md#build-the-windows-packages). Download links will be added when a release is published.
+**[Download Accento 0.5.0-beta.2](https://github.com/M3GA17/Accento/releases/tag/v0.5.0-beta.2)** — Windows x64 installer, portable ZIP and SHA-256 checksums. This repository is private; downloads require repository access. Linux/macOS backends are included in the source; this release ships Windows binaries only. See the [release notes](docs/releases/v0.5.0-beta.2.md).
 
 | Platform | Status |
 | --- | --- |
-| Windows 11 · Intel/AMD 64-bit | Native implementation; local beta installer and portable ZIP |
+| Windows 11 · Intel/AMD 64-bit | Native implementation; beta installer and portable ZIP available |
 | Linux X11 | Native backend implemented; Linux build and isolated live-input tests passed |
 | macOS Intel / Apple Silicon | Native backend implemented and type-checked for both architectures; full app and live-input verification need a Mac |
 
@@ -49,13 +51,13 @@ The gesture engine and preferences are shared. Windows retains its Win32 backend
 
 ### Windows installer
 
-Run `Accento_0.5.0-beta.1_windows-x64-setup.exe`. It installs for your Windows user and can download Microsoft Edge WebView2 Runtime if needed. An internet connection may be required for that prerequisite; Accento itself works offline.
+Run `Accento_0.5.0-beta.2_windows-x64-setup.exe`. It installs for your Windows user and can download Microsoft Edge WebView2 Runtime if needed. An internet connection may be required for that prerequisite; Accento itself works offline.
 
 ### Portable ZIP
 
 Extract **the entire archive**, then open `Accento.exe`. Keep the guides and license files beside it. WebView2 must already be installed. Preferences live in `%LOCALAPPDATA%\Accento\settings.json`, so “portable” describes the app files rather than a fully isolated settings folder.
 
-Neither package needs PowerToys, .NET, Node.js or Rust to run. These beta binaries are unsigned and have no automatic updater. Verify the downloaded files against the supplied `SHA256SUMS.txt` when a release is available.
+Neither package needs PowerToys, .NET, Node.js or Rust to run. These beta binaries are unsigned and have no automatic updater. Verify the downloaded files against the supplied `SHA256SUMS.txt` on the release page.
 
 ## Screenshots
 
@@ -102,7 +104,7 @@ This is a beta. Input replacement uses Windows Unicode input and remains subject
 
 ## Development
 
-The app combines a **shared Rust gesture engine**, **native OS input integrations**, and **React / TypeScript settings in Tauri 2**. Windows keeps its native glass picker; Unix hosts use a transparent, non-focusable Tauri picker. UI components come from DimaLabs Flat Product; the pinned local packages are included in `vendor/`.
+The app combines a **shared Rust gesture engine**, **native OS input integrations**, and **React / TypeScript settings in Tauri 2**. Windows keeps its native glass picker; Unix hosts use a transparent, non-focusable Tauri picker. UI components, styles and dark-theme tokens are maintained locally in `ui/src/components` and `ui/src/theme.css`; React Aria provides accessible interaction behavior. No DimaLabs packages or sibling checkouts are required.
 
 ```powershell
 npm ci

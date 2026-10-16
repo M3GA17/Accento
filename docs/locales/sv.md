@@ -6,6 +6,8 @@
 
 Håll en bokstav, tryck och släpp mellanslag och släpp sedan bokstaven för att infoga det valda tecknet. Använd Vänster, Höger eller Mellanslag för att ändra det. Escape avbryts.
 
+Allmänt → Karaktärsuppsättningar
+
 Öppna teckenuppsättningar och aktivera språken du skriver på. Håll minst en uppsättning aktiv. Delade tecken visas bara en gång.
 
 Välj gränssnittsspråk i Allmänt. Detta ändrar inte dina aktiva teckenuppsättningar.
@@ -27,5 +29,29 @@ a à b c d e é f g h i j k l m n o p q r s t u v w x y z å ä ö
 | `a` | `à` · `À` · `å` · `Å` · `ä` · `Ä` |
 | `e` | `é` · `É` |
 | `o` | `ö` · `Ö` |
+
+## Specialuppsättningar · Valutor
+
+Allmänt → Karaktärsuppsättningar → Specialuppsättningar → Valutor
+
+| Skrivande | Varianter |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

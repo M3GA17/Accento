@@ -6,6 +6,8 @@ Oscail Accento.exe ar Windows. Bíonn an comhéadan socruithe dorcha i gcónaí.
 
 Coinnigh litir, brúigh agus scaoil Spás, ansin scaoil an litir chun an carachtar roghnaithe a chur isteach. Úsáid Clé, Deas nó Spás chun é a athrú. Éalú ar ceal.
 
+Ginearálta → Leagann carachtair
+
 Oscail tacair Carachtar agus cumasaigh na teangacha a scríobhann tú iontu. Coinnigh ar a laghad tacar amháin gníomhach. Ní fheictear carachtair chomhroinnte ach uair amháin.
 
 Roghnaigh teanga an chomhéadain i nGinearálta. Ní athraíonn sé seo do thacair carachtar gníomhacha.
@@ -29,5 +31,29 @@ a á b c d e é f g h i í l m n o ó p r s t u ú
 | `i` | `í` · `Í` |
 | `o` | `ó` · `Ó` |
 | `u` | `ú` · `Ú` |
+
+## Tacair speisialta · Airgeadraí
+
+Ginearálta → Leagann carachtair → Tacair speisialta → Airgeadraí
+
+| Ag scríobh | Leaganacha |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

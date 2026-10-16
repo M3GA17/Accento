@@ -6,6 +6,8 @@ Atidarykite Accento.exe sistemoje Windows. Nustatymų sąsaja visada tamsi.
 
 Laikykite raidę, paspauskite ir atleiskite tarpo klavišą, tada atleiskite raidę, kad įterptumėte pasirinktą simbolį. Norėdami jį pakeisti, naudokite kairę, dešinę arba tarpą. Pabėgimas atšaukiamas.
 
+Bendrieji → simbolių rinkiniai
+
 Atidarykite simbolių rinkinius ir įgalinkite kalbas, kuriomis rašote. Bent vieną rinkinį palikite aktyvų. Bendrinami simboliai rodomi tik vieną kartą.
 
 Bendrai pasirinkite sąsajos kalbą. Tai nepakeis jūsų aktyvių simbolių rinkinių.
@@ -31,5 +33,29 @@ a ą b c č d e ę ė f g h i į y j k l m n o p r s š t u ų ū v z ž
 | `s` | `š` · `Š` |
 | `u` | `ų` · `Ų` · `ū` · `Ū` |
 | `z` | `ž` · `Ž` |
+
+## Specialieji rinkiniai · Valiutos
+
+Bendrieji → simbolių rinkiniai → Specialieji rinkiniai → Valiutos
+
+| Rašymas | Variantai |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

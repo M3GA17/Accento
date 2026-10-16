@@ -6,6 +6,8 @@ Otevřete Accento.exe v systému Windows. Rozhraní nastavení je vždy tmavé.
 
 Podržte písmeno, stiskněte a uvolněte mezerník, poté uvolněte písmeno a vložte vybraný znak. Pro změnu použijte Left, Right nebo Space. Útěk se ruší.
 
+Obecné → Sady znaků
+
 Otevřete znakové sady a povolte jazyky, ve kterých píšete. Nechte aktivní alespoň jednu sadu. Sdílené postavy se objevují pouze jednou.
 
 Vyberte jazyk rozhraní v Obecné. Tím se nezmění vaše aktivní znakové sady.
@@ -37,5 +39,29 @@ a á b c č d ď e é ě f g h ch i í j k l m n ň o ó p q r ř s š t ť u ú
 | `u` | `ú` · `Ú` · `ů` · `Ů` |
 | `y` | `ý` · `Ý` |
 | `z` | `ž` · `Ž` |
+
+## Speciální sady · Měny
+
+Obecné → Sady znaků → Speciální sady → Měny
+
+| Psaní | Varianty |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

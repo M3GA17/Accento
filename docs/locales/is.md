@@ -6,6 +6,8 @@ Opnaðu Accento.exe á Windows. Stillingarviðmótið er alltaf dökkt.
 
 Haltu staf, ýttu á og slepptu bilinu og slepptu síðan stafnum til að setja inn valinn staf. Notaðu vinstri, hægri eða bil til að breyta því. Escape hættir við.
 
+Almennt → Persónusett
+
 Opnaðu stafasett og virkjaðu tungumálin sem þú skrifar á. Haltu að minnsta kosti einu setti virku. Samnýttir stafir birtast aðeins einu sinni.
 
 Veldu viðmótstungumálið í Almennt. Þetta breytir ekki virku stafasettunum þínum.
@@ -32,5 +34,29 @@ a á b d ð e é f g h i í j k l m n o ó p r s t u ú v x y ý þ æ ö
 | `u` | `ú` · `Ú` |
 | `y` | `ý` · `Ý` |
 | `t` | `þ` · `Þ` |
+
+## Sértæk stafasöfn · Gjaldmiðlar
+
+Almennt → Persónusett → Sértæk stafasöfn → Gjaldmiðlar
+
+| Að skrifa | Afbrigði |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

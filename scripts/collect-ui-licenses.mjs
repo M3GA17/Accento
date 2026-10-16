@@ -6,7 +6,7 @@ const rows=[];
 for(const [location,entry] of Object.entries(lock.packages)){
   if(!location.startsWith('node_modules/') || entry.dev)continue;
   const metadata=JSON.parse(await readFile(path.join(location,'package.json'),'utf8'));
-  rows.push({name:metadata.name,version:metadata.version,license:metadata.license??'Pacchetto locale DimaLabs; licenza non dichiarata nel manifest'});
+  rows.push({name:metadata.name,version:metadata.version,license:metadata.license??'Licenza non dichiarata nel manifest'});
   if(destination){
     const folder=path.join(destination,'licenses',metadata.name.replaceAll('/','-')+'-'+metadata.version);
     await mkdir(folder,{recursive:true});

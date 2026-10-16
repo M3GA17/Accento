@@ -6,6 +6,8 @@ Avra Accento.exe en Windows. L'interfatscha dals parameters è adina stgira.
 
 Tegna in bustab, smatga e lascha liber il spazi, lura lascha liber il bustab per inserir il caracter tschernì. Dovra las frizzas u il spazi per midar. Escape interrumpa.
 
+General → Gieus da caracters
+
 Avra Gieus da caracters ed activa las linguas che ti scrivas. Mantegna almain in gieu activ. Caracters communabels cumparan mo ina giada.
 
 Tscherna la lingua da l'interfatscha sut General. Quai na mida betg ils gieus da caracters activs.
@@ -29,5 +31,29 @@ a à b c d e é è f g h i ì j k l m n o ò p q r s t u ù v w x y z
 | `i` | `ì` · `Ì` |
 | `o` | `ò` · `Ò` |
 | `u` | `ù` · `Ù` |
+
+## Collecziuns spezialas · Valutas
+
+General → Gieus da caracters → Collecziuns spezialas → Valutas
+
+| Scriver | Variantas |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

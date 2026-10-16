@@ -1,6 +1,6 @@
 {
   "name": "accento-desktop",
-  "version": "0.5.0-beta.1",
+  "version": "0.5.0-beta.2",
   "private": true,
   "type": "module",
   "scripts": {
@@ -18,12 +18,11 @@
     "resources:prepare": "node scripts/prepare-resources.mjs"
   },
   "dependencies": {
-    "@dimalabs/react-component-flat-product": "file:vendor/dimalabs-react-component-flat-product-0.1.1.tgz",
-    "@dimalabs/react-component-primitives": "file:vendor/dimalabs-react-component-primitives-0.2.0.tgz",
     "@tauri-apps/api": "^2.11.0",
     "lucide-react": "^1.55.0",
     "react": "^19.3.0",
-    "react-dom": "^19.3.0"
+    "react-dom": "^19.3.0",
+    "react-aria-components": "1.22.1"
   },
   "devDependencies": {
     "@playwright/test": "^1.64.0",

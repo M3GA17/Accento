@@ -26,6 +26,17 @@ try{
   const invoke=(command,args)=>page.evaluate(({command,args})=>window.__TAURI_INTERNALS__.invoke(command,args),{command,args});
   const initial=await invoke('get_settings');assert.equal(initial.preferences.delay_ms,300);
   assert.equal(initial.preferences.theme,'dark');
+  assert.equal(initial.preferences.currency_symbols,true);
+  const currency=page.locator('[data-special-set="currency"]');
+  await currency.click();await page.getByRole('button',{name:'Salva modifiche'}).click();
+  await page.getByRole('status').filter({hasText:'Tutte le modifiche sono salvate'}).waitFor();
+  assert.equal((await invoke('get_settings')).preferences.currency_symbols,false);
+  const currencyDisk=JSON.parse(await readFile(path.join(directory,'Accento/settings.json'),'utf8'));
+  assert.equal(currencyDisk.currency_symbols,false);
+  await currency.click();await page.getByRole('button',{name:'Salva modifiche'}).click();
+  await page.getByRole('status').filter({hasText:'Tutte le modifiche sono salvate'}).waitFor();
+  assert.equal((await invoke('get_settings')).preferences.currency_symbols,true);
+  await page.locator('main').evaluate(element=>{element.scrollTop=0;});
   const languages=JSON.parse(await readFile('localization/languages.json','utf8'));
   for(const language of languages){
     const next={...initial.preferences,ui_language:language.code,languages:[language.code],theme:'light'};
@@ -37,10 +48,10 @@ try{
   const invalid={...initial.preferences,delay_ms:2};
   await assert.rejects(()=>invoke('save_settings',{preferences:invalid}));
   assert.equal((await invoke('get_settings')).preferences.delay_ms,300);
-  const preferences={...initial.preferences,delay_ms:450,ui_language:'sq',languages:['sq','ro','pl','tr','pt'],excluded_apps:['notepad.exe'],theme:'dark'};
+  const preferences={...initial.preferences,delay_ms:450,ui_language:'sq',languages:['sq','ro','pl','tr','pt'],excluded_apps:['notepad.exe'],theme:'dark',currency_symbols:false};
   const saved=await invoke('save_settings',{preferences});assert.deepEqual(saved.preferences,preferences);
   await page.getByRole('heading',{name:'Të përgjithshme',exact:true}).waitFor();
-  await page.getByRole('button',{name:'Grupet e shkronjave',exact:true}).waitFor();
+  await page.locator('.sets-disclosure').filter({hasText:'Grupet e shkronjave'}).waitFor();
   const disk=JSON.parse(await readFile(path.join(directory,'Accento/settings.json'),'utf8'));assert.deepEqual(disk,preferences);
   assert.equal((await invoke('set_paused',{paused:true})).paused,true);
   await page.getByRole('button',{name:'Aktivizo Accento'}).waitFor();
@@ -60,8 +71,8 @@ try{
   await invoke('plugin:window|close');
   await closed;
   assert.equal(child.exitCode,null,'Closing settings must leave the backend running');
-  await writeFile('docs/evidenze/react-tauri/desktop-test.json',JSON.stringify({passed:true,executable,loadedUrl,locales:languages.length,checks:['Tauri/WebView2 startup','Rust get/save/pause IPC','invalid configuration rejected without changing state','all national locales and character sets accepted','dark mode enforced for legacy/forged light preferences','atomic persisted preferences','React receives native state events','unsaved draft close protection','webview closes while backend remains running'],keyboardHook:false},null,2)+'\n');
-  console.log(`Desktop integration: 9 checks and ${languages.length} locale/set round-trips passed. Keyboard hooks disabled for this isolated test.`);
+  await writeFile('docs/evidenze/react-tauri/desktop-test.json',JSON.stringify({passed:true,executable,loadedUrl,locales:languages.length,checks:['Tauri/WebView2 startup','currency toggle saves independently and persists through Rust IPC','Rust get/save/pause IPC','invalid configuration rejected without changing state','all national locales and character sets accepted','dark mode enforced for legacy/forged light preferences','atomic persisted preferences','React receives native state events','unsaved draft close protection','webview closes while backend remains running'],keyboardHook:false},null,2)+'\n');
+  console.log(`Desktop integration: 10 checks and ${languages.length} locale/set round-trips passed. Keyboard hooks disabled for this isolated test.`);
 }finally{
   await browser?.close().catch(()=>{});
   child.kill();

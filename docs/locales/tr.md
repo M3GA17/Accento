@@ -6,6 +6,8 @@ Windows'ta Accento.exe'yi açın. Ayarlar arayüzü her zaman karanlıktır.
 
 Seçilen karakteri eklemek için bir harfi basılı tutun, Space tuşuna basıp bırakın, ardından harfi bırakın. Değiştirmek için Sol, Sağ veya Boşluk tuşunu kullanın. Kaçış iptal edilir.
 
+Genel → Karakter setleri
+
 Karakter kümelerini açın ve yazdığınız dilleri etkinleştirin. En az bir kümeyi etkin tutun. Paylaşılan karakterler yalnızca bir kez görünür.
 
 Genel bölümünden arayüz dilini seçin. Bu, aktif karakter kümelerinizi değiştirmez.
@@ -30,5 +32,29 @@ a b c ç d e f g ğ h ı i İ j k l m n o ö p r s ş t u ü v y z
 | `o` | `ö` · `Ö` |
 | `s` | `ş` · `Ş` |
 | `u` | `ü` · `Ü` |
+
+## Özel kümeler · Para birimleri
+
+Genel → Karakter setleri → Özel kümeler → Para birimleri
+
+| Yazma | Varyantlar |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

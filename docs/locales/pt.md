@@ -6,6 +6,8 @@ Abra Accento.exe no Windows. A interface de configurações está sempre escura.
 
 Segure uma letra, pressione e solte Espaço e solte a letra para inserir o caractere selecionado. Use Esquerda, Direita ou Espaço para alterá-lo. A fuga é cancelada.
 
+Geral → Conjuntos de caracteres
+
 Abra conjuntos de caracteres e ative os idiomas em que você escreve. Mantenha pelo menos um conjunto ativo. Personagens compartilhados aparecem apenas uma vez.
 
 Escolha o idioma da interface em Geral. Isso não altera seus conjuntos de caracteres ativos.
@@ -30,5 +32,29 @@ a á à â ã b c ç d e é ê f g h i í j k l m n o ó ò ô õ p q r s t u ú
 | `i` | `í` · `Í` |
 | `o` | `ó` · `Ó` · `ò` · `Ò` · `ô` · `Ô` · `õ` · `Õ` |
 | `u` | `ú` · `Ú` |
+
+## Conjuntos especiais · Moedas
+
+Geral → Conjuntos de caracteres → Conjuntos especiais → Moedas
+
+| Escrita | Variantes |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

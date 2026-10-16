@@ -6,6 +6,8 @@ Windows-da Accento.exe-i açın. Parametrlər interfeysi həmişə qaranlıqdır
 
 Məktubu saxlayın, Boşluq düyməsini basın və buraxın, sonra seçilmiş simvolu daxil etmək üçün məktubu buraxın. Dəyişmək üçün Sol, Sağ və ya Boşluqdan istifadə edin. Escape ləğv edir.
 
+Ümumi → Simvol dəstləri
+
 Simvol dəstlərini açın və yazdığınız dilləri aktivləşdirin. Ən azı bir dəsti aktiv saxlayın. Paylaşılan simvollar yalnız bir dəfə görünür.
 
 Ümumi olaraq interfeys dilini seçin. Bu, aktiv xarakter dəstlərinizi dəyişmir.
@@ -31,5 +33,29 @@ a b c ç d e ə f g ğ h x ı i İ j k q l m n o ö p r s ş t u ü v y z
 | `o` | `ö` · `Ö` |
 | `s` | `ş` · `Ş` |
 | `u` | `ü` · `Ü` |
+
+## Xüsusi dəstlər · Valyutalar
+
+Ümumi → Simvol dəstləri → Xüsusi dəstlər → Valyutalar
+
+| Yazı | Variantlar |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

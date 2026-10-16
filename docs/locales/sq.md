@@ -6,6 +6,8 @@ Hapni Accento.exe në Windows. Ndërfaqja e cilësimeve është gjithmonë e err
 
 Mbani një letër, shtypni dhe lëshoni Space, më pas lëshoni shkronjën për të futur karakterin e zgjedhur. Përdorni Majtas, Djathtas ose Hapësirë ​​për ta ndryshuar atë. Ikja anulon.
 
+Të përgjithshme → Grupet e shkronjave
+
 Hapni grupet e karaktereve dhe aktivizoni gjuhët në të cilat shkruani. Mbani të paktën një grup aktiv. Karakteret e përbashkëta shfaqen vetëm një herë.
 
 Zgjidhni gjuhën e ndërfaqes në Përgjithësi. Kjo nuk ndryshon grupet tuaja aktive të karaktereve.
@@ -35,5 +37,29 @@ a b c ç d dh e ë f g gj h i j k l ll m n nj o p q r rr s sh t th u v x xh y z 
 | `t` | `th` · `TH` |
 | `x` | `xh` · `XH` |
 | `z` | `zh` · `ZH` |
+
+## Grupe të veçanta · Monedha
+
+Të përgjithshme → Grupet e shkronjave → Grupe të veçanta → Monedha
+
+| Shkrimi | Variantet |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

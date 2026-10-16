@@ -18,6 +18,7 @@ pub struct Preferences {
     pub schema_version: u32,
     pub delay_ms: u64,
     pub languages: Vec<String>,
+    pub currency_symbols: bool,
     pub theme: Theme,
     pub ui_language: String,
     pub excluded_apps: Vec<String>,
@@ -29,6 +30,7 @@ impl Default for Preferences {
             schema_version: 1,
             delay_ms: 300,
             languages: vec!["it".into()],
+            currency_symbols: true,
             theme: Theme::System,
             ui_language: "it".into(),
             excluded_apps: vec![],
@@ -172,6 +174,16 @@ pub fn normalize_executable(value: &str) -> Option<String> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn old_preferences_enable_currencies_and_an_explicit_opt_out_survives_serialization() {
+        let mut preferences: Preferences = serde_json::from_str(r#"{"languages":["it"]}"#).unwrap();
+        assert!(preferences.currency_symbols);
+        preferences.currency_symbols = false;
+        let restored: Preferences =
+            serde_json::from_str(&serde_json::to_string(&preferences).unwrap()).unwrap();
+        assert!(!restored.currency_symbols);
+        assert!(restored.validate().is_ok());
+    }
     #[test]
     fn interface_locale_and_extended_sets_are_independent() {
         for locale in ["en", "sq"] {

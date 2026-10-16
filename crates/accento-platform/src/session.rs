@@ -34,16 +34,22 @@ pub struct Session {
 impl Session {
     pub fn new(preferences: Preferences) -> Self {
         Self {
-            engine: Engine::new(preferences.languages(), preferences.delay_ms),
+            engine: Engine::new(
+                preferences.languages(),
+                preferences.delay_ms,
+                preferences.currency_symbols,
+            ),
             preferences,
             paused: false,
             down: HashMap::new(),
         }
     }
     pub fn configure(&mut self, preferences: Preferences, host: &mut impl Host) {
-        let effects = self
-            .engine
-            .configure(preferences.languages(), preferences.delay_ms);
+        let effects = self.engine.configure(
+            preferences.languages(),
+            preferences.delay_ms,
+            preferences.currency_symbols,
+        );
         self.preferences = preferences;
         let _ = self.apply(effects, host);
     }
@@ -57,7 +63,11 @@ impl Session {
     }
     /// Recover after a device is disconnected or the OS reports that hook events were lost.
     pub fn reset(&mut self, host: &mut impl Host) {
-        self.engine = Engine::new(self.preferences.languages(), self.preferences.delay_ms);
+        self.engine = Engine::new(
+            self.preferences.languages(),
+            self.preferences.delay_ms,
+            self.preferences.currency_symbols,
+        );
         self.down.clear();
         host.picker(None);
     }
@@ -207,6 +217,35 @@ mod tests {
         event(&mut session, &mut host, 24, Key::Letter('x'), false, 401);
         assert_eq!(host.inserted, [("è".into(), true)]);
         assert!(host.shown.is_none());
+    }
+    #[test]
+    fn currencies_reach_the_host_and_opt_out_survives_device_reset() {
+        let (mut session, mut host) = fixture();
+        event(&mut session, &mut host, 24, Key::Letter('e'), true, 0);
+        event(&mut session, &mut host, 65, Key::Space, true, 1);
+        event(&mut session, &mut host, 65, Key::Space, false, 2);
+        session.tick(400, &mut host).unwrap();
+        event(&mut session, &mut host, 113, Key::Left, true, 401);
+        event(&mut session, &mut host, 113, Key::Left, false, 402);
+        event(&mut session, &mut host, 24, Key::Letter('e'), false, 403);
+        assert_eq!(host.inserted, [("€".into(), true)]);
+        session.configure(
+            Preferences {
+                currency_symbols: false,
+                ..Default::default()
+            },
+            &mut host,
+        );
+        session.reset(&mut host);
+        event(&mut session, &mut host, 46, Key::Letter('l'), true, 500);
+        assert!(!event(&mut session, &mut host, 65, Key::Space, true, 501));
+        session.configure(Preferences::default(), &mut host);
+        session.reset(&mut host);
+        event(&mut session, &mut host, 46, Key::Letter('l'), true, 600);
+        assert!(event(&mut session, &mut host, 65, Key::Space, true, 601));
+        session.tick(1000, &mut host).unwrap();
+        event(&mut session, &mut host, 46, Key::Letter('l'), false, 1001);
+        assert_eq!(host.inserted.last(), Some(&("£".into(), true)));
     }
     #[test]
     fn focus_change_and_protected_fields_never_receive_replacement() {

@@ -1,5 +1,7 @@
 # Impostazioni React / Tauri · Accento 0.6
 
+> **Aggiornamento corrente:** Accento non usa più pacchetti DimaLabs. Button, TextBox e LanguageSelector sono sorgenti locali in `ui/src/components`; stili e tema scuro sono inclusi nel progetto. React Aria 1.22.1 è una dipendenza diretta. Gli archivi `vendor/` sono stati rimossi. Il confronto con 20 schermate precedenti verifica la parità visiva nei formati normale e compatto. Il seguito conserva il resoconto storico della migrazione.
+
 Le impostazioni sono ora una UI React 19 / TypeScript visualizzata da Tauri 2 e WebView2. Button, TextBox e LanguageSelector provengono dai pacchetti DimaLabs reali; la presentazione web Flat Product è stata aggiunta alla libreria, insieme a un catalogo autonomo e ai temi chiaro/scuro derivati dall'export FigCraft Product / Flat.
 
 ## Confini e ciclo di vita

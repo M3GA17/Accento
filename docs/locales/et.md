@@ -6,6 +6,8 @@ avage Windowsis Accento.exe. Seadete liides on alati tume.
 
 Hoidke tähte all, vajutage ja vabastage tühik, seejärel vabastage täht valitud märgi sisestamiseks. Selle muutmiseks kasutage vasakut, paremat või tühikut. Põgenemine tühistab.
 
+Üldine → tegelased
+
 avage tähestikud ja lubage keeled, milles kirjutate. Hoidke vähemalt üks komplekt aktiivsena. Jagatud tegelased ilmuvad ainult üks kord.
 
 Valige jaotises Üldine liidese keel. See ei muuda teie aktiivseid märgikomplekte.
@@ -29,5 +31,29 @@ a b c d e f g h i j k l m n o p q r s š z ž t u v w õ ä ö ü x y
 | `o` | `õ` · `Õ` · `ö` · `Ö` |
 | `a` | `ä` · `Ä` |
 | `u` | `ü` · `Ü` |
+
+## Erimärgikomplektid · Valuutad
+
+Üldine → tegelased → Erimärgikomplektid → Valuutad
+
+| kirjutamine | variandid |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

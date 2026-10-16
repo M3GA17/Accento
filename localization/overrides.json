@@ -1,116 +1,322 @@
 {
   "pt": {
-    "General": "Geral"
+    "General": "Geral",
+    "SpecialSets": "Conjuntos especiais",
+    "Currency": "Moedas",
+    "LanguageSets": "Idiomas",
+    "AllAvailable": "Todos disponíveis"
   },
   "ro": {
-    "General": "Generale"
+    "General": "Generale",
+    "SpecialSets": "Seturi speciale",
+    "Currency": "Monede",
+    "LanguageSets": "Limbi",
+    "AllAvailable": "Toate disponibile"
   },
   "pl": {
-    "General": "Ogólne"
+    "General": "Ogólne",
+    "SpecialSets": "Zestawy specjalne",
+    "Currency": "Waluty",
+    "LanguageSets": "Języki",
+    "AllAvailable": "Wszystkie dostępne"
   },
   "nl": {
-    "General": "Algemeen"
+    "General": "Algemeen",
+    "SpecialSets": "Speciale sets",
+    "Currency": "Valuta",
+    "LanguageSets": "Talen",
+    "AllAvailable": "Alle beschikbare"
   },
   "lb": {
-    "General": "Allgemeng"
+    "General": "Allgemeng",
+    "SpecialSets": "Speziell Zeechesätz",
+    "Currency": "Währungen",
+    "LanguageSets": "Sproochen",
+    "AllAvailable": "All verfügbar"
   },
   "da": {
-    "General": "Generelt"
+    "General": "Generelt",
+    "SpecialSets": "Særlige tegnsæt",
+    "Currency": "Valutaer",
+    "LanguageSets": "Sprog",
+    "AllAvailable": "Alle tilgængelige"
   },
   "sv": {
-    "General": "Allmänt"
+    "General": "Allmänt",
+    "SpecialSets": "Specialuppsättningar",
+    "Currency": "Valutor",
+    "LanguageSets": "Språk",
+    "AllAvailable": "Alla tillgängliga"
   },
   "nb": {
-    "General": "Generelt"
+    "General": "Generelt",
+    "SpecialSets": "Spesielle tegnsett",
+    "Currency": "Valutaer",
+    "LanguageSets": "Språk",
+    "AllAvailable": "Alle tilgjengelige"
   },
   "fi": {
-    "General": "Yleiset"
+    "General": "Yleiset",
+    "SpecialSets": "Erikoismerkkijoukot",
+    "Currency": "Valuutat",
+    "LanguageSets": "Kielet",
+    "AllAvailable": "Kaikki saatavilla"
   },
   "is": {
-    "General": "Almennt"
+    "General": "Almennt",
+    "SpecialSets": "Sértæk stafasöfn",
+    "Currency": "Gjaldmiðlar",
+    "LanguageSets": "Tungumál",
+    "AllAvailable": "Öll tiltæk"
   },
   "et": {
-    "General": "Üldine"
+    "General": "Üldine",
+    "SpecialSets": "Erimärgikomplektid",
+    "Currency": "Valuutad",
+    "LanguageSets": "Keeled",
+    "AllAvailable": "Kõik saadaolevad"
   },
   "lv": {
-    "General": "Vispārīgi"
+    "General": "Vispārīgi",
+    "SpecialSets": "Īpašās rakstzīmju kopas",
+    "Currency": "Valūtas",
+    "LanguageSets": "Valodas",
+    "AllAvailable": "Visi pieejamie"
   },
   "lt": {
-    "General": "Bendrieji"
+    "General": "Bendrieji",
+    "SpecialSets": "Specialieji rinkiniai",
+    "Currency": "Valiutos",
+    "LanguageSets": "Kalbos",
+    "AllAvailable": "Visi galimi"
   },
   "cs": {
-    "General": "Obecné"
+    "General": "Obecné",
+    "SpecialSets": "Speciální sady",
+    "Currency": "Měny",
+    "LanguageSets": "Jazyky",
+    "AllAvailable": "Všechny dostupné"
   },
   "sk": {
-    "General": "Všeobecné"
+    "General": "Všeobecné",
+    "SpecialSets": "Špeciálne sady",
+    "Currency": "Meny",
+    "LanguageSets": "Jazyky",
+    "AllAvailable": "Všetky dostupné"
   },
   "hu": {
-    "General": "Általános"
+    "General": "Általános",
+    "SpecialSets": "Speciális készletek",
+    "Currency": "Pénznemek",
+    "LanguageSets": "Nyelvek",
+    "AllAvailable": "Összes elérhető"
   },
   "sl": {
-    "General": "Splošno"
+    "General": "Splošno",
+    "SpecialSets": "Posebni nabori",
+    "Currency": "Valute",
+    "LanguageSets": "Jeziki",
+    "AllAvailable": "Vsi razpoložljivi"
   },
   "hr": {
-    "General": "Općenito"
+    "General": "Općenito",
+    "SpecialSets": "Posebni skupovi",
+    "Currency": "Valute",
+    "LanguageSets": "Jezici",
+    "AllAvailable": "Svi dostupni"
   },
   "bs": {
-    "General": "Općenito"
+    "General": "Općenito",
+    "SpecialSets": "Posebni skupovi",
+    "Currency": "Valute",
+    "LanguageSets": "Jezici",
+    "AllAvailable": "Svi dostupni"
   },
   "bs-Cyrl": {
-    "General": "Опћенито"
+    "General": "Опћенито",
+    "SpecialSets": "Посебни скупови",
+    "Currency": "Валуте",
+    "LanguageSets": "Језици",
+    "AllAvailable": "Сви доступни"
   },
   "sr": {
-    "General": "Опште"
+    "General": "Опште",
+    "SpecialSets": "Посебни скупови",
+    "Currency": "Валуте",
+    "LanguageSets": "Језици",
+    "AllAvailable": "Сви доступни"
   },
   "sr-Latn": {
-    "General": "Opšte"
+    "General": "Opšte",
+    "SpecialSets": "Posebni skupovi",
+    "Currency": "Valute",
+    "LanguageSets": "Jezici",
+    "AllAvailable": "Svi dostupni"
   },
   "cnr": {
-    "General": "Opšte"
+    "General": "Opšte",
+    "SpecialSets": "Posebni skupovi",
+    "Currency": "Valute",
+    "LanguageSets": "Jezici",
+    "AllAvailable": "Svi dostupni"
   },
   "cnr-Cyrl": {
-    "General": "Опште"
+    "General": "Опште",
+    "SpecialSets": "Посебни скупови",
+    "Currency": "Валуте",
+    "LanguageSets": "Језици",
+    "AllAvailable": "Сви доступни"
   },
   "mk": {
-    "General": "Општо"
+    "General": "Општо",
+    "SpecialSets": "Специјални множества",
+    "Currency": "Валути",
+    "LanguageSets": "Јазици",
+    "AllAvailable": "Сите достапни"
   },
   "bg": {
-    "General": "Общи"
+    "General": "Общи",
+    "SpecialSets": "Специални набори",
+    "Currency": "Валути",
+    "LanguageSets": "Езици",
+    "AllAvailable": "Всички налични"
   },
   "el": {
-    "General": "Γενικά"
+    "General": "Γενικά",
+    "SpecialSets": "Ειδικά σύνολα",
+    "Currency": "Νομίσματα",
+    "LanguageSets": "Γλώσσες",
+    "AllAvailable": "Όλα τα διαθέσιμα"
   },
   "be": {
-    "General": "Агульныя"
+    "General": "Агульныя",
+    "SpecialSets": "Спецыяльныя наборы",
+    "Currency": "Валюты",
+    "LanguageSets": "Мовы",
+    "AllAvailable": "Усе даступныя"
   },
   "uk": {
-    "General": "Загальні"
+    "General": "Загальні",
+    "SpecialSets": "Спеціальні набори",
+    "Currency": "Валюти",
+    "LanguageSets": "Мови",
+    "AllAvailable": "Усі доступні"
   },
   "ru": {
-    "General": "Общие"
+    "General": "Общие",
+    "SpecialSets": "Специальные наборы",
+    "Currency": "Валюты",
+    "LanguageSets": "Языки",
+    "AllAvailable": "Все доступные"
   },
   "ga": {
-    "General": "Ginearálta"
+    "General": "Ginearálta",
+    "SpecialSets": "Tacair speisialta",
+    "Currency": "Airgeadraí",
+    "LanguageSets": "Teangacha",
+    "AllAvailable": "Gach ceann ar fáil"
   },
   "mt": {
-    "General": "Ġenerali"
+    "General": "Ġenerali",
+    "SpecialSets": "Settijiet speċjali",
+    "Currency": "Muniti",
+    "LanguageSets": "Lingwi",
+    "AllAvailable": "Kollha disponibbli"
   },
   "ca": {
-    "General": "General"
+    "General": "General",
+    "SpecialSets": "Conjunts especials",
+    "Currency": "Divises",
+    "LanguageSets": "Llengües",
+    "AllAvailable": "Tots disponibles"
   },
   "hy": {
-    "General": "Ընդհանուր"
+    "General": "Ընդհանուր",
+    "SpecialSets": "Հատուկ հավաքածուներ",
+    "Currency": "Արժույթներ",
+    "LanguageSets": "Լեզուներ",
+    "AllAvailable": "Բոլոր հասանելիները"
   },
   "ka": {
-    "General": "ზოგადი"
+    "General": "ზოგადი",
+    "SpecialSets": "სპეციალური ნაკრებები",
+    "Currency": "ვალუტები",
+    "LanguageSets": "ენები",
+    "AllAvailable": "ყველა ხელმისაწვდომი"
   },
   "az": {
-    "General": "Ümumi"
+    "General": "Ümumi",
+    "SpecialSets": "Xüsusi dəstlər",
+    "Currency": "Valyutalar",
+    "LanguageSets": "Dillər",
+    "AllAvailable": "Bütün mövcudlar"
   },
   "kk": {
-    "General": "Жалпы"
+    "General": "Жалпы",
+    "SpecialSets": "Арнайы жиындар",
+    "Currency": "Валюталар",
+    "LanguageSets": "Тілдер",
+    "AllAvailable": "Барлық қолжетімді"
   },
   "la": {
-    "General": "Generalia"
+    "General": "Generalia",
+    "SpecialSets": "Coniunctiones speciales",
+    "Currency": "Monetae",
+    "LanguageSets": "Linguae",
+    "AllAvailable": "Omnia disponibilia"
+  },
+  "it": {
+    "SpecialSets": "Set speciali",
+    "Currency": "Valute",
+    "LanguageSets": "Lingue",
+    "AllAvailable": "Tutte disponibili"
+  },
+  "en": {
+    "SpecialSets": "Special sets",
+    "Currency": "Currency",
+    "LanguageSets": "Languages",
+    "AllAvailable": "All available"
+  },
+  "sq": {
+    "SpecialSets": "Grupe të veçanta",
+    "Currency": "Monedha",
+    "LanguageSets": "Gjuhët",
+    "AllAvailable": "Të gjitha të disponueshme"
+  },
+  "fr": {
+    "SpecialSets": "Jeux spéciaux",
+    "Currency": "Devises",
+    "LanguageSets": "Langues",
+    "AllAvailable": "Tous disponibles"
+  },
+  "es": {
+    "SpecialSets": "Conjuntos especiales",
+    "Currency": "Divisas",
+    "LanguageSets": "Idiomas",
+    "AllAvailable": "Todos disponibles"
+  },
+  "de": {
+    "SpecialSets": "Spezielle Zeichensätze",
+    "Currency": "Währungen",
+    "LanguageSets": "Sprachen",
+    "AllAvailable": "Alle verfügbaren"
+  },
+  "tr": {
+    "SpecialSets": "Özel kümeler",
+    "Currency": "Para birimleri",
+    "LanguageSets": "Diller",
+    "AllAvailable": "Tümü kullanılabilir"
+  },
+  "rm": {
+    "SpecialSets": "Collecziuns spezialas",
+    "Currency": "Valutas",
+    "LanguageSets": "Linguas",
+    "AllAvailable": "Tuts disponibels"
+  },
+  "nn": {
+    "SpecialSets": "Spesielle teiknsett",
+    "Currency": "Valutaer",
+    "LanguageSets": "Språk",
+    "AllAvailable": "Alle tilgjengelege"
   }
 }

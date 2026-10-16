@@ -6,6 +6,8 @@ Otvorte Accento.exe v systéme Windows. Rozhranie nastavení je vždy tmavé.
 
 Podržte písmeno, stlačte a uvoľnite medzerník, potom uvoľnite písmeno, aby ste vložili vybraný znak. Na zmenu použite vľavo, vpravo alebo medzerník. Únik sa ruší.
 
+Všeobecné → Sady znakov
+
 Otvorte sady znakov a povoľte jazyky, v ktorých píšete. Ponechajte aspoň jednu sadu aktívnu. Zdieľané postavy sa objavia iba raz.
 
 Vyberte jazyk rozhrania v časti Všeobecné. Toto nezmení vaše aktívne znakové sady.
@@ -38,5 +40,29 @@ a á ä b c č d ď dz dž e é f g h ch i í j k l ĺ ľ m n ň o ó ô p q r �
 | `u` | `ú` · `Ú` |
 | `y` | `ý` · `Ý` |
 | `z` | `ž` · `Ž` |
+
+## Špeciálne sady · Meny
+
+Všeobecné → Sady znakov → Špeciálne sady → Meny
+
+| Písanie | Varianty |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

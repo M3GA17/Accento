@@ -6,6 +6,8 @@ Open Accento.exe on Windows. The settings interface is always dark.
 
 Hold a letter, press and release Space, then release the letter to insert the selected character. Use Left, Right or Space to change it. Escape cancels.
 
+General → Character sets
+
 Open Character sets and enable the languages you write in. Keep at least one set active. Shared characters appear only once.
 
 Choose the interface language in General. This does not change your active character sets.
@@ -24,5 +26,29 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z
 
 | Writing | Variants |
 | --- | --- |
+
+## Special sets · Currency
+
+General → Character sets → Special sets → Currency
+
+| Writing | Variants |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

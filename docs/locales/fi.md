@@ -6,6 +6,8 @@ Avaa Accento.exe Windowsissa. Asetuskäyttöliittymä on aina pimeä.
 
 Pidä kirjainta painettuna, paina välilyöntiä ja vapauta se ja vapauta sitten kirjain lisätäksesi valitun merkin. Käytä vasenta, oikeaa tai välilyöntiä muuttaaksesi sitä. Pako peruuntuu.
 
+Yleiset → Hahmosarjat
+
 Avaa merkistöjä ja ota käyttöön kielet, joilla kirjoitat. Pidä vähintään yksi sarja aktiivisena. Jaetut merkit näkyvät vain kerran.
 
 Valitse käyttöliittymän kieli Yleistä. Tämä ei muuta aktiivisia merkistöjäsi.
@@ -28,5 +30,29 @@ a b c d e f g h i j k l m n o p q r s š t u v w x y z ž å ä ö
 | `z` | `ž` · `Ž` |
 | `a` | `å` · `Å` · `ä` · `Ä` |
 | `o` | `ö` · `Ö` |
+
+## Erikoismerkkijoukot · Valuutat
+
+Yleiset → Hahmosarjat → Erikoismerkkijoukot → Valuutat
+
+| Kirjoittaminen | Vaihtoehdot |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

@@ -6,6 +6,8 @@
 
 Hold et bogstav, tryk og slip Mellemrum, og slip derefter bogstavet for at indsætte det valgte tegn. Brug Venstre, Højre eller Mellemrum for at ændre det. Escape annullerer.
 
+Generelt → Karaktersæt
+
 Åbn tegnsæt og aktiver de sprog, du skriver på. Hold mindst ét ​​sæt aktivt. Delte tegn vises kun én gang.
 
 Vælg grænsefladesproget generelt. Dette ændrer ikke dine aktive tegnsæt.
@@ -26,5 +28,29 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z æ ø å
 | --- | --- |
 | `a` | `æ` · `Æ` · `å` · `Å` |
 | `o` | `ø` · `Ø` |
+
+## Særlige tegnsæt · Valutaer
+
+Generelt → Karaktersæt → Særlige tegnsæt → Valutaer
+
+| Skrivning | Varianter |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

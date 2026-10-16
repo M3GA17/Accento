@@ -6,6 +6,8 @@ Obriu Accento.exe a Windows. La interfície de configuració és sempre fosca.
 
 Mantingueu premuda una lletra, premeu i deixeu anar l'espai i, a continuació, deixeu anar la lletra per inserir el caràcter seleccionat. Utilitzeu l'esquerra, la dreta o l'espai per canviar-ho. Es cancel·la la fugida.
 
+General → conjunts de caràcters
+
 Obriu els conjunts de caràcters i activeu els idiomes en què escriviu. Manteniu almenys un conjunt actiu. Els personatges compartits només apareixen una vegada.
 
 Trieu l'idioma de la interfície en general. Això no canvia els vostres conjunts de caràcters actius.
@@ -31,5 +33,29 @@ l'alfabet estàndard i les associacions de claus disponibles es mostren a contin
 | `o` | `ó` · `Ó` · `ò` · `Ò` |
 | `u` | `ú` · `Ú` · `ü` · `Ü` |
 | `l` | `l·l` · `L·L` · `·` |
+
+## Conjunts especials · Divises
+
+General → conjunts de caràcters → Conjunts especials → Divises
+
+| Escriptura | Variants |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

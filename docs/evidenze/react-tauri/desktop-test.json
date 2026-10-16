@@ -1,10 +1,11 @@
 {
   "passed": true,
-  "executable": "C:\\PROJECTS\\Github\\Accento\\target\\debug\\Accento.exe",
+  "executable": "C:\\PROJECTS\\Github\\Accento\\target\\verify-beta2\\installer\\Accento.exe",
   "loadedUrl": "http://tauri.localhost/",
   "locales": 47,
   "checks": [
     "Tauri/WebView2 startup",
+    "currency toggle saves independently and persists through Rust IPC",
     "Rust get/save/pause IPC",
     "invalid configuration rejected without changing state",
     "all national locales and character sets accepted",

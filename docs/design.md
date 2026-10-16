@@ -1,4 +1,4 @@
-> **Stato corrente 0.6:** impostazioni React/Tauri con componenti DimaLabs Flat Product, sempre scure. Generale contiene ritardo, lingua e guida; non contiene Aspetto né collegamenti ai set attivi. Il catalogo europeo e le guide seguono [copertura-europa.md](copertura-europa.md). I riferimenti grafici precedenti qui sotto descrivono la fase nativa storica e non sono la specifica corrente delle impostazioni.
+> **Stato corrente:** impostazioni React/Tauri con componenti e stili locali di Accento, sempre scure. La navigazione comprende Generale e BlackList. Generale riunisce ritardo e lingua sulla stessa riga e il selettore dei caratteri subito sotto, senza pagina Set caratteri separata, intestazioni decorative o riquadro guida. Il selettore conserva struttura compatta a checkbox, ricerca, set speciali, espansione e selezione complessiva, usando esclusivamente palette neutra e controlli di Accento. Il catalogo europeo e le guide seguono [copertura-europa.md](copertura-europa.md). I riferimenti precedenti descrivono le fasi storiche del progetto.
 
 # Direzione visiva di Accento
 

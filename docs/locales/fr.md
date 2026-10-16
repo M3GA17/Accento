@@ -6,6 +6,8 @@ ouvrez Accento.exe sous Windows. L'interface des paramètres est toujours sombre
 
 Maintenez une lettre enfoncée, appuyez et relâchez Espace, puis relâchez la lettre pour insérer le caractère sélectionné. Utilisez Gauche, Droite ou Espace pour le modifier. L'évasion s'annule.
 
+Général → Jeux de caractères
+
 ouvrez les jeux de caractères et activez les langues dans lesquelles vous écrivez. Gardez au moins un jeu actif. Les personnages partagés n'apparaissent qu'une seule fois.
 
 Choisissez la langue de l'interface en général. Cela ne modifie pas vos jeux de caractères actifs.
@@ -31,5 +33,29 @@ a à â æ b c ç d e é è ê ë f g h i î ï j k l m n o ô œ p q r s t u ù
 | `o` | `ô` · `Ô` · `œ` · `Œ` |
 | `u` | `ù` · `Ù` · `û` · `Û` · `ü` · `Ü` |
 | `y` | `ÿ` · `Ÿ` |
+
+## Jeux spéciaux · Devises
+
+Général → Jeux de caractères → Jeux spéciaux → Devises
+
+| Écriture | Variantes |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

@@ -1,8 +1,8 @@
 import {invoke, isTauri} from '@tauri-apps/api/core';
 import {listen} from '@tauri-apps/api/event';
-export type Preferences = {schema_version:number;delay_ms:number;languages:string[];theme:'system'|'light'|'dark';ui_language:string;excluded_apps:string[]};
+export type Preferences = {schema_version:number;delay_ms:number;languages:string[];currency_symbols:boolean;theme:'system'|'light'|'dark';ui_language:string;excluded_apps:string[]};
 export type Snapshot = {preferences:Preferences;paused:boolean;warning:string|null};
-export const defaults:Preferences = {schema_version:1,delay_ms:300,languages:['it'],theme:'dark',ui_language:'it',excluded_apps:[]};
+export const defaults:Preferences = {schema_version:1,delay_ms:300,languages:['it'],currency_symbols:true,theme:'dark',ui_language:'it',excluded_apps:[]};
 export const desktop = isTauri();
 // Browser preview is explicitly opt-in, transient, and never touches real user preferences.
 export const preview = !desktop && new URLSearchParams(location.search).get('preview') === '1';

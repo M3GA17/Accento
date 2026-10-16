@@ -4,8 +4,6 @@ Inventario dei pacchetti di produzione fissati in `package-lock.json`. La build 
 
 | Pacchetto | Versione | Licenza dichiarata |
 | --- | --- | --- |
-| @dimalabs/react-component-flat-product | 0.1.1 | Pacchetto locale DimaLabs; licenza non dichiarata nel manifest |
-| @dimalabs/react-component-primitives | 0.2.0 | Pacchetto locale DimaLabs; licenza non dichiarata nel manifest |
 | @internationalized/date | 3.12.4 | Apache-2.0 |
 | @internationalized/number | 3.6.9 | Apache-2.0 |
 | @internationalized/string | 3.2.10 | Apache-2.0 |

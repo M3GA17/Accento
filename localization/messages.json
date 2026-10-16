@@ -72,7 +72,11 @@
     "GuideReview": "Questa guida tradotta è una bozza e non è stata rivista da un madrelingua.",
     "GuideAlphabet": "L'alfabeto standard e le associazioni dei tasti disponibili sono elencati di seguito. Digita normalmente le lettere ordinarie. Il popup supporta anche i digrafi e i segni di combinazione; non sostituisce un metodo di input.",
     "NativeAppHint": "Nome del processo, per esempio firefox su Linux o Safari su macOS.",
-    "NativeAppError": "Inserisci un nome di processo, senza percorsi, virgole o caratteri jolly."
+    "NativeAppError": "Inserisci un nome di processo, senza percorsi, virgole o caratteri jolly.",
+    "SpecialSets": "Set speciali",
+    "Currency": "Valute",
+    "LanguageSets": "Lingue",
+    "AllAvailable": "Tutte disponibili"
   },
   "en": {
     "KeepEditing": "Keep editing",
@@ -147,7 +151,11 @@
     "GuideReview": "This translated guide is a draft and has not been reviewed by a native speaker.",
     "GuideAlphabet": "The standard alphabet and available key associations are listed below. Type ordinary letters normally. The popup also supports digraphs and combining marks; it does not replace an input method.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Special sets",
+    "Currency": "Currency",
+    "LanguageSets": "Languages",
+    "AllAvailable": "All available"
   },
   "sq": {
     "KeepEditing": "Vazhdo redaktimin",
@@ -222,7 +230,11 @@
     "GuideReview": "Ky udhëzues i përkthyer është një draft dhe nuk është shqyrtuar nga një folës amtare.",
     "GuideAlphabet": "Alfabeti standard dhe lidhjet kryesore të disponueshme janë renditur më poshtë. Shkruani shkronjat e zakonshme normalisht. Popup-i gjithashtu mbështet digrafët dhe shenjat e kombinuara; ai nuk zëvendëson një metodë të hyrjes.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Grupe të veçanta",
+    "Currency": "Monedha",
+    "LanguageSets": "Gjuhët",
+    "AllAvailable": "Të gjitha të disponueshme"
   },
   "fr": {
     "KeepEditing": "Continuer la modification",
@@ -297,7 +309,11 @@
     "GuideReview": "Ce guide traduit est une ébauche et n’a pas été révisé par un locuteur natif.",
     "GuideAlphabet": "L'alphabet standard et les associations de touches disponibles sont répertoriés ci-dessous. Tapez normalement des lettres ordinaires. La fenêtre contextuelle prend également en charge les digraphes et les marques de combinaison ; il ne remplace pas une méthode de saisie.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Jeux spéciaux",
+    "Currency": "Devises",
+    "LanguageSets": "Langues",
+    "AllAvailable": "Tous disponibles"
   },
   "es": {
     "KeepEditing": "Seguir editando",
@@ -372,7 +388,11 @@
     "GuideReview": "Esta guía traducida es un borrador y no ha sido revisada por un hablante nativo.",
     "GuideAlphabet": "El alfabeto estándar y las asociaciones de claves disponibles se enumeran a continuación. Escriba letras ordinarias con normalidad. La ventana emergente también admite dígrafos y marcas combinadas; no reemplaza un método de entrada.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Conjuntos especiales",
+    "Currency": "Divisas",
+    "LanguageSets": "Idiomas",
+    "AllAvailable": "Todos disponibles"
   },
   "de": {
     "KeepEditing": "Weiter bearbeiten",
@@ -447,7 +467,11 @@
     "GuideReview": "Dieser übersetzte Leitfaden ist ein Entwurf und wurde nicht von einem Muttersprachler überprüft.",
     "GuideAlphabet": "Das Standardalphabet und die verfügbaren Schlüsselzuordnungen sind unten aufgeführt. Geben Sie normale Buchstaben normal ein. Das Popup unterstützt auch Digraphen und Kombinationszeichen; Es ersetzt keine Eingabemethode.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Spezielle Zeichensätze",
+    "Currency": "Währungen",
+    "LanguageSets": "Sprachen",
+    "AllAvailable": "Alle verfügbaren"
   },
   "pt": {
     "KeepEditing": "Continue editando",
@@ -522,7 +546,11 @@
     "GeneralHint": "Escrita e linguagem. Tudo em um só lugar.",
     "GuideAlphabet": "O alfabeto padrão e as associações de teclas disponíveis estão listados abaixo. Digite letras comuns normalmente. O pop-up também suporta dígrafos e marcas de combinação; ele não substitui um método de entrada.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Conjuntos especiais",
+    "Currency": "Moedas",
+    "LanguageSets": "Idiomas",
+    "AllAvailable": "Todos disponíveis"
   },
   "ro": {
     "KeepEditing": "Continuați să editați",
@@ -597,7 +625,11 @@
     "GeneralHint": "scriere și limbaj. Toate într-un singur loc.",
     "GuideAlphabet": "alfabetul standard și asocierile de chei disponibile sunt enumerate mai jos. Introduceți litere obișnuite în mod normal. Fereastra pop-up acceptă, de asemenea, digrafe și semne de combinare; nu înlocuiește o metodă de introducere.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Seturi speciale",
+    "Currency": "Monede",
+    "LanguageSets": "Limbi",
+    "AllAvailable": "Toate disponibile"
   },
   "pl": {
     "KeepEditing": "Edytuj dalej",
@@ -672,7 +704,11 @@
     "GeneralHint": "Pismo i język. Wszystko w jednym miejscu.",
     "GuideAlphabet": "Poniżej wymieniono standardowy alfabet i dostępne powiązania klawiszy. Wpisz normalnie zwykłe litery. Wyskakujące okienko obsługuje także dwuznaki i znaki łączące; nie zastępuje metody wprowadzania.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Zestawy specjalne",
+    "Currency": "Waluty",
+    "LanguageSets": "Języki",
+    "AllAvailable": "Wszystkie dostępne"
   },
   "tr": {
     "KeepEditing": "Düzenlemeye devam edin",
@@ -747,7 +783,11 @@
     "GeneralHint": "Yazı ve dil. Hepsi tek bir yerde.",
     "GuideAlphabet": "Standart alfabe ve mevcut tuş ilişkileri aşağıda listelenmiştir. Sıradan harfleri normal şekilde yazın. Açılır pencere ayrıca digrafları ve birleştirme işaretlerini de destekler; bir giriş yönteminin yerini almaz.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Özel kümeler",
+    "Currency": "Para birimleri",
+    "LanguageSets": "Diller",
+    "AllAvailable": "Tümü kullanılabilir"
   },
   "nl": {
     "KeepEditing": "blijf bewerken",
@@ -822,7 +862,11 @@
     "GeneralHint": "Schrijven en taal. Alles op één plek.",
     "GuideAlphabet": "Het standaardalfabet en de beschikbare toetsassociaties worden hieronder vermeld. Typ gewone letters normaal. De pop-up ondersteunt ook digraphs en het combineren van markeringen; het vervangt geen invoermethode.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Speciale sets",
+    "Currency": "Valuta",
+    "LanguageSets": "Talen",
+    "AllAvailable": "Alle beschikbare"
   },
   "lb": {
     "KeepEditing": "Weiderhin Redaktioun",
@@ -897,7 +941,11 @@
     "GeneralHint": "Schreiwen a Sprooch. Alles op enger Plaz.",
     "GuideAlphabet": "D'Standardalfabet an d'verfügbare Schlësselverbänn sinn hei ënnen opgezielt. Typ normal Buschtawen. De Popup ënnerstëtzt och Digraphen a Kombinatiounszeechen; et ersetzt net eng Input Method.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Speziell Zeechesätz",
+    "Currency": "Währungen",
+    "LanguageSets": "Sproochen",
+    "AllAvailable": "All verfügbar"
   },
   "rm": {
     "KeepEditing": "Cuntinuar a modifitgar",
@@ -972,7 +1020,11 @@
     "GuideAlphabet": "L'alfabet standard e las associaziuns da tastas èn inditgads qua sut. Scriva normalmain ils bustabs ordinairs. Il selectur sustegna era digrafs e segns cumbinants, ma na remplazza betg ina metoda d'endataziun.",
     "GuideReview": "Questa guida translatada è in sboz e n'è betg vegnida verifitgada d'ina persuna da lingua materna.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Collecziuns spezialas",
+    "Currency": "Valutas",
+    "LanguageSets": "Linguas",
+    "AllAvailable": "Tuts disponibels"
   },
   "da": {
     "KeepEditing": "Fortsæt med at redigere",
@@ -1047,7 +1099,11 @@
     "GeneralHint": "Skrift og sprog. Alt sammen ét sted.",
     "GuideAlphabet": "Standardalfabetet og tilgængelige nøgleassociationer er anført nedenfor. Skriv almindelige bogstaver normalt. Popup'et understøtter også digrafer og kombinationsmærker; det erstatter ikke en indtastningsmetode.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Særlige tegnsæt",
+    "Currency": "Valutaer",
+    "LanguageSets": "Sprog",
+    "AllAvailable": "Alle tilgængelige"
   },
   "sv": {
     "KeepEditing": "Fortsätt redigera",
@@ -1122,7 +1178,11 @@
     "GeneralHint": "Skrivande och språk. Allt på ett ställe.",
     "GuideAlphabet": "Standardalfabetet och tillgängliga nyckelassociationer listas nedan. Skriv vanliga bokstäver normalt. Popup-fönstret stöder även digrafer och kombinationsmärken; den ersätter inte en inmatningsmetod.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Specialuppsättningar",
+    "Currency": "Valutor",
+    "LanguageSets": "Språk",
+    "AllAvailable": "Alla tillgängliga"
   },
   "nb": {
     "KeepEditing": "Fortsett å redigere",
@@ -1197,7 +1257,11 @@
     "GeneralHint": "Skriving og språk. Alt på ett sted.",
     "GuideAlphabet": "Standardalfabetet og tilgjengelige nøkkelassosiasjoner er oppført nedenfor. Skriv vanlige bokstaver normalt. Popup-vinduet støtter også digrafer og kombinasjonsmerker; den erstatter ikke en inndatametode.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Spesielle tegnsett",
+    "Currency": "Valutaer",
+    "LanguageSets": "Språk",
+    "AllAvailable": "Alle tilgjengelige"
   },
   "nn": {
     "KeepEditing": "Hald fram med å redigere",
@@ -1272,7 +1336,11 @@
     "GuideAlphabet": "Standardalfabetet og tilgjengelege tastetilordningar står nedanfor. Skriv vanlege bokstavar som normalt. Veljaren støttar òg digrafar og kombinerande teikn, men erstattar ikkje ein inndatametode.",
     "GuideReview": "Denne omsette rettleiinga er eit utkast og er ikkje gjennomgått av ein morsmålsbrukar.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Spesielle teiknsett",
+    "Currency": "Valutaer",
+    "LanguageSets": "Språk",
+    "AllAvailable": "Alle tilgjengelege"
   },
   "fi": {
     "KeepEditing": "Jatka muokkaamista",
@@ -1347,7 +1415,11 @@
     "GeneralHint": "Kirjoittaminen ja kieli. Kaikki yhdessä paikassa.",
     "GuideAlphabet": "Vakioaakkoset ja käytettävissä olevat näppäinyhdistelmät on lueteltu alla. Kirjoita tavalliset kirjaimet normaalisti. Ponnahdusikkuna tukee myös digrafeja ja merkkien yhdistämistä; se ei korvaa syöttötapaa.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Erikoismerkkijoukot",
+    "Currency": "Valuutat",
+    "LanguageSets": "Kielet",
+    "AllAvailable": "Kaikki saatavilla"
   },
   "is": {
     "KeepEditing": "Haltu áfram að breyta",
@@ -1422,7 +1494,11 @@
     "GeneralHint": "Ritun og tungumál. Allt á einum stað.",
     "GuideAlphabet": "Staðlað stafróf og tiltæk lykiltengsl eru skráð hér að neðan. Skrifaðu venjulega stafi venjulega. Sprettigluggan styður einnig tvírit og samsetningarmerki; það kemur ekki í stað innsláttaraðferðar.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Sértæk stafasöfn",
+    "Currency": "Gjaldmiðlar",
+    "LanguageSets": "Tungumál",
+    "AllAvailable": "Öll tiltæk"
   },
   "et": {
     "KeepEditing": "jätkake toimetamist",
@@ -1497,7 +1573,11 @@
     "GeneralHint": "kirjutamine ja keel. Kõik ühes kohas.",
     "GuideAlphabet": "Standardtähestik ja saadaolevad võtmeseosed on loetletud allpool. Sisestage tavalised tähed. Hüpikaken toetab ka digraafe ja märkide kombineerimist; see ei asenda sisestusmeetodit.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Erimärgikomplektid",
+    "Currency": "Valuutad",
+    "LanguageSets": "Keeled",
+    "AllAvailable": "Kõik saadaolevad"
   },
   "lv": {
     "KeepEditing": "turpiniet rediģēt",
@@ -1572,7 +1652,11 @@
     "GeneralHint": "Rakstniecība un valoda. Viss vienuviet.",
     "GuideAlphabet": "Standarta alfabēts un pieejamās taustiņu asociācijas ir norādītas zemāk. Rakstiet parastos burtus kā parasti. Uznirstošais logs atbalsta arī divrakstus un atzīmju kombinēšanu; tas neaizstāj ievades metodi.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Īpašās rakstzīmju kopas",
+    "Currency": "Valūtas",
+    "LanguageSets": "Valodas",
+    "AllAvailable": "Visi pieejamie"
   },
   "lt": {
     "KeepEditing": "Tęskite redagavimą",
@@ -1647,7 +1731,11 @@
     "GeneralHint": "Rašymas ir kalba. Viskas vienoje vietoje.",
     "GuideAlphabet": "Standartinė abėcėlė ir galimos raktų asociacijos pateikiamos žemiau. Įveskite įprastas raides. Iššokantis langas taip pat palaiko dvigrafus ir ženklų derinimą; jis nepakeičia įvesties metodo.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Specialieji rinkiniai",
+    "Currency": "Valiutos",
+    "LanguageSets": "Kalbos",
+    "AllAvailable": "Visi galimi"
   },
   "cs": {
     "KeepEditing": "Pokračujte v úpravách",
@@ -1722,7 +1810,11 @@
     "GeneralHint": "Psaní a jazyk. Vše na jednom místě.",
     "GuideAlphabet": "Standardní abeceda a dostupné asociace klíčů jsou uvedeny níže. Pište běžná písmena normálně. Vyskakovací okno také podporuje digrafy a kombinování značek; nenahrazuje metodu zadávání.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Speciální sady",
+    "Currency": "Měny",
+    "LanguageSets": "Jazyky",
+    "AllAvailable": "Všechny dostupné"
   },
   "sk": {
     "KeepEditing": "Pokračujte v úpravách",
@@ -1797,7 +1889,11 @@
     "GeneralHint": "Písanie a jazyk. Všetko na jednom mieste.",
     "GuideAlphabet": "Štandardná abeceda a dostupné asociácie kľúčov sú uvedené nižšie. Napíšte bežné písmená normálne. Vyskakovacie okno tiež podporuje digrafy a kombinovanie značiek; nenahrádza metódu vstupu.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Špeciálne sady",
+    "Currency": "Meny",
+    "LanguageSets": "Jazyky",
+    "AllAvailable": "Všetky dostupné"
   },
   "hu": {
     "KeepEditing": "Folytasd a szerkesztést",
@@ -1872,7 +1968,11 @@
     "GeneralHint": "Írás és nyelv. Minden egy helyen.",
     "GuideAlphabet": "A szabványos ábécé és az elérhető kulcstársítások az alábbiakban találhatók. A szokásos betűket írja be. A felugró ablak támogatja a digráfokat és a jelek kombinálását is; nem helyettesíti a beviteli módot.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Speciális készletek",
+    "Currency": "Pénznemek",
+    "LanguageSets": "Nyelvek",
+    "AllAvailable": "Összes elérhető"
   },
   "sl": {
     "KeepEditing": "Nadaljujte z urejanjem",
@@ -1947,7 +2047,11 @@
     "GeneralHint": "Pisanje in jezik. Vse na enem mestu.",
     "GuideAlphabet": "Standardna abeceda in razpoložljive povezave ključev so navedene spodaj. Navadne črke tipkajte normalno. Pojavno okno podpira tudi digrafe in kombinirane oznake; ne nadomesti metode vnosa.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Posebni nabori",
+    "Currency": "Valute",
+    "LanguageSets": "Jeziki",
+    "AllAvailable": "Vsi razpoložljivi"
   },
   "hr": {
     "KeepEditing": "Nastavite s uređivanjem",
@@ -2022,7 +2126,11 @@
     "GeneralHint": "Pisanje i jezik. Sve na jednom mjestu.",
     "GuideAlphabet": "Standardna abeceda i dostupne ključne asocijacije navedene su u nastavku. Tipkajte obična slova normalno. Skočni prozor također podržava digrafe i kombinirane oznake; ne zamjenjuje metodu unosa.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Posebni skupovi",
+    "Currency": "Valute",
+    "LanguageSets": "Jezici",
+    "AllAvailable": "Svi dostupni"
   },
   "bs": {
     "KeepEditing": "Nastavite sa uređivanjem",
@@ -2097,7 +2205,11 @@
     "GeneralHint": "Pisanje i jezik. Sve na jednom mestu.",
     "GuideAlphabet": "Standardna abeceda i dostupne asocijacije ključeva su navedene ispod. Upišite obična slova normalno. Iskačući prozor takođe podržava digrafe i kombinovanje oznaka; ne zamjenjuje metodu unosa.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Posebni skupovi",
+    "Currency": "Valute",
+    "LanguageSets": "Jezici",
+    "AllAvailable": "Svi dostupni"
   },
   "bs-Cyrl": {
     "KeepEditing": "Наставите са уређивањем",
@@ -2172,7 +2284,11 @@
     "GeneralHint": "Писање и језик. Све на једном месту.",
     "GuideAlphabet": "Стандардна абецеда и доступне асоцијације кључева су наведене испод. Упишите обична слова нормално. Искачући прозор такође подржава диграфе и комбиновање ознака; не замјењује методу уноса.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Посебни скупови",
+    "Currency": "Валуте",
+    "LanguageSets": "Језици",
+    "AllAvailable": "Сви доступни"
   },
   "sr": {
     "KeepEditing": "Наставите са уређивањем",
@@ -2247,7 +2363,11 @@
     "GeneralHint": "Писање и језик. Све на једном месту.",
     "GuideAlphabet": "Стандардна абецеда и доступне асоцијације кључева су наведене испод. Укуцајте обична слова нормално. Искачући прозор такође подржава диграфе и комбиновање ознака; не замењује метод уноса.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Посебни скупови",
+    "Currency": "Валуте",
+    "LanguageSets": "Језици",
+    "AllAvailable": "Сви доступни"
   },
   "sr-Latn": {
     "KeepEditing": "Nastavite sa uređivanjem",
@@ -2322,7 +2442,11 @@
     "GeneralHint": "Pisanje i jezik. Sve na jednom mestu.",
     "GuideAlphabet": "Standardna abeceda i dostupne asocijacije ključeva su navedene ispod. Ukucajte obična slova normalno. Iskačući prozor takođe podržava digrafe i kombinovanje oznaka; ne zamenjuje metod unosa.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Posebni skupovi",
+    "Currency": "Valute",
+    "LanguageSets": "Jezici",
+    "AllAvailable": "Svi dostupni"
   },
   "cnr": {
     "KeepEditing": "Nastavite sa uređivanjem",
@@ -2397,7 +2521,11 @@
     "GeneralHint": "Pisanje i jezik. Sve na jednom mestu.",
     "GuideAlphabet": "Standardna abeceda i dostupne asocijacije ključeva su navedene ispod. Ukucajte obična slova normalno. Iskačući prozor takođe podržava digrafe i kombinovanje oznaka; ne zamenjuje metod unosa.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Posebni skupovi",
+    "Currency": "Valute",
+    "LanguageSets": "Jezici",
+    "AllAvailable": "Svi dostupni"
   },
   "cnr-Cyrl": {
     "KeepEditing": "Наставите са уређивањем",
@@ -2472,7 +2600,11 @@
     "GeneralHint": "Писање и језик. Све на једном месту.",
     "GuideAlphabet": "Стандардна абецеда и доступне асоцијације кључева су наведене испод. Укуцајте обична слова нормално. Искачући прозор такође подржава диграфе и комбиновање ознака; не замењује метод уноса.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Посебни скупови",
+    "Currency": "Валуте",
+    "LanguageSets": "Језици",
+    "AllAvailable": "Сви доступни"
   },
   "mk": {
     "KeepEditing": "Продолжете да уредувате",
@@ -2547,7 +2679,11 @@
     "GeneralHint": "Пишување и јазик. Сите на едно место.",
     "GuideAlphabet": "Стандардната азбука и достапните асоцијации на клучеви се наведени подолу. Напишете обични букви нормално. Скокачкиот прозорец исто така поддржува диграфи и комбинирање ознаки; не заменува метод на внесување.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Специјални множества",
+    "Currency": "Валути",
+    "LanguageSets": "Јазици",
+    "AllAvailable": "Сите достапни"
   },
   "bg": {
     "KeepEditing": "Продължете да редактирате",
@@ -2622,7 +2758,11 @@
     "GeneralHint": "Писане и език. Всичко на едно място.",
     "GuideAlphabet": "Стандартната азбука и наличните ключови асоциации са изброени по-долу. Въведете обикновени букви нормално. Изскачащият прозорец също поддържа диграфи и комбиниращи знаци; не замества метод на въвеждане.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Специални набори",
+    "Currency": "Валути",
+    "LanguageSets": "Езици",
+    "AllAvailable": "Всички налични"
   },
   "el": {
     "KeepEditing": "Συνεχίστε να επεξεργάζεστε",
@@ -2697,7 +2837,11 @@
     "GeneralHint": "Γραφή και γλώσσα. Όλα σε ένα μέρος.",
     "GuideAlphabet": "Το τυπικό αλφάβητο και οι διαθέσιμοι συσχετισμοί κλειδιών παρατίθενται παρακάτω. Πληκτρολογήστε συνηθισμένα γράμματα κανονικά. Το αναδυόμενο παράθυρο υποστηρίζει επίσης διγράμματα και συνδυασμό σημείων. δεν αντικαθιστά μια μέθοδο εισαγωγής.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Ειδικά σύνολα",
+    "Currency": "Νομίσματα",
+    "LanguageSets": "Γλώσσες",
+    "AllAvailable": "Όλα τα διαθέσιμα"
   },
   "be": {
     "KeepEditing": "Працягнуць рэдагаванне",
@@ -2772,7 +2916,11 @@
     "GeneralHint": "пісьмо і мова. Усё ў адным месцы.",
     "GuideAlphabet": "стандартны алфавіт і даступныя асацыяцыі ключоў пералічаны ніжэй. Набірайце звычайныя літары звычайна. Усплывальнае акно таксама падтрымлівае дыграфы і камбінуючыя знакі; ён не замяняе метад уводу.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Спецыяльныя наборы",
+    "Currency": "Валюты",
+    "LanguageSets": "Мовы",
+    "AllAvailable": "Усе даступныя"
   },
   "uk": {
     "KeepEditing": "Продовжити редагування",
@@ -2847,7 +2995,11 @@
     "GeneralHint": "Писемність і мова. Все в одному місці.",
     "GuideAlphabet": "стандартний алфавіт і доступні зв’язки ключів наведено нижче. Введіть звичайні літери нормально. Спливаюче вікно також підтримує орграфи та об’єднувальні знаки; він не замінює метод введення.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Спеціальні набори",
+    "Currency": "Валюти",
+    "LanguageSets": "Мови",
+    "AllAvailable": "Усі доступні"
   },
   "ru": {
     "KeepEditing": "продолжить редактирование",
@@ -2922,7 +3074,11 @@
     "GeneralHint": "Письмо и язык. Все в одном месте.",
     "GuideAlphabet": "Ниже перечислены стандартный алфавит и доступные сочетания клавиш. Набирайте обычные буквы обычным способом. Всплывающее окно также поддерживает орграфы и комбинированные знаки; он не заменяет метод ввода.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Специальные наборы",
+    "Currency": "Валюты",
+    "LanguageSets": "Языки",
+    "AllAvailable": "Все доступные"
   },
   "ga": {
     "KeepEditing": "Coinnigh ar an eagarthóireacht",
@@ -2997,7 +3153,11 @@
     "GeneralHint": "Scríbhneoireacht agus teanga. Gach in aon áit amháin.",
     "GuideAlphabet": "Tá an aibítir chaighdeánach agus na príomhcheangail atá ar fáil liostaithe thíos. Clóscríobh gnáthlitreacha de ghnáth. Tacaíonn an aníos freisin le déghraif agus le marcanna a chomhcheangal; ní chuireann sé ionad modh ionchuir.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Tacair speisialta",
+    "Currency": "Airgeadraí",
+    "LanguageSets": "Teangacha",
+    "AllAvailable": "Gach ceann ar fáil"
   },
   "mt": {
     "KeepEditing": "Kompli editja",
@@ -3072,7 +3232,11 @@
     "GeneralHint": "Kitba u lingwa. Kollha f'post wieħed.",
     "GuideAlphabet": "L-alfabett standard u l-assoċjazzjonijiet ewlenin disponibbli huma elenkati hawn taħt. Ittri ordinarji Ittri normalment. Il-popup jappoġġja wkoll digrafi u marki li jgħaqqdu; ma jissostitwixxix metodu ta' input.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Settijiet speċjali",
+    "Currency": "Muniti",
+    "LanguageSets": "Lingwi",
+    "AllAvailable": "Kollha disponibbli"
   },
   "ca": {
     "KeepEditing": "Continua editant",
@@ -3147,7 +3311,11 @@
     "GeneralHint": "escriptura i llenguatge. Tot en un sol lloc.",
     "GuideAlphabet": "l'alfabet estàndard i les associacions de claus disponibles es mostren a continuació. Escriviu lletres normals amb normalitat. La finestra emergent també admet dígrafs i marques de combinació; no substitueix un mètode d'entrada.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Conjunts especials",
+    "Currency": "Divises",
+    "LanguageSets": "Llengües",
+    "AllAvailable": "Tots disponibles"
   },
   "hy": {
     "KeepEditing": "Շարունակեք խմբագրել",
@@ -3222,7 +3390,11 @@
     "GeneralHint": "Գիր և լեզու. Բոլորը մեկ տեղում։",
     "GuideAlphabet": "Ստանդարտ այբուբենը և հասանելի հիմնական ասոցիացիաները թվարկված են ստորև: Մուտքագրեք սովորական տառեր: Բացվող պատուհանը նաև աջակցում է երկգրաֆիկներին և միավորելու նշանները. այն չի փոխարինում մուտքագրման մեթոդին:",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Հատուկ հավաքածուներ",
+    "Currency": "Արժույթներ",
+    "LanguageSets": "Լեզուներ",
+    "AllAvailable": "Բոլոր հասանելիները"
   },
   "ka": {
     "KeepEditing": "გააგრძელეთ რედაქტირება",
@@ -3297,7 +3469,11 @@
     "GeneralHint": "წერა და ენა. ყველა ერთ ადგილას.",
     "GuideAlphabet": "სტანდარტული ანბანი და ხელმისაწვდომი საკვანძო ასოციაციები მოცემულია ქვემოთ. აკრიფეთ ჩვეულებრივი ასოები. ამომხტარი ასევე მხარს უჭერს დიგრაფებს და აერთიანებს ნიშნებს; ის არ ცვლის შეყვანის მეთოდს.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "სპეციალური ნაკრებები",
+    "Currency": "ვალუტები",
+    "LanguageSets": "ენები",
+    "AllAvailable": "ყველა ხელმისაწვდომი"
   },
   "az": {
     "KeepEditing": "Redaktə etməyə davam edin",
@@ -3372,7 +3548,11 @@
     "GeneralHint": "Yazı və dil. Hamısı bir yerdə.",
     "GuideAlphabet": "Standart əlifba və mövcud əsas assosiasiyalar aşağıda verilmişdir. Normal hərfləri yazın. Açılan pəncərə həmçinin diqrafları və işarələri birləşdirməyi dəstəkləyir; daxiletmə metodunu əvəz etmir.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Xüsusi dəstlər",
+    "Currency": "Valyutalar",
+    "LanguageSets": "Dillər",
+    "AllAvailable": "Bütün mövcudlar"
   },
   "kk": {
     "KeepEditing": "өңдеуді жалғастырыңыз",
@@ -3447,7 +3627,11 @@
     "GeneralHint": "Жазу және тіл. Барлығы бір жерде.",
     "GuideAlphabet": "Стандартты алфавит және қолжетімді кілттік байланыстар төменде берілген. Әдеттегі әріптерді теріңіз. Қалқымалы терезе сонымен қатар диграфтарды және біріктіру белгілерін қолдайды; ол енгізу әдісін алмастырмайды.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Арнайы жиындар",
+    "Currency": "Валюталар",
+    "LanguageSets": "Тілдер",
+    "AllAvailable": "Барлық қолжетімді"
   },
   "la": {
     "KeepEditing": "Editing Keep",
@@ -3522,6 +3706,10 @@
     "GeneralHint": "Scriptura et lingua. Omnes in uno loco.",
     "GuideAlphabet": "Vexillum alphabeti et in promptu clavium consociationum infra recensentur. Typus litterarum ordinariarum Northmanni. Populus etiam digraphas et notas combinantes sustinet; initus modum non reponere.",
     "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
-    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards.",
+    "SpecialSets": "Coniunctiones speciales",
+    "Currency": "Monetae",
+    "LanguageSets": "Linguae",
+    "AllAvailable": "Omnia disponibilia"
   }
 }

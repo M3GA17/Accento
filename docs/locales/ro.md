@@ -6,6 +6,8 @@ Deschideți Accento.exe pe Windows. Interfața de setări este întotdeauna înt
 
 Țineți apăsată o literă, apăsați și eliberați Space, apoi eliberați litera pentru a introduce caracterul selectat. Folosiți Stânga, Dreapta sau Spațiu pentru a o schimba. Evadarea se anulează.
 
+Generale → Seturi de caractere
+
 Deschideți seturi de caractere și activați limbile în care scrieți. Păstrați cel puțin un set activ. Caracterele partajate apar o singură dată.
 
 Alegeți limba interfeței în general. Acest lucru nu schimbă seturile de caractere active.
@@ -28,5 +30,29 @@ a ă â b c d e f g h i î j k l m n o p q r s ș t ț u v w x y z
 | `i` | `î` · `Î` |
 | `s` | `ș` · `Ș` |
 | `t` | `ț` · `Ț` |
+
+## Seturi speciale · Monede
+
+Generale → Seturi de caractere → Seturi speciale → Monede
+
+| Scrierea | Variante |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

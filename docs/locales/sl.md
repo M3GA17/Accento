@@ -6,6 +6,8 @@ Odprite Accento.exe v sistemu Windows. Vmesnik z nastavitvami je vedno temen.
 
 Držite črko, pritisnite in spustite preslednico, nato spustite črko, da vstavite izbrani znak. Za spremembo uporabite levo, desno ali preslednico. Escape prekliče.
 
+Splošno → Nizi znakov
+
 Odprite nabore znakov in omogočite jezike, v katerih pišete. Naj bo vsaj en nabor aktiven. Skupni znaki se pojavijo samo enkrat.
 
 Izberite jezik vmesnika na splošno. To ne spremeni vaših aktivnih naborov znakov.
@@ -27,5 +29,29 @@ a b c č d e f g h i j k l m n o p r s š t u v z ž
 | `c` | `č` · `Č` |
 | `s` | `š` · `Š` |
 | `z` | `ž` · `Ž` |
+
+## Posebni nabori · Valute
+
+Splošno → Nizi znakov → Posebni nabori → Valute
+
+| Pisanje | Različice |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

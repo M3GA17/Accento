@@ -1214,7 +1214,7 @@ unsafe fn start_test(main: HWND) -> windows::core::Result<()> {
                 send(VK_LEFT, true);
                 send(VK_E, true);
                 std::thread::sleep(Duration::from_millis(100));
-                results.push(("Sinistra seleziona ultimo candidato", read() == "é"));
+                results.push(("Sinistra seleziona la valuta euro", read() == "€"));
                 clear();
                 gesture();
                 send(VK_RIGHT, false);

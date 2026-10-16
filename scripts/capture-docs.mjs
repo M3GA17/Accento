@@ -37,9 +37,7 @@ try {
   assert.equal(await page.locator('.version').textContent(), `Accento ${version}`);
   await page.waitForFunction(() => document.querySelector('.brand-mark')?.naturalWidth > 0);
   await page.screenshot({path: `${output}/settings.png`});
-  await page.getByRole('button', {name: messages.Sets, exact: true}).click();
-  await page.screenshot({path: `${output}/character-sets.png`});
-  await page.getByRole('button', {name: messages.General, exact: true}).click();
+  await page.locator('.sets-panel').screenshot({path: `${output}/character-sets.png`});
   await page.setViewportSize({width: 640, height: 620});
   await page.screenshot({path: `${output}/compact.png`});
 } finally {

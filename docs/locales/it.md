@@ -6,6 +6,8 @@ Apri Accento.exe su Windows. L'interfaccia delle impostazioni è sempre buia.
 
 Tieni premuta una lettera, premi e rilascia Spazio, quindi rilascia la lettera per inserire il carattere selezionato. Usa Sinistra, Destra o Spazio per cambiarlo. La fuga annulla.
 
+Generale → Set caratteri
+
 Apri i set di caratteri e abilita le lingue in cui scrivi. Mantieni attivo almeno un set. I personaggi condivisi appaiono solo una volta.
 
 Scegli la lingua dell'interfaccia in Generale. Ciò non modifica i set di caratteri attivi.
@@ -29,5 +31,29 @@ a à b c d e é è f g h i ì j k l m n o ò p q r s t u ù v w x y z
 | `i` | `ì` · `Ì` |
 | `o` | `ò` · `Ò` · `ó` · `Ó` |
 | `u` | `ù` · `Ù` |
+
+## Set speciali · Valute
+
+Generale → Set caratteri → Set speciali → Valute
+
+| Scrittura | Varianti |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

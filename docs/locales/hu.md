@@ -6,6 +6,8 @@ Nyissa meg a Accento.exe programot Windows rendszeren. A beállítások felület
 
 Tartsa lenyomva a betűt, nyomja meg és engedje fel a Szóköz billentyűt, majd engedje el a betűt a kiválasztott karakter beszúrásához. A Bal, Jobb vagy a Szóköz használatával módosíthatja. Az Escape törlődik.
 
+Általános → Karakterkészletek
+
 Nyissa meg a karakterkészleteket, és engedélyezze azokat a nyelveket, amelyeken ír. Maradjon aktívan legalább egy készlet. A megosztott karakterek csak egyszer jelennek meg.
 
 Válassza ki a felület nyelvét az Általános részben. Ez nem változtatja meg az aktív karakterkészleteket.
@@ -37,5 +39,29 @@ a á b c cs ccs d dz ddz dzs ddzs e é f g gy ggy h i í j k l ly lly m n ny nny
 | `t` | `ty` · `TY` · `tty` · `TTY` |
 | `u` | `ú` · `Ú` · `ü` · `Ü` · `ű` · `Ű` |
 | `z` | `zs` · `ZS` · `zzs` · `ZZS` |
+
+## Speciális készletek · Pénznemek
+
+Általános → Karakterkészletek → Speciális készletek → Pénznemek
+
+| Írás | Változatok |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

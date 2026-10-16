@@ -2,7 +2,7 @@
 
 > Il sorgente comprende ora backend Windows, Linux X11 e macOS. Questa guida descrive in dettaglio Windows; per installazione, permessi, percorsi e verifiche degli altri sistemi consulta [la guida cross-platform](cross-platform.md). Wayland nativo non è supportato e il collaudo completo macOS richiede ancora un Mac. I pacchetti Windows locali precedenti al porting restano solo Windows.
 
-Accento 0.5.0-beta.1 è una beta per Windows 11 x64. Inserisce accenti con tasti Glass indipendenti su fondo trasparente, lasciando il focus nel programma in cui scrivi. Le impostazioni usano React e Tauri e richiedono Microsoft Edge WebView2 Runtime. Sono incorporate nell’eseguibile e funzionano offline; non servono PowerToys o .NET.
+Accento 0.5.0-beta.2 è una beta per Windows 11 x64. Inserisce accenti con tasti Glass indipendenti su fondo trasparente, lasciando il focus nel programma in cui scrivi. Le impostazioni usano React e Tauri e richiedono Microsoft Edge WebView2 Runtime. Sono incorporate nell’eseguibile e funzionano offline; non servono PowerToys o .NET.
 
 ## Avvio
 
@@ -14,22 +14,32 @@ Se stai usando anche Quick Accent o un'altra utility con lo stesso gesto, mettil
 
 1. Premi `e` e tienila premuta.
 2. Premi Spazio e rilascialo, continuando a tenere premuta `e`.
-3. Quando appare la barra, `è` è già selezionata. Per scegliere `é`, premi Destra, Sinistra oppure nuovamente Spazio; la navigazione torna all'altro estremo della lista.
+3. Quando appare la barra, `è` è già selezionata. Usa Destra o Spazio per scorrere `é` e `€`. Sinistra dalla prima scelta passa all'ultima; la navigazione torna all'altro estremo della lista.
 4. Rilascia `e` per inserire la variante.
 
 Per una maiuscola, inizia con Shift e la lettera, oppure con Caps Lock. Esc chiude la barra conservando la lettera originale. Il rilascio dopo l'apertura conferma la variante selezionata, anche senza navigare. Se termini prima dell'apertura, Accento restituisce lo Spazio della digitazione ordinaria.
 
 La prima pressione di Spazio apre la barra con il primo candidato già selezionato. Il rilascio del solo Spazio non conferma né avanza. Per navigare con Spazio occorre rilasciarlo e premerlo di nuovo. Le ripetizioni automatiche non scorrono la lista. Un cambio di finestra o campo, un click, una rotellina o una scorciatoia incompatibile annulla il gesto.
 
+## Valute
+
+In **Generale → Set caratteri → Set speciali → Valute** puoi attivare o disattivare i simboli monetari, indipendentemente dalle lingue. Il set è attivo inizialmente, anche aprendo preferenze salvate da una versione precedente. La scelta si applica con **Salva modifiche**; **Annulla modifiche** ripristina quella salvata. Mantieni comunque almeno un set linguistico attivo.
+
+Con italiano e Valute attivi, `e` + Spazio offre `è`, `é`, `€`: gli accenti mantengono il loro ordine e i simboli vengono aggiunti in fondo, senza duplicati. Per inserire rapidamente `€`, apri la barra su `e`, premi Sinistra una volta e rilascia `e`. Con altre lingue attive la lista può contenere ulteriori varianti. Shift e Caps Lock non modificano i simboli monetari.
+
+Il dettaglio **Valute · Varianti** mostra tutte le associazioni nelle impostazioni. Per esempio: `e` → `€`, `s` → `$` e `₪`, `l` → `£`, `y` → `¥`, `c` → `¢` e `₡`, `p` → `£`, `₽`, `₱`, `r` → `₹`, `₽`, `៛`, `﷼`. Le [guide localizzate](copertura-europa.md) includono la tabella completa, generata dallo stesso catalogo `localization/currencies.json` usato dal motore.
+
 ## Preferenze
 
-Le impostazioni sono divise in **Generale, Set caratteri e BlackList**. In Generale trovi ritardo e lingua dell’interfaccia; Set caratteri permette di cercare e attivare le 47 raccolte. Le stesse 47 voci sono disponibili per l’interfaccia, indipendentemente dai caratteri attivi. Il tema delle impostazioni è sempre scuro.
+In Generale, il pannello **Set caratteri** si espande e si chiude dalla sua intestazione. Le lingue usano checkbox compatte in tre colonne, ridotte sulle finestre strette; i set speciali si trovano sotto. **Tutte disponibili** seleziona tutte le lingue e Valute; togliendo la selezione complessiva rimane attiva la prima lingua, perché il catalogo ne richiede almeno una. La ricerca filtra le lingue senza modificare le scelte.
+
+Le impostazioni hanno due pagine: **Generale** e **BlackList**. In Generale trovi ritardo e lingua dell’interfaccia affiancati, seguiti dal pannello Set caratteri per cercare e attivare le 47 raccolte. Le stesse 47 voci sono disponibili per l’interfaccia, indipendentemente dai caratteri attivi. Il tema delle impostazioni è sempre scuro.
 
 **Annulla modifiche** ripristina l’ultima configurazione salvata. Chiudere con una bozza aperta richiede una scelta; senza modifiche la finestra web viene liberata.
 
 Premi **Salva modifiche** per applicare e conservare la bozza. La lingua dell’interfaccia cambia subito nelle impostazioni; il salvataggio applica la configurazione al selettore e conserva le scelte. L’interruttore nella navigazione spegne o riaccende subito Accento: non richiede Salva, conserva la bozza e lascia accessibili le impostazioni. Alla successiva apertura del programma Accento riparte attivo.
 
-Il ritardo si scrive nel campo. Tab attraversa i controlli; Invio e Spazio attivano i pulsanti. Il selettore lingua supporta ricerca, frecce, Invio ed Esc. Nel formato compatto le tre sezioni diventano tab superiori. Scorre solo il contenuto quando supera lo spazio disponibile; navigazione e Salva restano visibili. La rotella non cambia temi, lingue o valori.
+Il ritardo si scrive nel campo. Tab attraversa i controlli; Invio e Spazio attivano i pulsanti. Il selettore lingua supporta ricerca, frecce, Invio ed Esc. Nel formato compatto le due pagine diventano tab superiori. Ritardo e lingua restano affiancati finché lo spazio lo consente, poi si dispongono in verticale. Scorre solo il contenuto quando supera lo spazio disponibile; navigazione e Salva restano visibili. La rotella non cambia temi, lingue o valori.
 
 | Preferenza | Comportamento |
 | --- | --- |

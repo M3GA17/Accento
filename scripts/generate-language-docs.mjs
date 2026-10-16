@@ -1,6 +1,7 @@
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 const languages=JSON.parse(await readFile('localization/languages.json','utf8'));
 const characters=JSON.parse(await readFile('localization/characters.json','utf8'));
+const currencies=JSON.parse(await readFile('localization/currencies.json','utf8'));
 const messages=JSON.parse(await readFile('localization/messages.json','utf8'));
 await mkdir('docs/locales',{recursive:true});
 const rows=[];
@@ -8,13 +9,15 @@ for(const language of languages){
   const t=messages[language.code];
   const maps=characters[language.code].maps;
   let guide=`# ${t.GuideTitle} — ${language.name}\n\n> ${t.GuideReview}\n\n`;
-  for(const key of ['GuideStart','GuideWrite','GuideSets','GuideLanguage','GuideSave','GuideExit','GuideWindows','GuideAlphabet'])guide+=t[key]+'\n\n';
+  for(const key of ['GuideStart','GuideWrite','GuideSets','GuideLanguage','GuideSave','GuideExit','GuideWindows','GuideAlphabet'])guide+=(key==='GuideSets'?`${t.General} → ${t.Sets}\n\n`:'')+t[key]+'\n\n';
   guide+=`## ${t.Sets} · ${language.name}\n\n${language.alphabet}\n\n`;
   guide+=`| ${t.Writing} | ${t.Variants} |\n| --- | --- |\n`;
   for(const [base,variants] of Object.entries(maps)){
     if(!/^[a-z']$/.test(base))continue;
     guide+=`| \`${base}\` | ${[...new Set(variants.flat())].map(value=>'`'+value+'`').join(' · ')} |\n`;
   }
+  guide+=`\n## ${t.SpecialSets} · ${t.Currency}\n\n${t.General} → ${t.Sets} → ${t.SpecialSets} → ${t.Currency}\n\n| ${t.Writing} | ${t.Variants} |\n| --- | --- |\n`;
+  for(const [base,symbols] of Object.entries(currencies))guide+=`| \`${base}\` | ${symbols.map(symbol=>'`'+symbol+'`').join(' · ')} |\n`;
   guide+='\n[Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)\n';
   await writeFile(`docs/locales/${language.code}.md`,guide);
   rows.push(`| ${language.code} | ${language.name} | ${language.countries.join(', ')} | ${language.script} | [Guida](locales/${language.code}.md) |`);

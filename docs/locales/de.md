@@ -6,6 +6,8 @@
 
 Halten Sie einen Buchstaben gedrückt, drücken Sie kurz die Leertaste und lassen Sie dann den Buchstaben los, um das ausgewählte Zeichen einzufügen. Verwenden Sie Links, Rechts oder die Leertaste, um es zu ändern. Escape bricht ab.
 
+Allgemein → Zeichensätze
+
 Öffnen Sie Zeichensätze und aktivieren Sie die Sprachen, in denen Sie schreiben. Lassen Sie mindestens einen Satz aktiv. Gemeinsame Charaktere erscheinen nur einmal.
 
 Wählen Sie unter „Allgemein“ die Sprache der Benutzeroberfläche aus. Dadurch werden Ihre aktiven Zeichensätze nicht verändert.
@@ -28,5 +30,29 @@ a ä b c d e f g h i j k l m n o ö p q r s ß t u ü v w x y z
 | `o` | `ö` · `Ö` |
 | `s` | `ß` · `ẞ` |
 | `u` | `ü` · `Ü` |
+
+## Spezielle Zeichensätze · Währungen
+
+Allgemein → Zeichensätze → Spezielle Zeichensätze → Währungen
+
+| Schreiben | Varianten |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

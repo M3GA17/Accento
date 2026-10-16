@@ -1,15 +1,16 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import {Button, TextBox, LanguageSelector} from '@dimalabs/react-component-flat-product';
-import {Settings2, Languages, AppWindow, Check, Plus, X, Keyboard, Globe2} from 'lucide-react';
+import {Button, TextBox, LanguageSelector} from './components';
+import {Settings2, AppWindow, Check, Plus, X} from 'lucide-react';
 import * as api from './api';
-import {interfaceLanguages,characterSets} from './catalog';
+import {interfaceLanguages} from './catalog';
+import {CharacterSets} from './CharacterSets';
 import dictionaries from './messages.json';
 import {version} from '../../package.json';
 
 type Locale = keyof typeof dictionaries;
 type Message = keyof typeof dictionaries.it;
-type Section = 'General'|'Sets'|'Blacklist';
-const sections = [{key:'General',icon:Settings2},{key:'Sets',icon:Languages},{key:'Blacklist',icon:AppWindow}] as const;
+type Section = 'General'|'Blacklist';
+const sections = [{key:'General',icon:Settings2},{key:'Blacklist',icon:AppWindow}] as const;
 const equal = (a:api.Preferences,b:api.Preferences)=>JSON.stringify(a)===JSON.stringify(b);
 const message = (error:unknown)=>error instanceof Error ? error.message : String(error);
 
@@ -42,7 +43,7 @@ export function App() {
   const locale = (draft.ui_language in dictionaries ? draft.ui_language : 'it') as Locale;
   const t = (key:Message)=>dictionaries[locale][key];
   useEffect(()=>{
-    document.documentElement.dataset.dimalabsTheme='dark';
+    document.documentElement.dataset.accentoTheme='dark';
     document.documentElement.lang=locale;document.title=`Accento · ${t('Settings')}`;
     document.documentElement.style.colorScheme='dark';
   },[locale]);
@@ -72,11 +73,6 @@ export function App() {
     return ()=>{disposed=true;stop?.();};
   },[]);
   function update(change:Partial<api.Preferences>){setDraft(current=>({...current,...change}));setError('');}
-  function toggleSet(code:string){
-    const selected=draft.languages.includes(code);
-    if(selected && draft.languages.length===1){setError(t('AtLeastOne'));return;}
-    update({languages:selected?draft.languages.filter(item=>item!==code):[...draft.languages,code]});
-  }
   function addApp(event:React.FormEvent){
     event.preventDefault();const name=entry.trim().toLowerCase();
     if(!name || [".","..",".exe",".app"].includes(name) || (platform.os==='windows' && (!name.endsWith('.exe') || name.length<=4)) || /[\\/:*?"<>|,;\x00-\x1f\x7f]/.test(name)){setEntryError(platform.os==='windows'?'AppError':'NativeAppError');return;}
@@ -116,30 +112,25 @@ export function App() {
     <div className="workspace">
       {api.preview && <div className="preview-banner">Anteprima · dati temporanei</div>}
       <main id="main-content" key={section}>
-        <header className="page-heading"><span className="eyebrow">ACCENTO / {t('Settings')}</span><h1>{t(section)}</h1>
-          <p>{t(section==='General'?'GeneralHint':section==='Sets'?'SetsHint':'BlacklistHint')}</p></header>
+        <header className="page-heading"><h1>{t(section)}</h1>
+          {section==='Blacklist'&&<p>{t('BlacklistHint')}</p>}</header>
         {warning && <div className="notice" role="alert">{warning}</div>}
         {error && <div className="notice error" role="alert">{error}</div>}
         <fieldset className="settings-fields" disabled={busy}>
         {section==='General' && <>
-          <section className="settings-group"><h2><Keyboard size={18}/>{t('Writing')}</h2>
-            <div className="setting-row"><div><h3>{t('Delay')}</h3><p>{t('DelayHint')}</p></div>
+          <div className="general-options">
+            <section className="general-option"><h2>{t('Delay')}</h2>
               <div className="delay-control"><TextBox aria-label={t('Delay')} value={delay} inputMode="numeric" maxLength={4}
-                onValueChange={value=>{setDelay(value);setDelayError(false);}} error={delayError?t('DelayError'):undefined}/><span>ms</span></div></div>
-          </section>
-          <section className="settings-group"><div className="setting-row language-row"><div><h2><Globe2 size={18}/>{t('UiLanguage')}</h2><p>{t('Independent')}</p></div>
-            <LanguageSelector label={t('UiLanguage')} options={interfaceLanguages} value={draft.ui_language} display="name" searchable
-              onValueChange={ui_language=>update({ui_language})} searchLabel={t('SearchLanguage')} searchPlaceholder={t('SearchLanguage')}
-              clearSearchLabel={t('ClearSearch')} emptyMessage={t('NoLanguage')} loadingLabel={t('Loading')}/></div></section>
-          <div className="guide"><span className="keycap">e</span><span>+</span><span className="keycap">Space</span><div><strong>{t('QuickGuide')}</strong><p>{t('Gesture')}</p></div></div>
+                onValueChange={value=>{setDelay(value);setDelayError(false);}} error={delayError?t('DelayError'):undefined}/><span>ms</span><span className="delay-hint">{t('DelayHint')}</span></div>
+            </section>
+            <section className="general-option"><h2>{t('UiLanguage')}</h2>
+              <LanguageSelector label={t('UiLanguage')} options={interfaceLanguages} value={draft.ui_language} display="name" searchable
+                onValueChange={ui_language=>update({ui_language})} searchLabel={t('SearchLanguage')} searchPlaceholder={t('SearchLanguage')}
+                clearSearchLabel={t('ClearSearch')} emptyMessage={t('NoLanguage')} loadingLabel={t('Loading')}/>
+            </section>
+          </div>
+          <CharacterSets draft={draft} update={update} onError={setError} query={setQuery} onQueryChange={setSetQuery} text={dictionaries[locale]}/>
         </>}
-        {section==='Sets' && <><p className="section-note">{t('SetsNote')}</p>
-          <TextBox label={t('SearchLanguage')} value={setQuery} onValueChange={setSetQuery} className="set-search"/>
-          <div className="sets-grid">{characterSets.filter(set=>[set.name,set.english,set.code,...set.countries].join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().includes(setQuery.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim())).map(set=>
-          <Button key={set.code} data-language={set.code} variant="quiet" className={'set-card '+(draft.languages.includes(set.code)?'chosen':'')} aria-pressed={draft.languages.includes(set.code)} onPress={()=>toggleSet(set.code)}>
-            <span className="set-title"><span>{set.name}</span><span className="selection-box">{draft.languages.includes(set.code)&&<Check size={14}/>}</span></span>
-            <span className="set-sample">{set.sample}</span>
-          </Button>)}</div></>}
         {section==='Blacklist' && <>
           <form className="add-app" onSubmit={addApp}><TextBox label={t('AddApp')} description={t(platform.os==='windows'?'AppHint':'NativeAppHint')} placeholder={platform.executable_example} value={entry}
             onValueChange={value=>{setEntry(value);setEntryError(undefined);}} error={entryError?t(entryError):undefined} maxLength={260}/>

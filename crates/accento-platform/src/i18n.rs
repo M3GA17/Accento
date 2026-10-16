@@ -37,6 +37,10 @@ pub fn tr(language: &str, key: Text) -> &'static str {
 }
 
 messages! {
+    AllAvailable => ["Tutte disponibili","Tous disponibles","Todos disponibles","Alle verfügbaren","All available","Të gjitha të disponueshme"],
+    SpecialSets => ["Set speciali","Jeux spéciaux","Conjuntos especiales","Spezielle Zeichensätze","Special sets","Grupe të veçanta"],
+    Currency => ["Valute","Devises","Divisas","Währungen","Currency","Monedha"],
+    LanguageSets => ["Lingue","Langues","Idiomas","Sprachen","Languages","Gjuhët"],
     KeepEditing => ["Continua a modificare", "Continuer la modification", "Seguir editando", "Weiter bearbeiten", "Keep editing", "Vazhdo redaktimin"],
     Settings => ["Impostazioni", "Paramètres", "Ajustes", "Einstellungen", "Settings", "Cilësimet"],
     General => ["Generale", "Général", "General", "Allgemein", "General", "Të përgjithshme"],

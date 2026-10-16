@@ -6,6 +6,8 @@ Aperi Accento.exe in Fenestra. Occasus interface semper obscura est.
 
 Habe epistolam, torcular et spatium emittere, deinde epistulam dimittere, ut characterem delectum inseras. Utere Left, Right or Space to change it. Effugere cassare.
 
+Generalia → Character sets
+
 Character apertus ponit et linguas quas scribis fac. Communes characteres semel tantum apparent.
 
 Elige instrumenti generalis. Hoc non mutat mores tuos activos.
@@ -30,5 +32,29 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z
 | `o` | `ō` · `Ō` |
 | `u` | `ū` · `Ū` |
 | `y` | `ȳ` · `Ȳ` |
+
+## Coniunctiones speciales · Monetae
+
+Generalia → Character sets → Coniunctiones speciales → Monetae
+
+| scriptura | Variantes |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)

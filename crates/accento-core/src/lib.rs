@@ -67,6 +67,7 @@ struct Session {
 
 pub struct Engine {
     languages: Vec<Language>,
+    currency_symbols: bool,
     delay_ms: u64,
     generation: u64,
     session: Option<Session>,
@@ -76,9 +77,10 @@ pub struct Engine {
 }
 
 impl Engine {
-    pub fn new(languages: Vec<Language>, delay_ms: u64) -> Self {
+    pub fn new(languages: Vec<Language>, delay_ms: u64, currency_symbols: bool) -> Self {
         Self {
             languages,
+            currency_symbols,
             delay_ms: delay_ms.clamp(100, 1500),
             generation: 0,
             session: None,
@@ -87,8 +89,14 @@ impl Engine {
         }
     }
 
-    pub fn configure(&mut self, languages: Vec<Language>, delay_ms: u64) -> Vec<Effect> {
+    pub fn configure(
+        &mut self,
+        languages: Vec<Language>,
+        delay_ms: u64,
+        currency_symbols: bool,
+    ) -> Vec<Effect> {
         self.languages = languages;
+        self.currency_symbols = currency_symbols;
         self.delay_ms = delay_ms.clamp(100, 1500);
         self.cancel()
     }
@@ -249,7 +257,7 @@ impl Engine {
             && !e.repeat
             && let Key::Letter(base) = e.key
         {
-            let list = candidates(base, e.uppercase, &self.languages);
+            let list = candidates(base, e.uppercase, &self.languages, self.currency_symbols);
             if !list.is_empty() && e.context.window != 0 {
                 self.generation += 1;
                 self.session = Some(Session {
@@ -291,7 +299,7 @@ mod tests {
         }
     }
     fn armed() -> Engine {
-        let mut engine = Engine::new(vec![Language::Italian], 300);
+        let mut engine = Engine::new(vec![Language::Italian], 300, true);
         assert!(!engine.handle(key(Key::Letter('e'), true, 0)).consume);
         assert!(engine.handle(key(Key::Space, true, 10)).consume);
         engine
@@ -324,7 +332,7 @@ mod tests {
     }
     #[test]
     fn a_digraph_is_committed_as_one_complete_text_candidate() {
-        let mut engine = Engine::new(vec![Language::Albanian], 100);
+        let mut engine = Engine::new(vec![Language::Albanian], 100, true);
         engine.handle(key(Key::Letter('d'), true, 0));
         engine.handle(key(Key::Space, true, 10));
         engine.handle(key(Key::Space, false, 20));
@@ -421,13 +429,13 @@ mod tests {
                 })]
             ));
             engine.handle(key(direction, false, 330));
-            assert!(matches!(
-                engine.handle(key(direction, true, 340)).effects.as_slice(),
-                [Effect::Show(View {
-                    selected: Some(0),
-                    ..
-                })]
-            ));
+            for (time, expected) in [(340, 2), (360, 0)] {
+                assert!(matches!(
+                    engine.handle(key(direction, true, time)).effects.as_slice(),
+                    [Effect::Show(View {selected: Some(index), ..})] if *index == expected
+                ));
+                engine.handle(key(direction, false, time + 1));
+            }
         }
     }
     #[test]
@@ -454,7 +462,7 @@ mod tests {
         assert!(matches!(
             out.effects.as_slice(),
             [Effect::Show(View {
-                selected: Some(1),
+                selected: Some(2),
                 ..
             })]
         ));
@@ -470,12 +478,42 @@ mod tests {
     }
     #[test]
     fn auto_repeat_before_trigger_prevents_replacing_multiple_letters() {
-        let mut engine = Engine::new(vec![Language::Italian], 300);
+        let mut engine = Engine::new(vec![Language::Italian], 300, true);
         engine.handle(key(Key::Letter('e'), true, 0));
         let mut repeat = key(Key::Letter('e'), true, 100);
         repeat.repeat = true;
         assert!(!engine.handle(repeat).consume);
         assert!(!engine.handle(key(Key::Space, true, 110)).consume);
+        assert!(engine.timer().is_none());
+    }
+    #[test]
+    fn euro_commits_on_release_and_disabling_currencies_cancels_the_current_picker() {
+        let mut engine = opened();
+        engine.handle(key(Key::Left, true, 320));
+        engine.handle(key(Key::Left, false, 321));
+        assert_eq!(
+            engine.handle(key(Key::Letter('e'), false, 330)).effects,
+            vec![
+                Effect::Replace {
+                    context: TARGET,
+                    text: "€".into()
+                },
+                Effect::Hide,
+            ]
+        );
+        let mut engine = opened();
+        assert_eq!(
+            engine.configure(vec![Language::Italian], 300, false),
+            [Effect::Hide]
+        );
+        assert!(
+            engine
+                .handle(key(Key::Letter('e'), false, 330))
+                .effects
+                .is_empty()
+        );
+        engine.handle(key(Key::Letter('l'), true, 340));
+        assert!(!engine.handle(key(Key::Space, true, 350)).consume);
         assert!(engine.timer().is_none());
     }
     #[test]
@@ -516,7 +554,7 @@ mod tests {
     }
     #[test]
     fn uppercase_is_captured_for_the_session() {
-        let mut engine = Engine::new(vec![Language::Italian], 100);
+        let mut engine = Engine::new(vec![Language::Italian], 100, true);
         let mut e = key(Key::Letter('e'), true, 0);
         e.uppercase = true;
         engine.handle(e);

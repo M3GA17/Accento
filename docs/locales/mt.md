@@ -6,6 +6,8 @@ Iftaħ Accento.exe fuq Windows. L-interface tas-settings huwa dejjem skur.
 
 Żomm ittra, agħfas u rilaxx l-Ispazju, imbagħad erħi l-ittra biex daħħal il-karattru magħżul. Uża Xellug, Lemin jew Spazju biex tibdelha. Il-ħarba tħassar.
 
+Ġenerali → Settijiet ta' karattri
+
 Iftaħ settijiet ta' Karattri u ppermetti l-lingwi li tikteb fihom. Żomm mill-inqas sett wieħed attiv. Karattri kondiviżi jidhru darba biss.
 
 Agħżel il-lingwa tal-interface b'mod Ġenerali. Dan ma jbiddilx is-settijiet ta' karattri attivi tiegħek.
@@ -33,5 +35,29 @@ a à b ċ d e è f ġ g għ h ħ i ì j k l m n o ò p q r s t u ù v w x ż z
 | `o` | `ò` · `Ò` |
 | `u` | `ù` · `Ù` |
 | `z` | `ż` · `Ż` |
+
+## Settijiet speċjali · Muniti
+
+Ġenerali → Settijiet ta' karattri → Settijiet speċjali → Muniti
+
+| Kitba | Varjanti |
+| --- | --- |
+| `b` | `฿` · `₿` |
+| `c` | `¢` · `₡` |
+| `d` | `₫` |
+| `e` | `€` |
+| `f` | `ƒ` |
+| `g` | `₲` |
+| `h` | `₴` |
+| `k` | `₭` |
+| `l` | `£` |
+| `m` | `₼` |
+| `n` | `₦` |
+| `p` | `£` · `₽` · `₱` |
+| `r` | `₹` · `₽` · `៛` · `﷼` |
+| `s` | `$` · `₪` |
+| `t` | `₺` · `₮` · `₸` |
+| `w` | `₩` |
+| `y` | `¥` |
 
 [Unicode CLDR 48](https://github.com/unicode-org/cldr-json/tree/48.0.0) · [Coverage / Fonti](../copertura-europa.md)
