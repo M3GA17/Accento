@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "executable": "C:\\PROJECTS\\Github\\Accento\\target\\release\\Accento.exe",
+  "loadedUrl": "http://tauri.localhost/",
+  "locales": 47,
+  "checks": [
+    "Tauri/WebView2 startup",
+    "Rust get/save/pause IPC",
+    "invalid configuration rejected without changing state",
+    "all national locales and character sets accepted",
+    "dark mode enforced for legacy/forged light preferences",
+    "atomic persisted preferences",
+    "React receives native state events",
+    "unsaved draft close protection",
+    "webview closes while backend remains running"
+  ],
+  "keyboardHook": false
+}

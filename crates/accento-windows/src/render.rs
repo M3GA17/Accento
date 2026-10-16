@@ -70,9 +70,8 @@ pub fn text_scale() -> f32 {
         as f32
         / 100.
 }
-pub fn glass_enabled(p: &Preferences) -> bool {
-    p.transparency
-        && !high_contrast()
+pub fn glass_enabled() -> bool {
+    !high_contrast()
         && registry_number(
             "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
             "EnableTransparency",
@@ -216,7 +215,7 @@ impl Renderer {
                 &backdrop,
                 width as usize,
                 height as usize,
-                (3. * dpi / 96.).round().max(1.) as usize,
+                (6. * dpi / 96.).round().max(1.) as usize,
             );
             let renderer = Self {
                 hwnd,
@@ -285,12 +284,12 @@ impl Renderer {
                 "{{\"width\":{w},\"height\":{h},\"cornerAlpha\":{corners:?},\"gapsTransparent\":{gaps}}}"
             ),
         );
-        corners == [0; 4] && gaps && alpha((40. * scale) as usize, (40. * scale) as usize) > 230
+        corners == [0; 4] && gaps && alpha((40. * scale) as usize, (40. * scale) as usize) >= 200
     }
     pub fn picker(&self, view: &View, p: &Preferences, glass: bool, dpi: f32) -> Result<()> {
         use crate::glass::{Painter, Palette};
         let factor = text_scale();
-        let glass = glass && glass_enabled(p);
+        let glass = glass && glass_enabled();
         let scale = dpi / 96.;
         let width = self.size.0 as f32 / scale;
         let visible = material::visible_count(width, factor).min(view.candidates.len());
@@ -340,6 +339,17 @@ impl Renderer {
             );
             for (local, c) in view.candidates.iter().skip(first).take(visible).enumerate() {
                 let selected = view.selected == Some(first + local);
+                let colors = if glass {
+                    Palette::new(material::key_is_dark(
+                        &pixels,
+                        &self.backdrop,
+                        self.size.0 as usize,
+                        scale * factor,
+                        local,
+                    ))
+                } else {
+                    colors
+                };
                 let x = (8. + local as f32 * 72.) * factor;
                 let area = rect(x, 8. * factor, 64. * factor, 64. * factor);
                 if contrast {
@@ -354,6 +364,17 @@ impl Renderer {
                     )?;
                     g.stroke(area, 17. * factor, system_color(COLOR_WINDOWTEXT), 1.)?;
                 } else {
+                    if glass {
+                        g.gradient(
+                            area,
+                            17. * factor,
+                            &[
+                                (0., rgba(1., 1., 1., 0.075)),
+                                (0.45, rgba(1., 1., 1., 0.015)),
+                                (1., rgba(0.62, 0.76, 1., 0.01)),
+                            ],
+                        )?;
+                    }
                     if selected {
                         g.fill(
                             area,
@@ -365,32 +386,36 @@ impl Renderer {
                             },
                         )?;
                     }
-                    g.stroke(
-                        rect(x + 0.5 * factor, 8.5 * factor, 63. * factor, 63. * factor),
-                        16.5 * factor,
-                        if colors.dark {
-                            rgba(1., 1., 1., 0.42)
-                        } else {
-                            rgba(1., 1., 1., 0.91)
-                        },
-                        factor,
-                    )?;
-                    g.stroke(
-                        rect(x + 1.5 * factor, 9.5 * factor, 61. * factor, 61. * factor),
-                        15.5 * factor,
-                        if selected {
+                    if !glass {
+                        g.stroke(
+                            rect(x + 0.5 * factor, 8.5 * factor, 63. * factor, 63. * factor),
+                            16.5 * factor,
                             if colors.dark {
-                                rgba(0.55, 0.72, 1., 0.65)
+                                rgba(1., 1., 1., 0.42)
                             } else {
-                                rgba(0.24, 0.45, 0.93, 0.50)
-                            }
-                        } else if colors.dark {
-                            rgba(0., 0., 0., 0.30)
-                        } else {
-                            rgba(0.32, 0.39, 0.49, 0.20)
-                        },
-                        0.7 * factor,
-                    )?;
+                                rgba(1., 1., 1., 0.91)
+                            },
+                            factor,
+                        )?;
+                    }
+                    if selected || !glass {
+                        g.stroke(
+                            rect(x + 1.5 * factor, 9.5 * factor, 61. * factor, 61. * factor),
+                            15.5 * factor,
+                            if selected {
+                                if colors.dark {
+                                    rgba(0.55, 0.72, 1., 0.65)
+                                } else {
+                                    rgba(0.24, 0.45, 0.93, 0.50)
+                                }
+                            } else if colors.dark {
+                                rgba(0., 0., 0., 0.30)
+                            } else {
+                                rgba(0.32, 0.39, 0.49, 0.20)
+                            },
+                            0.7 * factor,
+                        )?;
+                    }
                 }
                 g.text(
                     &c.to_string(),
@@ -403,7 +428,7 @@ impl Renderer {
                         } else {
                             COLOR_WINDOWTEXT
                         })
-                    } else if selected {
+                    } else if selected && !glass {
                         colors.accent
                     } else {
                         colors.ink

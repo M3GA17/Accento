@@ -1,4 +1,4 @@
-use std::{env, fs, path::PathBuf, process::Command};
+use std::{env, fs, path::PathBuf};
 
 fn main() {
     println!("cargo:rerun-if-changed=Accento.manifest");
@@ -7,7 +7,6 @@ fn main() {
         return;
     }
     let out = PathBuf::from(env::var_os("OUT_DIR").unwrap());
-    let root = PathBuf::from(env::var_os("CARGO_MANIFEST_DIR").unwrap());
     // The mark is drawn from original geometric shapes, with no external artwork or fonts.
     let mut image = vec![0u8; 40];
     image[0..4].copy_from_slice(&40u32.to_le_bytes());
@@ -44,51 +43,12 @@ fn main() {
     ico.extend(image);
     let icon = out.join("Accento.ico");
     fs::write(&icon, ico).unwrap();
-    let rc = out.join("Accento.rc");
-    let manifest = root.join("Accento.manifest");
-    let resource = format!(
-        "1 24 \"{}\"\n1 ICON \"{}\"\n1 VERSIONINFO\nFILEVERSION 0,3,0,0\nPRODUCTVERSION 0,3,0,0\nFILEOS 0x40004\nFILETYPE 1\nBEGIN\n BLOCK \"StringFileInfo\"\n BEGIN\n BLOCK \"040904b0\"\n BEGIN\n VALUE \"FileDescription\", \"Accento\"\n VALUE \"ProductName\", \"Accento\"\n VALUE \"FileVersion\", \"0.3.0\"\n END\n END\n BLOCK \"VarFileInfo\"\n BEGIN\n VALUE \"Translation\", 0x409, 1200\n END\nEND\n",
-        manifest.display().to_string().replace('\\', "/"),
-        icon.display().to_string().replace('\\', "/")
-    );
-    fs::write(&rc, resource).unwrap();
-    let mut candidates = Vec::new();
-    if let Some(bin) = env::var_os("WindowsSdkVerBinPath") {
-        candidates.push(PathBuf::from(bin).join("x64/rc.exe"));
-    }
-    let sdk = env::var_os("WindowsSdkDir")
-        .map(PathBuf::from)
-        .unwrap_or_else(|| {
-            PathBuf::from(
-                env::var_os("ProgramFiles(x86)").unwrap_or_else(|| "C:/Program Files (x86)".into()),
-            )
-            .join("Windows Kits/10")
-        });
-    if let Ok(entries) = fs::read_dir(sdk.join("bin")) {
-        let mut versions: Vec<_> = entries
-            .filter_map(Result::ok)
-            .map(|e| e.path())
-            .filter(|p| {
-                p.file_name()
-                    .is_some_and(|n| n.to_string_lossy().starts_with("10."))
-            })
-            .collect();
-        versions.sort();
-        versions.reverse();
-        candidates.extend(versions.into_iter().map(|p| p.join("x64/rc.exe")));
-    }
-    let compiler = candidates
-        .into_iter()
-        .find(|p| p.is_file())
-        .unwrap_or_else(|| PathBuf::from("rc.exe"));
-    let res = out.join("Accento.res");
-    let status = Command::new(compiler)
-        .arg("/nologo")
-        .arg("/fo")
-        .arg(&res)
-        .arg(&rc)
-        .status()
-        .expect("Installare Windows SDK con Resource Compiler (rc.exe)");
-    assert!(status.success(), "Impossibile compilare le risorse Windows");
-    println!("cargo:rustc-link-arg-bin=Accento={}", res.display());
+    tauri_build::try_build(
+        tauri_build::Attributes::new().windows_attributes(
+            tauri_build::WindowsAttributes::new()
+                .window_icon_path(&icon)
+                .app_manifest(include_str!("Accento.manifest")),
+        ),
+    )
+    .expect("Impossibile preparare le risorse Tauri");
 }

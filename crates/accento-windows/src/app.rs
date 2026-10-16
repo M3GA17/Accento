@@ -1,3 +1,4 @@
+use crate::i18n::{Text, tr};
 use crate::{
     input::{self, UiEvent, Worker},
     preferences::{Preferences, Theme},
@@ -30,15 +31,13 @@ const TEST_CONFIG: u32 = WM_APP + 12;
 const TEST_FOCUS: u32 = WM_APP + 13;
 const TEST_UI: u32 = WM_APP + 14;
 const TEST_RENDER: u32 = WM_APP + 15;
+const TEST_REPAINT: u32 = WM_APP + 16;
 const SETTINGS: u16 = 100;
 const PAUSE: u16 = 101;
 const EXIT: u16 = 102;
 const SAVE: u16 = 103;
 const DELAY: u16 = 200;
-const TRANSPARENCY: u16 = 202;
 const EXCLUDED: u16 = 203;
-const TEST_FIELD: u16 = 204;
-const STATUS: u16 = 205;
 const LANG_FIRST: u16 = 210;
 
 struct App {
@@ -48,7 +47,7 @@ struct App {
     draft: Preferences,
     hover: u16,
     dirty: bool,
-    validation_error: Option<String>,
+    validation_error: Option<settings::Issue>,
     scroll: f32,
     section: settings::Section,
     worker: Option<Worker>,
@@ -64,6 +63,8 @@ struct App {
     icon: HICON,
     tray: bool,
     test_result: Option<bool>,
+    web_requests: Option<Receiver<crate::desktop::Request>>,
+    web_warning: Option<String>,
 }
 thread_local! { static APP: RefCell<Option<App>> = const { RefCell::new(None) }; }
 fn wide(s: &str) -> Vec<u16> {
@@ -103,18 +104,31 @@ unsafe fn send_message(hwnd: HWND, msg: u32, wp: WPARAM, lp: LPARAM) -> LRESULT 
 }
 
 pub fn run() -> Result<(), String> {
-    unsafe { run_windows() }.map_err(|e| e.to_string())
+    unsafe { run_windows(None, None) }.map_err(|e| e.to_string())
 }
-unsafe fn run_windows() -> windows::core::Result<()> {
+pub fn run_web(
+    requests: Receiver<crate::desktop::Request>,
+    ready: mpsc::Sender<Result<(), String>>,
+) -> Result<(), String> {
+    unsafe { run_windows(Some(requests), Some(ready)) }.map_err(|e| e.to_string())
+}
+unsafe fn run_windows(
+    web_requests: Option<Receiver<crate::desktop::Request>>,
+    ready: Option<mpsc::Sender<Result<(), String>>>,
+) -> windows::core::Result<()> {
     unsafe {
-        let self_test = std::env::args().any(|a| a == "--self-test");
-        let background = std::env::args().any(|a| a == "--background");
+        let repaint_test = std::env::args().any(|a| a == "--ui-test");
+        let desktop_test = std::env::args().any(|a| a == "--desktop-test");
+        let self_test = repaint_test || std::env::args().any(|a| a == "--self-test");
+        let background = web_requests.is_some() || std::env::args().any(|a| a == "--background");
         let _ = SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
         CoInitializeEx(None, COINIT_APARTMENTTHREADED).ok()?;
         let mutex = CreateMutexW(
             None,
             true,
-            if self_test {
+            if desktop_test {
+                w!("Local\\Accento.Desktop.Test.Instance")
+            } else if self_test {
                 w!("Local\\Accento.Test.Instance")
             } else {
                 w!("Local\\Accento.Instance")
@@ -122,8 +136,15 @@ unsafe fn run_windows() -> windows::core::Result<()> {
         )?;
         if GetLastError() == ERROR_ALREADY_EXISTS && !self_test {
             if let Ok(existing) = FindWindowW(w!("Accento.Settings"), PCWSTR::null()) {
-                let _ = ShowWindow(existing, SW_RESTORE);
-                let _ = SetForegroundWindow(existing);
+                let _ = PostMessageW(
+                    Some(existing),
+                    WM_COMMAND,
+                    WPARAM(SETTINGS as usize),
+                    LPARAM(0),
+                );
+            }
+            if let Some(ready) = ready {
+                let _ = ready.send(Ok(()));
             }
             let _ = CloseHandle(mutex);
             CoUninitialize();
@@ -177,7 +198,7 @@ unsafe fn run_windows() -> windows::core::Result<()> {
             WINDOW_EX_STYLE(0),
             w!("Accento.Settings"),
             w!("Accento · Impostazioni"),
-            WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN | WS_VSCROLL,
+            WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN,
             CW_USEDEFAULT,
             CW_USEDEFAULT,
             720,
@@ -201,14 +222,23 @@ unsafe fn run_windows() -> windows::core::Result<()> {
             Some(module),
             None,
         )?;
-        let (prefs, warning) = if self_test {
+        let (mut prefs, warning) = if self_test {
             (Preferences::default(), None)
         } else {
             Preferences::load()
         };
+        if web_requests.is_some() {
+            prefs.theme = Theme::Dark;
+        }
         let (sender, receiver) = mpsc::channel();
-        let worker = Worker::start(main, prefs.clone(), sender)
-            .map_err(|message| windows::core::Error::new(E_FAIL, message))?;
+        let worker = if repaint_test || desktop_test {
+            None
+        } else {
+            Some(
+                Worker::start(main, prefs.clone(), sender)
+                    .map_err(|message| windows::core::Error::new(E_FAIL, message))?,
+            )
+        };
         let dpi = GetDpiForWindow(main);
         let font = CreateFontW(
             -((13. * dpi as f32 / 96. * render::text_scale()) as i32),
@@ -249,8 +279,8 @@ unsafe fn run_windows() -> windows::core::Result<()> {
                 dirty: false,
                 validation_error: None,
                 scroll: 0.,
-                section: settings::Section::Writing,
-                worker: Some(worker),
+                section: settings::Section::General,
+                worker,
                 events: receiver,
                 view: None,
                 renderer: None,
@@ -263,21 +293,34 @@ unsafe fn run_windows() -> windows::core::Result<()> {
                 icon,
                 tray: false,
                 test_result: None,
+                web_requests,
+                web_warning: warning.clone(),
             })
         });
         APP.with(|a| {
             let mut a = a.borrow_mut();
             let a = a.as_mut().unwrap();
-            build_settings(a);
-            if !self_test {
+            if a.web_requests.is_none() {
+                build_settings(a);
+            }
+            if !self_test && !desktop_test {
                 a.tray = tray_icon(a, NIM_ADD);
             }
         });
-        settings::layout(main);
-        if let Some(warning) = warning {
-            alert(main, &warning);
+        if !crate::desktop::active() {
+            settings::layout(main);
+            if let Some(warning) = warning {
+                alert(main, &warning);
+            }
         }
-        if self_test {
+        if let Some(ready) = ready {
+            crate::desktop::ready(main);
+            let _ = ready.send(Ok(()));
+        }
+        if repaint_test {
+            let _ = ShowWindow(main, SW_SHOWNOACTIVATE);
+            let _ = PostMessageW(Some(main), TEST_REPAINT, WPARAM(0), LPARAM(0));
+        } else if self_test {
             let _ = ShowWindow(main, SW_SHOWNORMAL);
             let _ = ShowWindow(main, SW_SHOWNORMAL);
             let _ = RedrawWindow(
@@ -298,7 +341,7 @@ unsafe fn run_windows() -> windows::core::Result<()> {
         let mut message = MSG::default();
         while GetMessageW(&mut message, None, 0, 0).0 > 0 {
             // Native controls retain keyboard traversal; the picker never receives focus.
-            if !IsDialogMessageW(main, &message).as_bool() {
+            if crate::desktop::active() || !IsDialogMessageW(main, &message).as_bool() {
                 let _ = TranslateMessage(&message);
                 DispatchMessageW(&message);
             }
@@ -408,13 +451,6 @@ unsafe fn control_text(main: HWND, identifier: u16) -> String {
         String::from_utf16_lossy(&text[..n as usize])
     }
 }
-unsafe fn status(main: HWND, text: &str) {
-    unsafe {
-        let text = wide(text);
-        let _ = SetWindowTextW(control(main, STATUS), PCWSTR(text.as_ptr()));
-        let _ = InvalidateRect(Some(main), None, false);
-    }
-}
 unsafe fn alert(main: HWND, text: &str) {
     unsafe {
         let text = wide(text);
@@ -429,7 +465,13 @@ unsafe fn alert(main: HWND, text: &str) {
 
 unsafe extern "system" fn settings_proc(hwnd: HWND, msg: u32, wp: WPARAM, lp: LPARAM) -> LRESULT {
     unsafe {
-        if let Some(result) = settings::message(hwnd, msg, wp, lp) {
+        if msg == crate::desktop::REQUEST {
+            handle_web_requests();
+            return LRESULT(0);
+        }
+        if !crate::desktop::active()
+            && let Some(result) = settings::message(hwnd, msg, wp, lp)
+        {
             return result;
         }
         match msg {
@@ -445,32 +487,37 @@ unsafe extern "system" fn settings_proc(hwnd: HWND, msg: u32, wp: WPARAM, lp: LP
             }
             WM_COMMAND => {
                 let command = (wp.0 & 0xffff) as u16;
-                if settings::command(hwnd, command, (wp.0 >> 16) as u16) {
+                if !crate::desktop::active()
+                    && settings::command(hwnd, command, (wp.0 >> 16) as u16)
+                {
                     return LRESULT(0);
                 }
                 if command == SETTINGS {
+                    if crate::desktop::active() {
+                        crate::desktop::show_settings();
+                        return LRESULT(0);
+                    }
                     let _ = ShowWindow(hwnd, SW_RESTORE);
                     let _ = SetForegroundWindow(hwnd);
                     return LRESULT(0);
                 }
                 if command == PAUSE {
-                    APP.with(|a| {
-                        if let Some(a) = a.borrow_mut().as_mut() {
-                            a.paused = !a.paused;
-                            if let Some(w) = &a.worker {
-                                w.pause(a.paused);
+                    if crate::desktop::active() {
+                        APP.with(|app| {
+                            if let Some(app) = app.borrow_mut().as_mut() {
+                                app.paused = !app.paused;
+                                if let Some(worker) = &app.worker {
+                                    worker.pause(app.paused);
+                                }
+                                if app.tray {
+                                    tray_icon(app, NIM_MODIFY);
+                                }
+                                crate::desktop::publish(&web_snapshot(app));
                             }
-                            status(
-                                hwnd,
-                                if a.paused {
-                                    "In pausa"
-                                } else {
-                                    "Attivo · Solo sul tuo dispositivo"
-                                },
-                            );
-                            tray_icon(a, NIM_MODIFY);
-                        }
-                    });
+                        });
+                        return LRESULT(0);
+                    }
+                    settings::command(hwnd, PAUSE, BN_CLICKED as u16);
                     return LRESULT(0);
                 }
                 if command == EXIT {
@@ -484,17 +531,37 @@ unsafe extern "system" fn settings_proc(hwnd: HWND, msg: u32, wp: WPARAM, lp: LP
                         PostMessageW(Some(hwnd), WM_COMMAND, WPARAM(SETTINGS as usize), LPARAM(0));
                 }
                 if matches!(lp.0 as u32, WM_RBUTTONUP | WM_CONTEXTMENU) {
-                    let paused = APP.with(|a| a.borrow().as_ref().is_some_and(|a| a.paused));
+                    let (paused, language) = APP.with(|a| {
+                        let a = a.borrow();
+                        let a = a.as_ref().unwrap();
+                        (a.paused, a.prefs.ui_language.clone())
+                    });
                     if let Ok(menu) = CreatePopupMenu() {
-                        let _ = AppendMenuW(menu, MF_STRING, SETTINGS as usize, w!("Impostazioni"));
+                        let _ = AppendMenuW(
+                            menu,
+                            MF_STRING,
+                            SETTINGS as usize,
+                            PCWSTR(wide(tr(&language, Text::Settings)).as_ptr()),
+                        );
                         let _ = AppendMenuW(
                             menu,
                             MF_STRING,
                             PAUSE as usize,
-                            if paused { w!("Riprendi") } else { w!("Pausa") },
+                            PCWSTR(
+                                wide(tr(
+                                    &language,
+                                    if paused { Text::Resume } else { Text::Pause },
+                                ))
+                                .as_ptr(),
+                            ),
                         );
                         let _ = AppendMenuW(menu, MF_SEPARATOR, 0, PCWSTR::null());
-                        let _ = AppendMenuW(menu, MF_STRING, EXIT as usize, w!("Esci"));
+                        let _ = AppendMenuW(
+                            menu,
+                            MF_STRING,
+                            EXIT as usize,
+                            PCWSTR(wide(tr(&language, Text::Exit)).as_ptr()),
+                        );
                         let mut point = POINT::default();
                         let _ = GetCursorPos(&mut point);
                         let _ = SetForegroundWindow(hwnd);
@@ -522,6 +589,14 @@ unsafe extern "system" fn settings_proc(hwnd: HWND, msg: u32, wp: WPARAM, lp: LP
                 }
                 return LRESULT(0);
             }
+            TEST_REPAINT if std::env::args().any(|a| a == "--ui-test") => {
+                let repaint = settings::verify_repaint(hwnd);
+                let controls = settings::verify_controls(hwnd);
+                let passed = repaint && controls == (1 << settings::CHECK_NAMES.len()) - 1;
+                APP.with(|a| a.borrow_mut().as_mut().unwrap().test_result = Some(passed));
+                PostQuitMessage(0);
+                return LRESULT(0);
+            }
             TEST_DONE => {
                 APP.with(|a| {
                     if let Some(a) = a.borrow_mut().as_mut() {
@@ -538,7 +613,6 @@ unsafe extern "system" fn settings_proc(hwnd: HWND, msg: u32, wp: WPARAM, lp: LP
                             let mut p = Preferences::default();
                             match wp.0 {
                                 1 => p.theme = Theme::Dark,
-                                2 => p.transparency = false,
                                 3 => p.excluded_apps.push("accento.exe".into()),
                                 _ => p.theme = Theme::Light,
                             }
@@ -636,6 +710,62 @@ unsafe extern "system" fn settings_proc(hwnd: HWND, msg: u32, wp: WPARAM, lp: LP
 }
 const UI_EVENT_ALIAS: u32 = input::UI_EVENT;
 
+fn web_snapshot(app: &App) -> crate::desktop::Snapshot {
+    crate::desktop::Snapshot {
+        preferences: app.prefs.clone(),
+        paused: app.paused,
+        warning: app.web_warning.clone(),
+    }
+}
+unsafe fn handle_web_requests() {
+    unsafe {
+        loop {
+            let request = APP.with(|app| {
+                app.borrow()
+                    .as_ref()
+                    .and_then(|app| app.web_requests.as_ref())
+                    .and_then(|requests| requests.try_recv().ok())
+            });
+            let Some(request) = request else {
+                break;
+            };
+            let result = APP.with(|app| {
+                let mut app = app.borrow_mut();
+                let app = app.as_mut().ok_or("Motore non disponibile")?;
+                match request.action {
+                    crate::desktop::Action::Read => {}
+                    crate::desktop::Action::Save(mut preferences) => {
+                        preferences.theme = Theme::Dark;
+                        preferences.validate()?;
+                        // Persist first: an I/O error must not alter the running worker or committed state.
+                        preferences.save()?;
+                        if let Some(worker) = &app.worker {
+                            worker.configure(preferences.clone());
+                        }
+                        app.prefs = preferences.clone();
+                        app.draft = preferences;
+                        app.web_warning = None;
+                    }
+                    crate::desktop::Action::Pause(paused) => {
+                        app.paused = paused;
+                        if let Some(worker) = &app.worker {
+                            worker.pause(paused);
+                        }
+                    }
+                }
+                if app.tray {
+                    tray_icon(app, NIM_MODIFY);
+                }
+                Ok::<_, String>(web_snapshot(app))
+            });
+            if let Ok(snapshot) = &result {
+                crate::desktop::publish(snapshot);
+            }
+            let _ = request.reply.send(result);
+        }
+    }
+}
+
 unsafe fn drain_events() {
     unsafe {
         let mut errors = Vec::new();
@@ -697,19 +827,17 @@ unsafe fn update_picker() {
             );
             return;
         };
-        let choices = view
-            .candidates
-            .iter()
-            .map(char::to_string)
-            .collect::<Vec<_>>()
-            .join(", ");
-        let accessible = match view.selected {
-            Some(index) => format!(
-                "Accento. Varianti: {choices}. Selezionato {}. Rilascia la lettera per inserire.",
-                view.candidates[index]
-            ),
-            None => format!("Accento. Varianti: {choices}. Usa le frecce per scegliere."),
-        };
+        let choices = view.candidates.join(", ");
+        let t = |key| tr(&prefs.ui_language, key);
+        let accessible = format!(
+            "Accento. {}: {choices}. {} {}. {}.",
+            t(Text::Variants),
+            t(Text::Selected),
+            view.selected
+                .map(|i| view.candidates[i].to_string())
+                .unwrap_or_default(),
+            t(Text::InsertHint)
+        );
         let title = wide(&accessible);
         let _ = SetWindowTextW(hwnd, PCWSTR(title.as_ptr()));
         NotifyWinEvent(
@@ -757,7 +885,7 @@ unsafe fn update_picker() {
             height,
             SWP_NOACTIVATE,
         );
-        let material = render::glass_enabled(&prefs);
+        let material = render::glass_enabled();
         let result = APP.with(|a| {
             let mut a = a.borrow_mut();
             let a = a.as_mut().unwrap();
@@ -792,7 +920,17 @@ unsafe fn update_picker() {
                             w.pause(true);
                         }
                         a.paused = true;
-                        status(a.main, "In pausa · Errore del selettore");
+                        a.validation_error =
+                            Some(settings::Issue::picker_error(&a.prefs.ui_language));
+                        if crate::desktop::active() {
+                            a.web_warning =
+                                Some(tr(&a.prefs.ui_language, Text::PickerError).into());
+                            if a.tray {
+                                tray_icon(a, NIM_MODIFY);
+                            }
+                            crate::desktop::publish(&web_snapshot(a));
+                        }
+                        let _ = InvalidateRect(Some(a.main), None, false);
                     }
                 });
                 eprintln!("Rendering del selettore: {error}");
@@ -840,11 +978,17 @@ unsafe fn tray_icon(app: &App, action: NOTIFY_ICON_MESSAGE) -> bool {
             hIcon: app.icon,
             ..Default::default()
         };
-        let text = wide(if app.paused {
-            "Accento · In pausa"
-        } else {
-            "Accento · Accenti da tastiera"
-        });
+        let text = wide(&format!(
+            "Accento · {}",
+            tr(
+                &app.prefs.ui_language,
+                if app.paused {
+                    Text::Disabled
+                } else {
+                    Text::Enabled
+                }
+            )
+        ));
         data.szTip[..text.len()].copy_from_slice(&text);
         Shell_NotifyIconW(action, &data).as_bool()
     }
@@ -887,6 +1031,35 @@ unsafe fn create_icon() -> windows::core::Result<HICON> {
 
 unsafe extern "system" fn test_proc(hwnd: HWND, msg: u32, wp: WPARAM, lp: LPARAM) -> LRESULT {
     unsafe {
+        if msg == WM_PAINT {
+            let mut paint = PAINTSTRUCT::default();
+            let dc = BeginPaint(hwnd, &mut paint);
+            let mut bounds = RECT::default();
+            let _ = GetClientRect(hwnd, &mut bounds);
+            let dark = APP.with(|a| a.borrow().as_ref().is_some_and(|a| render::dark(&a.prefs)));
+            let dpi = GetDpiForWindow(hwnd) as f32;
+            let _ = crate::glass::draw_dc(dc, bounds, dpi, (0., 0.), |g| {
+                let p = crate::glass::Palette::new(dark);
+                g.target.Clear(Some(&p.canvas));
+                let width = bounds.right as f32 * 96. / dpi;
+                let height = bounds.bottom as f32 * 96. / dpi;
+                for row in 0..(height / 24.).ceil() as usize {
+                    let y = row as f32 * 24.;
+                    g.text(
+                        "src/main.rs  ·  Rendering output  ·  Build complete  ·  Accento test backdrop",
+                        render::rect(0., y, width, 20.),
+                        13.,
+                        windows::Win32::Graphics::DirectWrite::DWRITE_FONT_WEIGHT_NORMAL,
+                        p.ink,
+                        false,
+                    )?;
+                    g.line((0., y + 22.), (width, y + 22.), p.separator, 1.)?;
+                }
+                Ok(())
+            });
+            let _ = EndPaint(hwnd, &paint);
+            return LRESULT(0);
+        }
         if msg == TEST_FOCUS {
             let _ = SetForegroundWindow(hwnd);
             if let Ok(edit) = GetDlgItem(Some(hwnd), wp.0 as i32) {
@@ -965,25 +1138,7 @@ unsafe fn start_test(main: HWND) -> windows::core::Result<()> {
             std::thread::sleep(Duration::from_millis(500));
             let mut results = Vec::new();
             let checks = send_message(HWND(main as _), TEST_UI, WPARAM(0), LPARAM(0)).0 as u32;
-            for (i, label) in [
-                "Tile lingua attivabile",
-                "Ultima lingua conservata",
-                "Temi esclusivi e anteprima",
-                "Controllo Glass attivabile",
-                "Stepper ritardo",
-                "Errore di validazione inline",
-                "Scorrimento finestra compatta",
-                "Comando Salva raggiungibile",
-                "Bozza conservata fra sezioni",
-                "Errore riporta al campo nella sezione corretta",
-                "Focus scorre il campo nel viewport",
-                "Tab entra nei controlli della sezione",
-                "Visibilità controlli nelle quattro sezioni compatte",
-                "Salva disattivato senza modifiche",
-            ]
-            .iter()
-            .enumerate()
-            {
+            for (i, label) in settings::CHECK_NAMES.iter().enumerate() {
                 results.push((*label, checks & (1 << i) != 0));
             }
             send_message(HWND(target as _), TEST_FOCUS, WPARAM(1), LPARAM(0));
@@ -1032,11 +1187,9 @@ unsafe fn start_test(main: HWND) -> windows::core::Result<()> {
             let mut focused = GetForegroundWindow().0 as usize == target;
             if focused {
                 gesture();
-                send(VK_RIGHT, false);
-                send(VK_RIGHT, true);
                 send(VK_E, true);
                 std::thread::sleep(Duration::from_millis(150));
-                results.push(("e + selezione → è", read() == "è"));
+                results.push(("Primo candidato già selezionato → è", read() == "è"));
                 results.push((
                     "Focus conservato",
                     GetForegroundWindow().0 as usize == target,
@@ -1044,8 +1197,6 @@ unsafe fn start_test(main: HWND) -> windows::core::Result<()> {
                 clear();
                 send(VK_SHIFT, false);
                 gesture();
-                send(VK_RIGHT, false);
-                send(VK_RIGHT, true);
                 send(VK_E, true);
                 send(VK_SHIFT, true);
                 std::thread::sleep(Duration::from_millis(100));
@@ -1068,14 +1219,14 @@ unsafe fn start_test(main: HWND) -> windows::core::Result<()> {
                 gesture();
                 send(VK_E, true);
                 std::thread::sleep(Duration::from_millis(100));
-                results.push(("Nessuna selezione conserva e", read() == "e"));
+                results.push(("Rilascio senza navigazione conferma è", read() == "è"));
                 clear();
                 gesture();
                 send(VK_SPACE, false);
                 send(VK_SPACE, true);
                 send(VK_E, true);
                 std::thread::sleep(Duration::from_millis(100));
-                results.push(("Seconda pressione Spazio seleziona", read() == "è"));
+                results.push(("Seconda pressione Spazio avanza a é", read() == "é"));
                 clear();
                 gesture();
                 send(VK_LEFT, false);
@@ -1125,15 +1276,22 @@ unsafe fn start_test(main: HWND) -> windows::core::Result<()> {
                 send(VK_SPACE, true);
                 std::thread::sleep(Duration::from_millis(100));
                 results.push(("Esclusione esatta del processo", read() == "e "));
-                for (mode, label) in [
-                    (0, "Glass chiaro"),
-                    (1, "Glass scuro"),
-                    (2, "Modalità opaca"),
-                ] {
+                for (mode, label) in [(0, "Glass chiaro"), (1, "Glass scuro")] {
                     send_message(HWND(main as _), TEST_CONFIG, WPARAM(mode), LPARAM(0));
+                    let _ = InvalidateRect(Some(HWND(target as _)), None, false);
+                    let _ = UpdateWindow(HWND(target as _));
                     std::thread::sleep(Duration::from_millis(100));
                     clear();
                     gesture();
+                    let opening_valid =
+                        send_message(HWND(main as _), TEST_RENDER, WPARAM(mode + 10), LPARAM(0)).0
+                            == 1;
+                    if let Ok(window) = FindWindowW(w!("Accento.Picker"), PCWSTR::null()) {
+                        let _ = capture_window(
+                            window,
+                            &folder.join(format!("accento-picker-{}.bmp", mode + 10)),
+                        );
+                    }
                     send(VK_RIGHT, false);
                     send(VK_RIGHT, true);
                     std::thread::sleep(Duration::from_millis(80));
@@ -1143,7 +1301,10 @@ unsafe fn start_test(main: HWND) -> windows::core::Result<()> {
                     results.push((label, visible.is_some()));
                     results.push((
                         "Alpha del popup e spazi trasparenti",
-                        send_message(HWND(main as _), TEST_RENDER, WPARAM(mode), LPARAM(0)).0 == 1,
+                        opening_valid
+                            && send_message(HWND(main as _), TEST_RENDER, WPARAM(mode), LPARAM(0))
+                                .0
+                                == 1,
                     ));
                     if let Some(window) = visible {
                         let _ = capture_window(
@@ -1153,7 +1314,7 @@ unsafe fn start_test(main: HWND) -> windows::core::Result<()> {
                     }
                     send(VK_E, true);
                     std::thread::sleep(Duration::from_millis(100));
-                    results.push(("Inserimento dopo cambio aspetto", read() == "è"));
+                    results.push(("Destra avanza a é dopo cambio aspetto", read() == "é"));
                 }
                 focused = GetForegroundWindow().0 as usize == target;
             }

@@ -90,6 +90,115 @@ struct Runtime {
     process_window: usize,
     process_name: Option<String>,
     dead_key: bool,
+    base_keys: [Option<char>; 256],
+}
+
+/// Windows primary language IDs for the national-language scope (script variants share IDs).
+fn supported_layout(language_id: usize) -> bool {
+    matches!(
+        language_id & 0x3ff,
+        0x02 | 0x03
+            | 0x05
+            | 0x06
+            | 0x07
+            | 0x08
+            | 0x09
+            | 0x0a
+            | 0x0b
+            | 0x0c
+            | 0x0e
+            | 0x0f
+            | 0x10
+            | 0x13
+            | 0x14
+            | 0x15
+            | 0x16
+            | 0x17
+            | 0x18
+            | 0x19
+            | 0x1a
+            | 0x1b
+            | 0x1c
+            | 0x1d
+            | 0x1f
+            | 0x22
+            | 0x23
+            | 0x24
+            | 0x25
+            | 0x26
+            | 0x27
+            | 0x2b
+            | 0x2c
+            | 0x2f
+            | 0x37
+            | 0x3a
+            | 0x3c
+            | 0x3f
+            | 0x6e
+            | 0x76
+    )
+}
+fn translated_base(value: char) -> Option<char> {
+    if value == 'İ' {
+        return Some('i');
+    }
+    if !(value.is_alphabetic() || value == '\'') {
+        return None;
+    }
+    let mut lower = value.to_lowercase();
+    let first = lower.next()?;
+    lower.next().is_none().then_some(first)
+}
+
+#[cfg(test)]
+mod language_tests {
+    use super::*;
+    #[test]
+    fn national_layouts_and_script_variants_are_recognized() {
+        for layout in [
+            0x0410, 0x041c, 0x0408, 0x0419, 0x0422, 0x0423, 0x042b, 0x0437, 0x043f, 0x042c, 0x046e,
+            0x083c, 0x0814,
+        ] {
+            assert!(supported_layout(layout), "{layout:x}");
+        }
+        for layout in [0x0411, 0x0412, 0x0804] {
+            assert!(!supported_layout(layout));
+        }
+    }
+    #[test]
+    fn composed_text_uses_one_replacement_and_preserves_every_utf16_unit() {
+        for text in ["dh", "с́", "ÍJ́", "а́", "Ϊ́"] {
+            let events = insertion_events(text, true);
+            let units: Vec<_> = text.encode_utf16().collect();
+            assert_eq!(events.len(), 2 + 2 * units.len());
+            unsafe {
+                assert_eq!(events[0].Anonymous.ki.wVk, VK_BACK);
+                assert_eq!(events[1].Anonymous.ki.wVk, VK_BACK);
+                for (pair, unit) in events[2..].as_chunks::<2>().0.iter().zip(units) {
+                    assert_eq!(pair[0].Anonymous.ki.wScan, unit);
+                    assert_eq!(pair[1].Anonymous.ki.wScan, unit);
+                    assert_eq!(pair[0].Anonymous.ki.dwExtraInfo, OWN_TAG);
+                    assert!(pair[1].Anonymous.ki.dwFlags.contains(KEYEVENTF_KEYUP));
+                }
+            }
+        }
+    }
+    #[test]
+    fn native_letter_identity_is_not_the_virtual_key_ascii_name() {
+        for (letter, base) in [
+            ('E', 'e'),
+            ('Ε', 'ε'),
+            ('Е', 'е'),
+            ('Ա', 'ա'),
+            ('Ა', 'ა'),
+            ('İ', 'i'),
+            ('Ç', 'ç'),
+        ] {
+            assert_eq!(translated_base(letter), Some(base));
+        }
+        assert_eq!(translated_base(' '), None);
+        assert_eq!(translated_base('1'), None);
+    }
 }
 thread_local! { static RUNTIME: RefCell<Option<Runtime>> = const { RefCell::new(None) }; }
 
@@ -214,10 +323,7 @@ impl Runtime {
             }
         }
         let layout = unsafe { GetKeyboardLayout(c.thread) }.0 as usize & 0xffff;
-        let supported = matches!(
-            layout,
-            0x0409 | 0x0809 | 0x0410 | 0x040c | 0x080c | 0x0407 | 0x0c0a | 0x040a
-        );
+        let supported = supported_layout(layout);
         let modifier = [
             VK_CONTROL,
             VK_LCONTROL,
@@ -252,6 +358,7 @@ impl Runtime {
             };
         let mut blocked =
             self.paused || modifier || !supported || excluded || password || self.dead_key;
+        let mut uppercase = shift ^ (unsafe { GetKeyState(VK_CAPITAL.0 as i32) } & 1 != 0);
         if down {
             // Flag 4 inspects translation without modifying the destination's dead-key state.
             let mut state = [0u8; 256];
@@ -260,6 +367,7 @@ impl Runtime {
                     *value = 0x80;
                 }
             }
+            state[VK_CAPITAL.0 as usize] |= (unsafe { GetKeyState(VK_CAPITAL.0 as i32) } & 1) as u8;
             let mut text = [0u16; 8];
             let count = unsafe {
                 ToUnicodeEx(
@@ -271,6 +379,16 @@ impl Runtime {
                     Some(GetKeyboardLayout(c.thread)),
                 )
             };
+            if !repeat {
+                self.base_keys[vk] = None;
+                if supported
+                    && count == 1
+                    && let Some(value) = char::from_u32(text[0] as u32)
+                {
+                    self.base_keys[vk] = translated_base(value);
+                    uppercase = value.is_uppercase();
+                }
+            }
             if count < 0 {
                 self.dead_key = true;
                 blocked = true;
@@ -279,22 +397,28 @@ impl Runtime {
                 blocked = true;
             }
         }
-        let key = match data.vkCode as u16 {
-            0x41..=0x5a => Key::Letter((data.vkCode as u8 + 32) as char),
-            0x20 => Key::Space,
-            0x25 => Key::Left,
-            0x27 => Key::Right,
-            0x1b => Key::Escape,
-            0x10 | 0xa0 | 0xa1 => Key::Shift,
-            0x11 | 0x12 | 0x5b | 0x5c | 0xa2..=0xa5 => Key::BlockingModifier,
-            _ => Key::Other,
+        // Cache the translated base for the physical key until key-up, even if Shift or layout changes.
+        let key = if let Some(base) = self.base_keys[vk] {
+            Key::Letter(base)
+        } else {
+            match data.vkCode as u16 {
+                0x20 => Key::Space,
+                0x25 => Key::Left,
+                0x27 => Key::Right,
+                0x1b => Key::Escape,
+                0x10 | 0xa0 | 0xa1 => Key::Shift,
+                0x11 | 0x12 | 0x5b | 0x5c | 0xa2..=0xa5 => Key::BlockingModifier,
+                _ => Key::Other,
+            }
         };
+        if !down {
+            self.base_keys[vk] = None;
+        }
         let now = self.now();
         if let Some((generation, _)) = self.engine.timer() {
             let effects = self.engine.tick(generation, now, c);
             self.effects(effects);
         }
-        let uppercase = shift ^ (unsafe { GetKeyState(VK_CAPITAL.0 as i32) } & 1 != 0);
         let out = self.engine.handle(KeyEvent {
             key,
             down,
@@ -389,24 +513,15 @@ fn input(key: u16, unicode: bool, up: bool) -> INPUT {
     }
 }
 fn insert(effect: Effect) -> Result<(), String> {
-    let (expected, character, replace) = match effect {
-        Effect::Replace { context, character } => (context, character, true),
-        Effect::RestoreSpace { context } => (context, ' ', false),
+    let (expected, text, replace) = match effect {
+        Effect::Replace { context, text } => (context, text, true),
+        Effect::RestoreSpace { context } => (context, " ".into(), false),
         _ => return Ok(()),
     };
     if context() != expected {
         return Ok(());
     }
-    let mut events = Vec::with_capacity(6);
-    if replace {
-        events.push(input(VK_BACK.0, false, false));
-        events.push(input(VK_BACK.0, false, true));
-    }
-    let mut buffer = [0u16; 2];
-    for unit in character.encode_utf16(&mut buffer) {
-        events.push(input(*unit, true, false));
-        events.push(input(*unit, true, true));
-    }
+    let events = insertion_events(&text, replace);
     let sent = unsafe { SendInput(&events, size_of::<INPUT>() as i32) } as usize;
     if sent != events.len() {
         return Err(format!(
@@ -415,6 +530,18 @@ fn insert(effect: Effect) -> Result<(), String> {
         ));
     }
     Ok(())
+}
+fn insertion_events(text: &str, replace: bool) -> Vec<INPUT> {
+    let mut events = Vec::with_capacity(2 + text.encode_utf16().count() * 2);
+    if replace {
+        events.push(input(VK_BACK.0, false, false));
+        events.push(input(VK_BACK.0, false, true));
+    }
+    for unit in text.encode_utf16() {
+        events.push(input(unit, true, false));
+        events.push(input(unit, true, true));
+    }
+    events
 }
 
 unsafe fn run(
@@ -441,6 +568,7 @@ unsafe fn run(
             process_window: 0,
             process_name: None,
             dead_key: false,
+            base_keys: [None; 256],
         };
         for vk in 0..256 {
             runtime.down[vk] = GetAsyncKeyState(vk as i32) < 0;

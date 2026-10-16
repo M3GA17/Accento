@@ -1,3 +1,4 @@
+use crate::i18n::{Text, UI_CODES, tr};
 use accento_core::Language;
 use serde::{Deserialize, Serialize};
 use std::{io, path::PathBuf};
@@ -12,13 +13,13 @@ pub enum Theme {
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize, PartialEq, Eq)]
-#[serde(default, deny_unknown_fields)]
+#[serde(default)]
 pub struct Preferences {
     pub schema_version: u32,
     pub delay_ms: u64,
     pub languages: Vec<String>,
     pub theme: Theme,
-    pub transparency: bool,
+    pub ui_language: String,
     pub excluded_apps: Vec<String>,
 }
 
@@ -29,7 +30,7 @@ impl Default for Preferences {
             delay_ms: 300,
             languages: vec!["it".into()],
             theme: Theme::System,
-            transparency: true,
+            ui_language: "it".into(),
             excluded_apps: vec![],
         }
     }
@@ -44,10 +45,10 @@ impl Preferences {
     }
     pub fn validate(&self) -> Result<(), String> {
         if self.schema_version != 1 {
-            return Err("Versione della configurazione non supportata.".into());
+            return Err(tr(&self.ui_language, Text::ConfigError).into());
         }
         if !(100..=1500).contains(&self.delay_ms) {
-            return Err("Il ritardo deve essere compreso tra 100 e 1500 ms.".into());
+            return Err(tr(&self.ui_language, Text::DelayError).into());
         }
         if self.languages.is_empty()
             || self
@@ -55,15 +56,17 @@ impl Preferences {
                 .iter()
                 .any(|s| Language::from_code(s).is_none())
         {
-            return Err("Scegli almeno una delle lingue disponibili.".into());
+            return Err(tr(&self.ui_language, Text::AtLeastOne).into());
         }
-        if self.excluded_apps.iter().any(|s| {
-            !s.to_ascii_lowercase().ends_with(".exe")
-                || s.contains(['/', '\\'])
-                || s.trim() != s
-                || s.len() > 260
-        }) {
-            return Err("Per ogni esclusione inserisci il nome completo, per esempio notepad.exe, senza percorso.".into());
+        if !UI_CODES.contains(&self.ui_language.as_str()) {
+            return Err(tr(&self.ui_language, Text::LanguageError).into());
+        }
+        if self
+            .excluded_apps
+            .iter()
+            .any(|s| normalize_executable(s).is_none() || s.trim() != s)
+        {
+            return Err(tr(&self.ui_language, Text::AppError).into());
         }
         Ok(())
     }
@@ -133,9 +136,73 @@ impl Preferences {
     }
 }
 
+/// One executable per entry. Never accept separators, paths or shell wildcards.
+pub fn normalize_executable(value: &str) -> Option<String> {
+    let value = value.trim();
+    (value.len() > 4
+        && value.len() <= 260
+        && value.to_ascii_lowercase().ends_with(".exe")
+        && !value
+            .chars()
+            .any(|c| c.is_control() || r#"/\,:;*?<>|""#.contains(c)))
+    .then(|| value.to_ascii_lowercase())
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn interface_locale_and_extended_sets_are_independent() {
+        for locale in ["en", "sq"] {
+            let preferences = Preferences {
+                ui_language: locale.into(),
+                languages: vec![
+                    "sq".into(),
+                    "pt".into(),
+                    "ro".into(),
+                    "pl".into(),
+                    "tr".into(),
+                ],
+                ..Preferences::default()
+            };
+            assert!(preferences.validate().is_ok());
+            assert_eq!(preferences.languages().len(), 5);
+        }
+    }
+    #[test]
+    fn old_glass_setting_is_ignored_and_ui_language_is_independent() {
+        let p: Preferences =
+            serde_json::from_str(r#"{"transparency":false,"languages":["fr"],"delay_ms":450}"#)
+                .unwrap();
+        assert_eq!(p.ui_language, "it");
+        assert_eq!(p.languages, ["fr"]);
+        assert_eq!(p.delay_ms, 450);
+        assert!(p.validate().is_ok());
+        assert!(!serde_json::to_string(&p).unwrap().contains("transparency"));
+        let mut p = p;
+        p.ui_language = "de".into();
+        assert!(p.validate().is_ok());
+        assert_eq!(p.languages, ["fr"]);
+        p.ui_language = "zz".into();
+        assert!(p.validate().is_err());
+    }
+    #[test]
+    fn blacklist_accepts_only_one_executable_per_item() {
+        assert_eq!(
+            normalize_executable(" Notepad.EXE ").as_deref(),
+            Some("notepad.exe")
+        );
+        for invalid in [
+            "a.exe,b.exe",
+            "a.exe;b.exe",
+            "C:\\a.exe",
+            "*.exe",
+            ".exe",
+            "a.exe\nb.exe",
+        ] {
+            assert!(normalize_executable(invalid).is_none(), "{invalid}");
+        }
+    }
     #[test]
     fn invalid_or_future_configuration_is_rejected() {
         let mut p = Preferences {
@@ -173,11 +240,13 @@ mod tests {
         assert_eq!(std::fs::read(&path).unwrap(), b"original");
         let valid = Preferences {
             languages: vec!["it".into(), "fr".into()],
+            ui_language: "de".into(),
+            excluded_apps: vec!["notepad.exe".into(), "code.exe".into()],
             ..Preferences::default()
         };
         valid.save_to(&path).unwrap();
         let loaded: Preferences = serde_json::from_slice(&std::fs::read(&path).unwrap()).unwrap();
-        assert_eq!(loaded.languages, vec!["it", "fr"]);
+        assert_eq!(loaded, valid);
         assert!(loaded.validate().is_ok());
         assert_eq!(std::fs::read_dir(&root).unwrap().count(), 1);
         std::fs::remove_file(path).unwrap();

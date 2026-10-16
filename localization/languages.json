@@ -1,0 +1,697 @@
+[
+  {
+    "code": "it",
+    "name": "Italiano",
+    "english": "Italian",
+    "script": "Latin",
+    "countries": [
+      "IT",
+      "SM",
+      "VA"
+    ],
+    "variant": "Italian",
+    "sample": "à é è ì ò ù",
+    "alphabet": "a à b c d e é è f g h i ì j k l m n o ò p q r s t u ù v w x y z",
+    "digraphs": []
+  },
+  {
+    "code": "en",
+    "name": "English",
+    "english": "English",
+    "script": "Latin",
+    "countries": [
+      "GB",
+      "IE",
+      "MT"
+    ],
+    "variant": "English",
+    "sample": "a b c d e f g h i j k l m n o p q r s t u v w x y z",
+    "alphabet": "a b c d e f g h i j k l m n o p q r s t u v w x y z",
+    "digraphs": []
+  },
+  {
+    "code": "sq",
+    "name": "Shqip",
+    "english": "Albanian",
+    "script": "Latin",
+    "countries": [
+      "AL",
+      "XK"
+    ],
+    "variant": "Albanian",
+    "sample": "ç dh ë gj ll nj rr sh th xh zh",
+    "alphabet": "a b c ç d dh e ë f g gj h i j k l ll m n nj o p q r rr s sh t th u v x xh y z zh",
+    "digraphs": [
+      "dh",
+      "gj",
+      "ll",
+      "nj",
+      "rr",
+      "sh",
+      "th",
+      "xh",
+      "zh"
+    ]
+  },
+  {
+    "code": "fr",
+    "name": "Français",
+    "english": "French",
+    "script": "Latin",
+    "countries": [
+      "FR",
+      "BE",
+      "CH",
+      "LU",
+      "MC"
+    ],
+    "variant": "French",
+    "sample": "à â æ ç é è ê ë î ï ô œ ù û ü ÿ",
+    "alphabet": "a à â æ b c ç d e é è ê ë f g h i î ï j k l m n o ô œ p q r s t u ù û ü v w x y ÿ z",
+    "digraphs": []
+  },
+  {
+    "code": "es",
+    "name": "Español",
+    "english": "Spanish",
+    "script": "Latin",
+    "countries": [
+      "ES"
+    ],
+    "variant": "Spanish",
+    "sample": "á é í ñ ó ú ü",
+    "alphabet": "a á b c d e é f g h i í j k l m n ñ o ó p q r s t u ú ü v w x y z",
+    "digraphs": []
+  },
+  {
+    "code": "de",
+    "name": "Deutsch",
+    "english": "German",
+    "script": "Latin",
+    "countries": [
+      "DE",
+      "AT",
+      "BE",
+      "CH",
+      "LI",
+      "LU"
+    ],
+    "variant": "German",
+    "sample": "ä ö ß ü",
+    "alphabet": "a ä b c d e f g h i j k l m n o ö p q r s ß t u ü v w x y z",
+    "digraphs": []
+  },
+  {
+    "code": "pt",
+    "name": "Português",
+    "english": "Portuguese",
+    "script": "Latin",
+    "countries": [
+      "PT"
+    ],
+    "variant": "Portuguese",
+    "sample": "á à â ã ç é ê í ó ò ô õ ú",
+    "alphabet": "a á à â ã b c ç d e é ê f g h i í j k l m n o ó ò ô õ p q r s t u ú v w x y z",
+    "digraphs": []
+  },
+  {
+    "code": "ro",
+    "name": "Română",
+    "english": "Romanian",
+    "script": "Latin",
+    "countries": [
+      "RO",
+      "MD"
+    ],
+    "variant": "Romanian",
+    "sample": "ă â î ș ț",
+    "alphabet": "a ă â b c d e f g h i î j k l m n o p q r s ș t ț u v w x y z",
+    "digraphs": []
+  },
+  {
+    "code": "pl",
+    "name": "Polski",
+    "english": "Polish",
+    "script": "Latin",
+    "countries": [
+      "PL"
+    ],
+    "variant": "Polish",
+    "sample": "ą ć ę ł ń ó ś ź ż",
+    "alphabet": "a ą b c ć d e ę f g h i j k l ł m n ń o ó p r s ś t u w y z ź ż",
+    "digraphs": []
+  },
+  {
+    "code": "tr",
+    "name": "Türkçe",
+    "english": "Turkish",
+    "script": "Latin",
+    "countries": [
+      "TR",
+      "CY"
+    ],
+    "variant": "Turkish",
+    "sample": "ç ğ ı İ ö ş ü",
+    "alphabet": "a b c ç d e f g ğ h ı i İ j k l m n o ö p r s ş t u ü v y z",
+    "digraphs": []
+  },
+  {
+    "code": "nl",
+    "name": "Nederlands",
+    "english": "Dutch",
+    "script": "Latin",
+    "countries": [
+      "NL",
+      "BE"
+    ],
+    "variant": "Dutch",
+    "sample": "á ä é ë í ï ij íj́ ó ö ú ü",
+    "alphabet": "a á ä b c d e é ë f g h i í ï ij íj́ j k l m n o ó ö p q r s t u ú ü v w x y z",
+    "digraphs": [
+      "ij"
+    ]
+  },
+  {
+    "code": "lb",
+    "name": "Lëtzebuergesch",
+    "english": "Luxembourgish",
+    "script": "Latin",
+    "countries": [
+      "LU"
+    ],
+    "variant": "Luxembourgish",
+    "sample": "ä é ë",
+    "alphabet": "a ä b c d e é ë f g h i j k l m n o p q r s t u v w x y z",
+    "digraphs": []
+  },
+  {
+    "code": "rm",
+    "name": "Rumantsch",
+    "english": "Romansh",
+    "script": "Latin",
+    "countries": [
+      "CH"
+    ],
+    "variant": "Romansh",
+    "sample": "à é è ì ò ù",
+    "alphabet": "a à b c d e é è f g h i ì j k l m n o ò p q r s t u ù v w x y z",
+    "digraphs": []
+  },
+  {
+    "code": "da",
+    "name": "Dansk",
+    "english": "Danish",
+    "script": "Latin",
+    "countries": [
+      "DK"
+    ],
+    "variant": "Danish",
+    "sample": "æ ø å",
+    "alphabet": "a b c d e f g h i j k l m n o p q r s t u v w x y z æ ø å",
+    "digraphs": []
+  },
+  {
+    "code": "sv",
+    "name": "Svenska",
+    "english": "Swedish",
+    "script": "Latin",
+    "countries": [
+      "SE",
+      "FI"
+    ],
+    "variant": "Swedish",
+    "sample": "à é å ä ö",
+    "alphabet": "a à b c d e é f g h i j k l m n o p q r s t u v w x y z å ä ö",
+    "digraphs": []
+  },
+  {
+    "code": "nb",
+    "name": "Norsk bokmål",
+    "english": "Norwegian Bokmål",
+    "script": "Latin",
+    "countries": [
+      "NO"
+    ],
+    "variant": "NorwegianBokmal",
+    "sample": "à é ó ò ô æ ø å",
+    "alphabet": "a à b c d e é f g h i j k l m n o ó ò ô p q r s t u v w x y z æ ø å",
+    "digraphs": []
+  },
+  {
+    "code": "nn",
+    "name": "Norsk nynorsk",
+    "english": "Norwegian Nynorsk",
+    "script": "Latin",
+    "countries": [
+      "NO"
+    ],
+    "variant": "NorwegianNynorsk",
+    "sample": "à é ó ò ô æ ø å",
+    "alphabet": "a à b c d e é f g h i j k l m n o ó ò ô p q r s t u v w x y z æ ø å",
+    "digraphs": []
+  },
+  {
+    "code": "fi",
+    "name": "Suomi",
+    "english": "Finnish",
+    "script": "Latin",
+    "countries": [
+      "FI"
+    ],
+    "variant": "Finnish",
+    "sample": "š ž å ä ö",
+    "alphabet": "a b c d e f g h i j k l m n o p q r s š t u v w x y z ž å ä ö",
+    "digraphs": []
+  },
+  {
+    "code": "is",
+    "name": "Íslenska",
+    "english": "Icelandic",
+    "script": "Latin",
+    "countries": [
+      "IS"
+    ],
+    "variant": "Icelandic",
+    "sample": "á ð é í ó ú ý þ æ ö",
+    "alphabet": "a á b d ð e é f g h i í j k l m n o ó p r s t u ú v x y ý þ æ ö",
+    "digraphs": []
+  },
+  {
+    "code": "et",
+    "name": "Eesti",
+    "english": "Estonian",
+    "script": "Latin",
+    "countries": [
+      "EE"
+    ],
+    "variant": "Estonian",
+    "sample": "š ž õ ä ö ü",
+    "alphabet": "a b c d e f g h i j k l m n o p q r s š z ž t u v w õ ä ö ü x y",
+    "digraphs": []
+  },
+  {
+    "code": "lv",
+    "name": "Latviešu",
+    "english": "Latvian",
+    "script": "Latin",
+    "countries": [
+      "LV"
+    ],
+    "variant": "Latvian",
+    "sample": "ā č ē ģ ī ķ ļ ņ š ū ž",
+    "alphabet": "a ā b c č d e ē f g ģ h i ī j k ķ l ļ m n ņ o p r s š t u ū v z ž",
+    "digraphs": []
+  },
+  {
+    "code": "lt",
+    "name": "Lietuvių",
+    "english": "Lithuanian",
+    "script": "Latin",
+    "countries": [
+      "LT"
+    ],
+    "variant": "Lithuanian",
+    "sample": "ą č ę ė į š ų ū ž",
+    "alphabet": "a ą b c č d e ę ė f g h i į y j k l m n o p r s š t u ų ū v z ž",
+    "digraphs": []
+  },
+  {
+    "code": "cs",
+    "name": "Čeština",
+    "english": "Czech",
+    "script": "Latin",
+    "countries": [
+      "CZ"
+    ],
+    "variant": "Czech",
+    "sample": "á č ď é ě ch í ň ó ř š ť ú ů ý ž",
+    "alphabet": "a á b c č d ď e é ě f g h ch i í j k l m n ň o ó p q r ř s š t ť u ú ů v w x y ý z ž",
+    "digraphs": [
+      "ch"
+    ]
+  },
+  {
+    "code": "sk",
+    "name": "Slovenčina",
+    "english": "Slovak",
+    "script": "Latin",
+    "countries": [
+      "SK"
+    ],
+    "variant": "Slovak",
+    "sample": "á ä č ď dz dž é ch í ĺ ľ ň ó ô ŕ š ť ú ý ž",
+    "alphabet": "a á ä b c č d ď dz dž e é f g h ch i í j k l ĺ ľ m n ň o ó ô p q r ŕ s š t ť u ú v w x y ý z ž",
+    "digraphs": [
+      "dz",
+      "dž",
+      "ch"
+    ]
+  },
+  {
+    "code": "hu",
+    "name": "Magyar",
+    "english": "Hungarian",
+    "script": "Latin",
+    "countries": [
+      "HU"
+    ],
+    "variant": "Hungarian",
+    "sample": "á cs ccs dz ddz dzs ddzs é gy ggy í ly lly ny nny ó ö ő sz ssz ty tty ú ü ű zs zzs",
+    "alphabet": "a á b c cs ccs d dz ddz dzs ddzs e é f g gy ggy h i í j k l ly lly m n ny nny o ó ö ő p r s sz ssz t ty tty u ú ü ű v z zs zzs",
+    "digraphs": [
+      "cs",
+      "ccs",
+      "dz",
+      "ddz",
+      "dzs",
+      "ddzs",
+      "gy",
+      "ggy",
+      "ly",
+      "lly",
+      "ny",
+      "nny",
+      "sz",
+      "ssz",
+      "ty",
+      "tty",
+      "zs",
+      "zzs"
+    ]
+  },
+  {
+    "code": "sl",
+    "name": "Slovenščina",
+    "english": "Slovenian",
+    "script": "Latin",
+    "countries": [
+      "SI"
+    ],
+    "variant": "Slovenian",
+    "sample": "č š ž",
+    "alphabet": "a b c č d e f g h i j k l m n o p r s š t u v z ž",
+    "digraphs": []
+  },
+  {
+    "code": "hr",
+    "name": "Hrvatski",
+    "english": "Croatian",
+    "script": "Latin",
+    "countries": [
+      "HR",
+      "BA"
+    ],
+    "variant": "Croatian",
+    "sample": "č ć dž đ lj nj š ž",
+    "alphabet": "a b c č ć d dž đ e f g h i j k l lj m n nj o p r s š t u v z ž",
+    "digraphs": [
+      "dž",
+      "lj",
+      "nj"
+    ]
+  },
+  {
+    "code": "bs",
+    "name": "Bosanski",
+    "english": "Bosnian",
+    "script": "Latin",
+    "countries": [
+      "BA"
+    ],
+    "variant": "Bosnian",
+    "sample": "č ć dž đ lj nj š ž",
+    "alphabet": "a b c č ć d dž đ e f g h i j k l lj m n nj o p r s š t u v z ž",
+    "digraphs": [
+      "dž",
+      "lj",
+      "nj"
+    ]
+  },
+  {
+    "code": "bs-Cyrl",
+    "name": "Босански (ћирилица)",
+    "english": "Bosnian (Cyrillic)",
+    "script": "Cyrillic",
+    "countries": [
+      "BA"
+    ],
+    "variant": "BosnianCyrillic",
+    "sample": "а б в г д ђ е ж з и ј к л љ м н њ о п р с т ћ у ф х ц ч џ ш",
+    "alphabet": "а б в г д ђ е ж з и ј к л љ м н њ о п р с т ћ у ф х ц ч џ ш",
+    "digraphs": []
+  },
+  {
+    "code": "sr",
+    "name": "Српски",
+    "english": "Serbian",
+    "script": "Cyrillic",
+    "countries": [
+      "RS",
+      "BA",
+      "XK"
+    ],
+    "variant": "Serbian",
+    "sample": "а б в г д ђ е ж з и ј к л љ м н њ о п р с т ћ у ф х ц ч џ ш",
+    "alphabet": "а б в г д ђ е ж з и ј к л љ м н њ о п р с т ћ у ф х ц ч џ ш",
+    "digraphs": []
+  },
+  {
+    "code": "sr-Latn",
+    "name": "Srpski (latinica)",
+    "english": "Serbian (Latin)",
+    "script": "Latin",
+    "countries": [
+      "RS",
+      "BA",
+      "XK"
+    ],
+    "variant": "SerbianLatin",
+    "sample": "č ć dž đ lj nj š ž",
+    "alphabet": "a b c č ć d dž đ e f g h i j k l lj m n nj o p r s š t u v z ž",
+    "digraphs": [
+      "dž",
+      "lj",
+      "nj"
+    ]
+  },
+  {
+    "code": "cnr",
+    "name": "Crnogorski",
+    "english": "Montenegrin",
+    "script": "Latin",
+    "countries": [
+      "ME"
+    ],
+    "variant": "Montenegrin",
+    "sample": "č ć dž đ lj nj š ž ś ź",
+    "alphabet": "a b c č ć d dž đ e f g h i j k l lj m n nj o p r s š t u v z ž ś ź",
+    "digraphs": [
+      "dž",
+      "lj",
+      "nj"
+    ]
+  },
+  {
+    "code": "cnr-Cyrl",
+    "name": "Црногорски (ћирилица)",
+    "english": "Montenegrin (Cyrillic)",
+    "script": "Cyrillic",
+    "countries": [
+      "ME"
+    ],
+    "variant": "MontenegrinCyrillic",
+    "sample": "а б в г д ђ е ж з и ј к л љ м н њ о п р с т ћ у ф х ц ч џ ш с́ з́",
+    "alphabet": "а б в г д ђ е ж з и ј к л љ м н њ о п р с т ћ у ф х ц ч џ ш с́ з́",
+    "digraphs": []
+  },
+  {
+    "code": "mk",
+    "name": "Македонски",
+    "english": "Macedonian",
+    "script": "Cyrillic",
+    "countries": [
+      "MK"
+    ],
+    "variant": "Macedonian",
+    "sample": "а б в г д ѓ е ж з ѕ и ј к л љ м н њ о п р с т ќ у ф х ц ч џ ш",
+    "alphabet": "а б в г д ѓ е ж з ѕ и ј к л љ м н њ о п р с т ќ у ф х ц ч џ ш",
+    "digraphs": []
+  },
+  {
+    "code": "bg",
+    "name": "Български",
+    "english": "Bulgarian",
+    "script": "Cyrillic",
+    "countries": [
+      "BG"
+    ],
+    "variant": "Bulgarian",
+    "sample": "а б в г д е ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ь ю я",
+    "alphabet": "а б в г д е ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ь ю я",
+    "digraphs": []
+  },
+  {
+    "code": "el",
+    "name": "Ελληνικά",
+    "english": "Greek",
+    "script": "Greek",
+    "countries": [
+      "GR",
+      "CY"
+    ],
+    "variant": "Greek",
+    "sample": "α ά β γ δ ε έ ζ η ή θ ι ί ϊ ΐ κ λ μ ν ξ ο ό π ρ σ ς τ υ ύ ϋ ΰ φ χ ψ ω ώ",
+    "alphabet": "α ά β γ δ ε έ ζ η ή θ ι ί ϊ ΐ κ λ μ ν ξ ο ό π ρ σ ς τ υ ύ ϋ ΰ φ χ ψ ω ώ",
+    "digraphs": []
+  },
+  {
+    "code": "be",
+    "name": "Беларуская",
+    "english": "Belarusian",
+    "script": "Cyrillic",
+    "countries": [
+      "BY"
+    ],
+    "variant": "Belarusian",
+    "sample": "а б в г д дж дз е ё ж з і й к л м н о п р с т у ў ф х ц ч ш ы ь э ю я",
+    "alphabet": "а б в г д дж дз е ё ж з і й к л м н о п р с т у ў ф х ц ч ш ы ь э ю я",
+    "digraphs": [
+      "дж",
+      "дз"
+    ]
+  },
+  {
+    "code": "uk",
+    "name": "Українська",
+    "english": "Ukrainian",
+    "script": "Cyrillic",
+    "countries": [
+      "UA"
+    ],
+    "variant": "Ukrainian",
+    "sample": "а б в г ґ д е є ж з и і ї й к л м н о п р с т у ф х ц ч ш щ ь ю я ʼ",
+    "alphabet": "а б в г ґ д е є ж з и і ї й к л м н о п р с т у ф х ц ч ш щ ь ю я ʼ",
+    "digraphs": []
+  },
+  {
+    "code": "ru",
+    "name": "Русский",
+    "english": "Russian",
+    "script": "Cyrillic",
+    "countries": [
+      "RU",
+      "BY",
+      "KZ"
+    ],
+    "variant": "Russian",
+    "sample": "а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я",
+    "alphabet": "а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я",
+    "digraphs": []
+  },
+  {
+    "code": "ga",
+    "name": "Gaeilge",
+    "english": "Irish",
+    "script": "Latin",
+    "countries": [
+      "IE"
+    ],
+    "variant": "Irish",
+    "sample": "á é í ó ú",
+    "alphabet": "a á b c d e é f g h i í l m n o ó p r s t u ú",
+    "digraphs": []
+  },
+  {
+    "code": "mt",
+    "name": "Malti",
+    "english": "Maltese",
+    "script": "Latin",
+    "countries": [
+      "MT"
+    ],
+    "variant": "Maltese",
+    "sample": "à ċ è ġ għ ħ ì ò ù ż",
+    "alphabet": "a à b ċ d e è f ġ g għ h ħ i ì j k l m n o ò p q r s t u ù v w x ż z",
+    "digraphs": [
+      "għ"
+    ]
+  },
+  {
+    "code": "ca",
+    "name": "Català",
+    "english": "Catalan",
+    "script": "Latin",
+    "countries": [
+      "AD"
+    ],
+    "variant": "Catalan",
+    "sample": "· à ç é è í ï ó ò ú ü",
+    "alphabet": "· a à b c ç d e é è f g h i í ï j k l m n o ó ò p q r s t u ú ü v w x y z",
+    "digraphs": []
+  },
+  {
+    "code": "hy",
+    "name": "Հայերեն",
+    "english": "Armenian",
+    "script": "Armenian",
+    "countries": [
+      "AM"
+    ],
+    "variant": "Armenian",
+    "sample": "ա բ գ դ ե զ է ը թ ժ ի լ խ ծ կ հ ձ ղ ճ մ յ ն շ ո չ պ ջ ռ ս վ տ ր ց ւ փ ք օ ֆ",
+    "alphabet": "ա բ գ դ ե զ է ը թ ժ ի լ խ ծ կ հ ձ ղ ճ մ յ ն շ ո չ պ ջ ռ ս վ տ ր ց ւ փ ք օ ֆ",
+    "digraphs": []
+  },
+  {
+    "code": "ka",
+    "name": "ქართული",
+    "english": "Georgian",
+    "script": "Georgian",
+    "countries": [
+      "GE"
+    ],
+    "variant": "Georgian",
+    "sample": "ა ბ გ დ ე ვ ზ თ ი კ ლ მ ნ ო პ ჟ რ ს ტ უ ფ ქ ღ ყ შ ჩ ც ძ წ ჭ ხ ჯ ჰ",
+    "alphabet": "ა ბ გ დ ე ვ ზ თ ი კ ლ მ ნ ო პ ჟ რ ს ტ უ ფ ქ ღ ყ შ ჩ ც ძ წ ჭ ხ ჯ ჰ",
+    "digraphs": []
+  },
+  {
+    "code": "az",
+    "name": "Azərbaycanca",
+    "english": "Azerbaijani",
+    "script": "Latin",
+    "countries": [
+      "AZ"
+    ],
+    "variant": "Azerbaijani",
+    "sample": "ç ə ğ ı İ ö ş ü",
+    "alphabet": "a b c ç d e ə f g ğ h x ı i İ j k q l m n o ö p r s ş t u ü v y z",
+    "digraphs": []
+  },
+  {
+    "code": "kk",
+    "name": "Қазақша",
+    "english": "Kazakh",
+    "script": "Cyrillic",
+    "countries": [
+      "KZ"
+    ],
+    "variant": "Kazakh",
+    "sample": "а ә б в г ғ д е ё ж з и й к қ л м н ң о ө п р с т у ұ ү ф х һ ц ч ш щ ъ ы і ь э ю я",
+    "alphabet": "а ә б в г ғ д е ё ж з и й к қ л м н ң о ө п р с т у ұ ү ф х һ ц ч ш щ ъ ы і ь э ю я",
+    "digraphs": []
+  },
+  {
+    "code": "la",
+    "name": "Latina",
+    "english": "Latin",
+    "script": "Latin",
+    "countries": [
+      "VA"
+    ],
+    "variant": "Latin",
+    "sample": "a b c d e f g h i j k l m n o p q r s t u v w x y z",
+    "alphabet": "a b c d e f g h i j k l m n o p q r s t u v w x y z",
+    "digraphs": []
+  }
+]

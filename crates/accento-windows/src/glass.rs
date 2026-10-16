@@ -235,7 +235,7 @@ pub fn release_dc() {
     });
 }
 thread_local! {static DC:RefCell<Option<DcPainter>>=const{RefCell::new(None)};}
-pub fn draw_dc(
+fn draw_dc_inner(
     hdc: HDC,
     bounds: RECT,
     dpi: f32,
@@ -280,4 +280,55 @@ pub fn draw_dc(
             result.and(end)
         }
     })
+}
+
+/// Paint a complete opaque surface before publishing it to the window DC.
+/// Child controls and the content viewport therefore never expose the Clear pass.
+pub fn draw_dc(
+    hdc: HDC,
+    bounds: RECT,
+    dpi: f32,
+    offset: (f32, f32),
+    draw: impl FnOnce(&Painter) -> Result<()>,
+) -> Result<()> {
+    unsafe {
+        let width = bounds.right - bounds.left;
+        let height = bounds.bottom - bounds.top;
+        if width <= 0 || height <= 0 {
+            return Ok(());
+        }
+        let memory = CreateCompatibleDC(Some(hdc));
+        if memory.is_invalid() {
+            return Err(windows::core::Error::from_thread());
+        }
+        let bitmap = CreateCompatibleBitmap(hdc, width, height);
+        if bitmap.is_invalid() {
+            let _ = DeleteDC(memory);
+            return Err(windows::core::Error::from_thread());
+        }
+        let previous = SelectObject(memory, HGDIOBJ(bitmap.0));
+        let local = RECT {
+            left: 0,
+            top: 0,
+            right: width,
+            bottom: height,
+        };
+        let result = draw_dc_inner(memory, local, dpi, offset, draw).and_then(|()| {
+            BitBlt(
+                hdc,
+                bounds.left,
+                bounds.top,
+                width,
+                height,
+                Some(memory),
+                0,
+                0,
+                SRCCOPY,
+            )
+        });
+        SelectObject(memory, previous);
+        let _ = DeleteObject(HGDIOBJ(bitmap.0));
+        let _ = DeleteDC(memory);
+        result
+    }
 }

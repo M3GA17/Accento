@@ -1,0 +1,33 @@
+{
+  "name": "accento-desktop",
+  "version": "0.6.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/sync-ui-messages.mjs && vite --host 127.0.0.1 --port 1421 --strictPort",
+    "build": "node scripts/sync-ui-messages.mjs && node scripts/generate-language-docs.mjs && tsc -p ui/tsconfig.json && vite build",
+    "check": "node scripts/sync-ui-messages.mjs && tsc -p ui/tsconfig.json",
+    "desktop": "tauri dev",
+    "desktop:build": "tauri build --no-bundle",
+    "test:ui": "playwright test",
+    "test:desktop": "node scripts/test-desktop.mjs"
+  },
+  "dependencies": {
+    "@dimalabs/react-component-flat-product": "file:vendor/dimalabs-react-component-flat-product-0.1.1.tgz",
+    "@dimalabs/react-component-primitives": "file:vendor/dimalabs-react-component-primitives-0.2.0.tgz",
+    "@tauri-apps/api": "^2.11.0",
+    "lucide-react": "^1.55.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@tauri-apps/cli": "^2.12.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "axe-core": "^4.14.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4"
+  }
+}

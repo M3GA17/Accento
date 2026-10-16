@@ -37,7 +37,7 @@ pub struct KeyEvent {
 pub struct View {
     pub generation: u64,
     pub base: char,
-    pub candidates: Vec<char>,
+    pub candidates: Vec<String>,
     pub selected: Option<usize>,
     pub context: Context,
 }
@@ -46,7 +46,7 @@ pub struct View {
 pub enum Effect {
     Show(View),
     Hide,
-    Replace { context: Context, character: char },
+    Replace { context: Context, text: String },
     RestoreSpace { context: Context },
 }
 
@@ -122,6 +122,7 @@ impl Engine {
         }
         if !s.open && s.deadline.is_some_and(|deadline| now_ms >= deadline) {
             s.open = true;
+            s.view.selected = Some(0);
             return vec![Effect::Show(s.view.clone())];
         }
         vec![]
@@ -195,7 +196,7 @@ impl Engine {
                         if let Some(index) = s.view.selected {
                             out.effects.push(Effect::Replace {
                                 context: s.view.context,
-                                character: s.view.candidates[index],
+                                text: s.view.candidates[index].clone(),
                             });
                         }
                     } else if s.deadline.is_some() {
@@ -302,14 +303,46 @@ mod tests {
         assert!(engine.tick(generation, 309, TARGET).is_empty());
         assert!(matches!(
             engine.tick(generation, 310, TARGET).as_slice(),
-            [Effect::Show(View { selected: None, .. })]
+            [Effect::Show(View {
+                selected: Some(0),
+                ..
+            })]
         ));
         engine
     }
     #[test]
+    fn first_candidate_is_selected_when_picker_opens() {
+        let mut engine = armed();
+        let generation = engine.timer().unwrap().0;
+        assert!(matches!(
+            engine.tick(generation, 310, TARGET).as_slice(),
+            [Effect::Show(View {
+                selected: Some(0),
+                ..
+            })]
+        ));
+    }
+    #[test]
+    fn a_digraph_is_committed_as_one_complete_text_candidate() {
+        let mut engine = Engine::new(vec![Language::Albanian], 100);
+        engine.handle(key(Key::Letter('d'), true, 0));
+        engine.handle(key(Key::Space, true, 10));
+        engine.handle(key(Key::Space, false, 20));
+        engine.tick(engine.timer().unwrap().0, 110, TARGET);
+        assert_eq!(
+            engine.handle(key(Key::Letter('d'), false, 120)).effects,
+            vec![
+                Effect::Replace {
+                    context: TARGET,
+                    text: "dh".into()
+                },
+                Effect::Hide
+            ]
+        );
+    }
+    #[test]
     fn accent_commits_on_base_release_only() {
         let mut engine = opened();
-        engine.handle(key(Key::Right, true, 320));
         assert!(
             engine
                 .handle(key(Key::Right, false, 330))
@@ -321,12 +354,7 @@ mod tests {
                 .handle(key(Key::Letter('e'), false, 340))
                 .effects
                 .as_slice(),
-            [
-                Effect::Replace {
-                    character: 'è', ..
-                },
-                Effect::Hide
-            ]
+            [Effect::Replace { text, .. }, Effect::Hide] if text == "è"
         ));
     }
     #[test]
@@ -348,11 +376,59 @@ mod tests {
         );
     }
     #[test]
-    fn open_without_choice_keeps_the_base() {
+    fn opening_commits_first_candidate_without_navigation() {
         assert_eq!(
             opened().handle(key(Key::Letter('e'), false, 400)).effects,
-            vec![Effect::Hide]
+            vec![
+                Effect::Replace {
+                    context: TARGET,
+                    text: "è".into()
+                },
+                Effect::Hide
+            ]
         );
+    }
+    #[test]
+    fn releasing_trigger_after_opening_does_not_confirm_or_advance() {
+        let mut engine = armed();
+        engine.tick(engine.timer().unwrap().0, 310, TARGET);
+        assert!(
+            engine
+                .handle(key(Key::Space, false, 320))
+                .effects
+                .is_empty()
+        );
+        assert_eq!(
+            engine.handle(key(Key::Letter('e'), false, 330)).effects,
+            vec![
+                Effect::Replace {
+                    context: TARGET,
+                    text: "è".into()
+                },
+                Effect::Hide
+            ]
+        );
+    }
+    #[test]
+    fn space_and_right_advance_from_the_preselected_first_candidate() {
+        for direction in [Key::Space, Key::Right] {
+            let mut engine = opened();
+            assert!(matches!(
+                engine.handle(key(direction, true, 320)).effects.as_slice(),
+                [Effect::Show(View {
+                    selected: Some(1),
+                    ..
+                })]
+            ));
+            engine.handle(key(direction, false, 330));
+            assert!(matches!(
+                engine.handle(key(direction, true, 340)).effects.as_slice(),
+                [Effect::Show(View {
+                    selected: Some(0),
+                    ..
+                })]
+            ));
+        }
     }
     #[test]
     fn escape_balances_key_up_and_invalidates_timer() {
@@ -389,12 +465,7 @@ mod tests {
                 .handle(key(Key::Letter('e'), false, 400))
                 .effects
                 .as_slice(),
-            [
-                Effect::Replace {
-                    character: 'è', ..
-                },
-                Effect::Hide
-            ]
+            [Effect::Replace { text, .. }, Effect::Hide] if text == "è"
         ));
     }
     #[test]
@@ -452,18 +523,12 @@ mod tests {
         engine.handle(key(Key::Space, true, 1));
         engine.handle(key(Key::Space, false, 2));
         engine.tick(engine.timer().unwrap().0, 101, TARGET);
-        engine.handle(key(Key::Right, true, 102));
         assert!(matches!(
             engine
                 .handle(key(Key::Letter('e'), false, 110))
                 .effects
                 .as_slice(),
-            [
-                Effect::Replace {
-                    character: 'È', ..
-                },
-                Effect::Hide
-            ]
+            [Effect::Replace { text, .. }, Effect::Hide] if text == "È"
         ));
     }
 }

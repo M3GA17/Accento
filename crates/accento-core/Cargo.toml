@@ -3,3 +3,6 @@ name = "accento-core"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
+
+[dev-dependencies]
+serde_json = "1"

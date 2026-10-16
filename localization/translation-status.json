@@ -1,0 +1,237 @@
+{
+  "it": {
+    "uiSource": "existing",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "en": {
+    "uiSource": "existing",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "sq": {
+    "uiSource": "existing",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "fr": {
+    "uiSource": "existing",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "es": {
+    "uiSource": "existing",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "de": {
+    "uiSource": "existing",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "pt": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "ro": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "pl": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "tr": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "nl": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "lb": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "rm": {
+    "uiSource": "assistant-draft",
+    "nativeReview": false,
+    "guideSource": "assistant-draft"
+  },
+  "da": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "sv": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "nb": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "nn": {
+    "uiSource": "assistant-draft",
+    "nativeReview": false,
+    "guideSource": "assistant-draft"
+  },
+  "fi": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "is": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "et": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "lv": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "lt": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "cs": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "sk": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "hu": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "sl": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "hr": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "bs": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "bs-Cyrl": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "sr": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "sr-Latn": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "cnr": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "cnr-Cyrl": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "mk": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "bg": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "el": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "be": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "uk": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "ru": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "ga": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "mt": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "ca": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "hy": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "ka": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "az": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "kk": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  },
+  "la": {
+    "uiSource": "Google machine translation draft",
+    "nativeReview": false,
+    "guideSource": "Google machine translation draft"
+  }
+}

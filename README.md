@@ -1,32 +1,37 @@
 # Accento
 
-Accento è un'utility Windows autonoma per inserire accenti e varianti mentre scrivi. Il motore è scritto in Rust; il selettore mostra solo tasti Liquid Glass indipendenti su una finestra trasparente, con alternativa solida.
+Accento è un’utility Windows autonoma per inserire accenti e varianti mentre scrivi. Il motore è scritto in Rust; il popup mostra solo tasti Liquid Glass indipendenti su fondo trasparente.
 
-La versione 0.3.0 è un prototipo portabile per Windows 11 x64, con la UI del nuovo FigCraft implementata: popup senza pannello o label, quattro sezioni nelle impostazioni, temi chiaro/scuro e layout compatto. Non richiede PowerToys, .NET o WebView. Il sistema iniziale previsto è Windows 11 build 22621 o successiva; l'ambiente verificato è la build 26300.
+La versione **0.6.0** usa **React 19 + TypeScript + Tauri 2** per le impostazioni. I componenti DimaLabs **Flat Product** includono pulsanti, campi e un selettore lingua ricercabile. Motore tastiera, icona nell'area di notifica e popup Liquid Glass restano nativi Windows in Rust.
+
+La copertura comprende **47 voci linguistiche e varianti scritte nazionali europee**, incluse le scritture greca, cirillica, armena e georgiana. Ogni voce è presente nell’interfaccia, nei set e in una guida rapida. [Matrice di copertura, paesi, fonti e limiti](docs/copertura-europa.md). Le nuove traduzioni sono bozze complete da revisionare linguisticamente; non si dichiara una revisione madrelingua.
 
 ## Stato del progetto
 
-Rework del 15 ottobre 2026: candidati 64 × 64, gap trasparenti, materiale con sfocatura e rifrazione del backdrop campionato all'apertura; impostazioni Scrittura, Lingue, Aspetto e Applicazioni con controlli nativi e footer stabile. Il motore del gesto è invariato. Sono superati 21 test Rust e 35 controlli Windows, inclusa la verifica dell'alpha effettivo del popup: [rapporto 0.3.0](docs/verifiche-0.3.0.md).
+Le impostazioni conservano Generale, Set caratteri e BlackList, tema **sempre scuro**, pausa immediata, bozza con Salva/Annulla e protezione dalla chiusura con modifiche non salvate. La chiusura distrugge la finestra web; motore e tray rimangono attivi. Le preferenze della versione precedente vengono riutilizzate.
 
-Il [FigCraft del design 0.3](design/figcraft/Accento-Design-System.figcraft) conserva le schermate editabili e il prototipo. Le catture del prodotto implementato sono in [evidenze/0.3.0](docs/evidenze/0.3.0). [Contenuti, verifica e rigenerazione](design/figcraft/README.md).
+Serve **Microsoft Edge WebView2 Runtime**; non servono PowerToys o .NET. L'interfaccia è incorporata nell'eseguibile e funziona offline. La migrazione non aggiunge compatibilità Linux o macOS al motore Windows. [Architettura, prove e limiti della migrazione](docs/migrazione-react-tauri.md).
+
+Le schermate FigCraft precedenti restano un riferimento storico. Le catture correnti sono in [docs/evidenze/europe](docs/evidenze/europe).
 
 ## Avvio e utilizzo
 
-Apri [Accento 0.3.0](dist/Accento-0.3.0-windows-x64/Accento.exe), oppure estrai [il pacchetto portabile](dist/Accento-0.3.0-windows-x64.zip) generato dalla compilazione. Chiudi prima un'eventuale istanza precedente dal menu dell'icona. Si apre la finestra impostazioni con un campo di prova. La chiusura della finestra lascia l'app nell'area di notifica; dal menu dell'icona scegli Esci per terminarla.
+Apri [Accento 0.6.0](dist/Accento-0.6.0-windows-x64/Accento.exe), oppure estrai [il pacchetto portabile](dist/Accento-0.6.0-windows-x64.zip) generato dalla compilazione. Chiudi prima un'eventuale istanza precedente dal menu dell'icona. Si apre la pagina Generale delle impostazioni. La chiusura della finestra lascia l'app nell'area di notifica; dal menu dell'icona scegli Esci per terminarla.
 
-Tieni `e` premuta, premi e rilascia Spazio, attendi l'apertura e premi Destra. Rilascia `e` per inserire `è`. Esc annulla. Per le maiuscole inizia con Shift o Caps Lock. [Guida completa e limiti](docs/uso.md).
+Tieni `e` premuta, premi e rilascia Spazio e attendi l'apertura: `è` è già selezionata. Rilascia `e` per inserirla. Destra o un nuovo Spazio avanzano alla variante successiva; Esc annulla. Per le maiuscole inizia con Shift o Caps Lock. [Guida completa e limiti](docs/uso.md).
 
 ## Compilazione
 
-Occorrono Rust con toolchain MSVC x64, gli strumenti C++ di Visual Studio e Windows SDK con `rc.exe`. Le dipendenze sono fissate in `Cargo.lock`.
+Occorrono Node.js/npm, WebView2 e Rust con toolchain MSVC x64, gli strumenti C++ di Visual Studio e Windows SDK con `rc.exe`. Le dipendenze sono fissate in `Cargo.lock` e `package-lock.json`; i pacchetti DimaLabs locali sono conservati in `vendor/`.
 
 ```powershell
-cargo run -p accento-windows
+npm ci
+npm run desktop
 cargo test --workspace --locked
 ./scripts/build.ps1
 ```
 
-`./scripts/build.ps1 -Test` include il collaudo interattivo Windows prima di preparare il pacchetto. Il collaudo usa una propria finestra: lascia libera la tastiera finché termina. Il normale avvio non esegue questi test e non salva catture o cronologia.
+La compilazione verifica la UI React e il collegamento Tauri con preferenze temporanee e senza hook di input, oltre al vecchio collaudo nativo di regressione. `./scripts/build.ps1 -Test` include il collaudo interattivo Windows prima di preparare il pacchetto. Il collaudo usa una propria finestra: lascia libera la tastiera finché termina. Il normale avvio non esegue questi test e non salva catture o cronologia.
 
 ## Documentazione
 
@@ -46,7 +51,11 @@ cargo test --workspace --locked
 ## Struttura
 
 - `crates/accento-core`: stati, timer e catalogo, senza dipendenze Windows.
-- `crates/accento-windows`: integrazione Win32, rendering, impostazioni, tray e collaudo.
+- `crates/accento-windows`: Tauri, collegamento alle preferenze, integrazione Win32, rendering, tray e collaudo.
+- `ui`: impostazioni React / Flat Product.
+- `vendor`: pacchetti DimaLabs locali riproducibili.
+- `localization`: registro nazionale, snapshot CLDR, traduzioni e provenienza.
+- `docs/locales`: 47 guide rapide localizzate.
 - `docs`: prodotto, analisi REA, piano, guida ed evidenze.
 
 Licenza MIT; dipendenze e avvisi nel file [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).

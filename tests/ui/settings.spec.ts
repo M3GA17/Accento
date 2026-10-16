@@ -1,0 +1,108 @@
+import {test,expect} from '@playwright/test';
+import {createRequire} from 'node:module';
+const require=createRequire(import.meta.url);
+const languages:{code:string;name:string}[]=require('../../localization/languages.json');
+const messages:Record<string,Record<string,string>>=require('../../localization/messages.json');
+test.beforeEach(async({page})=>{await page.goto('/?preview=1');await expect(page.getByRole('heading',{name:'Generale',exact:true})).toBeVisible();});
+
+test('General is always dark, has no appearance section and no active-set shortcut',async({page})=>{
+  for(const colorScheme of ['light','dark'] as const){
+    await page.emulateMedia({colorScheme});
+    await expect(page.locator('html')).toHaveAttribute('data-dimalabs-theme','dark');
+  }
+  await expect(page.getByRole('heading',{name:'Aspetto',exact:true})).toHaveCount(0);
+  await expect(page.getByText('Set caratteri attivi',{exact:true})).toHaveCount(0);
+  await expect(page.getByRole('button',{name:'Vedi tutti i caratteri →'})).toHaveCount(0);
+});
+
+test('all national-language variants are searchable and translate the entire settings view',async({page})=>{
+  test.setTimeout(60000);
+  for(const language of languages){
+    await page.locator('.dl-f-language [data-dl-part=trigger]').click();
+    await page.getByRole('searchbox').fill(language.name);
+    await page.getByRole('option',{name:language.name,exact:true}).click();
+    await expect(page.locator('html')).toHaveAttribute('lang',language.code);
+    const dictionary=messages[language.code];
+    await expect(page.getByRole('heading',{name:dictionary.General,exact:true})).toBeVisible();
+    await expect(page.getByRole('button',{name:dictionary.Save,exact:true})).toBeVisible();
+    await expect(page.locator('html')).toHaveAttribute('data-dimalabs-theme','dark');
+  }
+});
+
+test('Albanian selection is independent of interface language and can be saved',async({page})=>{
+  await page.getByRole('button',{name:'Lingua dell’interfaccia: Italiano'}).click();
+  await page.getByRole('searchbox').fill('Albanian');
+  await page.getByRole('option',{name:'Shqip',exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Të përgjithshme',exact:true})).toBeVisible();
+  await page.getByRole('button',{name:'Ruaj ndryshimet'}).click();
+  await expect(page.getByRole('status')).toHaveText('Të gjitha ndryshimet janë ruajtur');
+  await page.getByRole('button',{name:'Grupet e shkronjave',exact:true}).click();
+  await expect(page.locator('[data-language="it"]')).toHaveAttribute('aria-pressed','true');
+  await expect(page.locator('[data-language="sq"]')).toHaveAttribute('aria-pressed','false');
+});
+
+test('character sets have search, digraphs, all scripts and preserve the last active set',async({page})=>{
+  await page.getByRole('button',{name:'Set caratteri',exact:true}).click();
+  await expect(page.locator('.set-card')).toHaveCount(languages.length);
+  await page.locator('[data-language="it"]').click();
+  await expect(page.getByRole('alert')).toHaveText('Mantieni almeno un set attivo.');
+  await page.getByRole('textbox',{name:'Cerca lingua'}).fill('Albanian');
+  await expect(page.locator('.set-card')).toHaveCount(1);
+  await expect(page.locator('[data-language="sq"]')).toContainText('dh');
+  await page.locator('[data-language="sq"]').click();
+  await page.getByRole('textbox',{name:'Cerca lingua'}).fill('');
+  for(const code of ['el','ru','hy','ka','cnr-Cyrl'])await page.locator(`[data-language="${code}"]`).click();
+  await page.getByRole('button',{name:'Salva modifiche'}).click();
+  for(const code of ['it','sq','el','ru','hy','ka','cnr-Cyrl'])await expect(page.locator(`[data-language="${code}"]`)).toHaveAttribute('aria-pressed','true');
+});
+
+test('delay validation, discard and pause preserve a draft',async({page})=>{
+  const delay=page.getByRole('textbox',{name:'Ritardo di apertura'});
+  await delay.fill('20');await page.getByRole('button',{name:'Salva modifiche'}).click();
+  await expect(page.getByText('Inserisci un ritardo tra 100 e 1500 ms.')).toBeVisible();
+  await delay.fill('450');await page.getByRole('button',{name:'Spegni Accento'}).click();
+  await expect(delay).toHaveValue('450');await expect(page.getByText('Accento spento',{exact:true})).toBeVisible();
+  await page.getByRole('button',{name:'Annulla modifiche'}).click();
+  await expect(delay).toHaveValue('300');await expect(page.getByRole('button',{name:'Salva modifiche'})).toBeDisabled();
+});
+
+test('excluded executables reject paths and duplicates, support save and removal',async({page})=>{
+  await page.getByRole('button',{name:'BlackList',exact:true}).click();
+  const field=page.getByRole('textbox',{name:'Aggiungi applicazione'});
+  await field.fill('C:\\bad.exe');await page.getByRole('button',{name:'Aggiungi',exact:true}).click();
+  await expect(page.getByText('Inserisci un solo nome .exe, senza percorso o virgole.')).toBeVisible();
+  await field.fill(' Notepad.EXE ');await page.getByRole('button',{name:'Aggiungi',exact:true}).click();
+  await expect(page.getByText('notepad.exe',{exact:true})).toBeVisible();
+  await field.fill('notepad.exe');await page.getByRole('button',{name:'Aggiungi',exact:true}).click();
+  await expect(page.getByText('Questa applicazione è già nella BlackList.')).toBeVisible();
+  await page.getByRole('button',{name:'Salva modifiche'}).click();
+  await page.getByRole('button',{name:'Rimuovi notepad.exe'}).click();
+  await expect(page.getByText('Nessuna applicazione nella BlackList')).toBeVisible();
+});
+
+test('keyboard selector, compact dark layout and long-script content',async({page})=>{
+  await page.setViewportSize({width:640,height:620});
+  await page.locator('.dl-f-language [data-dl-part=trigger]').focus();await page.keyboard.press('Enter');
+  await page.getByRole('searchbox').fill('English');await page.keyboard.press('ArrowDown');await page.keyboard.press('Enter');
+  await expect(page.getByRole('heading',{name:'General',exact:true})).toBeVisible();
+  await expect(page.locator('body')).toHaveJSProperty('scrollWidth',640);
+  await page.screenshot({path:'docs/evidenze/europe/settings-compact-dark.png'});
+  await page.setViewportSize({width:1040,height:780});
+  await page.locator('main').evaluate(element=>{element.scrollTop=0;});
+  await page.screenshot({path:'docs/evidenze/europe/settings-general-dark.png'});
+  await page.getByRole('button',{name:'Character sets',exact:true}).click();
+  await page.screenshot({path:'docs/evidenze/europe/settings-character-sets.png'});
+});
+
+test('dark settings and language popup have no serious accessibility violations',async({page})=>{
+  await page.addScriptTag({path:require.resolve('axe-core/axe.min.js')});
+  for(const section of ['General','Sets']){
+    if(section==='Sets')await page.getByRole('button',{name:'Set caratteri',exact:true}).click();
+    else await page.locator('.dl-f-language [data-dl-part=trigger]').click();
+    const violations=await page.evaluate(async()=>{
+      const result=await (window as any).axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa']}});
+      return result.violations.filter((item:any)=>['serious','critical'].includes(item.impact));
+    });
+    expect(violations).toEqual([]);await page.keyboard.press('Escape');
+  }
+});

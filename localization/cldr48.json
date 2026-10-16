@@ -1,0 +1,237 @@
+{
+  "it": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/it/characters.json",
+    "main": "[aà b c d eéè f g h iì j k l m n oò p q r s t uù v w x y z]",
+    "auxiliary": "[ªáâåäã æ ç êë íîï ñ ºóôöõø œ ß úûü ÿ]"
+  },
+  "en": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/en/characters.json",
+    "main": "[a b c d e f g h i j k l m n o p q r s t u v w x y z]",
+    "auxiliary": "[áàăâåäãā æ ç éèĕêëē íìĭîïī ñ óòŏôöøō œ úùŭûüū ÿ]"
+  },
+  "sq": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/sq/characters.json",
+    "main": "[a b c ç d {dh} e ë f g {gj} h i j k l {ll} m n {nj} o p q r {rr} s {sh} t {th} u v x {xh} y z {zh}]",
+    "auxiliary": "[w]"
+  },
+  "fr": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/fr/characters.json",
+    "main": "[aàâ æ b cç d eéèêë f g h iîï j k l m n oô œ p q r s t uùûü v w x yÿ z]",
+    "auxiliary": "[áåäãā ć ē íìī ĳ ñ óòöõø ř šſ ß úǔ]"
+  },
+  "es": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/es/characters.json",
+    "main": "[aá b c d eé f g h ií j k l m n ñ oó p q r s t uúü v w x y z]",
+    "auxiliary": "[ªàăâåäãā æ ç èĕêëē ìĭîïī ºòŏôöøō œ ùŭûū ýÿ]"
+  },
+  "de": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/de/characters.json",
+    "main": "[aä b c d e f g h i j k l m n oö p q r s ß t uü v w x y z]",
+    "auxiliary": "[áàăâåãā æ ç éèĕêëē ğ íìĭîïİī ı ñ óòŏôøō œ ş úùŭûū ÿ]"
+  },
+  "pt": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/pt/characters.json",
+    "main": "[aáàâã b cç d eéê f g h ií j k l m n oóòôõ p q r s t uú v w x y z]",
+    "auxiliary": "[ªăåäā æ èĕëē ìĭîïī ñ ºŏöøō œ ùŭûüū ÿ]"
+  },
+  "ro": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/ro/characters.json",
+    "main": "[a ă â b c d e f g h i î j k l m n o p q r s ș t ț u v w x y z]",
+    "auxiliary": "[áàåä ç éèêë ñ ö ş ţ ü]"
+  },
+  "pl": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/pl/characters.json",
+    "main": "[a ą b c ć d e ę f g h i j k l ł m n ń o ó p r s ś t u w y z ź ż]",
+    "auxiliary": "[àâåä æ ç éèêë îï ôö œ q ß ùûü v x ÿ]"
+  },
+  "tr": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/tr/characters.json",
+    "main": "[a b c ç d e f g ğ h ı iİ j k l m n o ö p r s ş t u ü v y z]",
+    "auxiliary": "[áàăâåäãā æ éèĕêëē íìĭîïī ñ óòŏôøō œ q ß úùŭûū w x ÿ]"
+  },
+  "nl": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/nl/characters.json",
+    "main": "[aáä b c d eéë f g h iíï {ij}{íj́} j k l m n oóö p q r s t uúü v w x y z]",
+    "auxiliary": "[àâåã æ ç èê î ñ ôø œ ùû ýÿ]"
+  },
+  "lb": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/lb/characters.json",
+    "main": "[aä b c d eéë f g h i j k l m n o p q r s t u v w x y z]",
+    "auxiliary": "[áàăâåãā æ ç èĕêē ğ íìĭîïİī ı ñ óòŏôöøō œ ş ß úùŭûüū ÿ]"
+  },
+  "rm": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/rm/characters.json",
+    "main": "[aà b c d eéè f g h iì j k l m n oò p q r s t uù v w x y z]",
+    "auxiliary": "[áăâåäā æ ç ĕêëē íĭîïī ñ óŏôöøō œ úŭûüū ÿ]"
+  },
+  "da": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/da/characters.json",
+    "main": "[a b c d e f g h i j k l m n o p q r s t u v w x y z æ ø å]",
+    "auxiliary": "[áàâ ç éèêë íîï ñ óô œ úùû ÿü ä ǿö]"
+  },
+  "sv": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/sv/characters.json",
+    "main": "[aà b c d eé f g h i j k l m n o p q r s t u v w x y z å ä ö]",
+    "auxiliary": "[áâãā ç èë íîïī ñ ó ú ÿü æ ø]"
+  },
+  "nb": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/nb/characters.json",
+    "main": "[aà b c d eé f g h i j k l m n oóòô p q r s t u v w x y z æ ø å]",
+    "auxiliary": "[áǎã čç đ èê í ńñ ŋ š ŧ ú ü ž ä ö]"
+  },
+  "nn": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/nn/characters.json",
+    "main": "[aà b c d eé f g h i j k l m n oóòô p q r s t u v w x y z æ ø å]",
+    "auxiliary": "[áǎã čç đ èê í ńñ ŋ š ŧ ú ü ž ä ö]"
+  },
+  "fi": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/fi/characters.json",
+    "main": "[a b c d e f g h i j k l m n o p q r sš t u v w x y zž å ä ö]",
+    "auxiliary": "[áàăâãąā ćčċç ďð đ éèêěëėęē ğǧģ ǥ ȟħ íîïİįī ı ǩķ ĺľļł ńňñņ ŋ óòôőõ œ ŕř śŝşș ß ťţț ŧ úùûůűųū ýÿü źż ʒǯ þ æ ø]"
+  },
+  "is": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/is/characters.json",
+    "main": "[a á b d ð e é f g h i í j k l m n o ó p r s t u ú v x y ý þ æ ö]",
+    "auxiliary": "[c q w z]"
+  },
+  "et": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/et/characters.json",
+    "main": "[a b c d e f g h i j k l m n o p q r s š z ž t u v w õ ä ö ü x y]",
+    "auxiliary": "[áàâåãā æ ç éèêëē íìîïī ñ óòŏôøō œ úùûū]"
+  },
+  "lv": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/lv/characters.json",
+    "main": "[a ā b c č d e ē f g ģ h i ī j k ķ l ļ m n ņ o p r s š t u ū v z ž]",
+    "auxiliary": "[y ō q ŗ w x]"
+  },
+  "lt": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/lt/characters.json",
+    "main": "[aą b c č d eęė f g h iįy j k l m n o p r s š t uųū v z ž]",
+    "auxiliary": "[áàã{ą́}{ą̃} {ch} {dz} {dž} éèẽ{ę́}{ę̃}{ė́}{ė̃} í{i̇́}ì{i̇̀}ĩ{i̇̃}{į́}{į̇́}{į̃}{į̇̃} {j̃}{j̇̃} {l̃} {m̃} ñ óòõ q {r̃} úùũ{ų́}{ų̃}{ū́}{ū̃} w x]"
+  },
+  "cs": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/cs/characters.json",
+    "main": "[aá b c č dď eéě f g h {ch} ií j k l m nň oó p q r ř s š tť uúů v w x yý z ž]",
+    "auxiliary": "[àăâåäãā æ ç èĕêëē ìĭîïī ľł ñ òŏôöøō œ ŕ ùŭûüū ÿ]"
+  },
+  "sk": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/sk/characters.json",
+    "main": "[aá ä b c č dď {dz} {dž} eé f g h {ch} ií j k lĺľ m nň oó ô p q rŕ s š tť uú v w x yý z ž]",
+    "auxiliary": "[àăâåā æ ç èĕêëē ìĭîïī ñ òŏöőøō œ ř ùŭûüűū ÿ]"
+  },
+  "hu": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/hu/characters.json",
+    "main": "[aá b c {cs} {ccs} d {dz} {ddz} {dzs} {ddzs} eé f g {gy} {ggy} h ií j k l {ly} {lly} m n {ny} {nny} oó öő p r s {sz} {ssz} t {ty} {tty} uú üű v z {zs} {zzs}]",
+    "auxiliary": "[àăâåäãā æ ç èĕêëē ìĭîïī ñ òŏôøō œ q ùŭûū w x yÿ]"
+  },
+  "sl": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/sl/characters.json",
+    "main": "[a b c č d e f g h i j k l m n o p r s š t u v z ž]",
+    "auxiliary": "[áàăâåäā æ ç ć đ éèĕêëē íìĭîïī ñ óòŏôöøō œ q úùŭûüū w x yÿ]"
+  },
+  "hr": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/hr/characters.json",
+    "main": "[a b c č ć d {dž} đ e f g h i j k l {lj} m n {nj} o p r s š t u v z ž]",
+    "auxiliary": "[q w x y]"
+  },
+  "bs": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/bs/characters.json",
+    "main": "[a b c č ć d {dž} đ e f g h i j k l {lj} m n {nj} o p r s š t u v z ž]",
+    "auxiliary": "[q w x y]"
+  },
+  "sr": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/sr/characters.json",
+    "main": "[а б в г д ђ е ж з и ј к л љ м н њ о п р с т ћ у ф х ц ч џ ш]",
+    "auxiliary": "[{а̂} {е̂} {и̂} {о̂} {у̂}]"
+  },
+  "sr-Latn": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/sr-Latn/characters.json",
+    "main": "[a b c č ć d {dž} đ e f g h i j k l {lj} m n {nj} o p r s š t u v z ž]",
+    "auxiliary": "[å q w x y]"
+  },
+  "cnr": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/sr-Latn/characters.json + Montenegrin Pravopis 2010: ś, ź",
+    "main": "[a b c č ć d {dž} đ e f g h i j k l {lj} m n {nj} o p r s š t u v z ž ś ź]",
+    "auxiliary": "[å q w x y]"
+  },
+  "mk": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/mk/characters.json",
+    "main": "[а б в г д ѓ е ж з ѕ и ј к л љ м н њ о п р с т ќ у ф х ц ч џ ш]",
+    "auxiliary": "[ѐ ѝ]"
+  },
+  "bg": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/bg/characters.json",
+    "main": "[а б в г д е ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ь ю я]",
+    "auxiliary": "[{а̀} ѐё ѝ {о̀} {у̀} {ъ̀} ы ѣ э {ю̀} {я̀} ѫ]"
+  },
+  "el": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/el/characters.json",
+    "main": "[αά β γ δ εέ ζ ηή θ ιίϊΐ κ λ μ ν ξ οό π ρ σς τ υύϋΰ φ χ ψ ωώ]",
+    "auxiliary": "[ἀἄἂἆἁἅἃἇὰᾶ ἐἔἒἑἕἓὲ ἠἤἢἦἡἥἣἧὴῆ ἰἴἲἶἱἵἳἷὶῖῒῗ ὄὂὃὸ ὐὔὒὖὑὕὓὗὺῦῢῧ ὤὢὦὥὣὧὼῶ]"
+  },
+  "be": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/be/characters.json",
+    "main": "[а б в г д {дж} {дз} е ё ж з і й к л м н о п р с т у ў ф х ц ч ш ы ь э ю я]",
+    "auxiliary": "[{а́} {е́} {ё́} {і́} {о́} {у́} {ы́} {э́} {ю́} {я́}]"
+  },
+  "uk": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/uk/characters.json",
+    "main": "[а б в г ґ д е є ж з и і ї й к л м н о п р с т у ф х ц ч ш щ ь ю я ʼ]",
+    "auxiliary": "[{а́} {е́}ё {є́} {и́} {і́} {ї́} {о́} {у́} ъ ы э {ю́} {я́}]"
+  },
+  "ru": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/ru/characters.json",
+    "main": "[а б в г д её ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я]",
+    "auxiliary": "[{а́} {е́} {и́} {о́} {у́} {ы́} {э́} {ю́} {я́}]"
+  },
+  "ga": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/ga/characters.json",
+    "main": "[aá b c d eé f g h ií l m n oó p r s t uú]",
+    "auxiliary": "[å ḃ ċ ḋ ḟ ġ j k ṁ ṗ q ṡ ṫ v w x y z]"
+  },
+  "mt": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/mt/characters.json",
+    "main": "[aà b ċ d eè f ġ g {għ} h ħ iì j k l m n oò p q r s t uù v w x ż z]",
+    "auxiliary": "[c y]"
+  },
+  "ca": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/ca/characters.json",
+    "main": "[· aà b cç d eéè f g h iíï j k l m n oóò p q r s t uúü v w x y z]",
+    "auxiliary": "[áăâåäãā æ ĕêëē ìĭîī ŀ ñ ºŏôöøō œ ùŭûū ÿ]"
+  },
+  "hy": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/hy/characters.json",
+    "main": "[ա բ գ դ ե զ է ը թ ժ ի լ խ ծ կ հ ձ ղ ճ մ յ ն շ ո չ պ ջ ռ ս վ տ ր ց ւ փ ք օ ֆ]",
+    "auxiliary": "[և]"
+  },
+  "ka": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/ka/characters.json",
+    "main": "[ა ბ გ დ ე ვ ზ თ ი კ ლ მ ნ ო პ ჟ რ ს ტ უ ფ ქ ღ ყ შ ჩ ც ძ წ ჭ ხ ჯ ჰ]",
+    "auxiliary": "[ⴀ ⴁ ⴂ ⴃ ⴄ ⴅ ⴆ ჱ ⴡ ⴇ ⴈ ⴉ ⴊ ⴋ ⴌ ჲ ⴢ ⴍ ⴎ ⴏ ⴐ ⴑ ⴒ ჳ ⴣ ⴓ ⴔ ⴕ ⴖ ⴗ ⴘ ⴙ ⴚ ⴛ ⴜ ⴝ ⴞ ჴ ⴤ ⴟ ⴠ ჵ ⴥ ჶ ჷ ჸ ჹ ჺ]"
+  },
+  "az": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/az/characters.json",
+    "main": "[a b c ç d e ə f g ğ h x ı iİ j k q l m n o ö p r s ş t u ü v y z]",
+    "auxiliary": "[w]"
+  },
+  "kk": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/kk/characters.json",
+    "main": "[а ә б в г ғ д е ё ж з и й к қ л м н ң о ө п р с т у ұ ү ф х һ ц ч ш щ ъ ы і ь э ю я]",
+    "auxiliary": "[]"
+  },
+  "la": {
+    "source": "Latin alphabet; optional vowel-length macrons are explicitly auxiliary",
+    "main": "[a b c d e f g h i j k l m n o p q r s t u v w x y z]",
+    "auxiliary": "[ā ē ī ō ū ȳ]"
+  },
+  "bs-Cyrl": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/bs-Cyrl/characters.json",
+    "main": "[а б в г д ђ е ж з и ј к л љ м н њ о п р с т ћ у ф х ц ч џ ш]",
+    "auxiliary": "[]"
+  },
+  "cnr-Cyrl": {
+    "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json/cldr-misc-full/main/sr/characters.json + Montenegrin Pravopis 2010: ś, ź",
+    "main": "[а б в г д ђ е ж з и ј к л љ м н њ о п р с т ћ у ф х ц ч џ ш {с́} {з́}]",
+    "auxiliary": "[{а̂} {е̂} {и̂} {о̂} {у̂}]"
+  }
+}

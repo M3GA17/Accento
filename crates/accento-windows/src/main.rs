@@ -3,7 +3,10 @@
 #[cfg(windows)]
 mod app;
 #[cfg(windows)]
+mod desktop;
+#[cfg(windows)]
 mod glass;
+mod i18n;
 #[cfg(windows)]
 mod input;
 mod picker_material;
@@ -13,8 +16,14 @@ mod render;
 
 fn main() {
     #[cfg(windows)]
-    if let Err(error) = app::run() {
-        if std::env::args().any(|arg| arg == "--self-test") {
+    if let Err(error) =
+        if std::env::args().any(|arg| matches!(arg.as_str(), "--self-test" | "--ui-test")) {
+            app::run()
+        } else {
+            desktop::run()
+        }
+    {
+        if std::env::args().any(|arg| matches!(arg.as_str(), "--self-test" | "--ui-test")) {
             eprintln!("{error}");
             std::process::exit(1);
         }
