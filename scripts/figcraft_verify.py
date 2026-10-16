@@ -63,9 +63,10 @@ def verify():
         'All navigation destinations and flow starts resolve','Popup masters contain only one-character candidates',
         'Popup master dimensions and unpainted roots','All PNG dimensions match the artboards',
         'Transparent PNG corners and gap pixels','Native glass effects survive save and reopen'],
-      'visualReview':['Writing light/dark','Languages light + compact','Appearance light/dark + compact',
-        'Exclusions compact + inline error','Solid popup dark','Writing context dark','Component library',
-        'Foundations dark','Glass on white, dark and coloured contexts'],
+      'visualReview':['General light/dark and compact','Character sets light/dark and compact',
+        'Blacklist light/dark, inline error and empty state','Interface language French, Spanish and German',
+        'Power switch active/off','Transparent popup and Windows accessibility fallback',
+        'Editable component library and real runtime captures'],
       'scope':'Design artifact verification; no Rust runtime or Windows compositor test.'}
     (OUT/'verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
     print(json.dumps({k:v for k,v in report.items() if k not in ['popupPixelChecks','checks','visualReview']},ensure_ascii=False))

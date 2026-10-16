@@ -25,3 +25,9 @@ export async function pause(paused:boolean):Promise<Snapshot> {
 export async function subscribe(callback:(state:Snapshot)=>void) {
   return desktop ? listen<Snapshot>('accento-state',event=>callback(event.payload)) : ()=>{};
 }
+
+export type PlatformInfo = {os:'windows'|'linux'|'macos';executable_example:string};
+export const previewPlatform:PlatformInfo = {os:new URLSearchParams(location.search).get('platform')==='linux'?'linux':new URLSearchParams(location.search).get('platform')==='macos'?'macos':'windows',executable_example:'notepad.exe'};
+export async function platform():Promise<PlatformInfo> {return desktop?invoke('get_platform'):{...previewPlatform,executable_example:previewPlatform.os==='linux'?'firefox':previewPlatform.os==='macos'?'Safari':'notepad.exe'};}
+
+export async function quit():Promise<void>{if(desktop)await invoke('quit_app');}

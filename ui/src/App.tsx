@@ -4,6 +4,7 @@ import {Settings2, Languages, AppWindow, Check, Plus, X, Keyboard, Globe2} from 
 import * as api from './api';
 import {interfaceLanguages,characterSets} from './catalog';
 import dictionaries from './messages.json';
+import {version} from '../../package.json';
 
 type Locale = keyof typeof dictionaries;
 type Message = keyof typeof dictionaries.it;
@@ -12,6 +13,10 @@ const sections = [{key:'General',icon:Settings2},{key:'Sets',icon:Languages},{ke
 const equal = (a:api.Preferences,b:api.Preferences)=>JSON.stringify(a)===JSON.stringify(b);
 const message = (error:unknown)=>error instanceof Error ? error.message : String(error);
 
+function BrandMark() {
+  return <img className="brand-mark" src="/brand/accento.svg" alt="" aria-hidden="true" width={44} height={44}/>;
+}
+
 export function App() {
   const [saved,setSaved] = useState<api.Preferences>();
   const [draft,setDraft] = useState(api.defaults);
@@ -19,6 +24,7 @@ export function App() {
   const [section,setSection] = useState<Section>('General');
   const [setQuery,setSetQuery] = useState('');
   const [paused,setPaused] = useState(false);
+  const [platform,setPlatform] = useState<api.PlatformInfo>(api.previewPlatform);
   const [warning,setWarning] = useState<string|null>(null);
   const [error,setError] = useState('');
   const [delayError,setDelayError] = useState(false);
@@ -27,6 +33,7 @@ export function App() {
   const [busy,setBusy] = useState(false);
   const [loading,setLoading] = useState(true);
   const [closing,setClosing] = useState(false);
+  const [quitting,setQuitting] = useState(false);
   const closeAllowed = useRef(false);
   const closeDialog = useRef<HTMLDialogElement>(null);
   useEffect(()=>{if(closing)closeDialog.current?.showModal();},[closing]);
@@ -45,7 +52,7 @@ export function App() {
   },[]);
   const load = useCallback(async()=>{
     setLoading(true);setError('');
-    try {accept(await api.read(),true);}catch(error){setError(message(error));}
+    try {const [snapshot,platform]=await Promise.all([api.read(),api.platform()]);setPlatform(platform);accept(snapshot,true);}catch(error){setError(message(error));}
     finally{setLoading(false);}
   },[accept]);
   useEffect(()=>{
@@ -60,7 +67,7 @@ export function App() {
     if(!api.desktop)return;
     let disposed=false;let stop:undefined|(()=>void);
     void import('@tauri-apps/api/window').then(({getCurrentWindow})=>getCurrentWindow().onCloseRequested(event=>{
-      if(dirtyRef.current && !closeAllowed.current){event.preventDefault();setClosing(true);}
+      if(dirtyRef.current && !closeAllowed.current){event.preventDefault();setQuitting(false);setClosing(true);}
     })).then(unlisten=>{if(disposed)unlisten();else stop=unlisten;}).catch(error=>setError(message(error)));
     return ()=>{disposed=true;stop?.();};
   },[]);
@@ -72,7 +79,7 @@ export function App() {
   }
   function addApp(event:React.FormEvent){
     event.preventDefault();const name=entry.trim().toLowerCase();
-    if(!name.endsWith('.exe') || name.length<=4 || /[\\/:*?"<>|,;\x00-\x1f\x7f]/.test(name)){setEntryError('AppError');return;}
+    if(!name || [".","..",".exe",".app"].includes(name) || (platform.os==='windows' && (!name.endsWith('.exe') || name.length<=4)) || /[\\/:*?"<>|,;\x00-\x1f\x7f]/.test(name)){setEntryError(platform.os==='windows'?'AppError':'NativeAppError');return;}
     if(draft.excluded_apps.some(app=>app.toLowerCase()===name)){setEntryError('Duplicate');return;}
     update({excluded_apps:[...draft.excluded_apps,name]});setEntry('');setEntryError(undefined);
   }
@@ -89,20 +96,21 @@ export function App() {
   function discard(){if(saved){setDraft(saved);setDelay(String(saved.delay_ms));setError('');setDelayError(false);setEntryError(undefined);}}
   async function close(){
     closeAllowed.current=true;setClosing(false);
-    try{const {getCurrentWindow}=await import('@tauri-apps/api/window');await getCurrentWindow().close();}
+    try{if(quitting)await api.quit();else{const {getCurrentWindow}=await import('@tauri-apps/api/window');await getCurrentWindow().close();}}
     catch(error){closeAllowed.current=false;setError(message(error));}
   }
-  if(!saved) return <div className="startup"><span className="brand-mark">á</span><h1>Accento</h1>
+  if(!saved) return <div className="startup"><BrandMark/><h1>Accento</h1>
     {loading?<p role="status">{t('Loading')}</p>:<><p role="alert">{error}</p><Button onPress={()=>void load()}>{t('Retry')}</Button></>}
   </div>;
   return <div className="shell">
     <aside className="sidebar">
-      <div className="brand"><span className="brand-mark">á</span><div><strong>Accento</strong><span>{t('Settings')}</span></div></div>
+      <div className="brand"><BrandMark/><div><strong>Accento</strong><span>{t('Settings')}</span></div></div>
       <nav aria-label={t('Settings')}>{sections.map(({key,icon:Icon})=><Button key={key} variant="quiet" className={'nav-item '+(section===key?'selected':'')}
         aria-current={section===key?'page':undefined} onPress={()=>setSection(key)}><Icon size={19}/>{t(key)}</Button>)}</nav>
       <div className="sidebar-bottom"><div className="runtime"><span className={'status-dot '+(paused?'off':'')}/><span>{t(paused?'Disabled':'Enabled')}</span></div>
         <Button variant="secondary" disabled={busy} onPress={()=>void togglePause()}>{t(paused?'TurnOn':'TurnOff')}</Button>
-        <span className="version">Accento 0.6 · Flat Product</span>
+        {api.desktop&&<Button className="exit-app" variant="quiet" onPress={()=>{if(dirty){setQuitting(true);setClosing(true);}else void api.quit().catch(error=>setError(message(error)));}}>{t('Exit')}</Button>}
+        <span className="version">Accento {version}</span>
       </div>
     </aside>
     <div className="workspace">
@@ -133,7 +141,7 @@ export function App() {
             <span className="set-sample">{set.sample}</span>
           </Button>)}</div></>}
         {section==='Blacklist' && <>
-          <form className="add-app" onSubmit={addApp}><TextBox label={t('AddApp')} description={t('AppHint')} placeholder={t('AppPlaceholder')} value={entry}
+          <form className="add-app" onSubmit={addApp}><TextBox label={t('AddApp')} description={t(platform.os==='windows'?'AppHint':'NativeAppHint')} placeholder={platform.executable_example} value={entry}
             onValueChange={value=>{setEntry(value);setEntryError(undefined);}} error={entryError?t(entryError):undefined} maxLength={260}/>
             <Button type="submit" disabled={!entry.trim()}><Plus size={16}/>{t('Add')}</Button></form>
           {draft.excluded_apps.length?<ul className="app-list">{draft.excluded_apps.map(name=><li key={name}><AppWindow size={20}/><span>{name}</span>

@@ -1,0 +1,296 @@
+{
+  "version": "0.4.0",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "rust": "rustc 1.98.0 (88d9e12ae 2026-08-18)",
+  "executable": "dist/Accento-0.4.0-windows-x64/Accento.exe",
+  "sha256": "e99b656e1c5eacc1e990551d64a19ccb2b9cdb9e5b7248c0656799afda2df8cb",
+  "unitTests": 29,
+  "windowsChecks": 32,
+  "settingsChecks": 14,
+  "repaintRegression": "passed: zero unnecessary root paints and control repositioning",
+  "images": [
+    {
+      "file": "settings-general-light.png",
+      "width": 1000,
+      "height": 791,
+      "mode": "Light",
+      "kind": "native-window",
+      "source": "accento-settings-0-light.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-general-dark.png",
+      "width": 1000,
+      "height": 791,
+      "mode": "Dark",
+      "kind": "native-window",
+      "source": "accento-settings-0-dark.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-character-sets-light.png",
+      "width": 1000,
+      "height": 791,
+      "mode": "Light",
+      "kind": "native-window",
+      "source": "accento-settings-1-light.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-character-sets-dark.png",
+      "width": 1000,
+      "height": 791,
+      "mode": "Dark",
+      "kind": "native-window",
+      "source": "accento-settings-1-dark.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-blacklist-light.png",
+      "width": 1000,
+      "height": 791,
+      "mode": "Light",
+      "kind": "native-window",
+      "source": "accento-settings-2-light.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-blacklist-dark.png",
+      "width": 1000,
+      "height": 791,
+      "mode": "Dark",
+      "kind": "native-window",
+      "source": "accento-settings-2-dark.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-compact-general.png",
+      "width": 720,
+      "height": 731,
+      "mode": "Light",
+      "kind": "native-window",
+      "source": "accento-settings-compact-general.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-compact-sets.png",
+      "width": 720,
+      "height": 731,
+      "mode": "Light",
+      "kind": "native-window",
+      "source": "accento-settings-compact-sets.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-compact-blacklist.png",
+      "width": 720,
+      "height": 731,
+      "mode": "Light",
+      "kind": "native-window",
+      "source": "accento-settings-compact-blacklist.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-general-fr.png",
+      "width": 1000,
+      "height": 791,
+      "mode": "Dark",
+      "kind": "native-window",
+      "source": "accento-settings-general-fr.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-general-es.png",
+      "width": 1000,
+      "height": 791,
+      "mode": "Dark",
+      "kind": "native-window",
+      "source": "accento-settings-general-es.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-general-de.png",
+      "width": 1000,
+      "height": 791,
+      "mode": "Dark",
+      "kind": "native-window",
+      "source": "accento-settings-general-de.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-general-off.png",
+      "width": 1000,
+      "height": 791,
+      "mode": "Dark",
+      "kind": "native-window",
+      "source": "accento-settings-general-off.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-blacklist-error.png",
+      "width": 1000,
+      "height": 791,
+      "mode": "Dark",
+      "kind": "native-window",
+      "source": "accento-settings-blacklist-error.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "settings-blacklist-empty.png",
+      "width": 1000,
+      "height": 791,
+      "mode": "Dark",
+      "kind": "native-window",
+      "source": "accento-settings-blacklist-empty.bmp",
+      "invisibleFrameCrop": [
+        8,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "file": "picker-light-alpha.png",
+      "width": 152,
+      "height": 80,
+      "kind": "native-surface",
+      "alpha": {
+        "width": 152,
+        "height": 80,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gapsTransparent": true
+      },
+      "mode": "Light"
+    },
+    {
+      "file": "picker-dark-alpha.png",
+      "width": 152,
+      "height": 80,
+      "kind": "native-surface",
+      "alpha": {
+        "width": 152,
+        "height": 80,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gapsTransparent": true
+      },
+      "mode": "Dark"
+    },
+    {
+      "file": "picker-opening-light-alpha.png",
+      "width": 152,
+      "height": 80,
+      "kind": "native-surface",
+      "alpha": {
+        "width": 152,
+        "height": 80,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gapsTransparent": true
+      },
+      "mode": "Light"
+    },
+    {
+      "file": "picker-opening-dark-alpha.png",
+      "width": 152,
+      "height": 80,
+      "kind": "native-surface",
+      "alpha": {
+        "width": 152,
+        "height": 80,
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gapsTransparent": true
+      },
+      "mode": "Dark"
+    }
+  ],
+  "scope": "Real UI captured only from owned test windows. No hooks in --ui-test. Normal use does not write captures."
+}

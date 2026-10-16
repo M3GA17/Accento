@@ -1,10 +1,14 @@
 # Dipendenze e avvisi di terze parti
 
-Accento 0.6 usa React / TypeScript e Tauri 2 per le impostazioni. Le versioni sono fissate in `Cargo.lock` e `package-lock.json`. I pacchetti portabili conservano i testi originali disponibili nella cartella `licenses`.
+Accento usa React / TypeScript e Tauri 2 per le impostazioni. Le versioni sono fissate in `Cargo.lock` e `package-lock.json`. I pacchetti portabili conservano i testi originali disponibili nella cartella `licenses`.
 
 Per le dipendenze JavaScript vedere [inventario UI](docs/dependencies-ui.md), incluso nel pacchetto come `DEPENDENCIES-UI.md`. I pacchetti DimaLabs sono archivi locali della libreria del progetto; i loro manifest non dichiarano una licenza di distribuzione autonoma.
 
-## Dipendenze Rust (inventario Windows x64)
+## Integrazioni Linux e macOS
+
+Il porting aggiunge Enigo, X11, x11rb, xkeysym e il plugin Tauri single-instance, fissati nel lockfile. `scripts/prepare-resources.mjs` raccoglie i testi delle licenze Cargo per il target di compilazione e quelli dell’interfaccia. Le librerie di sistema GTK/WebKit/X11 e i framework Apple hanno le proprie condizioni; la distribuzione AppImage e la firma/notarizzazione macOS richiedono le verifiche native descritte nella guida cross-platform.
+
+## Dipendenze Rust (inventario storico Windows x64)
 
 | Pacchetto | Versione | Licenza dichiarata |
 | --- | --- | --- |

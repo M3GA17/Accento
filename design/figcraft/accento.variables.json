@@ -776,8 +776,8 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "VariableCollectionId:1/mode1": 740.0,
-          "VariableCollectionId:1/mode2": 740.0
+          "VariableCollectionId:1/mode1": 800.0,
+          "VariableCollectionId:1/mode2": 800.0
         },
         "variableCollectionId": "VariableCollectionId:1"
       },

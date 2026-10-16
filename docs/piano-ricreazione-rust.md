@@ -9,7 +9,7 @@ Rust, indipendenza da PowerToys e ispirazione Apple Glass sono decisioni acquisi
 | Aspetto | Quick Accent analizzato | Proposta Accento |
 | --- | --- | --- |
 | Gesto | Spazio, frecce, entrambi e pressione prolungata nel sorgente della versione | Prima modalità lettera più Spazio; pressione prolungata successiva |
-| Apertura e prima scelta | Il trigger può già selezionare; frecce con partenza centrale opzionale | Apertura senza selezione; primo comando successivo sceglie un estremo |
+| Apertura e prima scelta | Il trigger può già selezionare; frecce con partenza centrale opzionale | Dal 16 ottobre: primo candidato preselezionato; i comandi successivi navigano |
 | Conferma | Rilascio della lettera proprietaria | Stessa regola, con controllo del destinatario |
 | False partenze | Restituzione del trigger nei modi pertinenti | Spazio restituito una sola volta se il gesto termina prima della soglia |
 | Ordinamento | Catalogo stabile e frequenza opzionale | Ordine stabile e deduplicazione; frequenza fuori dalla prima versione |
@@ -55,9 +55,9 @@ Queste regole rendono verificabili le ambiguità della definizione iniziale. Son
 
 1. Il primo down della lettera passa al destinatario. Il motore registra base, famiglia, contesto e identificativo di sessione.
 2. Un down successivo di Spazio con la base ancora premuta e candidati validi entra in attesa. Consuma il trigger e fa partire **un solo timer da quel momento**, senza selezionare un candidato. Le ripetizioni del trigger non riavviano il timer.
-3. Alla scadenza, se sessione e contesto sono validi, appare il selettore senza selezione. Il primo esperimento può usare 300 ms come valore di confronto con l'installazione locale; il valore predefinito richiede prove di scrittura.
-4. Solo un nuovo down volontario dopo il rilascio del trigger naviga: Spazio o Destra selezionano il primo candidato; Sinistra l'ultimo. In seguito si avanza o retrocede con ritorno all'altro estremo. L'autorepeat non naviga nel primo prototipo.
-5. Il rilascio della base conferma soltanto un candidato selezionato; il rilascio del solo Spazio non conferma. Una volta aperto il selettore, il rilascio senza selezione conserva la base.
+3. Alla scadenza, se sessione e contesto sono validi, appare il selettore con il primo candidato già selezionato. Il primo esperimento può usare 300 ms come valore di confronto con l'installazione locale; il valore predefinito richiede prove di scrittura.
+4. Solo un nuovo down volontario dopo il rilascio del trigger naviga: Spazio o Destra passano al secondo candidato; Sinistra all'ultimo. In seguito si avanza o retrocede con ritorno all'altro estremo. L'autorepeat non naviga nel primo prototipo.
+5. Il rilascio della base conferma soltanto un candidato selezionato; il rilascio del solo Spazio non conferma. Una volta aperto il selettore, il rilascio conferma il primo candidato anche senza navigazione. Esc conserva la base.
 6. Se la base viene rilasciata durante l'attesa iniziale, ripristina una sola pressione di Spazio quando il destinatario è ancora valido. Se il contesto è cambiato, annulla senza inviare al nuovo contesto.
 7. Esc annulla e conserva la base. Un altro carattere o Ctrl, Alt, AltGr o Windows annulla lasciando proseguire l'input ordinario. Shift/Caps successivi non cambiano la famiglia della sessione nella prima prova.
 8. Qualsiasi ripetizione della base già passata prima del trigger impedisce di armare il gesto fino al rilascio: un singolo Backspace non potrebbe sostituire una quantità incerta di lettere. Dopo l'attivazione, sopprime le ripetizioni della base proprietaria fino al rilascio.
@@ -76,7 +76,7 @@ stateDiagram-v2
     Invio --> Inattivo: Esito completo o parziale
     Base --> Inattivo: Rilascio oppure contesto invalido
     Attesa --> Inattivo: Rilascio anticipato oppure annullamento
-    Aperto --> Inattivo: Rilascio senza scelta oppure annullamento
+    Aperto --> Inattivo: Annullamento
     Scelto --> Inattivo: Annullamento
 ```
 

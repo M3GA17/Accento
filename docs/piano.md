@@ -20,7 +20,7 @@ La prova Windows può portare a rivedere la semantica di sostituzione prima di i
 
 | Scenario | Cosa controllare |
 | --- | --- |
-| Blocco note | Sequenza base, ripetizione, Esc e rilascio senza selezione |
+| Blocco note | Sequenza base, ripetizione, Esc e conferma della variante preselezionata |
 | Browser | Input, textarea, editor contenteditable e cambi di focus |
 | Word | Sostituzione vicino a formattazione, selezioni e autocorrezione |
 | VS Code | Editor, scorciatoie e terminale integrato come contesti distinti |
@@ -61,3 +61,5 @@ Per ogni prova registrare revisione del codice, ambiente, passi, risultato attes
 
 Al 15 ottobre 2026 è disponibile il prototipo 0.1.0: 16 test Rust e 18 controlli di integrazione su campi Edit Windows superati, con inserimento, mantenimento del focus, annullamento, pausa, esclusioni e tre aspetti del selettore. Il [rapporto della versione](verifiche-0.1.0.md) delimita i risultati. La matrice delle applicazioni, Narrator, DPI su più monitor e prestazioni restano da verificare; R3 e le fasi successive non sono chiuse dalla presenza dell'eseguibile.
 
+
+Il 16 ottobre 2026 la versione 0.4.0 supera 29 test Rust, 32 controlli Windows e la regressione di ridisegno delle impostazioni. Generale, Set caratteri e BlackList, quattro lingue UI e interruttore sono implementati; [evidenze e perimetro](verifiche-0.4.0.md).

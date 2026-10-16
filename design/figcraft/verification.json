@@ -1,13 +1,13 @@
 {
   "result": "passed",
-  "designVersion": "0.3.0",
-  "nativeSha256": "8707abbf8e699616006dc0718e8df8cbff8fd16dfd0003826d57dccdda5ebd96",
+  "designVersion": "0.4.0",
+  "nativeSha256": "3cfd1902a5e6dc50e5a12e8e9f25f53f824ef5f649d303c5cfdff70763c7ed0f",
   "pages": 9,
-  "boards": 56,
-  "inspectedNodes": 2488,
-  "prototypeLinks": 144,
-  "flows": 5,
-  "nativeGlassLayers": 55,
+  "boards": 53,
+  "inspectedNodes": 1948,
+  "prototypeLinks": 60,
+  "flows": 4,
+  "nativeGlassLayers": 41,
   "popupPixelChecks": [
     {
       "file": "popup-apertura-light.png",
@@ -45,7 +45,7 @@
       ]
     },
     {
-      "file": "popup-solido-light.png",
+      "file": "popup-accessibilita-windows-light.png",
       "size": [
         152,
         80
@@ -91,7 +91,7 @@
       ]
     },
     {
-      "file": "popup-solido-dark.png",
+      "file": "popup-accessibilita-windows-dark.png",
       "size": [
         152,
         80
@@ -113,15 +113,13 @@
     "Native glass effects survive save and reopen"
   ],
   "visualReview": [
-    "Writing light/dark",
-    "Languages light + compact",
-    "Appearance light/dark + compact",
-    "Exclusions compact + inline error",
-    "Solid popup dark",
-    "Writing context dark",
-    "Component library",
-    "Foundations dark",
-    "Glass on white, dark and coloured contexts"
+    "General light/dark and compact",
+    "Character sets light/dark and compact",
+    "Blacklist light/dark, inline error and empty state",
+    "Interface language French, Spanish and German",
+    "Power switch active/off",
+    "Transparent popup and Windows accessibility fallback",
+    "Editable component library and real runtime captures"
   ],
   "scope": "Design artifact verification; no Rust runtime or Windows compositor test."
 }

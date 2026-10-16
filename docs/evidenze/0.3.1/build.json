@@ -1,0 +1,8 @@
+{
+  "version": "0.3.1",
+  "sha256": "615f9a6d823d6678c7cfa4473e275e8026b704289fbda0fc28c606d581ba3259",
+  "unitTestsPassed": 26,
+  "windowsGestureChecks": "passed: automatic first candidate, uppercase, Escape, false start, Space navigation, Left navigation",
+  "windowsFullSuite": "not passed: focus lost during later checks",
+  "executable": "dist\\Accento-0.3.1-windows-x64\\Accento.exe"
+}

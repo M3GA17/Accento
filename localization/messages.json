@@ -70,7 +70,9 @@
     "GuideExit": "La chiusura delle impostazioni lascia Accento in esecuzione nell'area di notifica. Scegli Esci dal suo menu per interromperlo.",
     "GuideWindows": "è richiesto il runtime di Microsoft Edge WebView2. L'interfaccia funziona offline. Il motore di input attualmente supporta solo Windows.",
     "GuideReview": "Questa guida tradotta è una bozza e non è stata rivista da un madrelingua.",
-    "GuideAlphabet": "L'alfabeto standard e le associazioni dei tasti disponibili sono elencati di seguito. Digita normalmente le lettere ordinarie. Il popup supporta anche i digrafi e i segni di combinazione; non sostituisce un metodo di input."
+    "GuideAlphabet": "L'alfabeto standard e le associazioni dei tasti disponibili sono elencati di seguito. Digita normalmente le lettere ordinarie. Il popup supporta anche i digrafi e i segni di combinazione; non sostituisce un metodo di input.",
+    "NativeAppHint": "Nome del processo, per esempio firefox su Linux o Safari su macOS.",
+    "NativeAppError": "Inserisci un nome di processo, senza percorsi, virgole o caratteri jolly."
   },
   "en": {
     "KeepEditing": "Keep editing",
@@ -143,7 +145,9 @@
     "GuideExit": "Closing settings leaves Accento running in the notification area. Choose Exit from its menu to stop it.",
     "GuideWindows": "Microsoft Edge WebView2 Runtime is required. The interface works offline. The input engine currently supports Windows only.",
     "GuideReview": "This translated guide is a draft and has not been reviewed by a native speaker.",
-    "GuideAlphabet": "The standard alphabet and available key associations are listed below. Type ordinary letters normally. The popup also supports digraphs and combining marks; it does not replace an input method."
+    "GuideAlphabet": "The standard alphabet and available key associations are listed below. Type ordinary letters normally. The popup also supports digraphs and combining marks; it does not replace an input method.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "sq": {
     "KeepEditing": "Vazhdo redaktimin",
@@ -216,7 +220,9 @@
     "GuideExit": "Mbyllja e cilësimeve e lë Accento të funksionojë në zonën e njoftimeve. Zgjidhni Exit nga menyja e tij për ta ndaluar atë.",
     "GuideWindows": "Microsoft Edge WebView2 Runtime kërkohet. Ndërfaqja funksionon jashtë linje. Motori i hyrjes aktualisht mbështet vetëm Windows.",
     "GuideReview": "Ky udhëzues i përkthyer është një draft dhe nuk është shqyrtuar nga një folës amtare.",
-    "GuideAlphabet": "Alfabeti standard dhe lidhjet kryesore të disponueshme janë renditur më poshtë. Shkruani shkronjat e zakonshme normalisht. Popup-i gjithashtu mbështet digrafët dhe shenjat e kombinuara; ai nuk zëvendëson një metodë të hyrjes."
+    "GuideAlphabet": "Alfabeti standard dhe lidhjet kryesore të disponueshme janë renditur më poshtë. Shkruani shkronjat e zakonshme normalisht. Popup-i gjithashtu mbështet digrafët dhe shenjat e kombinuara; ai nuk zëvendëson një metodë të hyrjes.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "fr": {
     "KeepEditing": "Continuer la modification",
@@ -289,7 +295,9 @@
     "GuideExit": "La fermeture des paramètres laisse Accento s'exécuter dans la zone de notification. Choisissez Quitter dans son menu pour l'arrêter.",
     "GuideWindows": "le runtime Microsoft Edge WebView2 est requis. L'interface fonctionne hors ligne. Le moteur de saisie ne prend actuellement en charge que Windows.",
     "GuideReview": "Ce guide traduit est une ébauche et n’a pas été révisé par un locuteur natif.",
-    "GuideAlphabet": "L'alphabet standard et les associations de touches disponibles sont répertoriés ci-dessous. Tapez normalement des lettres ordinaires. La fenêtre contextuelle prend également en charge les digraphes et les marques de combinaison ; il ne remplace pas une méthode de saisie."
+    "GuideAlphabet": "L'alphabet standard et les associations de touches disponibles sont répertoriés ci-dessous. Tapez normalement des lettres ordinaires. La fenêtre contextuelle prend également en charge les digraphes et les marques de combinaison ; il ne remplace pas une méthode de saisie.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "es": {
     "KeepEditing": "Seguir editando",
@@ -362,7 +370,9 @@
     "GuideExit": "Al cerrar la configuración, Accento se ejecuta en el área de notificación. Elija Salir en su menú para detenerlo.",
     "GuideWindows": "Se requiere el tiempo de ejecución de Microsoft Edge WebView2. La interfaz funciona sin conexión. Actualmente, el motor de entrada solo es compatible con Windows.",
     "GuideReview": "Esta guía traducida es un borrador y no ha sido revisada por un hablante nativo.",
-    "GuideAlphabet": "El alfabeto estándar y las asociaciones de claves disponibles se enumeran a continuación. Escriba letras ordinarias con normalidad. La ventana emergente también admite dígrafos y marcas combinadas; no reemplaza un método de entrada."
+    "GuideAlphabet": "El alfabeto estándar y las asociaciones de claves disponibles se enumeran a continuación. Escriba letras ordinarias con normalidad. La ventana emergente también admite dígrafos y marcas combinadas; no reemplaza un método de entrada.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "de": {
     "KeepEditing": "Weiter bearbeiten",
@@ -435,7 +445,9 @@
     "GuideExit": "Durch das Schließen der Einstellungen wird Accento weiterhin im Benachrichtigungsbereich ausgeführt. Wählen Sie „Beenden“ aus dem Menü, um es zu stoppen.",
     "GuideWindows": "Microsoft Edge WebView2 Runtime ist erforderlich. Die Schnittstelle funktioniert offline. Die Eingabe-Engine unterstützt derzeit nur Windows.",
     "GuideReview": "Dieser übersetzte Leitfaden ist ein Entwurf und wurde nicht von einem Muttersprachler überprüft.",
-    "GuideAlphabet": "Das Standardalphabet und die verfügbaren Schlüsselzuordnungen sind unten aufgeführt. Geben Sie normale Buchstaben normal ein. Das Popup unterstützt auch Digraphen und Kombinationszeichen; Es ersetzt keine Eingabemethode."
+    "GuideAlphabet": "Das Standardalphabet und die verfügbaren Schlüsselzuordnungen sind unten aufgeführt. Geben Sie normale Buchstaben normal ein. Das Popup unterstützt auch Digraphen und Kombinationszeichen; Es ersetzt keine Eingabemethode.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "pt": {
     "KeepEditing": "Continue editando",
@@ -508,7 +520,9 @@
     "GuideWindows": "O tempo de execução do Microsoft Edge WebView2 é necessário. A interface funciona offline. O mecanismo de entrada atualmente oferece suporte apenas ao Windows.",
     "GuideReview": "Este guia traduzido é um rascunho e não foi revisado por um falante nativo.",
     "GeneralHint": "Escrita e linguagem. Tudo em um só lugar.",
-    "GuideAlphabet": "O alfabeto padrão e as associações de teclas disponíveis estão listados abaixo. Digite letras comuns normalmente. O pop-up também suporta dígrafos e marcas de combinação; ele não substitui um método de entrada."
+    "GuideAlphabet": "O alfabeto padrão e as associações de teclas disponíveis estão listados abaixo. Digite letras comuns normalmente. O pop-up também suporta dígrafos e marcas de combinação; ele não substitui um método de entrada.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "ro": {
     "KeepEditing": "Continuați să editați",
@@ -581,7 +595,9 @@
     "GuideWindows": "Microsoft Edge WebView2 Runtime este necesar. Interfața funcționează offline. Motorul de intrare acceptă în prezent numai Windows.",
     "GuideReview": "Acest ghid tradus este o schiță și nu a fost revizuit de un vorbitor nativ.",
     "GeneralHint": "scriere și limbaj. Toate într-un singur loc.",
-    "GuideAlphabet": "alfabetul standard și asocierile de chei disponibile sunt enumerate mai jos. Introduceți litere obișnuite în mod normal. Fereastra pop-up acceptă, de asemenea, digrafe și semne de combinare; nu înlocuiește o metodă de introducere."
+    "GuideAlphabet": "alfabetul standard și asocierile de chei disponibile sunt enumerate mai jos. Introduceți litere obișnuite în mod normal. Fereastra pop-up acceptă, de asemenea, digrafe și semne de combinare; nu înlocuiește o metodă de introducere.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "pl": {
     "KeepEditing": "Edytuj dalej",
@@ -654,7 +670,9 @@
     "GuideWindows": "Wymagane jest środowisko wykonawcze Microsoft Edge WebView2. Interfejs działa w trybie offline. Mechanizm wejściowy obsługuje obecnie tylko system Windows.",
     "GuideReview": "Ten przetłumaczony przewodnik jest wersją roboczą i nie został sprawdzony przez native speakera.",
     "GeneralHint": "Pismo i język. Wszystko w jednym miejscu.",
-    "GuideAlphabet": "Poniżej wymieniono standardowy alfabet i dostępne powiązania klawiszy. Wpisz normalnie zwykłe litery. Wyskakujące okienko obsługuje także dwuznaki i znaki łączące; nie zastępuje metody wprowadzania."
+    "GuideAlphabet": "Poniżej wymieniono standardowy alfabet i dostępne powiązania klawiszy. Wpisz normalnie zwykłe litery. Wyskakujące okienko obsługuje także dwuznaki i znaki łączące; nie zastępuje metody wprowadzania.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "tr": {
     "KeepEditing": "Düzenlemeye devam edin",
@@ -727,7 +745,9 @@
     "GuideWindows": "Microsoft Edge WebView2 Çalışma Zamanı gerekli. Arayüz çevrimdışı çalışıyor. Giriş motoru şu anda yalnızca Windows'u desteklemektedir.",
     "GuideReview": "Çevrilmiş bu kılavuz bir taslaktır ve anadili İngilizce olan kişiler tarafından incelenmemiştir.",
     "GeneralHint": "Yazı ve dil. Hepsi tek bir yerde.",
-    "GuideAlphabet": "Standart alfabe ve mevcut tuş ilişkileri aşağıda listelenmiştir. Sıradan harfleri normal şekilde yazın. Açılır pencere ayrıca digrafları ve birleştirme işaretlerini de destekler; bir giriş yönteminin yerini almaz."
+    "GuideAlphabet": "Standart alfabe ve mevcut tuş ilişkileri aşağıda listelenmiştir. Sıradan harfleri normal şekilde yazın. Açılır pencere ayrıca digrafları ve birleştirme işaretlerini de destekler; bir giriş yönteminin yerini almaz.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "nl": {
     "KeepEditing": "blijf bewerken",
@@ -800,7 +820,9 @@
     "GuideWindows": "Microsoft Edge WebView2 Runtime is vereist. De interface werkt offline. De invoerengine ondersteunt momenteel alleen Windows.",
     "GuideReview": "Deze vertaalde gids is een concept en is niet beoordeeld door een moedertaalspreker.",
     "GeneralHint": "Schrijven en taal. Alles op één plek.",
-    "GuideAlphabet": "Het standaardalfabet en de beschikbare toetsassociaties worden hieronder vermeld. Typ gewone letters normaal. De pop-up ondersteunt ook digraphs en het combineren van markeringen; het vervangt geen invoermethode."
+    "GuideAlphabet": "Het standaardalfabet en de beschikbare toetsassociaties worden hieronder vermeld. Typ gewone letters normaal. De pop-up ondersteunt ook digraphs en het combineren van markeringen; het vervangt geen invoermethode.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "lb": {
     "KeepEditing": "Weiderhin Redaktioun",
@@ -873,7 +895,9 @@
     "GuideWindows": "Microsoft Edge WebView2 Runtime ass erfuerderlech. D'Interface funktionnéiert offline. Den Inputmotor ënnerstëtzt de Moment nëmmen Windows.",
     "GuideReview": "Dësen iwwersat Guide ass en Entworf a gouf net vun engem Mammesprooch iwwerpréift.",
     "GeneralHint": "Schreiwen a Sprooch. Alles op enger Plaz.",
-    "GuideAlphabet": "D'Standardalfabet an d'verfügbare Schlësselverbänn sinn hei ënnen opgezielt. Typ normal Buschtawen. De Popup ënnerstëtzt och Digraphen a Kombinatiounszeechen; et ersetzt net eng Input Method."
+    "GuideAlphabet": "D'Standardalfabet an d'verfügbare Schlësselverbänn sinn hei ënnen opgezielt. Typ normal Buschtawen. De Popup ënnerstëtzt och Digraphen a Kombinatiounszeechen; et ersetzt net eng Input Method.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "rm": {
     "KeepEditing": "Cuntinuar a modifitgar",
@@ -946,7 +970,9 @@
     "GuideExit": "Sche ti serras ils parameters, resta Accento activ en la zona da notificaziun. Tscherna Serrar en il menu per fermar il program.",
     "GuideWindows": "Microsoft Edge WebView2 Runtime è necessari. L'interfatscha funcziuna senza internet. Il motor da tastatura sustegna actualmain mo Windows.",
     "GuideAlphabet": "L'alfabet standard e las associaziuns da tastas èn inditgads qua sut. Scriva normalmain ils bustabs ordinairs. Il selectur sustegna era digrafs e segns cumbinants, ma na remplazza betg ina metoda d'endataziun.",
-    "GuideReview": "Questa guida translatada è in sboz e n'è betg vegnida verifitgada d'ina persuna da lingua materna."
+    "GuideReview": "Questa guida translatada è in sboz e n'è betg vegnida verifitgada d'ina persuna da lingua materna.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "da": {
     "KeepEditing": "Fortsæt med at redigere",
@@ -1019,7 +1045,9 @@
     "GuideWindows": "Microsoft Edge WebView2 Runtime er påkrævet. Grænsefladen fungerer offline. Input-motoren understøtter i øjeblikket kun Windows.",
     "GuideReview": "Denne oversatte vejledning er et udkast og er ikke blevet gennemgået af en indfødt.",
     "GeneralHint": "Skrift og sprog. Alt sammen ét sted.",
-    "GuideAlphabet": "Standardalfabetet og tilgængelige nøgleassociationer er anført nedenfor. Skriv almindelige bogstaver normalt. Popup'et understøtter også digrafer og kombinationsmærker; det erstatter ikke en indtastningsmetode."
+    "GuideAlphabet": "Standardalfabetet og tilgængelige nøgleassociationer er anført nedenfor. Skriv almindelige bogstaver normalt. Popup'et understøtter også digrafer og kombinationsmærker; det erstatter ikke en indtastningsmetode.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "sv": {
     "KeepEditing": "Fortsätt redigera",
@@ -1092,7 +1120,9 @@
     "GuideWindows": "Microsoft Edge WebView2 Runtime krävs. Gränssnittet fungerar offline. Inmatningsmotorn stöder för närvarande endast Windows.",
     "GuideReview": "Denna översatta guide är ett utkast och har inte granskats av en infödd talare.",
     "GeneralHint": "Skrivande och språk. Allt på ett ställe.",
-    "GuideAlphabet": "Standardalfabetet och tillgängliga nyckelassociationer listas nedan. Skriv vanliga bokstäver normalt. Popup-fönstret stöder även digrafer och kombinationsmärken; den ersätter inte en inmatningsmetod."
+    "GuideAlphabet": "Standardalfabetet och tillgängliga nyckelassociationer listas nedan. Skriv vanliga bokstäver normalt. Popup-fönstret stöder även digrafer och kombinationsmärken; den ersätter inte en inmatningsmetod.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "nb": {
     "KeepEditing": "Fortsett å redigere",
@@ -1165,7 +1195,9 @@
     "GuideWindows": "Microsoft Edge WebView2 Runtime kreves. Grensesnittet fungerer offline. Inndatamotoren støtter for øyeblikket kun Windows.",
     "GuideReview": "Denne oversatte veiledningen er et utkast og har ikke blitt gjennomgått av en morsmål.",
     "GeneralHint": "Skriving og språk. Alt på ett sted.",
-    "GuideAlphabet": "Standardalfabetet og tilgjengelige nøkkelassosiasjoner er oppført nedenfor. Skriv vanlige bokstaver normalt. Popup-vinduet støtter også digrafer og kombinasjonsmerker; den erstatter ikke en inndatametode."
+    "GuideAlphabet": "Standardalfabetet og tilgjengelige nøkkelassosiasjoner er oppført nedenfor. Skriv vanlige bokstaver normalt. Popup-vinduet støtter også digrafer og kombinasjonsmerker; den erstatter ikke en inndatametode.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "nn": {
     "KeepEditing": "Hald fram med å redigere",
@@ -1238,7 +1270,9 @@
     "GuideExit": "Når du lukkar innstillingane, køyrer Accento vidare i varslingsområdet. Vel Avslutt i menyen for å stoppe programmet.",
     "GuideWindows": "Microsoft Edge WebView2 Runtime er nødvendig. Grensesnittet verkar utan nett. Tastaturmotoren støttar førebels berre Windows.",
     "GuideAlphabet": "Standardalfabetet og tilgjengelege tastetilordningar står nedanfor. Skriv vanlege bokstavar som normalt. Veljaren støttar òg digrafar og kombinerande teikn, men erstattar ikkje ein inndatametode.",
-    "GuideReview": "Denne omsette rettleiinga er eit utkast og er ikkje gjennomgått av ein morsmålsbrukar."
+    "GuideReview": "Denne omsette rettleiinga er eit utkast og er ikkje gjennomgått av ein morsmålsbrukar.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "fi": {
     "KeepEditing": "Jatka muokkaamista",
@@ -1311,7 +1345,9 @@
     "GuideWindows": "Microsoft Edge WebView2 Runtime vaaditaan. Käyttöliittymä toimii offline-tilassa. Syöttömoottori tukee tällä hetkellä vain Windowsia.",
     "GuideReview": "Tämä käännetty opas on luonnos, eikä äidinkielenään puhuva ole tarkistanut sitä.",
     "GeneralHint": "Kirjoittaminen ja kieli. Kaikki yhdessä paikassa.",
-    "GuideAlphabet": "Vakioaakkoset ja käytettävissä olevat näppäinyhdistelmät on lueteltu alla. Kirjoita tavalliset kirjaimet normaalisti. Ponnahdusikkuna tukee myös digrafeja ja merkkien yhdistämistä; se ei korvaa syöttötapaa."
+    "GuideAlphabet": "Vakioaakkoset ja käytettävissä olevat näppäinyhdistelmät on lueteltu alla. Kirjoita tavalliset kirjaimet normaalisti. Ponnahdusikkuna tukee myös digrafeja ja merkkien yhdistämistä; se ei korvaa syöttötapaa.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "is": {
     "KeepEditing": "Haltu áfram að breyta",
@@ -1384,7 +1420,9 @@
     "GuideWindows": "Microsoft Edge WebView2 Runtime er krafist. Viðmótið virkar án nettengingar. Inntaksvélin styður sem stendur eingöngu Windows.",
     "GuideReview": "Þessi þýdda handbók er drög og hefur ekki verið skoðað af móðurmáli.",
     "GeneralHint": "Ritun og tungumál. Allt á einum stað.",
-    "GuideAlphabet": "Staðlað stafróf og tiltæk lykiltengsl eru skráð hér að neðan. Skrifaðu venjulega stafi venjulega. Sprettigluggan styður einnig tvírit og samsetningarmerki; það kemur ekki í stað innsláttaraðferðar."
+    "GuideAlphabet": "Staðlað stafróf og tiltæk lykiltengsl eru skráð hér að neðan. Skrifaðu venjulega stafi venjulega. Sprettigluggan styður einnig tvírit og samsetningarmerki; það kemur ekki í stað innsláttaraðferðar.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "et": {
     "KeepEditing": "jätkake toimetamist",
@@ -1457,7 +1495,9 @@
     "GuideWindows": "nõutav on Microsoft Edge WebView2 Runtime. Liides töötab võrguühenduseta. Sisendmootor toetab praegu ainult Windowsi.",
     "GuideReview": "see tõlgitud juhend on mustand ja emakeelena kõneleja pole seda üle vaadanud.",
     "GeneralHint": "kirjutamine ja keel. Kõik ühes kohas.",
-    "GuideAlphabet": "Standardtähestik ja saadaolevad võtmeseosed on loetletud allpool. Sisestage tavalised tähed. Hüpikaken toetab ka digraafe ja märkide kombineerimist; see ei asenda sisestusmeetodit."
+    "GuideAlphabet": "Standardtähestik ja saadaolevad võtmeseosed on loetletud allpool. Sisestage tavalised tähed. Hüpikaken toetab ka digraafe ja märkide kombineerimist; see ei asenda sisestusmeetodit.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "lv": {
     "KeepEditing": "turpiniet rediģēt",
@@ -1530,7 +1570,9 @@
     "GuideWindows": "ir nepieciešams Microsoft Edge WebView2 Runtime. Interfeiss darbojas bezsaistē. Ievades programma pašlaik atbalsta tikai Windows.",
     "GuideReview": "šis tulkotais ceļvedis ir melnraksts, un to nav pārskatījis dzimtā valoda.",
     "GeneralHint": "Rakstniecība un valoda. Viss vienuviet.",
-    "GuideAlphabet": "Standarta alfabēts un pieejamās taustiņu asociācijas ir norādītas zemāk. Rakstiet parastos burtus kā parasti. Uznirstošais logs atbalsta arī divrakstus un atzīmju kombinēšanu; tas neaizstāj ievades metodi."
+    "GuideAlphabet": "Standarta alfabēts un pieejamās taustiņu asociācijas ir norādītas zemāk. Rakstiet parastos burtus kā parasti. Uznirstošais logs atbalsta arī divrakstus un atzīmju kombinēšanu; tas neaizstāj ievades metodi.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "lt": {
     "KeepEditing": "Tęskite redagavimą",
@@ -1603,7 +1645,9 @@
     "GuideWindows": "reikalingas Microsoft Edge WebView2 Runtime. Sąsaja veikia neprisijungus. Šiuo metu įvesties variklis palaiko tik „Windows“.",
     "GuideReview": "Šis išverstas vadovas yra juodraštis ir jo neperžiūrėjo gimtoji kalba.",
     "GeneralHint": "Rašymas ir kalba. Viskas vienoje vietoje.",
-    "GuideAlphabet": "Standartinė abėcėlė ir galimos raktų asociacijos pateikiamos žemiau. Įveskite įprastas raides. Iššokantis langas taip pat palaiko dvigrafus ir ženklų derinimą; jis nepakeičia įvesties metodo."
+    "GuideAlphabet": "Standartinė abėcėlė ir galimos raktų asociacijos pateikiamos žemiau. Įveskite įprastas raides. Iššokantis langas taip pat palaiko dvigrafus ir ženklų derinimą; jis nepakeičia įvesties metodo.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "cs": {
     "KeepEditing": "Pokračujte v úpravách",
@@ -1676,7 +1720,9 @@
     "GuideWindows": "Je vyžadován Microsoft Edge WebView2 Runtime. Rozhraní funguje offline. Vstupní modul aktuálně podporuje pouze systém Windows.",
     "GuideReview": "Tato přeložená příručka je koncept a nebyla zkontrolována rodilým mluvčím.",
     "GeneralHint": "Psaní a jazyk. Vše na jednom místě.",
-    "GuideAlphabet": "Standardní abeceda a dostupné asociace klíčů jsou uvedeny níže. Pište běžná písmena normálně. Vyskakovací okno také podporuje digrafy a kombinování značek; nenahrazuje metodu zadávání."
+    "GuideAlphabet": "Standardní abeceda a dostupné asociace klíčů jsou uvedeny níže. Pište běžná písmena normálně. Vyskakovací okno také podporuje digrafy a kombinování značek; nenahrazuje metodu zadávání.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "sk": {
     "KeepEditing": "Pokračujte v úpravách",
@@ -1749,7 +1795,9 @@
     "GuideWindows": "Vyžaduje sa Microsoft Edge WebView2 Runtime. Rozhranie funguje offline. Vstupný modul v súčasnosti podporuje iba systém Windows.",
     "GuideReview": "Táto preložená príručka je koncept a nebola recenzovaná rodeným hovorcom.",
     "GeneralHint": "Písanie a jazyk. Všetko na jednom mieste.",
-    "GuideAlphabet": "Štandardná abeceda a dostupné asociácie kľúčov sú uvedené nižšie. Napíšte bežné písmená normálne. Vyskakovacie okno tiež podporuje digrafy a kombinovanie značiek; nenahrádza metódu vstupu."
+    "GuideAlphabet": "Štandardná abeceda a dostupné asociácie kľúčov sú uvedené nižšie. Napíšte bežné písmená normálne. Vyskakovacie okno tiež podporuje digrafy a kombinovanie značiek; nenahrádza metódu vstupu.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "hu": {
     "KeepEditing": "Folytasd a szerkesztést",
@@ -1822,7 +1870,9 @@
     "GuideWindows": "Microsoft Edge WebView2 Runtime szükséges. A felület offline módban működik. A beviteli motor jelenleg csak a Windows rendszert támogatja.",
     "GuideReview": "Ez a lefordított útmutató vázlat, és anyanyelvi beszélő nem vizsgálta felül.",
     "GeneralHint": "Írás és nyelv. Minden egy helyen.",
-    "GuideAlphabet": "A szabványos ábécé és az elérhető kulcstársítások az alábbiakban találhatók. A szokásos betűket írja be. A felugró ablak támogatja a digráfokat és a jelek kombinálását is; nem helyettesíti a beviteli módot."
+    "GuideAlphabet": "A szabványos ábécé és az elérhető kulcstársítások az alábbiakban találhatók. A szokásos betűket írja be. A felugró ablak támogatja a digráfokat és a jelek kombinálását is; nem helyettesíti a beviteli módot.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "sl": {
     "KeepEditing": "Nadaljujte z urejanjem",
@@ -1895,7 +1945,9 @@
     "GuideWindows": "Zahtevano je izvajalno okolje Microsoft Edge WebView2. Vmesnik deluje brez povezave. Vnosni mehanizem trenutno podpira samo Windows.",
     "GuideReview": "Ta preveden vodnik je osnutek in ga ni pregledal naravni govorec.",
     "GeneralHint": "Pisanje in jezik. Vse na enem mestu.",
-    "GuideAlphabet": "Standardna abeceda in razpoložljive povezave ključev so navedene spodaj. Navadne črke tipkajte normalno. Pojavno okno podpira tudi digrafe in kombinirane oznake; ne nadomesti metode vnosa."
+    "GuideAlphabet": "Standardna abeceda in razpoložljive povezave ključev so navedene spodaj. Navadne črke tipkajte normalno. Pojavno okno podpira tudi digrafe in kombinirane oznake; ne nadomesti metode vnosa.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "hr": {
     "KeepEditing": "Nastavite s uređivanjem",
@@ -1968,7 +2020,9 @@
     "GuideWindows": "Microsoft Edge WebView2 Runtime je potreban. Sučelje radi offline. Ulazni mehanizam trenutno podržava samo Windows.",
     "GuideReview": "Ovaj prevedeni vodič je nacrt i nije ga pregledao izvorni govornik.",
     "GeneralHint": "Pisanje i jezik. Sve na jednom mjestu.",
-    "GuideAlphabet": "Standardna abeceda i dostupne ključne asocijacije navedene su u nastavku. Tipkajte obična slova normalno. Skočni prozor također podržava digrafe i kombinirane oznake; ne zamjenjuje metodu unosa."
+    "GuideAlphabet": "Standardna abeceda i dostupne ključne asocijacije navedene su u nastavku. Tipkajte obična slova normalno. Skočni prozor također podržava digrafe i kombinirane oznake; ne zamjenjuje metodu unosa.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "bs": {
     "KeepEditing": "Nastavite sa uređivanjem",
@@ -2041,7 +2095,9 @@
     "GuideWindows": "Microsoft Edge WebView2 Runtime je potrebno. Interfejs radi van mreže. Mehanizam za unos trenutno podržava samo Windows.",
     "GuideReview": "Ovaj prevedeni vodič je nacrt i nije ga pregledao izvorni govornik.",
     "GeneralHint": "Pisanje i jezik. Sve na jednom mestu.",
-    "GuideAlphabet": "Standardna abeceda i dostupne asocijacije ključeva su navedene ispod. Upišite obična slova normalno. Iskačući prozor takođe podržava digrafe i kombinovanje oznaka; ne zamjenjuje metodu unosa."
+    "GuideAlphabet": "Standardna abeceda i dostupne asocijacije ključeva su navedene ispod. Upišite obična slova normalno. Iskačući prozor takođe podržava digrafe i kombinovanje oznaka; ne zamjenjuje metodu unosa.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "bs-Cyrl": {
     "KeepEditing": "Наставите са уређивањем",
@@ -2114,7 +2170,9 @@
     "GuideWindows": "Microsoft Edge WebView2 Runtime је потребно. Интерфејс ради ван мреже. Механизам за унос тренутно подржава само Windows.",
     "GuideReview": "Овај преведени водич је нацрт и није га прегледао изворни говорник.",
     "GeneralHint": "Писање и језик. Све на једном месту.",
-    "GuideAlphabet": "Стандардна абецеда и доступне асоцијације кључева су наведене испод. Упишите обична слова нормално. Искачући прозор такође подржава диграфе и комбиновање ознака; не замјењује методу уноса."
+    "GuideAlphabet": "Стандардна абецеда и доступне асоцијације кључева су наведене испод. Упишите обична слова нормално. Искачући прозор такође подржава диграфе и комбиновање ознака; не замјењује методу уноса.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "sr": {
     "KeepEditing": "Наставите са уређивањем",
@@ -2187,7 +2245,9 @@
     "GuideWindows": "Мицрософт Едге ВебВиев2 Рунтиме је потребно. Интерфејс ради ван мреже. Механизам за унос тренутно подржава само Виндовс.",
     "GuideReview": "Овај преведени водич је нацрт и није га прегледао изворни говорник.",
     "GeneralHint": "Писање и језик. Све на једном месту.",
-    "GuideAlphabet": "Стандардна абецеда и доступне асоцијације кључева су наведене испод. Укуцајте обична слова нормално. Искачући прозор такође подржава диграфе и комбиновање ознака; не замењује метод уноса."
+    "GuideAlphabet": "Стандардна абецеда и доступне асоцијације кључева су наведене испод. Укуцајте обична слова нормално. Искачући прозор такође подржава диграфе и комбиновање ознака; не замењује метод уноса.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "sr-Latn": {
     "KeepEditing": "Nastavite sa uređivanjem",
@@ -2260,7 +2320,9 @@
     "GuideWindows": "Microsoft Edge VebViev2 Runtime je potrebno. Interfejs radi van mreže. Mehanizam za unos trenutno podržava samo Vindovs.",
     "GuideReview": "Ovaj prevedeni vodič je nacrt i nije ga pregledao izvorni govornik.",
     "GeneralHint": "Pisanje i jezik. Sve na jednom mestu.",
-    "GuideAlphabet": "Standardna abeceda i dostupne asocijacije ključeva su navedene ispod. Ukucajte obična slova normalno. Iskačući prozor takođe podržava digrafe i kombinovanje oznaka; ne zamenjuje metod unosa."
+    "GuideAlphabet": "Standardna abeceda i dostupne asocijacije ključeva su navedene ispod. Ukucajte obična slova normalno. Iskačući prozor takođe podržava digrafe i kombinovanje oznaka; ne zamenjuje metod unosa.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "cnr": {
     "KeepEditing": "Nastavite sa uređivanjem",
@@ -2333,7 +2395,9 @@
     "GuideWindows": "Microsoft Edge VebViev2 Runtime je potrebno. Interfejs radi van mreže. Mehanizam za unos trenutno podržava samo Vindovs.",
     "GuideReview": "Ovaj prevedeni vodič je nacrt i nije ga pregledao izvorni govornik.",
     "GeneralHint": "Pisanje i jezik. Sve na jednom mestu.",
-    "GuideAlphabet": "Standardna abeceda i dostupne asocijacije ključeva su navedene ispod. Ukucajte obična slova normalno. Iskačući prozor takođe podržava digrafe i kombinovanje oznaka; ne zamenjuje metod unosa."
+    "GuideAlphabet": "Standardna abeceda i dostupne asocijacije ključeva su navedene ispod. Ukucajte obična slova normalno. Iskačući prozor takođe podržava digrafe i kombinovanje oznaka; ne zamenjuje metod unosa.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "cnr-Cyrl": {
     "KeepEditing": "Наставите са уређивањем",
@@ -2406,7 +2470,9 @@
     "GuideWindows": "Мицрософт Едге ВебВиев2 Рунтиме је потребно. Интерфејс ради ван мреже. Механизам за унос тренутно подржава само Виндовс.",
     "GuideReview": "Овај преведени водич је нацрт и није га прегледао изворни говорник.",
     "GeneralHint": "Писање и језик. Све на једном месту.",
-    "GuideAlphabet": "Стандардна абецеда и доступне асоцијације кључева су наведене испод. Укуцајте обична слова нормално. Искачући прозор такође подржава диграфе и комбиновање ознака; не замењује метод уноса."
+    "GuideAlphabet": "Стандардна абецеда и доступне асоцијације кључева су наведене испод. Укуцајте обична слова нормално. Искачући прозор такође подржава диграфе и комбиновање ознака; не замењује метод уноса.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "mk": {
     "KeepEditing": "Продолжете да уредувате",
@@ -2479,7 +2545,9 @@
     "GuideWindows": "Потребно е траење на Microsoft Edge WebView2. Интерфејсот работи офлајн. Влезниот мотор моментално поддржува само Windows.",
     "GuideReview": "Овој преведен водич е нацрт и не е прегледан од мајчин јазик.",
     "GeneralHint": "Пишување и јазик. Сите на едно место.",
-    "GuideAlphabet": "Стандардната азбука и достапните асоцијации на клучеви се наведени подолу. Напишете обични букви нормално. Скокачкиот прозорец исто така поддржува диграфи и комбинирање ознаки; не заменува метод на внесување."
+    "GuideAlphabet": "Стандардната азбука и достапните асоцијации на клучеви се наведени подолу. Напишете обични букви нормално. Скокачкиот прозорец исто така поддржува диграфи и комбинирање ознаки; не заменува метод на внесување.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "bg": {
     "KeepEditing": "Продължете да редактирате",
@@ -2552,7 +2620,9 @@
     "GuideWindows": "Изисква се Microsoft Edge WebView2 Runtime. Интерфейсът работи офлайн. Понастоящем системата за въвеждане поддържа само Windows.",
     "GuideReview": "Това преведено ръководство е чернова и не е прегледано от носител на езика.",
     "GeneralHint": "Писане и език. Всичко на едно място.",
-    "GuideAlphabet": "Стандартната азбука и наличните ключови асоциации са изброени по-долу. Въведете обикновени букви нормално. Изскачащият прозорец също поддържа диграфи и комбиниращи знаци; не замества метод на въвеждане."
+    "GuideAlphabet": "Стандартната азбука и наличните ключови асоциации са изброени по-долу. Въведете обикновени букви нормално. Изскачащият прозорец също поддържа диграфи и комбиниращи знаци; не замества метод на въвеждане.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "el": {
     "KeepEditing": "Συνεχίστε να επεξεργάζεστε",
@@ -2625,7 +2695,9 @@
     "GuideWindows": "Απαιτείται χρόνος εκτέλεσης του Microsoft Edge WebView2. Η διεπαφή λειτουργεί εκτός σύνδεσης. Η μηχανή εισόδου υποστηρίζει αυτήν τη στιγμή μόνο Windows.",
     "GuideReview": "Αυτός ο μεταφρασμένος οδηγός είναι προσχέδιο και δεν έχει ελεγχθεί από μητρικό ομιλητή.",
     "GeneralHint": "Γραφή και γλώσσα. Όλα σε ένα μέρος.",
-    "GuideAlphabet": "Το τυπικό αλφάβητο και οι διαθέσιμοι συσχετισμοί κλειδιών παρατίθενται παρακάτω. Πληκτρολογήστε συνηθισμένα γράμματα κανονικά. Το αναδυόμενο παράθυρο υποστηρίζει επίσης διγράμματα και συνδυασμό σημείων. δεν αντικαθιστά μια μέθοδο εισαγωγής."
+    "GuideAlphabet": "Το τυπικό αλφάβητο και οι διαθέσιμοι συσχετισμοί κλειδιών παρατίθενται παρακάτω. Πληκτρολογήστε συνηθισμένα γράμματα κανονικά. Το αναδυόμενο παράθυρο υποστηρίζει επίσης διγράμματα και συνδυασμό σημείων. δεν αντικαθιστά μια μέθοδο εισαγωγής.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "be": {
     "KeepEditing": "Працягнуць рэдагаванне",
@@ -2698,7 +2770,9 @@
     "GuideWindows": "патрабуецца Microsoft Edge WebView2 Runtime. Інтэрфейс працуе ў аўтаномным рэжыме. У цяперашні час механізм уводу падтрымлівае толькі Windows.",
     "GuideReview": "Гэта перакладзенае кіраўніцтва з'яўляецца чарнавіком і не было прагледжана носьбітам мовы.",
     "GeneralHint": "пісьмо і мова. Усё ў адным месцы.",
-    "GuideAlphabet": "стандартны алфавіт і даступныя асацыяцыі ключоў пералічаны ніжэй. Набірайце звычайныя літары звычайна. Усплывальнае акно таксама падтрымлівае дыграфы і камбінуючыя знакі; ён не замяняе метад уводу."
+    "GuideAlphabet": "стандартны алфавіт і даступныя асацыяцыі ключоў пералічаны ніжэй. Набірайце звычайныя літары звычайна. Усплывальнае акно таксама падтрымлівае дыграфы і камбінуючыя знакі; ён не замяняе метад уводу.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "uk": {
     "KeepEditing": "Продовжити редагування",
@@ -2771,7 +2845,9 @@
     "GuideWindows": "потрібне середовище виконання Microsoft Edge WebView2. Інтерфейс працює в автономному режимі. Механізм введення наразі підтримує лише Windows.",
     "GuideReview": "Цей перекладений посібник є чернеткою і не був перевірений носієм мови.",
     "GeneralHint": "Писемність і мова. Все в одному місці.",
-    "GuideAlphabet": "стандартний алфавіт і доступні зв’язки ключів наведено нижче. Введіть звичайні літери нормально. Спливаюче вікно також підтримує орграфи та об’єднувальні знаки; він не замінює метод введення."
+    "GuideAlphabet": "стандартний алфавіт і доступні зв’язки ключів наведено нижче. Введіть звичайні літери нормально. Спливаюче вікно також підтримує орграфи та об’єднувальні знаки; він не замінює метод введення.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "ru": {
     "KeepEditing": "продолжить редактирование",
@@ -2844,7 +2920,9 @@
     "GuideWindows": "требуется среда выполнения Microsoft Edge WebView2. Интерфейс работает в автономном режиме. Механизм ввода в настоящее время поддерживает только Windows.",
     "GuideReview": "Это переведенное руководство является черновиком и не проверялось носителем языка.",
     "GeneralHint": "Письмо и язык. Все в одном месте.",
-    "GuideAlphabet": "Ниже перечислены стандартный алфавит и доступные сочетания клавиш. Набирайте обычные буквы обычным способом. Всплывающее окно также поддерживает орграфы и комбинированные знаки; он не заменяет метод ввода."
+    "GuideAlphabet": "Ниже перечислены стандартный алфавит и доступные сочетания клавиш. Набирайте обычные буквы обычным способом. Всплывающее окно также поддерживает орграфы и комбинированные знаки; он не заменяет метод ввода.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "ga": {
     "KeepEditing": "Coinnigh ar an eagarthóireacht",
@@ -2917,7 +2995,9 @@
     "GuideWindows": "Tá Microsoft Edge WebView2 Runtime ag teastáil. Oibríonn an comhéadan as líne. Ní thacaíonn an t-inneall ionchuir ach le Windows amháin.",
     "GuideReview": "Is dréacht é an treoirleabhar aistrithe seo agus níl aon léirmheas déanta ag cainteoir dúchais air.",
     "GeneralHint": "Scríbhneoireacht agus teanga. Gach in aon áit amháin.",
-    "GuideAlphabet": "Tá an aibítir chaighdeánach agus na príomhcheangail atá ar fáil liostaithe thíos. Clóscríobh gnáthlitreacha de ghnáth. Tacaíonn an aníos freisin le déghraif agus le marcanna a chomhcheangal; ní chuireann sé ionad modh ionchuir."
+    "GuideAlphabet": "Tá an aibítir chaighdeánach agus na príomhcheangail atá ar fáil liostaithe thíos. Clóscríobh gnáthlitreacha de ghnáth. Tacaíonn an aníos freisin le déghraif agus le marcanna a chomhcheangal; ní chuireann sé ionad modh ionchuir.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "mt": {
     "KeepEditing": "Kompli editja",
@@ -2990,7 +3070,9 @@
     "GuideWindows": "Microsoft Edge WebView2 Runtime hija meħtieġa. L-interface jaħdem offline. Il-magna tal-input bħalissa tappoġġja l-Windows biss.",
     "GuideReview": "Din il-gwida tradotta hija abbozz u ma ġietx riveduta minn kelliem nattiv.",
     "GeneralHint": "Kitba u lingwa. Kollha f'post wieħed.",
-    "GuideAlphabet": "L-alfabett standard u l-assoċjazzjonijiet ewlenin disponibbli huma elenkati hawn taħt. Ittri ordinarji Ittri normalment. Il-popup jappoġġja wkoll digrafi u marki li jgħaqqdu; ma jissostitwixxix metodu ta' input."
+    "GuideAlphabet": "L-alfabett standard u l-assoċjazzjonijiet ewlenin disponibbli huma elenkati hawn taħt. Ittri ordinarji Ittri normalment. Il-popup jappoġġja wkoll digrafi u marki li jgħaqqdu; ma jissostitwixxix metodu ta' input.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "ca": {
     "KeepEditing": "Continua editant",
@@ -3063,7 +3145,9 @@
     "GuideWindows": "el temps d'execució de Microsoft Edge WebView2 és necessari. La interfície funciona fora de línia. Actualment, el motor d'entrada només admet Windows.",
     "GuideReview": "Aquesta guia traduïda és un esborrany i no ha estat revisada per un parlant nadiu.",
     "GeneralHint": "escriptura i llenguatge. Tot en un sol lloc.",
-    "GuideAlphabet": "l'alfabet estàndard i les associacions de claus disponibles es mostren a continuació. Escriviu lletres normals amb normalitat. La finestra emergent també admet dígrafs i marques de combinació; no substitueix un mètode d'entrada."
+    "GuideAlphabet": "l'alfabet estàndard i les associacions de claus disponibles es mostren a continuació. Escriviu lletres normals amb normalitat. La finestra emergent també admet dígrafs i marques de combinació; no substitueix un mètode d'entrada.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "hy": {
     "KeepEditing": "Շարունակեք խմբագրել",
@@ -3136,7 +3220,9 @@
     "GuideWindows": "Microsoft Edge WebView2 Runtime-ը պահանջվում է: Ինտերֆեյսը աշխատում է անցանց: Ներածման շարժիչը ներկայումս աջակցում է միայն Windows-ին:",
     "GuideReview": "Այս թարգմանված ուղեցույցը նախագիծ է և չի վերանայվել բնիկ լեզվի կողմից:",
     "GeneralHint": "Գիր և լեզու. Բոլորը մեկ տեղում։",
-    "GuideAlphabet": "Ստանդարտ այբուբենը և հասանելի հիմնական ասոցիացիաները թվարկված են ստորև: Մուտքագրեք սովորական տառեր: Բացվող պատուհանը նաև աջակցում է երկգրաֆիկներին և միավորելու նշանները. այն չի փոխարինում մուտքագրման մեթոդին:"
+    "GuideAlphabet": "Ստանդարտ այբուբենը և հասանելի հիմնական ասոցիացիաները թվարկված են ստորև: Մուտքագրեք սովորական տառեր: Բացվող պատուհանը նաև աջակցում է երկգրաֆիկներին և միավորելու նշանները. այն չի փոխարինում մուտքագրման մեթոդին:",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "ka": {
     "KeepEditing": "გააგრძელეთ რედაქტირება",
@@ -3209,7 +3295,9 @@
     "GuideWindows": "Microsoft Edge WebView2 Runtime საჭიროა. ინტერფეისი მუშაობს ოფლაინში. შეყვანის ძრავა ამჟამად მხარს უჭერს მხოლოდ Windows-ს.",
     "GuideReview": "ეს თარგმნილი გზამკვლევი არის მონახაზი და არ არის განხილული მშობლიური სპიკერის მიერ.",
     "GeneralHint": "წერა და ენა. ყველა ერთ ადგილას.",
-    "GuideAlphabet": "სტანდარტული ანბანი და ხელმისაწვდომი საკვანძო ასოციაციები მოცემულია ქვემოთ. აკრიფეთ ჩვეულებრივი ასოები. ამომხტარი ასევე მხარს უჭერს დიგრაფებს და აერთიანებს ნიშნებს; ის არ ცვლის შეყვანის მეთოდს."
+    "GuideAlphabet": "სტანდარტული ანბანი და ხელმისაწვდომი საკვანძო ასოციაციები მოცემულია ქვემოთ. აკრიფეთ ჩვეულებრივი ასოები. ამომხტარი ასევე მხარს უჭერს დიგრაფებს და აერთიანებს ნიშნებს; ის არ ცვლის შეყვანის მეთოდს.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "az": {
     "KeepEditing": "Redaktə etməyə davam edin",
@@ -3282,7 +3370,9 @@
     "GuideWindows": "Microsoft Edge WebView2 Runtime tələb olunur. İnterfeys oflayn işləyir. Daxiletmə mühərriki hazırda yalnız Windows-u dəstəkləyir.",
     "GuideReview": "Bu tərcümə edilmiş bələdçi qaralamadır və ana dilində danışan şəxs tərəfindən nəzərdən keçirilməyib.",
     "GeneralHint": "Yazı və dil. Hamısı bir yerdə.",
-    "GuideAlphabet": "Standart əlifba və mövcud əsas assosiasiyalar aşağıda verilmişdir. Normal hərfləri yazın. Açılan pəncərə həmçinin diqrafları və işarələri birləşdirməyi dəstəkləyir; daxiletmə metodunu əvəz etmir."
+    "GuideAlphabet": "Standart əlifba və mövcud əsas assosiasiyalar aşağıda verilmişdir. Normal hərfləri yazın. Açılan pəncərə həmçinin diqrafları və işarələri birləşdirməyi dəstəkləyir; daxiletmə metodunu əvəz etmir.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "kk": {
     "KeepEditing": "өңдеуді жалғастырыңыз",
@@ -3355,7 +3445,9 @@
     "GuideWindows": "Microsoft Edge WebView2 орындалу уақыты қажет. Интерфейс желіден тыс жұмыс істейді. Енгізу механизмі қазір тек Windows жүйесін қолдайды.",
     "GuideReview": "Бұл аударылған нұсқаулық нобай және оны ана тілінде сөйлейтін адам қарастырмаған.",
     "GeneralHint": "Жазу және тіл. Барлығы бір жерде.",
-    "GuideAlphabet": "Стандартты алфавит және қолжетімді кілттік байланыстар төменде берілген. Әдеттегі әріптерді теріңіз. Қалқымалы терезе сонымен қатар диграфтарды және біріктіру белгілерін қолдайды; ол енгізу әдісін алмастырмайды."
+    "GuideAlphabet": "Стандартты алфавит және қолжетімді кілттік байланыстар төменде берілген. Әдеттегі әріптерді теріңіз. Қалқымалы терезе сонымен қатар диграфтарды және біріктіру белгілерін қолдайды; ол енгізу әдісін алмастырмайды.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "la": {
     "KeepEditing": "Editing Keep",
@@ -3428,6 +3520,8 @@
     "GuideWindows": "Microsoft Edge WebView2 Runtime non requiritur. Opera interface offline. Instrumentum initus currently tantum Fenestra sustinet.",
     "GuideReview": "Hic translatus dux haustus est et ab oratore indigena non recognitus.",
     "GeneralHint": "Scriptura et lingua. Omnes in uno loco.",
-    "GuideAlphabet": "Vexillum alphabeti et in promptu clavium consociationum infra recensentur. Typus litterarum ordinariarum Northmanni. Populus etiam digraphas et notas combinantes sustinet; initus modum non reponere."
+    "GuideAlphabet": "Vexillum alphabeti et in promptu clavium consociationum infra recensentur. Typus litterarum ordinariarum Northmanni. Populus etiam digraphas et notas combinantes sustinet; initus modum non reponere.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   }
 }

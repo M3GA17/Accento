@@ -8,7 +8,7 @@ import {chromium} from 'playwright';
 // A separate mutex, no keyboard hook, and an isolated preferences directory protect the running app.
 const directory=await mkdtemp(path.join(tmpdir(),'accento-desktop-'));
 const executable=path.resolve(process.argv[2]??'target/debug/Accento.exe');
-const child=spawn(executable,['--desktop-test'],{windowsHide:true,env:{...process.env,LOCALAPPDATA:directory,WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS:'--remote-debugging-port=9437'}});
+const child=spawn(executable,['--desktop-test'],{windowsHide:true,env:{...process.env,LOCALAPPDATA:directory,ACCENTO_CONFIG_DIR:path.join(directory,'Accento'),WEBVIEW2_USER_DATA_FOLDER:path.join(directory,'WebView2'),WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS:'--remote-debugging-port=9437'}});
 const errors=[];child.stderr.on('data',data=>errors.push(data.toString()));
 let browser;
 try{

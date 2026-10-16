@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "executable": "C:\\PROJECTS\\Github\\Accento\\target\\release\\Accento.exe",
+  "executable": "C:\\PROJECTS\\Github\\Accento\\target\\debug\\Accento.exe",
   "loadedUrl": "http://tauri.localhost/",
   "locales": 47,
   "checks": [

@@ -1,7 +1,7 @@
 {
-  "designVersion": "0.3.0",
-  "runtimeVersion": "0.3.0",
-  "status": "implemented / Windows self-test verified",
+  "designVersion": "0.4.0",
+  "runtimeVersion": "0.4.0",
+  "status": "implemented / 29 Rust tests, 32 Windows checks and repaint regression passed",
   "sourceOfTruth": "Accento-Design-System.figcraft",
   "unit": "DIP",
   "implementedChanges": [
@@ -11,7 +11,7 @@
     },
     {
       "file": "crates/accento-windows/src/picker_material.rs",
-      "implemented": "Blurred and refracted backdrop sampled once per opening; solid alternative; alpha gaps at multiple DPI and text scales."
+      "implemented": "Blurred and refracted backdrop sampled once per opening; OS accessibility fallback; alpha gaps at multiple DPI and text scales."
     },
     {
       "file": "crates/accento-windows/src/app.rs",
@@ -19,20 +19,21 @@
     },
     {
       "file": "crates/accento-windows/src/app/settings.rs",
-      "implemented": "Four sections; 40-DIP controls; compact tabs below 900 DIP; real clipped viewport and pinned footer, without width-based scaling."
+      "implemented": "Three sections, four UI languages independent from character sets, per-item blacklist, runtime power switch. Stable viewport and footer; no-op wheel does not repaint."
     },
     {
       "file": "crates/accento-windows/src/glass.rs",
-      "implemented": "Quiet settings palette and shared drawing primitives; native title bar replaces the design title bar."
+      "implemented": "Quiet settings palette; buffered publishing of complete frames. Native title bar replaces the design title bar."
     }
   ],
-  "evidence": "docs/evidenze/0.3.0/build.json; 21 Rust tests, 35 Windows self-test checks",
+  "evidence": "docs/verifiche-0.4.0.md; 29 Rust tests, 32 Windows checks, 14 settings checks plus repaint regression. Embedded captures are version 0.4.0.",
+  "openingSelection": "First candidate is preselected when the popup opens; Space/Right advance, Left wraps to the last. Release letter confirms without additional navigation.",
   "unchangedProductContract": [
     "Four language sets, stable deduplication",
     "Letter + Space; release letter confirms; Esc cancels",
-    "Delay 100-1500 ms; theme system/light/dark; transparency preference",
+    "Delay 100-1500 ms; theme system/light/dark; Liquid Glass only",
     "Explicit save, process-name exclusions, tray commands"
   ],
-  "prototype": "Four-section navigation; appearance links; error -> corrected draft -> saved demonstration.",
+  "prototype": "Three-section navigation; theme and power links; error -> corrected draft -> saved demonstration.",
   "limitations": "Runtime verification is documented separately. The prototype does not execute hooks or persistence. Narrator, external apps and physical multi-monitor tests remain open."
 }

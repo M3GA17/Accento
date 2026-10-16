@@ -13,7 +13,7 @@ from pathlib import Path
 
 root = Path(__file__).resolve().parent.parent
 languages = json.loads((root/'localization/languages.json').read_text(encoding='utf8'))
-source = (root/'crates/accento-windows/src/i18n.rs').read_text(encoding='utf8')
+source = (root/'crates/accento-platform/src/i18n.rs').read_text(encoding='utf8')
 base_codes = ['it','fr','es','de','en','sq']
 original = {code:{} for code in base_codes}
 for key,values in re.findall(r'^\s+(\w+) => (\["[^\n]+\]),$',source,re.M):

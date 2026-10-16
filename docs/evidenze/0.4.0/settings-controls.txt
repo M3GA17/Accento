@@ -1,0 +1,14 @@
+PASS: Set attivabile da Generale e Set caratteri
+PASS: Ultimo set conservato
+PASS: Aspetto esclusivo
+PASS: Lingua interfaccia indipendente dai set
+PASS: Stepper ritardo
+PASS: Validazione ritardo
+PASS: Scorrimento solo con contenuto eccedente
+PASS: Salva sempre raggiungibile
+PASS: BlackList un elemento per applicazione
+PASS: BlackList rifiuta duplicati e separatori
+PASS: Focus porta il campo nel viewport
+PASS: Navigazione da tastiera
+PASS: Interruttore spegne e riaccende senza perdere la bozza
+PASS: Salva disattivato senza modifiche

@@ -1,0 +1,32 @@
+PASS Set attivabile da Generale e Set caratteri
+PASS Ultimo set conservato
+PASS Aspetto esclusivo
+PASS Lingua interfaccia indipendente dai set
+PASS Stepper ritardo
+PASS Validazione ritardo
+PASS Scorrimento solo con contenuto eccedente
+PASS Salva sempre raggiungibile
+PASS BlackList un elemento per applicazione
+PASS BlackList rifiuta duplicati e separatori
+PASS Focus porta il campo nel viewport
+PASS Navigazione da tastiera
+PASS Interruttore spegne e riaccende senza perdere la bozza
+PASS Salva disattivato senza modifiche
+PASS Primo candidato già selezionato → è
+PASS Focus conservato
+PASS Maiuscola → È
+PASS Esc conserva e
+PASS Falsa partenza conserva e spazio
+PASS Rilascio senza navigazione conferma è
+PASS Seconda pressione Spazio avanza a é
+PASS Sinistra seleziona ultimo candidato
+PASS Cambio campo annulla senza invio
+PASS Pausa lascia passare la digitazione
+PASS Esclusione esatta del processo
+PASS Glass chiaro
+PASS Alpha del popup e spazi trasparenti
+PASS Destra avanza a é dopo cambio aspetto
+PASS Glass scuro
+PASS Alpha del popup e spazi trasparenti
+PASS Destra avanza a é dopo cambio aspetto
+PASS Finestra di collaudo disponibile

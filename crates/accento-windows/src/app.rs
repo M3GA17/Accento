@@ -994,38 +994,19 @@ unsafe fn tray_icon(app: &App, action: NOTIFY_ICON_MESSAGE) -> bool {
     }
 }
 unsafe fn create_icon() -> windows::core::Result<HICON> {
+    // Load the same multi-resolution resource used by the executable and Tauri.
+    // Without LR_SHARED, App owns this handle and releases it with DestroyIcon.
     unsafe {
-        let mut pixels = vec![0u8; 32 * 32 * 4];
-        for y in 0..32 {
-            for x in 0..32 {
-                let i = (y * 32 + x) * 4;
-                let rounded = (x as f32 - 15.5).abs().max((y as f32 - 15.5).abs()) < 14.
-                    || ((x as f32 - 15.5).abs() - 10.)
-                        .max(0.)
-                        .hypot(((y as f32 - 15.5).abs() - 10.).max(0.))
-                        < 5.;
-                if rounded {
-                    pixels[i] = 224;
-                    pixels[i + 1] = 100;
-                    pixels[i + 2] = 42;
-                    pixels[i + 3] = 255;
-                }
-                let fx = x as f32;
-                let fy = y as f32;
-                let a = (9..=23).contains(&y)
-                    && ((fx - (16. - (fy - 9.) * 0.43)).abs() < 1.4
-                        || (fx - (16. + (fy - 9.) * 0.43)).abs() < 1.4
-                        || (17..=19).contains(&y) && (12..=20).contains(&x));
-                let accent = (5..=7).contains(&y) && (18..=22).contains(&x);
-                if a || accent {
-                    pixels[i] = 255;
-                    pixels[i + 1] = 255;
-                    pixels[i + 2] = 255;
-                    pixels[i + 3] = 255;
-                }
-            }
-        }
-        CreateIcon(None, 32, 32, 1, 32, [0u8; 128].as_ptr(), pixels.as_ptr())
+        let module = GetModuleHandleW(None)?;
+        let icon = LoadImageW(
+            Some(module.into()),
+            PCWSTR(32512usize as *const u16),
+            IMAGE_ICON,
+            32,
+            32,
+            LR_DEFAULTCOLOR,
+        )?;
+        Ok(HICON(icon.0))
     }
 }
 

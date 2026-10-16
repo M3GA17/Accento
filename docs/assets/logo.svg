@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="glass" x1="8" y1="3" x2="54" y2="62" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A8BEDB" stop-opacity=".38"/>
+      <stop offset=".46" stop-color="#40536E" stop-opacity=".26"/>
+      <stop offset="1" stop-color="#1C2A43" stop-opacity=".64"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="10" y1="3" x2="51" y2="62" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5F9FF" stop-opacity=".78"/>
+      <stop offset=".48" stop-color="#D9E9FF" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#A8BEDB" stop-opacity=".42"/>
+    </linearGradient>
+    <linearGradient id="reflection" x1="15" y1="3" x2="35" y2="38" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="64" height="64" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="1.2" flood-color="#07162E" flood-opacity=".24"/>
+    </filter>
+  </defs>
+  <rect x="3" y="2" width="58" height="58" rx="15.5" fill="url(#glass)" filter="url(#shadow)"/>
+  <rect x="3" y="2" width="58" height="58" rx="15.5" fill="url(#reflection)"/>
+  <rect x="3.5" y="2.5" width="57" height="57" rx="15" stroke="url(#rim)"/>
+  <rect x="4.5" y="3.5" width="55" height="55" rx="14" stroke="#07162E" stroke-opacity=".22"/>
+  <!-- Original outlined lowercase a and acute accent; no font dependency. -->
+  <path fill="#F5F8FF" fill-rule="evenodd" d="M32 24c-6.5 0-10.5 3.2-10.8 8h5.6c.3-2.2 2-3.5 5-3.5 3.3 0 4.9 1.5 4.9 4.4v1.3h-5.8c-7.2 0-11.2 2.6-11.2 7.6 0 4.7 3.4 7.7 8.4 7.7 3.8 0 6.8-1.6 8.6-4.1V49h5.5V33.3C42.2 27.1 38.7 24 32 24Zm4.7 14.1v2.1c0 3.3-2.5 5.5-6.1 5.5-2.7 0-4.3-1.2-4.3-3.5 0-2.6 2-4.1 5.8-4.1h4.6Z"/>
+  <path fill="#F5F8FF" d="m32.5 13-6 7h5.4l7.3-7h-6.7Z"/>
+</svg>

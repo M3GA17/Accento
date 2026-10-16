@@ -106,3 +106,19 @@ test('dark settings and language popup have no serious accessibility violations'
     expect(violations).toEqual([]);await page.keyboard.press('Escape');
   }
 });
+
+
+test('Linux and macOS exclusions accept native process names and reject paths',async({page})=>{
+  for(const [platform,name]of [['linux','firefox'],['macos','Safari']]){
+    await page.goto(`/?preview=1&platform=${platform}`);
+    await page.getByRole('button',{name:'BlackList',exact:true}).click();
+    const field=page.getByRole('textbox',{name:'Aggiungi applicazione'});
+    await expect(field).toHaveAttribute('placeholder',name);
+    await field.fill(name);await page.getByRole('button',{name:'Aggiungi',exact:true}).click();
+    await expect(page.getByText(name.toLowerCase(),{exact:true})).toBeVisible();
+    await field.fill('/usr/bin/editor');await page.getByRole('button',{name:'Aggiungi',exact:true}).click();
+    await expect(page.getByText('Inserisci un nome di processo, senza percorsi, virgole o caratteri jolly.',{exact:true})).toBeVisible();
+    await page.getByRole('button',{name:'Salva modifiche'}).click();
+    await expect(page.getByRole('status')).toHaveText('Tutte le modifiche sono salvate');
+  }
+});

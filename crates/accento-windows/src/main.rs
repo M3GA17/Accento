@@ -6,11 +6,14 @@ mod app;
 mod desktop;
 #[cfg(windows)]
 mod glass;
-mod i18n;
+use accento_platform::{i18n, preferences};
 #[cfg(windows)]
 mod input;
+#[cfg(windows)]
 mod picker_material;
-mod preferences;
+mod platform_info;
+#[cfg(any(target_os = "linux", target_os = "macos"))]
+mod portable;
 #[cfg(windows)]
 mod render;
 
@@ -41,8 +44,9 @@ fn main() {
             );
         }
     }
-    #[cfg(not(windows))]
-    eprintln!(
-        "Accento richiede Windows 11. Il motore accento-core è indipendente dalla piattaforma."
-    );
+    #[cfg(any(target_os = "linux", target_os = "macos"))]
+    if let Err(error) = portable::run() {
+        eprintln!("Accento: {error}");
+        std::process::exit(1);
+    }
 }

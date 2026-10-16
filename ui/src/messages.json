@@ -60,7 +60,9 @@
     "Retry": "Riprova",
     "Writing": "Scrittura",
     "QuickGuide": "Come si usa",
-    "CloseDraft": "Ci sono modifiche non salvate. Chiudere e perderle?"
+    "CloseDraft": "Ci sono modifiche non salvate. Chiudere e perderle?",
+    "NativeAppHint": "Nome del processo, per esempio firefox su Linux o Safari su macOS.",
+    "NativeAppError": "Inserisci un nome di processo, senza percorsi, virgole o caratteri jolly."
   },
   "en": {
     "KeepEditing": "Keep editing",
@@ -123,7 +125,9 @@
     "Retry": "Try again",
     "Writing": "Writing",
     "QuickGuide": "How it works",
-    "CloseDraft": "You have unsaved changes. Close and discard them?"
+    "CloseDraft": "You have unsaved changes. Close and discard them?",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "sq": {
     "KeepEditing": "Vazhdo redaktimin",
@@ -186,7 +190,9 @@
     "Retry": "Provo përsëri",
     "Writing": "Shkrimi",
     "QuickGuide": "Si përdoret",
-    "CloseDraft": "Keni ndryshime të paruajtura. Të mbyllen pa i ruajtur?"
+    "CloseDraft": "Keni ndryshime të paruajtura. Të mbyllen pa i ruajtur?",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "fr": {
     "KeepEditing": "Continuer la modification",
@@ -249,7 +255,9 @@
     "Retry": "Réessayer",
     "Writing": "Écriture",
     "QuickGuide": "Mode d’emploi",
-    "CloseDraft": "Des modifications ne sont pas enregistrées. Fermer et les perdre ?"
+    "CloseDraft": "Des modifications ne sont pas enregistrées. Fermer et les perdre ?",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "es": {
     "KeepEditing": "Seguir editando",
@@ -312,7 +320,9 @@
     "Retry": "Reintentar",
     "Writing": "Escritura",
     "QuickGuide": "Cómo se usa",
-    "CloseDraft": "Hay cambios sin guardar. ¿Cerrar y perderlos?"
+    "CloseDraft": "Hay cambios sin guardar. ¿Cerrar y perderlos?",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "de": {
     "KeepEditing": "Weiter bearbeiten",
@@ -375,7 +385,9 @@
     "Retry": "Erneut versuchen",
     "Writing": "Schreiben",
     "QuickGuide": "Bedienung",
-    "CloseDraft": "Ungespeicherte Änderungen. Schließen und verwerfen?"
+    "CloseDraft": "Ungespeicherte Änderungen. Schließen und verwerfen?",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "pt": {
     "KeepEditing": "Continue editando",
@@ -438,7 +450,9 @@
     "Writing": "Escrita",
     "QuickGuide": "Como funciona",
     "CloseDraft": "Você tem alterações não salvas. Fechar e descartá-los?",
-    "GeneralHint": "Escrita e linguagem. Tudo em um só lugar."
+    "GeneralHint": "Escrita e linguagem. Tudo em um só lugar.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "ro": {
     "KeepEditing": "Continuați să editați",
@@ -501,7 +515,9 @@
     "Writing": "Scrierea",
     "QuickGuide": "Cum funcționează",
     "CloseDraft": "Aveți modificări nesalvate. Închideți și aruncați-le?",
-    "GeneralHint": "scriere și limbaj. Toate într-un singur loc."
+    "GeneralHint": "scriere și limbaj. Toate într-un singur loc.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "pl": {
     "KeepEditing": "Edytuj dalej",
@@ -564,7 +580,9 @@
     "Writing": "Pisanie",
     "QuickGuide": "Jak to działa",
     "CloseDraft": "Masz niezapisane zmiany. Zamknąć i wyrzucić je?",
-    "GeneralHint": "Pismo i język. Wszystko w jednym miejscu."
+    "GeneralHint": "Pismo i język. Wszystko w jednym miejscu.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "tr": {
     "KeepEditing": "Düzenlemeye devam edin",
@@ -627,7 +645,9 @@
     "Writing": "Yazma",
     "QuickGuide": "Nasıl çalışır?",
     "CloseDraft": "Kaydedilmemiş değişiklikleriniz var. Kapatılıp atılsın mı?",
-    "GeneralHint": "Yazı ve dil. Hepsi tek bir yerde."
+    "GeneralHint": "Yazı ve dil. Hepsi tek bir yerde.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "nl": {
     "KeepEditing": "blijf bewerken",
@@ -690,7 +710,9 @@
     "Writing": "Schrijven",
     "QuickGuide": "Hoe het werkt",
     "CloseDraft": "U heeft niet-opgeslagen wijzigingen. Sluiten en weggooien?",
-    "GeneralHint": "Schrijven en taal. Alles op één plek."
+    "GeneralHint": "Schrijven en taal. Alles op één plek.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "lb": {
     "KeepEditing": "Weiderhin Redaktioun",
@@ -753,7 +775,9 @@
     "Writing": "Schreiwen",
     "QuickGuide": "Wéi et funktionnéiert",
     "CloseDraft": "Dir hutt net gespäichert Ännerungen. Zoumaachen an se ofginn?",
-    "GeneralHint": "Schreiwen a Sprooch. Alles op enger Plaz."
+    "GeneralHint": "Schreiwen a Sprooch. Alles op enger Plaz.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "rm": {
     "KeepEditing": "Cuntinuar a modifitgar",
@@ -816,7 +840,9 @@
     "Retry": "Empruvar anc ina giada",
     "Writing": "Scriver",
     "QuickGuide": "Co funcziuna quai",
-    "CloseDraft": "Ti has midadas betg memorisadas. Serrar e las sbittar?"
+    "CloseDraft": "Ti has midadas betg memorisadas. Serrar e las sbittar?",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "da": {
     "KeepEditing": "Fortsæt med at redigere",
@@ -879,7 +905,9 @@
     "Writing": "Skrivning",
     "QuickGuide": "Sådan fungerer det",
     "CloseDraft": "Du har ikke-gemte ændringer. Luk og kasser dem?",
-    "GeneralHint": "Skrift og sprog. Alt sammen ét sted."
+    "GeneralHint": "Skrift og sprog. Alt sammen ét sted.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "sv": {
     "KeepEditing": "Fortsätt redigera",
@@ -942,7 +970,9 @@
     "Writing": "Skrivande",
     "QuickGuide": "Hur det fungerar",
     "CloseDraft": "Du har osparade ändringar. Stäng och släng dem?",
-    "GeneralHint": "Skrivande och språk. Allt på ett ställe."
+    "GeneralHint": "Skrivande och språk. Allt på ett ställe.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "nb": {
     "KeepEditing": "Fortsett å redigere",
@@ -1005,7 +1035,9 @@
     "Writing": "Skriving",
     "QuickGuide": "Slik fungerer det",
     "CloseDraft": "Du har ulagrede endringer. Lukke og kaste dem?",
-    "GeneralHint": "Skriving og språk. Alt på ett sted."
+    "GeneralHint": "Skriving og språk. Alt på ett sted.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "nn": {
     "KeepEditing": "Hald fram med å redigere",
@@ -1068,7 +1100,9 @@
     "Retry": "Prøv igjen",
     "Writing": "Skriving",
     "QuickGuide": "Slik brukar du det",
-    "CloseDraft": "Du har ulagra endringar. Vil du lukke og forkaste dei?"
+    "CloseDraft": "Du har ulagra endringar. Vil du lukke og forkaste dei?",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "fi": {
     "KeepEditing": "Jatka muokkaamista",
@@ -1131,7 +1165,9 @@
     "Writing": "Kirjoittaminen",
     "QuickGuide": "Kuinka se toimii",
     "CloseDraft": "Sinulla on tallentamattomia muutoksia. Suljetaanko ja hylätäänkö ne?",
-    "GeneralHint": "Kirjoittaminen ja kieli. Kaikki yhdessä paikassa."
+    "GeneralHint": "Kirjoittaminen ja kieli. Kaikki yhdessä paikassa.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "is": {
     "KeepEditing": "Haltu áfram að breyta",
@@ -1194,7 +1230,9 @@
     "Writing": "Að skrifa",
     "QuickGuide": "Hvernig það virkar",
     "CloseDraft": "Þú ert með óvistaðar breytingar. Loka og henda þeim?",
-    "GeneralHint": "Ritun og tungumál. Allt á einum stað."
+    "GeneralHint": "Ritun og tungumál. Allt á einum stað.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "et": {
     "KeepEditing": "jätkake toimetamist",
@@ -1257,7 +1295,9 @@
     "Writing": "kirjutamine",
     "QuickGuide": "Kuidas see töötab",
     "CloseDraft": "Teil on salvestamata muudatusi. Kas need sulgeda ja ära visata?",
-    "GeneralHint": "kirjutamine ja keel. Kõik ühes kohas."
+    "GeneralHint": "kirjutamine ja keel. Kõik ühes kohas.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "lv": {
     "KeepEditing": "turpiniet rediģēt",
@@ -1320,7 +1360,9 @@
     "Writing": "rakstīšana",
     "QuickGuide": "Kā tas darbojas",
     "CloseDraft": "Jums ir nesaglabātas izmaiņas. Vai tos aizvērt un izmest?",
-    "GeneralHint": "Rakstniecība un valoda. Viss vienuviet."
+    "GeneralHint": "Rakstniecība un valoda. Viss vienuviet.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "lt": {
     "KeepEditing": "Tęskite redagavimą",
@@ -1383,7 +1425,9 @@
     "Writing": "Rašymas",
     "QuickGuide": "kaip tai veikia",
     "CloseDraft": "turite neišsaugotų pakeitimų. Uždaryti ir išmesti?",
-    "GeneralHint": "Rašymas ir kalba. Viskas vienoje vietoje."
+    "GeneralHint": "Rašymas ir kalba. Viskas vienoje vietoje.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "cs": {
     "KeepEditing": "Pokračujte v úpravách",
@@ -1446,7 +1490,9 @@
     "Writing": "Psaní",
     "QuickGuide": "Jak to funguje",
     "CloseDraft": "Máte neuložené změny. Zavřít a zahodit je?",
-    "GeneralHint": "Psaní a jazyk. Vše na jednom místě."
+    "GeneralHint": "Psaní a jazyk. Vše na jednom místě.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "sk": {
     "KeepEditing": "Pokračujte v úpravách",
@@ -1509,7 +1555,9 @@
     "Writing": "Písanie",
     "QuickGuide": "Ako to funguje",
     "CloseDraft": "Máte neuložené zmeny. Zatvoriť a zahodiť ich?",
-    "GeneralHint": "Písanie a jazyk. Všetko na jednom mieste."
+    "GeneralHint": "Písanie a jazyk. Všetko na jednom mieste.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "hu": {
     "KeepEditing": "Folytasd a szerkesztést",
@@ -1572,7 +1620,9 @@
     "Writing": "Írás",
     "QuickGuide": "Hogyan működik",
     "CloseDraft": "Nem mentett módosításai vannak. Bezárja és eldobja őket?",
-    "GeneralHint": "Írás és nyelv. Minden egy helyen."
+    "GeneralHint": "Írás és nyelv. Minden egy helyen.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "sl": {
     "KeepEditing": "Nadaljujte z urejanjem",
@@ -1635,7 +1685,9 @@
     "Writing": "Pisanje",
     "QuickGuide": "Kako deluje",
     "CloseDraft": "Imate neshranjene spremembe. Jih zapreti in zavreči?",
-    "GeneralHint": "Pisanje in jezik. Vse na enem mestu."
+    "GeneralHint": "Pisanje in jezik. Vse na enem mestu.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "hr": {
     "KeepEditing": "Nastavite s uređivanjem",
@@ -1698,7 +1750,9 @@
     "Writing": "Pisanje",
     "QuickGuide": "Kako to radi",
     "CloseDraft": "Imate nespremljene promjene. Zatvoriti ih i odbaciti?",
-    "GeneralHint": "Pisanje i jezik. Sve na jednom mjestu."
+    "GeneralHint": "Pisanje i jezik. Sve na jednom mjestu.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "bs": {
     "KeepEditing": "Nastavite sa uređivanjem",
@@ -1761,7 +1815,9 @@
     "Writing": "Pisanje",
     "QuickGuide": "Kako radi",
     "CloseDraft": "Imate nesačuvane promjene. Zatvoriti i odbaciti ih?",
-    "GeneralHint": "Pisanje i jezik. Sve na jednom mestu."
+    "GeneralHint": "Pisanje i jezik. Sve na jednom mestu.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "bs-Cyrl": {
     "KeepEditing": "Наставите са уређивањем",
@@ -1824,7 +1880,9 @@
     "Writing": "Писање",
     "QuickGuide": "Како ради",
     "CloseDraft": "Имате несачуване промјене. Затворити и одбацити их?",
-    "GeneralHint": "Писање и језик. Све на једном месту."
+    "GeneralHint": "Писање и језик. Све на једном месту.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "sr": {
     "KeepEditing": "Наставите са уређивањем",
@@ -1887,7 +1945,9 @@
     "Writing": "Писање",
     "QuickGuide": "Како то функционише",
     "CloseDraft": "Имате несачуване промене. Затворити и одбацити их?",
-    "GeneralHint": "Писање и језик. Све на једном месту."
+    "GeneralHint": "Писање и језик. Све на једном месту.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "sr-Latn": {
     "KeepEditing": "Nastavite sa uređivanjem",
@@ -1950,7 +2010,9 @@
     "Writing": "Pisanje",
     "QuickGuide": "Kako to funkcioniše",
     "CloseDraft": "Imate nesačuvane promene. Zatvoriti i odbaciti ih?",
-    "GeneralHint": "Pisanje i jezik. Sve na jednom mestu."
+    "GeneralHint": "Pisanje i jezik. Sve na jednom mestu.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "cnr": {
     "KeepEditing": "Nastavite sa uređivanjem",
@@ -2013,7 +2075,9 @@
     "Writing": "Pisanje",
     "QuickGuide": "Kako to funkcioniše",
     "CloseDraft": "Imate nesačuvane promene. Zatvoriti i odbaciti ih?",
-    "GeneralHint": "Pisanje i jezik. Sve na jednom mestu."
+    "GeneralHint": "Pisanje i jezik. Sve na jednom mestu.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "cnr-Cyrl": {
     "KeepEditing": "Наставите са уређивањем",
@@ -2076,7 +2140,9 @@
     "Writing": "Писање",
     "QuickGuide": "Како то функционише",
     "CloseDraft": "Имате несачуване промене. Затворити и одбацити их?",
-    "GeneralHint": "Писање и језик. Све на једном месту."
+    "GeneralHint": "Писање и језик. Све на једном месту.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "mk": {
     "KeepEditing": "Продолжете да уредувате",
@@ -2139,7 +2205,9 @@
     "Writing": "Пишување",
     "QuickGuide": "Како функционира",
     "CloseDraft": "Имате незачувани промени. Да се ​​затворат и да се отфрлат?",
-    "GeneralHint": "Пишување и јазик. Сите на едно место."
+    "GeneralHint": "Пишување и јазик. Сите на едно место.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "bg": {
     "KeepEditing": "Продължете да редактирате",
@@ -2202,7 +2270,9 @@
     "Writing": "Писане",
     "QuickGuide": "Как работи",
     "CloseDraft": "Имате незапазени промени. Да ги затворите и изхвърлите?",
-    "GeneralHint": "Писане и език. Всичко на едно място."
+    "GeneralHint": "Писане и език. Всичко на едно място.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "el": {
     "KeepEditing": "Συνεχίστε να επεξεργάζεστε",
@@ -2265,7 +2335,9 @@
     "Writing": "Γράψιμο",
     "QuickGuide": "Πώς λειτουργεί",
     "CloseDraft": "Έχετε μη αποθηκευμένες αλλαγές. Να τα κλείσουμε και να τα απορρίψουμε;",
-    "GeneralHint": "Γραφή και γλώσσα. Όλα σε ένα μέρος."
+    "GeneralHint": "Γραφή και γλώσσα. Όλα σε ένα μέρος.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "be": {
     "KeepEditing": "Працягнуць рэдагаванне",
@@ -2328,7 +2400,9 @@
     "Writing": "Напісанне",
     "QuickGuide": "Як гэта працуе",
     "CloseDraft": "У вас ёсць незахаваныя змены. Закрыць і выкінуць іх?",
-    "GeneralHint": "пісьмо і мова. Усё ў адным месцы."
+    "GeneralHint": "пісьмо і мова. Усё ў адным месцы.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "uk": {
     "KeepEditing": "Продовжити редагування",
@@ -2391,7 +2465,9 @@
     "Writing": "Письмо",
     "QuickGuide": "Як це працює",
     "CloseDraft": "У вас є незбережені зміни. Закрити та відкинути їх?",
-    "GeneralHint": "Писемність і мова. Все в одному місці."
+    "GeneralHint": "Писемність і мова. Все в одному місці.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "ru": {
     "KeepEditing": "продолжить редактирование",
@@ -2454,7 +2530,9 @@
     "Writing": "Написание",
     "QuickGuide": "Как это работает",
     "CloseDraft": "У вас есть несохраненные изменения. Закрыть и выбросить их?",
-    "GeneralHint": "Письмо и язык. Все в одном месте."
+    "GeneralHint": "Письмо и язык. Все в одном месте.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "ga": {
     "KeepEditing": "Coinnigh ar an eagarthóireacht",
@@ -2517,7 +2595,9 @@
     "Writing": "Ag scríobh",
     "QuickGuide": "Conas a oibríonn sé",
     "CloseDraft": "Tá athruithe gan sábháil agat. Dún agus iad a chaitheamh amach?",
-    "GeneralHint": "Scríbhneoireacht agus teanga. Gach in aon áit amháin."
+    "GeneralHint": "Scríbhneoireacht agus teanga. Gach in aon áit amháin.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "mt": {
     "KeepEditing": "Kompli editja",
@@ -2580,7 +2660,9 @@
     "Writing": "Kitba",
     "QuickGuide": "Kif taħdem",
     "CloseDraft": "Għandek bidliet mhux salvati. Agħlaq u armihom?",
-    "GeneralHint": "Kitba u lingwa. Kollha f'post wieħed."
+    "GeneralHint": "Kitba u lingwa. Kollha f'post wieħed.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "ca": {
     "KeepEditing": "Continua editant",
@@ -2643,7 +2725,9 @@
     "Writing": "Escriptura",
     "QuickGuide": "Com funciona",
     "CloseDraft": "teniu canvis no desats. Tancar-los i descartar-los?",
-    "GeneralHint": "escriptura i llenguatge. Tot en un sol lloc."
+    "GeneralHint": "escriptura i llenguatge. Tot en un sol lloc.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "hy": {
     "KeepEditing": "Շարունակեք խմբագրել",
@@ -2706,7 +2790,9 @@
     "Writing": "Գրել",
     "QuickGuide": "Ինչպես է այն աշխատում",
     "CloseDraft": "Դուք չպահված փոփոխություններ ունեք: Փակե՞լ և հեռացնել դրանք:",
-    "GeneralHint": "Գիր և լեզու. Բոլորը մեկ տեղում։"
+    "GeneralHint": "Գիր և լեզու. Բոլորը մեկ տեղում։",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "ka": {
     "KeepEditing": "გააგრძელეთ რედაქტირება",
@@ -2769,7 +2855,9 @@
     "Writing": "წერა",
     "QuickGuide": "როგორ მუშაობს",
     "CloseDraft": "თქვენ გაქვთ შენახული ცვლილებები. დახუროს და გაუქმდეს ისინი?",
-    "GeneralHint": "წერა და ენა. ყველა ერთ ადგილას."
+    "GeneralHint": "წერა და ენა. ყველა ერთ ადგილას.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "az": {
     "KeepEditing": "Redaktə etməyə davam edin",
@@ -2832,7 +2920,9 @@
     "Writing": "Yazı",
     "QuickGuide": "Necə işləyir",
     "CloseDraft": "Saxlanmamış dəyişiklikləriniz var. Onları bağlayıb atılsın?",
-    "GeneralHint": "Yazı və dil. Hamısı bir yerdə."
+    "GeneralHint": "Yazı və dil. Hamısı bir yerdə.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "kk": {
     "KeepEditing": "өңдеуді жалғастырыңыз",
@@ -2895,7 +2985,9 @@
     "Writing": "Жазу",
     "QuickGuide": "Бұл қалай жұмыс істейді",
     "CloseDraft": "Сізде сақталмаған өзгертулер бар. Оларды жауып тастау керек пе?",
-    "GeneralHint": "Жазу және тіл. Барлығы бір жерде."
+    "GeneralHint": "Жазу және тіл. Барлығы бір жерде.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   },
   "la": {
     "KeepEditing": "Editing Keep",
@@ -2958,6 +3050,8 @@
     "Writing": "scriptura",
     "QuickGuide": "Quomodo operatur?",
     "CloseDraft": "mutas notas habes. Claudere et abiicias?",
-    "GeneralHint": "Scriptura et lingua. Omnes in uno loco."
+    "GeneralHint": "Scriptura et lingua. Omnes in uno loco.",
+    "NativeAppHint": "A process name, for example firefox on Linux or Safari on macOS.",
+    "NativeAppError": "Enter one process name, without paths, commas or wildcards."
   }
 }

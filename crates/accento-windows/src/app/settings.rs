@@ -940,7 +940,21 @@ fn canvas(g: &Painter, st: &State, v: Layout) -> windows::core::Result<()> {
     let y = v.body - st.scroll;
     if !v.compact {
         g.fill(rect(0., 0., 216., v.height), 0., sidebar(p))?;
-        g.fill(rect(24., 32., 32., 32.), 10., rgba(0.184, 0.392, 0.859, 1.))?;
+        g.gradient(
+            rect(24., 32., 32., 32.),
+            8.5,
+            &[
+                (0., rgba(0.66, 0.75, 0.86, 0.38)),
+                (0.46, rgba(0.25, 0.33, 0.43, 0.26)),
+                (1., rgba(0.11, 0.16, 0.26, 0.64)),
+            ],
+        )?;
+        g.stroke(
+            rect(24.5, 32.5, 31., 31.),
+            8.,
+            rgba(0.84, 0.91, 1., 0.42),
+            1.,
+        )?;
         g.text(
             "á",
             rect(24., 30., 32., 34.),

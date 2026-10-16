@@ -71,6 +71,15 @@ pub fn show_settings() {
         });
     }
 }
+#[tauri::command]
+fn quit_app() -> Result<(), String> {
+    let hwnd = NATIVE.load(Ordering::Acquire);
+    if hwnd == 0 {
+        return Err("Il motore di Accento non è disponibile.".into());
+    }
+    unsafe { PostMessageW(Some(HWND(hwnd as _)), WM_COMMAND, WPARAM(102), LPARAM(0)) }
+        .map_err(|error| error.to_string())
+}
 fn request(bridge: &Bridge, action: Action) -> Result<Snapshot, String> {
     let hwnd = NATIVE.load(Ordering::Acquire);
     if hwnd == 0 {
@@ -117,6 +126,8 @@ pub fn run() -> Result<(), String> {
     tauri::Builder::default()
         .manage(Bridge(sender))
         .invoke_handler(tauri::generate_handler![
+            crate::platform_info::get_platform,
+            quit_app,
             get_settings,
             save_settings,
             set_paused

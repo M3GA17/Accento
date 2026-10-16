@@ -1,10 +1,12 @@
 # Usare Accento
 
-Accento 0.6.0 è un prototipo portabile per Windows 11 x64. Inserisce accenti con tasti Glass indipendenti su fondo trasparente, lasciando il focus nel programma in cui scrivi. Le impostazioni usano React e Tauri e richiedono Microsoft Edge WebView2 Runtime. Sono incorporate nell’eseguibile e funzionano offline; non servono PowerToys o .NET.
+> Il sorgente comprende ora backend Windows, Linux X11 e macOS. Questa guida descrive in dettaglio Windows; per installazione, permessi, percorsi e verifiche degli altri sistemi consulta [la guida cross-platform](cross-platform.md). Wayland nativo non è supportato e il collaudo completo macOS richiede ancora un Mac. I pacchetti Windows locali precedenti al porting restano solo Windows.
+
+Accento 0.5.0-beta.1 è una beta per Windows 11 x64. Inserisce accenti con tasti Glass indipendenti su fondo trasparente, lasciando il focus nel programma in cui scrivi. Le impostazioni usano React e Tauri e richiedono Microsoft Edge WebView2 Runtime. Sono incorporate nell’eseguibile e funzionano offline; non servono PowerToys o .NET.
 
 ## Avvio
 
-Estrai il pacchetto e apri `Accento.exe`. Compare la finestra delle impostazioni e viene aggiunta un'icona nell'area di notifica. Chiudere le impostazioni lascia attivo Accento; dal menu dell'icona puoi scegliere Pausa, Riprendi, Impostazioni ed Esci. Un secondo avvio riapre le impostazioni dell'istanza già presente.
+Esegui l’installer per l’utente corrente, oppure estrai l’intero ZIP portabile e apri `Accento.exe`. L’installer può scaricare WebView2 se manca; il portabile richiede un runtime già installato. Compare la finestra delle impostazioni e viene aggiunta un'icona nell'area di notifica. Chiudere le impostazioni lascia attivo Accento; dal menu dell'icona puoi scegliere Pausa, Riprendi, Impostazioni ed Esci. Un secondo avvio riapre le impostazioni dell'istanza già presente.
 
 Se stai usando anche Quick Accent o un'altra utility con lo stesso gesto, mettila in pausa durante la prova per evitare sovrapposizioni.
 
@@ -21,7 +23,7 @@ La prima pressione di Spazio apre la barra con il primo candidato già seleziona
 
 ## Preferenze
 
-Le impostazioni sono divise in **Generale, Set caratteri e BlackList**. In Generale trovi ritardo, set attivi, aspetto e lingua dell’interfaccia; Set caratteri mostra il dettaglio delle quattro raccolte. La lingua dell’interfaccia può essere italiano, francese, spagnolo o tedesco e non modifica i caratteri disponibili.
+Le impostazioni sono divise in **Generale, Set caratteri e BlackList**. In Generale trovi ritardo e lingua dell’interfaccia; Set caratteri permette di cercare e attivare le 47 raccolte. Le stesse 47 voci sono disponibili per l’interfaccia, indipendentemente dai caratteri attivi. Il tema delle impostazioni è sempre scuro.
 
 **Annulla modifiche** ripristina l’ultima configurazione salvata. Chiudere con una bozza aperta richiede una scelta; senza modifiche la finestra web viene liberata.
 
@@ -53,7 +55,7 @@ La sostituzione usa Backspace seguito da input Unicode nello stesso batch. Il co
 
 Il riconoscimento dei campi password è limitato ai controlli Edit che espongono lo stile protetto; non copre tutti i campi dei browser. Il selettore espone un nome accessibile con candidati e scelta e invia notifiche UI Automation quando un client ascolta. La verifica completa con Narrator rimane da eseguire.
 
-La prima consegna non include installer, avvio automatico, aggiornamenti automatici, firma, supporto ARM64 o pressione prolungata senza Spazio.
+La beta Windows include un installer per l’utente corrente e uno ZIP portabile. Non include avvio automatico, aggiornamenti automatici, firma digitale, supporto ARM64 o pressione prolungata senza Spazio. I backend Linux X11 e macOS sono nel sorgente; stato delle prove e istruzioni sono nella guida cross-platform.
 
 ## Comandi facoltativi
 
@@ -61,7 +63,7 @@ La prima consegna non include installer, avvio automatico, aggiornamenti automat
 
 `Accento.exe --background` avvia direttamente nell'area di notifica. `Accento.exe --self-test` apre una finestra di collaudo, invia sequenze sintetiche soltanto per la prova e termina; durante il collaudo lascia libera la tastiera. Il rapporto `accento-self-test.txt` e le catture della sola interfaccia di prova sono salvati accanto all'eseguibile.
 
-Per rimuovere la versione portabile, scegli Esci e cancella la cartella estratta. Puoi conservare o rimuovere separatamente la cartella delle preferenze.
+Per rimuovere la versione installata, scegli Esci e usa Impostazioni Windows → App. Per rimuovere la versione portabile, scegli Esci e cancella la cartella estratta. Puoi conservare o rimuovere separatamente la cartella delle preferenze.
 
 ## Europa e guide localizzate
 

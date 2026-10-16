@@ -1,16 +1,21 @@
 {
   "name": "accento-desktop",
-  "version": "0.6.0",
+  "version": "0.5.0-beta.1",
   "private": true,
   "type": "module",
   "scripts": {
+    "brand:generate": "node scripts/generate-brand.mjs",
     "dev": "node scripts/sync-ui-messages.mjs && vite --host 127.0.0.1 --port 1421 --strictPort",
     "build": "node scripts/sync-ui-messages.mjs && node scripts/generate-language-docs.mjs && tsc -p ui/tsconfig.json && vite build",
     "check": "node scripts/sync-ui-messages.mjs && tsc -p ui/tsconfig.json",
     "desktop": "tauri dev",
     "desktop:build": "tauri build --no-bundle",
     "test:ui": "playwright test",
-    "test:desktop": "node scripts/test-desktop.mjs"
+    "test:desktop": "node scripts/test-desktop.mjs",
+    "bundle": "node scripts/build-desktop.mjs",
+    "release:package": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-windows.ps1",
+    "desktop:bundle": "tauri build --ci -- --locked",
+    "resources:prepare": "node scripts/prepare-resources.mjs"
   },
   "dependencies": {
     "@dimalabs/react-component-flat-product": "file:vendor/dimalabs-react-component-flat-product-0.1.1.tgz",

@@ -1,8 +1,8 @@
 {
   "file": "Accento-Design-System.figcraft",
-  "designVersion": "0.3.0",
-  "runtimeVersion": "0.3.0",
-  "sha256": "8707abbf8e699616006dc0718e8df8cbff8fd16dfd0003826d57dccdda5ebd96",
+  "designVersion": "0.4.0",
+  "runtimeVersion": "0.4.0",
+  "sha256": "3cfd1902a5e6dc50e5a12e8e9f25f53f824ef5f649d303c5cfdff70763c7ed0f",
   "pages": 9,
   "mainComponents": 28,
   "componentSets": 7,
@@ -28,7 +28,7 @@
       "preview": "popup-specifica-light.png"
     },
     {
-      "id": 244,
+      "id": 245,
       "name": "popup-apertura",
       "mode": "Light",
       "width": 152,
@@ -37,7 +37,7 @@
       "preview": "popup-apertura-light.png"
     },
     {
-      "id": 256,
+      "id": 258,
       "name": "popup-selezione",
       "mode": "Light",
       "width": 152,
@@ -46,7 +46,7 @@
       "preview": "popup-selezione-light.png"
     },
     {
-      "id": 269,
+      "id": 271,
       "name": "popup-combinato",
       "mode": "Light",
       "width": 296,
@@ -55,16 +55,16 @@
       "preview": "popup-combinato-light.png"
     },
     {
-      "id": 292,
-      "name": "popup-solido",
+      "id": 294,
+      "name": "popup-accessibilita-windows",
       "mode": "Light",
       "width": 152,
       "height": 80,
       "kind": "transparent-popup",
-      "preview": "popup-solido-light.png"
+      "preview": "popup-accessibilita-windows-light.png"
     },
     {
-      "id": 305,
+      "id": 307,
       "name": "popup-apertura",
       "mode": "Dark",
       "width": 152,
@@ -73,7 +73,7 @@
       "preview": "popup-apertura-dark.png"
     },
     {
-      "id": 317,
+      "id": 320,
       "name": "popup-selezione",
       "mode": "Dark",
       "width": 152,
@@ -82,7 +82,7 @@
       "preview": "popup-selezione-dark.png"
     },
     {
-      "id": 330,
+      "id": 333,
       "name": "popup-combinato",
       "mode": "Dark",
       "width": 296,
@@ -91,232 +91,151 @@
       "preview": "popup-combinato-dark.png"
     },
     {
-      "id": 353,
-      "name": "popup-solido",
+      "id": 356,
+      "name": "popup-accessibilita-windows",
       "mode": "Dark",
       "width": 152,
       "height": 80,
       "kind": "transparent-popup",
-      "preview": "popup-solido-dark.png"
+      "preview": "popup-accessibilita-windows-dark.png"
     },
     {
-      "id": 367,
-      "name": "impostazioni-scrittura",
+      "id": 370,
+      "name": "impostazioni-generale",
       "mode": "Light",
       "width": 1000,
-      "height": 740,
+      "height": 800,
       "kind": "product-screen",
-      "preview": "impostazioni-scrittura-light.png"
+      "preview": "impostazioni-generale-light.png"
     },
     {
-      "id": 431,
-      "name": "impostazioni-lingue",
+      "id": 467,
+      "name": "impostazioni-set caratteri",
       "mode": "Light",
       "width": 1000,
-      "height": 740,
+      "height": 800,
       "kind": "product-screen",
-      "preview": "impostazioni-lingue-light.png"
+      "preview": "impostazioni-set caratteri-light.png"
     },
     {
-      "id": 506,
-      "name": "impostazioni-aspetto",
+      "id": 538,
+      "name": "impostazioni-blacklist",
       "mode": "Light",
       "width": 1000,
-      "height": 740,
+      "height": 800,
       "kind": "product-screen",
-      "preview": "impostazioni-aspetto-light.png"
+      "preview": "impostazioni-blacklist-light.png"
     },
     {
       "id": 595,
-      "name": "impostazioni-applicazioni",
-      "mode": "Light",
-      "width": 1000,
-      "height": 740,
-      "kind": "product-screen",
-      "preview": "impostazioni-applicazioni-light.png"
-    },
-    {
-      "id": 644,
-      "name": "impostazioni-scrittura",
+      "name": "impostazioni-generale",
       "mode": "Dark",
       "width": 1000,
-      "height": 740,
+      "height": 800,
       "kind": "product-screen",
-      "preview": "impostazioni-scrittura-dark.png"
+      "preview": "impostazioni-generale-dark.png"
     },
     {
-      "id": 708,
-      "name": "impostazioni-lingue",
+      "id": 692,
+      "name": "impostazioni-set caratteri",
       "mode": "Dark",
       "width": 1000,
-      "height": 740,
+      "height": 800,
       "kind": "product-screen",
-      "preview": "impostazioni-lingue-dark.png"
+      "preview": "impostazioni-set caratteri-dark.png"
     },
     {
-      "id": 783,
-      "name": "impostazioni-aspetto",
+      "id": 763,
+      "name": "impostazioni-blacklist",
       "mode": "Dark",
       "width": 1000,
-      "height": 740,
+      "height": 800,
       "kind": "product-screen",
-      "preview": "impostazioni-aspetto-dark.png"
+      "preview": "impostazioni-blacklist-dark.png"
     },
     {
-      "id": 872,
-      "name": "impostazioni-applicazioni",
-      "mode": "Dark",
-      "width": 1000,
-      "height": 740,
-      "kind": "product-screen",
-      "preview": "impostazioni-applicazioni-dark.png"
-    },
-    {
-      "id": 921,
-      "name": "compatta-scrittura",
+      "id": 820,
+      "name": "compatta-generale",
       "mode": "Light",
       "width": 720,
       "height": 820,
       "kind": "product-screen",
-      "preview": "compatta-scrittura-light.png"
+      "preview": "compatta-generale-light.png"
     },
     {
-      "id": 970,
-      "name": "compatta-lingue",
+      "id": 906,
+      "name": "compatta-set caratteri",
       "mode": "Light",
       "width": 720,
       "height": 820,
       "kind": "product-screen",
-      "preview": "compatta-lingue-light.png"
+      "preview": "compatta-set caratteri-light.png"
     },
     {
-      "id": 1030,
-      "name": "compatta-aspetto",
+      "id": 966,
+      "name": "compatta-blacklist",
       "mode": "Light",
       "width": 720,
       "height": 820,
       "kind": "product-screen",
-      "preview": "compatta-aspetto-light.png"
+      "preview": "compatta-blacklist-light.png"
     },
     {
-      "id": 1104,
-      "name": "compatta-applicazioni",
-      "mode": "Light",
-      "width": 720,
-      "height": 820,
-      "kind": "product-screen",
-      "preview": "compatta-applicazioni-light.png"
-    },
-    {
-      "id": 1139,
+      "id": 1013,
       "name": "stato-dirty",
       "mode": "Light",
       "width": 1000,
-      "height": 740,
+      "height": 800,
       "kind": "product-state",
       "preview": "stato-dirty-light.png"
     },
     {
-      "id": 1187,
+      "id": 1069,
       "name": "stato-error",
       "mode": "Light",
       "width": 1000,
-      "height": 740,
+      "height": 800,
       "kind": "product-state",
       "preview": "stato-error-light.png"
     },
     {
-      "id": 1236,
+      "id": 1126,
       "name": "stato-saved",
       "mode": "Light",
       "width": 1000,
-      "height": 740,
+      "height": 800,
       "kind": "product-state",
       "preview": "stato-saved-light.png"
     },
     {
-      "id": 1285,
-      "name": "aspetto-light-dirty",
+      "id": 1183,
+      "name": "accento-spento",
       "mode": "Light",
       "width": 1000,
-      "height": 740,
+      "height": 800,
       "kind": "product-state",
-      "preview": "aspetto-light-dirty-light.png"
+      "preview": "accento-spento-light.png"
     },
     {
-      "id": 1373,
-      "name": "aspetto-light-saved",
-      "mode": "Light",
-      "width": 1000,
-      "height": 740,
-      "kind": "product-state",
-      "preview": "aspetto-light-saved-light.png"
-    },
-    {
-      "id": 1462,
-      "name": "aspetto-dark-dirty",
+      "id": 1279,
+      "name": "accento-spento",
       "mode": "Dark",
       "width": 1000,
-      "height": 740,
+      "height": 800,
       "kind": "product-state",
-      "preview": "aspetto-dark-dirty-dark.png"
+      "preview": "accento-spento-dark.png"
     },
     {
-      "id": 1550,
-      "name": "aspetto-dark-saved",
-      "mode": "Dark",
-      "width": 1000,
-      "height": 740,
-      "kind": "product-state",
-      "preview": "aspetto-dark-saved-dark.png"
-    },
-    {
-      "id": 1639,
-      "name": "aspetto-solido-light-dirty",
+      "id": 1375,
+      "name": "prodotto-generale",
       "mode": "Light",
       "width": 1000,
-      "height": 740,
-      "kind": "product-state",
-      "preview": "aspetto-solido-light-dirty-light.png"
-    },
-    {
-      "id": 1727,
-      "name": "aspetto-solido-light-saved",
-      "mode": "Light",
-      "width": 1000,
-      "height": 740,
-      "kind": "product-state",
-      "preview": "aspetto-solido-light-saved-light.png"
-    },
-    {
-      "id": 1816,
-      "name": "aspetto-solido-dark-dirty",
-      "mode": "Dark",
-      "width": 1000,
-      "height": 740,
-      "kind": "product-state",
-      "preview": "aspetto-solido-dark-dirty-dark.png"
-    },
-    {
-      "id": 1904,
-      "name": "aspetto-solido-dark-saved",
-      "mode": "Dark",
-      "width": 1000,
-      "height": 740,
-      "kind": "product-state",
-      "preview": "aspetto-solido-dark-saved-dark.png"
-    },
-    {
-      "id": 1993,
-      "name": "prodotto-scrittura",
-      "mode": "Light",
-      "width": 1000,
-      "height": 740,
+      "height": 800,
       "kind": "product-screen",
-      "preview": "prodotto-scrittura-light.png"
+      "preview": "prodotto-generale-light.png"
     },
     {
-      "id": 2057,
+      "id": 1472,
       "name": "prodotto-popup-in-uso",
       "mode": "Light",
       "width": 1000,
@@ -325,16 +244,16 @@
       "preview": "prodotto-popup-in-uso-light.png"
     },
     {
-      "id": 2078,
-      "name": "prodotto-scrittura",
+      "id": 1493,
+      "name": "prodotto-generale",
       "mode": "Dark",
       "width": 1000,
-      "height": 740,
+      "height": 800,
       "kind": "product-screen",
-      "preview": "prodotto-scrittura-dark.png"
+      "preview": "prodotto-generale-dark.png"
     },
     {
-      "id": 2142,
+      "id": 1590,
       "name": "prodotto-popup-in-uso",
       "mode": "Dark",
       "width": 1000,
@@ -343,7 +262,7 @@
       "preview": "prodotto-popup-in-uso-dark.png"
     },
     {
-      "id": 2163,
+      "id": 1611,
       "name": "glass-su-sfondi",
       "mode": "Light",
       "width": 2080,
@@ -352,7 +271,7 @@
       "preview": "glass-su-sfondi-light.png"
     },
     {
-      "id": 2220,
+      "id": 1668,
       "name": "fondamenti",
       "mode": "Light",
       "width": 1200,
@@ -361,7 +280,7 @@
       "preview": "fondamenti-light.png"
     },
     {
-      "id": 2295,
+      "id": 1743,
       "name": "fondamenti",
       "mode": "Dark",
       "width": 1200,
@@ -370,7 +289,7 @@
       "preview": "fondamenti-dark.png"
     },
     {
-      "id": 2371,
+      "id": 1819,
       "name": "consegna",
       "mode": "Light",
       "width": 1280,
@@ -379,7 +298,7 @@
       "preview": "consegna-light.png"
     },
     {
-      "id": 2419,
+      "id": 1867,
       "name": "area-notifica",
       "mode": "Light",
       "width": 1040,
@@ -388,7 +307,7 @@
       "preview": "area-notifica-light.png"
     },
     {
-      "id": 2439,
+      "id": 1887,
       "name": "area-notifica",
       "mode": "Dark",
       "width": 1040,
@@ -397,97 +316,142 @@
       "preview": "area-notifica-dark.png"
     },
     {
-      "id": 2464,
-      "name": "runtime-settings-writing-light",
+      "id": 1912,
+      "name": "runtime-settings-general-light",
       "mode": "Light",
       "width": 1000,
-      "height": 731,
+      "height": 791,
       "kind": "runtime-capture",
-      "preview": "runtime-settings-writing-light-light.png"
+      "preview": "runtime-settings-general-light-light.png"
     },
     {
-      "id": 2466,
-      "name": "runtime-settings-appearance-light",
-      "mode": "Light",
-      "width": 1000,
-      "height": 731,
-      "kind": "runtime-capture",
-      "preview": "runtime-settings-appearance-light-light.png"
-    },
-    {
-      "id": 2468,
-      "name": "runtime-settings-appearance-dark",
+      "id": 1914,
+      "name": "runtime-settings-general-dark",
       "mode": "Dark",
       "width": 1000,
-      "height": 731,
+      "height": 791,
       "kind": "runtime-capture",
-      "preview": "runtime-settings-appearance-dark-dark.png"
+      "preview": "runtime-settings-general-dark-dark.png"
     },
     {
-      "id": 2470,
-      "name": "runtime-settings-languages",
+      "id": 1916,
+      "name": "runtime-settings-character-sets-light",
+      "mode": "Light",
+      "width": 1000,
+      "height": 791,
+      "kind": "runtime-capture",
+      "preview": "runtime-settings-character-sets-light-light.png"
+    },
+    {
+      "id": 1918,
+      "name": "runtime-settings-character-sets-dark",
       "mode": "Dark",
       "width": 1000,
-      "height": 731,
+      "height": 791,
       "kind": "runtime-capture",
-      "preview": "runtime-settings-languages-dark.png"
+      "preview": "runtime-settings-character-sets-dark-dark.png"
     },
     {
-      "id": 2472,
-      "name": "runtime-settings-applications-error",
+      "id": 1920,
+      "name": "runtime-settings-blacklist-light",
       "mode": "Light",
       "width": 1000,
+      "height": 791,
+      "kind": "runtime-capture",
+      "preview": "runtime-settings-blacklist-light-light.png"
+    },
+    {
+      "id": 1922,
+      "name": "runtime-settings-blacklist-dark",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 791,
+      "kind": "runtime-capture",
+      "preview": "runtime-settings-blacklist-dark-dark.png"
+    },
+    {
+      "id": 1924,
+      "name": "runtime-settings-compact-general",
+      "mode": "Light",
+      "width": 720,
       "height": 731,
       "kind": "runtime-capture",
-      "preview": "runtime-settings-applications-error-light.png"
+      "preview": "runtime-settings-compact-general-light.png"
     },
     {
-      "id": 2474,
-      "name": "runtime-settings-compact-writing",
+      "id": 1926,
+      "name": "runtime-settings-compact-sets",
       "mode": "Light",
-      "width": 724,
-      "height": 642,
+      "width": 720,
+      "height": 731,
       "kind": "runtime-capture",
-      "preview": "runtime-settings-compact-writing-light.png"
+      "preview": "runtime-settings-compact-sets-light.png"
     },
     {
-      "id": 2476,
-      "name": "runtime-settings-compact-languages",
+      "id": 1928,
+      "name": "runtime-settings-compact-blacklist",
       "mode": "Light",
-      "width": 724,
-      "height": 642,
+      "width": 720,
+      "height": 731,
       "kind": "runtime-capture",
-      "preview": "runtime-settings-compact-languages-light.png"
+      "preview": "runtime-settings-compact-blacklist-light.png"
     },
     {
-      "id": 2478,
-      "name": "runtime-settings-compact-appearance",
-      "mode": "Light",
-      "width": 724,
-      "height": 642,
+      "id": 1930,
+      "name": "runtime-settings-general-fr",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 791,
       "kind": "runtime-capture",
-      "preview": "runtime-settings-compact-appearance-light.png"
+      "preview": "runtime-settings-general-fr-dark.png"
     },
     {
-      "id": 2480,
-      "name": "runtime-settings-compact-applications",
-      "mode": "Light",
-      "width": 724,
-      "height": 642,
+      "id": 1932,
+      "name": "runtime-settings-general-es",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 791,
       "kind": "runtime-capture",
-      "preview": "runtime-settings-compact-applications-light.png"
+      "preview": "runtime-settings-general-es-dark.png"
     },
     {
-      "id": 2482,
-      "name": "runtime-settings-compact-scrolled",
-      "mode": "Light",
-      "width": 724,
-      "height": 642,
+      "id": 1934,
+      "name": "runtime-settings-general-de",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 791,
       "kind": "runtime-capture",
-      "preview": "runtime-settings-compact-scrolled-light.png"
+      "preview": "runtime-settings-general-de-dark.png"
     },
     {
-      "id": 2484,
+      "id": 1936,
+      "name": "runtime-settings-general-off",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 791,
+      "kind": "runtime-capture",
+      "preview": "runtime-settings-general-off-dark.png"
+    },
+    {
+      "id": 1938,
+      "name": "runtime-settings-blacklist-error",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 791,
+      "kind": "runtime-capture",
+      "preview": "runtime-settings-blacklist-error-dark.png"
+    },
+    {
+      "id": 1940,
+      "name": "runtime-settings-blacklist-empty",
+      "mode": "Dark",
+      "width": 1000,
+      "height": 791,
+      "kind": "runtime-capture",
+      "preview": "runtime-settings-blacklist-empty-dark.png"
+    },
+    {
+      "id": 1942,
       "name": "runtime-picker-light-alpha",
       "mode": "Light",
       "width": 152,
@@ -496,7 +460,7 @@
       "preview": "runtime-picker-light-alpha-light.png"
     },
     {
-      "id": 2486,
+      "id": 1944,
       "name": "runtime-picker-dark-alpha",
       "mode": "Dark",
       "width": 152,
@@ -505,13 +469,22 @@
       "preview": "runtime-picker-dark-alpha-dark.png"
     },
     {
-      "id": 2488,
-      "name": "runtime-picker-solid-alpha",
+      "id": 1946,
+      "name": "runtime-picker-opening-light-alpha",
+      "mode": "Light",
+      "width": 152,
+      "height": 80,
+      "kind": "runtime-capture",
+      "preview": "runtime-picker-opening-light-alpha-light.png"
+    },
+    {
+      "id": 1948,
+      "name": "runtime-picker-opening-dark-alpha",
       "mode": "Dark",
       "width": 152,
       "height": 80,
       "kind": "runtime-capture",
-      "preview": "runtime-picker-solid-alpha-dark.png"
+      "preview": "runtime-picker-opening-dark-alpha-dark.png"
     }
   ],
   "components": [
@@ -522,7 +495,7 @@
         "Candidate"
       ],
       "id": 8,
-      "instances": 31,
+      "instances": 21,
       "label": "Property 1=Default",
       "name": "Property 1=Default",
       "page": 2,
@@ -535,7 +508,7 @@
         "Candidate"
       ],
       "id": 14,
-      "instances": 20,
+      "instances": 16,
       "label": "Property 1=Variant2",
       "name": "Property 1=Variant2",
       "page": 2,
@@ -574,7 +547,7 @@
         "Candidate"
       ],
       "id": 36,
-      "instances": 7,
+      "instances": 3,
       "label": "Property 1=Variant5",
       "name": "Property 1=Variant5",
       "page": 2,
@@ -587,7 +560,7 @@
         "Candidate"
       ],
       "id": 42,
-      "instances": 7,
+      "instances": 3,
       "label": "Property 1=Variant6",
       "name": "Property 1=Variant6",
       "page": 2,
@@ -612,7 +585,7 @@
         "Navigation"
       ],
       "id": 51,
-      "instances": 63,
+      "instances": 26,
       "label": "Property 1=Default",
       "name": "Property 1=Default",
       "page": 2,
@@ -625,7 +598,7 @@
         "Navigation"
       ],
       "id": 55,
-      "instances": 21,
+      "instances": 13,
       "label": "Property 1=Variant2",
       "name": "Property 1=Variant2",
       "page": 2,
@@ -676,7 +649,7 @@
         "Switch"
       ],
       "id": 73,
-      "instances": 4,
+      "instances": 2,
       "label": "Property 1=Default",
       "name": "Property 1=Default",
       "page": 2,
@@ -689,7 +662,7 @@
         "Switch"
       ],
       "id": 77,
-      "instances": 7,
+      "instances": 14,
       "label": "Property 1=Variant2",
       "name": "Property 1=Variant2",
       "page": 2,
@@ -727,7 +700,7 @@
         "Button"
       ],
       "id": 88,
-      "instances": 6,
+      "instances": 4,
       "label": "Property 1=Default",
       "name": "Property 1=Default",
       "page": 2,
@@ -753,7 +726,7 @@
         "Button"
       ],
       "id": 97,
-      "instances": 19,
+      "instances": 12,
       "label": "Property 1=Variant3",
       "name": "Property 1=Variant3",
       "page": 2,
@@ -778,7 +751,7 @@
         "Field"
       ],
       "id": 104,
-      "instances": 4,
+      "instances": 0,
       "label": "Property 1=Default",
       "name": "Property 1=Default",
       "page": 2,
@@ -791,7 +764,7 @@
         "Field"
       ],
       "id": 109,
-      "instances": 1,
+      "instances": 0,
       "label": "Property 1=Variant2",
       "name": "Property 1=Variant2",
       "page": 2,
@@ -804,7 +777,7 @@
         "Field"
       ],
       "id": 114,
-      "instances": 1,
+      "instances": 0,
       "label": "Property 1=Variant3",
       "name": "Property 1=Variant3",
       "page": 2,
@@ -892,8 +865,8 @@
         "Solo la lettera. Tutto il resto scompare. / Light",
         "Picker"
       ],
-      "id": 173,
-      "instances": 14,
+      "id": 174,
+      "instances": 7,
       "label": "Property 1=Variant2",
       "name": "Property 1=Variant2",
       "page": 154,
@@ -905,7 +878,7 @@
         "Solo la lettera. Tutto il resto scompare. / Light",
         "Picker"
       ],
-      "id": 186,
+      "id": 187,
       "instances": 0,
       "label": "Property 1=Variant3",
       "name": "Property 1=Variant3",
@@ -918,7 +891,7 @@
         "Solo la lettera. Tutto il resto scompare. / Light",
         "Picker"
       ],
-      "id": 199,
+      "id": 200,
       "instances": 2,
       "label": "Property 1=Variant4",
       "name": "Property 1=Variant4",
@@ -931,7 +904,7 @@
         "Solo la lettera. Tutto il resto scompare. / Light",
         "Picker"
       ],
-      "id": 222,
+      "id": 223,
       "instances": 0,
       "label": "Property 1=Variant5",
       "name": "Property 1=Variant5",
@@ -944,8 +917,8 @@
         "Solo la lettera. Tutto il resto scompare. / Light",
         "Picker"
       ],
-      "id": 230,
-      "instances": 6,
+      "id": 231,
+      "instances": 2,
       "label": "Property 1=Variant6",
       "name": "Property 1=Variant6",
       "page": 154,
@@ -956,7 +929,7 @@
         "01 / Popup trasparente",
         "Solo la lettera. Tutto il resto scompare. / Light"
       ],
-      "id": 242,
+      "id": 243,
       "instances": 0,
       "label": "Picker",
       "name": "Picker",

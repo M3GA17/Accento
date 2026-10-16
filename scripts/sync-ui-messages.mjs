@@ -1,5 +1,5 @@
 import {readFile,writeFile} from 'node:fs/promises';
-const source = await readFile('crates/accento-windows/src/i18n.rs','utf8');
+const source = await readFile('crates/accento-platform/src/i18n.rs','utf8');
 const languages = JSON.parse(await readFile('localization/languages.json','utf8'));
 const codes = languages.map(language=>language.code);
 const baseCodes = ['it','fr','es','de','en','sq'];

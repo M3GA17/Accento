@@ -1,4 +1,4 @@
-"""Editable Accento product UI, design 0.3. Runtime changes are a separate step.
+"""Editable Accento product UI, design 0.4. Runtime changes are a separate step.
 Run: python -X utf8 scripts/create-figcraft-system.py
 """
 import hashlib
@@ -20,19 +20,17 @@ TOKENS = {
 METRICS = {'space/1':4,'space/2':8,'space/3':12,'space/4':16,'space/6':24,'space/8':32,
  'radius/candidate':17,'radius/group':16,'radius/control':10,'radius/window':16,
  'size/candidate':64,'gap/candidate':8,'size/picker-height':80,'size/field':40,
- 'size/row':72,'size/sidebar':216,'size/settings-width':1000,'size/settings-height':740,
+ 'size/row':72,'size/sidebar':216,'size/settings-width':1000,'size/settings-height':800,
  'stroke/edge':1,'stroke/focus':2,'time/open-default-ms':300}
-SECTIONS = ['Scrittura','Lingue','Aspetto','Applicazioni']
-DESCRIPTIONS = {'Scrittura':'Il tuo gesto, al ritmo giusto.', 'Lingue':'Solo i caratteri che ti servono.',
- 'Aspetto':'La luce cambia. La scrittura resta al centro.',
- 'Applicazioni':'Scegli dove lasciare la tastiera così com’è.'}
+SECTIONS = ['Generale','Set caratteri','BlackList']
+DESCRIPTIONS = {'Generale':'Scrittura, aspetto e lingua. Tutto al suo posto.', 'Set caratteri':'Scegli i caratteri da avere a portata di mano.', 'BlackList':'Le applicazioni in cui Accento resta spento.'}
 GLASS = {'type':'glass','depth':12,'refraction':.65,'dispersion':.16,'frost':3,
          'lightAngle':-48,'lightIntensity':.72,'splay':.1}
 PATHS = {
- 'Scrittura':'M 3 5 L 17 5 M 10 5 L 10 18 M 6 18 L 14 18',
- 'Lingue':'M 10 1 C -2 1 -2 19 10 19 C 22 19 22 1 10 1 Z M 0 10 L 20 10 M 10 1 C 4 5 4 15 10 19 M 10 1 C 16 5 16 15 10 19',
+ 'Generale':'M 3 5 L 17 5 M 10 5 L 10 18 M 6 18 L 14 18',
+ 'Set caratteri':'M 10 1 C -2 1 -2 19 10 19 C 22 19 22 1 10 1 Z M 0 10 L 20 10 M 10 1 C 4 5 4 15 10 19 M 10 1 C 16 5 16 15 10 19',
  'Aspetto':'M 10 1 C -2 1 -2 19 10 19 C 22 19 22 1 10 1 Z M 10 1 L 10 19',
- 'Applicazioni':'M 1 2 L 19 2 L 19 18 L 1 18 Z M 1 7 L 19 7 M 5 4 L 5 5 M 8 4 L 8 5',
+ 'BlackList':'M 1 2 L 19 2 L 19 18 L 1 18 Z M 1 7 L 19 7 M 5 4 L 5 5 M 8 4 L 8 5',
  'check':'M 3 10 L 8 15 L 17 5','close':'M 5 5 L 15 15 M 15 5 L 5 15',
  'plus':'M 10 4 L 10 16 M 4 10 L 16 10','minus':'M 4 10 L 16 10'}
 
@@ -113,7 +111,7 @@ class System:
         b=self.frame(p,title+' / '+mode,mode,x,y,w,h)
         self.text(b,'ACCENTO   /   SPECIFICA DI PRODOTTO',48,32,w-96,11,'secondary',True)
         self.text(b,title,48,72,w-96,28,bold=True,h=44)
-        self.text(b,'15 ottobre 2026 · Design 0.3 · '+mode,48,h-36,w-96,11,'tertiary')
+        self.text(b,'16 ottobre 2026 · Design 0.4 · '+mode,48,h-36,w-96,11,'tertiary')
         self.export_board(b,slug or title.lower().replace(' ','-'),mode,w,h)
         return b
 
@@ -150,7 +148,7 @@ class System:
 
     def component(self,p,family,key,x,y,w,h):
         c=self.node('component',p,key,x,y,w,h,fills=[],clip=False,
-                    description=f'Accento design 0.3 / {family}; implementation status in handoff.json')
+                    description=f'Accento design 0.4 / {family}; implementation status in handoff.json')
         self.components[(family,key)]=c
         return c
 
@@ -187,9 +185,9 @@ class System:
         for i,key in enumerate(['Rest','Selected','Hover','Focus']):
             c=self.component(b,'Navigation',key,48+(i%2)*520,404+(i//2)*76,184,44)
             if key!='Rest':self.rect(c,'Stato',0,0,184,44,'selection' if key in ['Selected','Focus'] else 'hover',10)
-            self.icon(c,'Scrittura',12,12,'accent' if key in ['Selected','Focus'] else 'secondary')
-            t=self.text(c,'Scrittura',44,0,126,14,'accent' if key in ['Selected','Focus'] else 'ink',key in ['Selected','Focus'],h=44)
-            self.property(c,'Label',t,'Scrittura')
+            self.icon(c,'Generale',12,12,'accent' if key in ['Selected','Focus'] else 'secondary')
+            t=self.text(c,'Generale',44,0,126,14,'accent' if key in ['Selected','Focus'] else 'ink',key in ['Selected','Focus'],h=44)
+            self.property(c,'Label',t,'Generale')
             if key=='Focus':self.outline(c,-2,-2,188,48,12,'accent',2)
             self.text(b,key,264+(i%2)*520,416+(i//2)*76,200,12,'secondary'); ids.append(c)
         self.combine('Navigation',ids)
@@ -229,7 +227,7 @@ class System:
                 self.set(child['id'],constraints={'horizontal':'leftRight','vertical':'top'})
             ids.append(c); self.text(b,key,48+i*360,970,320,12,'secondary')
         self.combine('Field',ids)
-        self.text(b,'Lingue · riga compatta, selezione multipla',48,1042,1040,16,bold=True)
+        self.text(b,'Set caratteri · riga compatta, selezione multipla',48,1042,1040,16,bold=True)
         ids=[]
         for i,key in enumerate(['Off','On','Focus']):
             c=self.component(b,'LanguageRow',key,48,1090+i*104,640,72)
@@ -268,8 +266,8 @@ class System:
         self.text(b,'NESSUN PANNELLO ESTERNO · NESSUNA LABEL NEL POPUP',48,144,1060,12,'secondary',True)
         ids=[]
         for i,(name,glyphs,selected,opaque) in enumerate([
-            ('Apertura','èé',-1,False),('Selezione','èé',0,False),('Maiuscole','ÈÉ',1,False),
-            ('Combinato','èéêë',2,False),('Singolo','à',0,False),('Solido','èé',0,True)]):
+            ('Apertura','èé',0,False),('Selezione','èé',0,False),('Maiuscole','ÈÉ',1,False),
+            ('Combinato','èéêë',2,False),('Singolo','à',0,False),('Accessibilità Windows','èé',0,True)]):
             xx,yy=48+(i%2)*548,216+(i//2)*210
             self.text(b,name,xx,yy,500,14,bold=True)
             ids.append(self.picker(b,xx,yy+42,glyphs,selected,opaque,name))
@@ -277,7 +275,7 @@ class System:
         self.text(b,'64 × 64 DIP · gap 8 · margine tecnico 8 · altezza 80 · larghezza 72n + 8',48,854,1060,13,'secondary')
         for i,mode in enumerate(TOKENS):
             for j,(slug,key,w) in enumerate([('popup-apertura','Apertura',152),('popup-selezione','Selezione',152),
-                                           ('popup-combinato','Combinato',296),('popup-solido','Solido',152)]):
+                                           ('popup-combinato','Combinato',296),('popup-accessibilita-windows','Accessibilità Windows',152)]):
                 root=self.frame(p,key+' / '+mode,mode,1260+i*420,j*164,w,80,True)
                 self.use('Picker',key,root,0,0)
                 self.export_board(root,slug,mode,w,80,'transparent-popup')
@@ -291,118 +289,104 @@ class System:
         self.rect(p,'Tasto '+label,x,y,w,36,'inset',9); self.outline(p,x,y,w,36,9)
         self.text(p,label,x,y,w,13,bold=True,h=36,align='center')
 
-    def shell(self,p,section,mode,x,y,state='clean',width=1000,height=740):
+    def shell(self,p,section,mode,x,y,state='clean',width=1000,height=800,paused=False):
         c=self.frame(p,f'{section} / {mode} / {state}',mode,x,y,width,height,radius=16)
         compact=width<900; rail=0 if compact else 216
-        left=32 if compact else rail+40; cw=width-left-(32 if compact else 40)
-        self.text(c,'Accento',20,0,200,12,'secondary',h=40)
+        left=32 if compact else 248; cw=width-left-32
+        self.text(c,'Accento · Impostazioni',20,0,300,12,'secondary',h=40)
         for i,xx in enumerate([width-136,width-90,width-44]):
             path=['M 3 10 L 13 10','M 3 3 L 13 3 L 13 13 L 3 13 Z','M 3 3 L 13 13 M 13 3 L 3 13'][i]
             self.vector(c,['Riduci','Ingrandisci','Chiudi'][i],xx+14,12,path,size=16)
         controls={}
         if not compact:
-            self.rect(c,'Sidebar / materiale',0,40,216,height-40,'sidebar')
+            self.rect(c,'Sidebar',0,40,216,height-40,'sidebar')
             self.rect(c,'Mark',24,72,32,32,r=10,fill='#2F64DB')
             self.text(c,'á',24,70,32,22,'on-accent',True,h=34,align='center')
             self.text(c,'Accento',68,74,124,20,bold=True,h=28)
-            self.text(c,'IMPOSTAZIONI',24,138,168,10,'secondary',True)
+            self.text(c,'Impostazioni',24,136,168,11,'secondary',True)
             for i,label in enumerate(SECTIONS):
-                n=self.use('Navigation','Selected' if label==section else 'Rest',c,16,174+i*52,Label=label)
-                if label!='Scrittura':
+                n=self.use('Navigation','Selected' if label==section else 'Rest',c,16,172+i*52,Label=label)
+                if label!='Generale':
                     tree=self.m.call('get_node',id=n,depth=1)
                     glyph=next(k for k in tree['children'] if k['type']=='VECTOR')
                     self.set(glyph['id'],visible=False)
-                    self.icon(c,label,28,186+i*52,'accent' if label==section else 'secondary')
+                    self.icon(c,label,28,184+i*52,'accent' if label==section else 'secondary')
                 controls[label]=n
-            self.line(c,24,height-126,168)
-            self.node('ellipse',c,'Attivo',24,height-96,6,6,'success')
-            self.text(c,'Accento è attivo',38,height-107,154,12,'secondary',h=28)
-            self.text(c,'Resta nell’area di notifica',24,height-73,172,11,'tertiary',h=24)
+            self.line(c,24,height-102,168)
+            px,py,pw=16,height-78,184
         else:
-            self.line(c,0,40,width)
+            tw=(width-184)/3
             for i,label in enumerate(SECTIONS):
-                n=self.node('frame',c,'Tab '+label,32+i*cw/4,56,cw/4,40,fills=[])
-                if label==section:self.rect(n,'Tab attivo',0,0,cw/4-8,40,'selection',10)
-                self.text(n,label,0,0,cw/4-8,13,'accent' if label==section else 'secondary',label==section,h=40,align='center')
+                n=self.node('frame',c,'Tab '+label,24+i*tw,56,tw-4,40,fills=[])
+                if label==section:self.rect(n,'Tab attivo',0,0,tw-4,40,'selection',10)
+                self.text(n,label,0,0,tw-4,12,'accent' if label==section else 'secondary',label==section,h=40,align='center')
                 controls[label]=n
-        top=132 if compact else 82
-        self.text(c,section,left,top,cw,28,bold=True,h=42)
-        self.text(c,DESCRIPTIONS[section],left,top+46,cw,13,'secondary',h=24)
-        footer=height-80; self.line(c,rail,footer,width-rail)
-        status,role={'dirty':('Modifiche da salvare','secondary'),'saved':('Impostazioni salvate','success'),
-            'error':('Controlla il campo evidenziato','error')}.get(state,('Tutte le modifiche sono salvate','secondary'))
-        self.text(c,status,left,footer+21,cw-170,12,role,h=40)
-        controls['Save']=self.use('Button','Primary' if state in ['dirty','error'] else 'Disabled',c,width-184,footer+20)
-        return c,controls,left,top+98,cw,footer
+            px,py,pw=width-148,56,124
+        power=self.node('frame',c,'Accento spento' if paused else 'Accento attivo',px,py,pw,48,fills=[])
+        self.text(power,'Accento spento' if paused else 'Accento attivo',8,0,pw-62,10 if compact else 12,bold=True,h=48)
+        self.use('Switch','Off' if paused else 'On',power,pw-52,4)
+        controls['Power']=power
+        top=118 if compact else 90
+        self.text(c,section,left,top,cw,28,bold=True,h=38)
+        self.text(c,DESCRIPTIONS[section],left,top+44,cw,13,'secondary',h=24)
+        footer=height-76; self.line(c,rail,footer,width-rail)
+        notice,role={'dirty':('Modifiche da salvare','secondary'),'saved':('Tutte le modifiche sono salvate','secondary'),'error':('Controlla il campo evidenziato','error')}.get(state,('Tutte le modifiche sono salvate','secondary'))
+        self.text(c,notice,left,footer+12,cw-164,12,role,h=52)
+        controls['Save']=self.use('Button','Primary' if state in ['dirty','error'] else 'Disabled',c,width-180,footer+18)
+        return c,controls,left,top+82,cw,footer
 
-    def settings(self,p,section,mode,x,y,state='clean',width=1000,height=740,appearance='Automatico',material=True):
-        c,controls,l,top,w,footer=self.shell(p,section,mode,x,y,state,width,height)
-        if section=='Scrittura':
-            self.text(c,'ATTIVAZIONE',l,top,w,11,'secondary',True,h=20)
-            gy=top+32; self.group(c,l,gy,w,164)
-            self.text(c,'Gesto di apertura',l+20,gy+18,w-40,14,bold=True,h=24)
-            self.keycap(c,'Lettera',l+20,gy+54,72); self.text(c,'+',l+102,gy+58,24,14,'secondary')
-            self.keycap(c,'Spazio',l+132,gy+54,76)
-            self.text(c,'Tieni la lettera, premi Spazio e scegli con ← →.',l+20,gy+108,w-40,13,'secondary',h=22)
-            self.text(c,'Rilascia la lettera per inserire. Esc per annullare.',l+20,gy+132,w-40,12,'secondary',h=20)
-            gy+=180; self.group(c,l,gy,w,100)
-            self.text(c,'Ritardo di apertura',l+20,gy+16,w-224,14,bold=True,h=24)
-            self.text(c,'Da 100 a 1500 ms',l+20,gy+49,w-224,12,'secondary',h=24)
-            self.rect(c,'Ritardo',l+w-174,gy+20,154,40,'inset',10)
-            self.text(c,'300',l+w-128,gy+20,60,14,bold=True,h=40,align='center')
-            self.text(c,'ms',l+w-96,gy+60,56,10,'tertiary',h=20,align='center')
-            controls['Minus']=self.icon(c,'minus',l+w-162,gy+30)
-            controls['Plus']=self.icon(c,'plus',l+w-52,gy+30)
-            gy+=124; self.text(c,'PROVALO QUI',l,gy,w,11,'secondary',True,h=20)
-            self.group(c,l,gy+30,w,80)
-            self.text(c,'Scrivi una parola…',l+20,gy+47,w-40,16,'tertiary',h=34)
-        elif section=='Lingue':
-            self.text(c,'LINGUE DISPONIBILI',l,top,w,11,'secondary',True,h=20)
-            self.text(c,'1 attiva',l+w-100,top,100,12,'secondary',h=20,align='right')
-            gy=top+32
-            for i,(glyph,label,preview) in enumerate([('à','Italiano','à  è  é  ì  ò  ó  ù'),
-                ('ç','Français','à  â  æ  ç  é  è  ê  ë  î  ï  ô  œ  ù  û  ü  ÿ'),
-                ('ñ','Español','á  é  í  ñ  ó  ú  ü'),('ü','Deutsch','ä  ö  ü  ß')]):
-                n=self.use('LanguageRow','On' if i==0 else 'Off',c,l,gy+i*82,Glyph=glyph,Label=label,Preview=preview)
-                if w!=640:
-                    self.set(n,width=w)
-                controls[label]=n
-            self.text(c,'Puoi attivare più lingue. I caratteri comuni compaiono una sola volta.',l,gy+348,w,12,'secondary',h=42)
-            self.text(c,'Mantieni almeno una lingua attiva.',l,gy+394,w,12,'secondary',h=22)
-        elif section=='Aspetto':
-            self.text(c,'TEMA',l,top,w,11,'secondary',True,h=20)
-            gy=top+32; self.group(c,l,gy,w,146); tilew=(w-48)/3
-            for i,label in enumerate(['Automatico','Chiaro','Scuro']):
-                n=self.node('frame',c,'Tema '+label,l+12+i*(tilew+12),gy+12,tilew,122,fills=[])
-                selected=label==appearance
-                self.rect(n,'Theme choice',0,0,tilew,122,'selection' if selected else 'canvas',12)
-                if selected:self.outline(n,.5,.5,tilew-1,121,11.5,'selection-rim')
-                sw=tilew-32
-                self.rect(n,'Anteprima tema',16,12,sw,58,r=7,fill='#202632' if label=='Scuro' else '#F6F8FC',stroke='#8896AC44',strokeWeight=.7)
-                if label=='Automatico':self.rect(n,'Metà scura',16+sw/2,12,sw/2,58,r=[0,7,7,0],fill='#202632')
-                self.rect(n,'Mini rail',22,20,18,42,r=4,fill='#8594AB40')
-                for j in range(3):self.rect(n,'Mini contenuto',48,22+j*12,sw-48,4,r=2,fill='#8795AB66')
-                self.text(n,label,8,82,tilew-16,13,'accent' if selected else 'ink',selected,h=28,align='center')
-                controls[label]=n
-            self.text(c,'Automatico segue il tema di Windows.' if appearance=='Automatico' else 'Il tema cambia subito in anteprima. Salva per conservarlo.',l,gy+156,w,12,'secondary',h=22)
-            gy+=208; self.text(c,'MATERIALE DEL POPUP',l,gy,w,11,'secondary',True,h=20)
-            self.group(c,l,gy+32,w,90)
-            self.text(c,'Liquid Glass',l+20,gy+46,w-108,14,bold=True,h=24)
-            self.text(c,'Luce e trasparenza sui singoli caratteri.',l+20,gy+74,w-108,12,'secondary',h=22)
-            controls['Glass']=self.use('Switch','On' if material else 'Off',c,l+w-68,gy+56)
-            self.text(c,'Con la trasparenza disattivata, i tasti usano una superficie solida.',l,gy+138,w-192,12,'secondary',h=48)
-            self.use('Picker','Selezione' if material else 'Solido',c,l+w-160,gy+132)
+    def choice(self,p,label,x,y,w,on=False):
+        n=self.node('frame',p,label,x,y,w,44,fills=[])
+        self.rect(n,'Scelta',1,1,w-2,42,'selection' if on else 'surface',10)
+        self.outline(n,1,1,w-2,42,10,'selection-rim' if on else 'line')
+        self.text(n,label,2,0,w-4,13,'accent' if on else 'ink',on,h=44,align='center')
+        return n
+
+    def settings(self,p,section,mode,x,y,state='clean',width=1000,height=800,appearance='Sistema',paused=False):
+        c,controls,l,top,w,footer=self.shell(p,section,mode,x,y,state,width,height,paused)
+        if section=='Generale':
+            self.group(c,l,top,w,80)
+            self.text(c,'Ritardo di apertura',l+18,top+12,w-214,14,bold=True,h=26)
+            self.text(c,'Da 100 a 1500 ms',l+18,top+42,w-214,12,'secondary',h=22)
+            self.rect(c,'Ritardo',l+w-176,top+18,156,42,'inset',10)
+            self.text(c,'300',l+w-128,top+18,60,14,h=42,align='center')
+            self.text(c,'ms',l+w-96,top+58,48,10,'tertiary',h=18)
+            controls['Minus']=self.icon(c,'minus',l+w-164,top+28)
+            controls['Plus']=self.icon(c,'plus',l+w-48,top+28)
+            self.text(c,'Set caratteri attivi',l,top+102,w,14,bold=True,h=24)
+            for i,label in enumerate(['Italiano','Français','Español','Deutsch']):
+                controls['Set '+label]=self.choice(c,('✓ ' if i==0 else '')+label,l+i*(w+8)/4,top+132,(w-24)/4,i==0)
+            controls['Detail']=self.text(c,'Vedi tutti i caratteri →',l+2,top+181,w,12,'accent',h=28)
+            self.text(c,'Aspetto',l,top+224,w,14,bold=True,h=24)
+            for i,label in enumerate(['Sistema','Chiaro','Scuro']):
+                controls[label]=self.choice(c,label,l+i*(w+8)/3,top+254,(w-16)/3,label==appearance)
+            self.text(c,'Lingua dell’interfaccia',l,top+324,w,14,bold=True,h=24)
+            for i,label in enumerate(['Italiano','Français','Español','Deutsch']):
+                controls['UI '+label]=self.choice(c,label,l+i*(w+8)/4,top+354,(w-24)/4,i==0)
+            self.text(c,'Indipendente dai set caratteri attivi.',l,top+406,w,12,'secondary',h=24)
+            self.line(c,l,top+446,w)
+            self.text(c,'Lettera + Spazio: il primo carattere è già selezionato.',l,top+458,w,12,'secondary',h=24)
+            self.text(c,'← → o Spazio per cambiare · Rilascia la lettera per inserire · Esc annulla',l,top+486,w,11,'tertiary',h=30)
+        elif section=='Set caratteri':
+            for i,(glyph,label,preview) in enumerate([('à','Italiano','à  è  é  ì  ò  ó  ù'),('ç','Français','à  â  æ  ç  é  è  ê  ë  î  ï  ô  œ  ù  û  ü  ÿ'),('ñ','Español','á  é  í  ñ  ó  ú  ü'),('ü','Deutsch','ä  ö  ü  ß')]):
+                n=self.use('LanguageRow','On' if i==0 else 'Off',c,l,top+12+i*82,Glyph=glyph,Label=label,Preview=preview)
+                self.set(n,width=w);controls[label]=n
+            self.text(c,'Puoi attivare più set. I caratteri comuni compaiono una sola volta.',l,top+350,w,12,'secondary',h=28)
+            self.text(c,'Mantieni almeno un set attivo.',l,top+390,w,12,'tertiary',h=24)
         else:
-            self.text(c,'APP ESCLUSE',l,top,w,11,'secondary',True,h=20)
-            gy=top+32; self.group(c,l,gy,w,220)
-            self.text(c,'Dove Accento non si attiva',l+20,gy+16,w-40,14,bold=True,h=24)
-            self.text(c,'Nomi completi, separati da virgola. Senza percorsi.',l+20,gy+48,w-40,12,'secondary',h=24)
-            field=self.use('Field','Error' if state=='error' else 'Focus' if state=='dirty' else 'Rest',c,l+20,gy+94,
-                Value='notepad' if state=='error' else 'notepad.exe, WindowsTerminal.exe')
-            self.set(field,width=w-40)
-            controls['Exclusions']=field
-            self.text(c,'Il confronto usa il nome del processo e ignora maiuscole e minuscole.',l+20,gy+178,w-40,12,'secondary',h=24)
-            self.text(c,'Nelle app escluse la tastiera mantiene il comportamento abituale.',l,gy+244,w,13,'secondary',h=48)
+            self.text(c,'Aggiungi applicazione',l,top,w,14,bold=True,h=24)
+            self.text(c,'Un nome per volta, per esempio notepad.exe',l,top+30,w,12,'secondary',h=24)
+            self.rect(c,'Input applicazione',l,top+66,w-140,44,'inset',10)
+            self.outline(c,l,top+66,w-140,44,10,'error' if state=='error' else 'line')
+            controls['Exclusions']=self.text(c,'notepad' if state=='error' else 'nome-app.exe',l+14,top+66,w-168,13,'ink' if state=='error' else 'tertiary',h=44)
+            controls['Add']=self.choice(c,'Aggiungi',l+w-128,top+66,128,True)
+            if state=='error':self.text(c,'Inserisci un solo nome .exe, senza percorso o virgole.',l,top+118,w,12,'error',h=28)
+            for i,name in enumerate(['notepad.exe','code.exe']):
+                yy=top+164+i*60;self.group(c,l,yy,w,52)
+                self.rect(c,'Icona app',l+14,yy+14,24,24,'inset',6)
+                self.text(c,'a',l+14,yy+14,24,12,'secondary',True,h=24,align='center')
+                self.text(c,name,l+54,yy+8,w-114,14,h=36)
+                controls['Remove '+name]=self.icon(c,'close',l+w-38,yy+16,'secondary')
         return c,controls
 
     def link(self,node,dest,trigger=None):
@@ -414,60 +398,40 @@ class System:
         p=self.page('02 / Impostazioni finali')
         for mi,mode in enumerate(TOKENS):
             for i,section in enumerate(SECTIONS):
-                c,controls=self.settings(p,section,mode,i*1080,mi*840)
+                c,controls=self.settings(p,section,mode,i*1080,mi*880)
                 self.screens[(mode,section)]=(c,controls)
-                self.export_board(c,'impostazioni-'+section.lower(),mode,1000,740,'product-screen')
+                self.export_board(c,'impostazioni-'+section.lower(),mode,1000,800,'product-screen')
         for (mode,section),(c,controls) in self.screens.items():
             for target in SECTIONS:self.link(controls[target],self.screens[(mode,target)][0])
-            if section=='Aspetto':
-                self.link(controls['Chiaro'],self.screens[('Light','Aspetto')][0])
-                self.link(controls['Scuro'],self.screens[('Dark','Aspetto')][0])
-        for mode in TOKENS:self.m.command('proto.flow.add',start=self.screens[(mode,'Scrittura')][0],name='Impostazioni / '+mode)
+            if section=='Generale':
+                self.link(controls['Detail'],self.screens[(mode,'Set caratteri')][0])
+                self.link(controls['Chiaro'],self.screens[('Light','Generale')][0])
+                self.link(controls['Scuro'],self.screens[('Dark','Generale')][0])
+        for mode in TOKENS:self.m.command('proto.flow.add',start=self.screens[(mode,'Generale')][0],name='Impostazioni / '+mode)
         compact={}
         for i,section in enumerate(SECTIONS):
-            c,controls=self.settings(p,section,'Light',i*800,1740,width=720,height=820)
+            c,controls=self.settings(p,section,'Light',i*800,1800,width=720,height=820)
             compact[section]=(c,controls)
             self.export_board(c,'compatta-'+section.lower(),'Light',720,820,'product-screen')
         for section,(c,controls) in compact.items():
             for target in SECTIONS:self.link(controls[target],compact[target][0])
-        print('Settings: 4 sections in both modes + compact reflow',flush=True)
+        print('Settings: General, character sets, item blacklist, power switch',flush=True)
 
     def states(self):
         p=self.page('03 / Stati e feedback')
         for i,state in enumerate(['dirty','error','saved']):
-            c,controls=self.settings(p,'Applicazioni','Light',i*1080,0,state)
+            c,controls=self.settings(p,'BlackList','Light',i*1080,0,state)
             self.screens[('Light',state)]=(c,controls)
-            self.export_board(c,'stato-'+state,'Light',1000,740,'product-state')
+            self.export_board(c,'stato-'+state,'Light',1000,800,'product-state')
             for target in SECTIONS:self.link(controls[target],self.screens[('Light',target)][0])
         self.link(self.screens[('Light','dirty')][1]['Save'],self.screens[('Light','saved')][0])
         self.link(self.screens[('Light','error')][1]['Exclusions'],self.screens[('Light','dirty')][0])
-        self.m.command('proto.flow.add',start=self.screens[('Light','error')][0],name='Correggi e salva / dimostrazione')
-        # Explicit choices have truthful selected controls; theme and material changes
-        # are reviewable visual states, with dirty -> saved transitions.
-        theme_states={}
-        for i,(mode,appearance,material) in enumerate([
-            ('Light','Chiaro',True),('Dark','Scuro',True),('Light','Chiaro',False),('Dark','Scuro',False)]):
-            key=('solido-' if not material else '')+mode.lower()
-            for j,state in enumerate(['dirty','saved']):
-                c,controls=self.settings(p,'Aspetto',mode,i*1080,860+j*840,state,
-                                         appearance=appearance,material=material)
-                theme_states[(key,state)]=(c,controls)
-                self.export_board(c,'aspetto-'+key+'-'+state,mode,1000,740,'product-state')
-                for target in SECTIONS:self.link(controls[target],self.screens[(mode,target)][0])
-        for (key,state),(c,controls) in theme_states.items():
-            self.link(controls['Chiaro'],theme_states[('light','dirty')][0])
-            self.link(controls['Scuro'],theme_states[('dark','dirty')][0])
-            mode='Dark' if key.endswith('dark') else 'Light'
-            self.link(controls['Automatico'],self.screens[(mode,'Aspetto')][0])
-            material_target=mode.lower() if key.startswith('solido-') else 'solido-'+mode.lower()
-            self.link(controls['Glass'],theme_states[(material_target,'dirty')][0])
-            if state=='dirty':self.link(controls['Save'],theme_states[(key,'saved')][0])
-        for mode in TOKENS:
-            controls=self.screens[(mode,'Aspetto')][1]
-            for label,key in [('Chiaro','light'),('Scuro','dark')]:
-                self.m.command('proto.interaction.clear',ids=[controls[label]])
-                self.link(controls[label],theme_states[(key,'dirty')][0])
-            self.link(controls['Glass'],theme_states[('solido-'+mode.lower(),'dirty')][0])
+        for i,mode in enumerate(TOKENS):
+            c,controls=self.settings(p,'Generale',mode,i*1080,900,'dirty',paused=True)
+            self.export_board(c,'accento-spento',mode,1000,800,'product-state')
+            self.link(controls['Power'],self.screens[(mode,'Generale')][0])
+            self.link(self.screens[(mode,'Generale')][1]['Power'],c)
+            for target in SECTIONS:self.link(controls[target],self.screens[(mode,target)][0])
 
     def context(self,p,mode,x,y):
         c=self.frame(p,'Durante la scrittura / '+mode,mode,x,y,1000,650)
@@ -484,8 +448,8 @@ class System:
     def product(self):
         p=self.pages[0]; self.m.command('page.select',id=p)
         for i,mode in enumerate(TOKENS):
-            c,controls=self.settings(p,'Scrittura',mode,i*1080,0)
-            self.export_board(c,'prodotto-scrittura',mode,1000,740,'product-screen')
+            c,controls=self.settings(p,'Generale',mode,i*1080,0)
+            self.export_board(c,'prodotto-generale',mode,1000,800,'product-screen')
             for target in SECTIONS:self.link(controls[target],self.screens[(mode,target)][0])
             self.m.command('proto.flow.add',start=c,name='Prodotto / '+mode)
             c=self.context(p,mode,i*1080,860)
@@ -512,32 +476,32 @@ class System:
                 self.rect(b,role,xx,yy,192,48,role,10)
                 self.text(b,role,xx,yy+54,200,12,bold=True); self.text(b,TOKENS[mode][role],xx,yy+78,200,11,'secondary')
             self.text(b,'La gerarchia usa dimensioni e spazio, non cornici ripetute.',48,916,1104,24,bold=True,h=76)
-            for j,(label,value) in enumerate([('Titolo / 28','Scrittura'),('Riga / 14','Ritardo di apertura'),('Supporto / 12','Da 100 a 1500 ms')]):
+            for j,(label,value) in enumerate([('Titolo / 28','Generale'),('Riga / 14','Ritardo di apertura'),('Supporto / 12','Da 100 a 1500 ms')]):
                 xx=48+j*368; self.text(b,label,xx,1040,336,12,'secondary')
                 self.text(b,value,xx,1080,336,[28,14,12][j],bold=j<2,h=48)
             self.text(b,'Glass nativo FigCraft: depth 12 · refraction 0,65 · dispersion 0,16 · frost 3.',48,1180,1104,13,'secondary',h=32)
             self.text(b,'Tasti 64 · gap 8 · raggio 17. Gruppi R16. Campi e pulsanti alti 40. Focus 2.',48,1224,1104,13,'secondary',h=32)
-            self.text(b,'Il runtime 0.3 riprende la geometria; il materiale Windows usa un compositore proprio con alpha per pixel.',48,1268,1104,12,'secondary',h=40)
+            self.text(b,'Il runtime 0.4 riprende la geometria; il materiale Windows usa un compositore proprio con alpha per pixel.',48,1268,1104,12,'secondary',h=40)
 
     def handoff(self):
         p=self.page('06 / Interazione e consegna')
         b=self.board(p,'Dal prodotto progettato al prodotto implementato.','Light',w=1280,h=1190,slug='consegna')
         rows=[('Popup','Radice senza fill, bordo o backdrop. Solo tasti indipendenti. Zero label o istruzioni.'),
           ('Dimensioni','64 × 64 per tasto; gap 8; margine tecnico 8. Larghezza 72n + 8, altezza 80 DIP.'),
-          ('Apertura','Lettera trattenuta + Spazio, attesa configurabile. All’apertura nessun candidato selezionato.'),
+          ('Apertura','Lettera trattenuta + Spazio, attesa configurabile. Il primo candidato è già selezionato all’apertura.'),
           ('Scelta','← → o nuova pressione di Spazio. Tinta e bordo distinguono la scelta, oltre al colore del glifo.'),
           ('Conferma','Rilascio della lettera base. Esc annulla. Il focus rimane nel programma destinatario.'),
           ('Posizione','In basso al centro del monitor attivo. Clamp all’area utile. Il popup non segue ancora il cursore.'),
-          ('Impostazioni','Scrittura → Lingue → Aspetto → Applicazioni. Footer stabile e salvataggio esplicito.'),
+          ('Impostazioni','Generale → Set caratteri → BlackList. Lingua UI indipendente, switch attivo/spento e salvataggio esplicito.'),
           ('Compatta','A 720 DIP la navigazione passa in alto. Testo a misura invariata; niente riduzione uniforme.'),
           ('Validazione','Input preservato, errore vicino al campo. Almeno una lingua. Ritardo 100–1500 ms.'),
-          ('Materiale','Vetro rifrattivo sui candidati; impostazioni sobrie. Superficie solida quando la trasparenza è ridotta.')]
+          ('Materiale','Vetro rifrattivo sui candidati; impostazioni sobrie. Unico stile Liquid Glass; superficie opaca solo per accessibilità Windows.')]
         for i,(title,body) in enumerate(rows):
             yy=166+i*76; self.text(b,f'{i+1:02d}',48,yy,40,11,'accent',True,h=40)
             self.text(b,title,104,yy,220,15,bold=True,h=40); self.text(b,body,340,yy,892,13,'secondary',h=52)
             self.line(b,48,yy+64,1184)
         self.text(b,'Stato della consegna',48,956,1184,22,bold=True,h=40)
-        self.text(b,'Il runtime Rust 0.3 implementa questa UI. La pagina 08 contiene le catture reali.\nIl glass Windows usa un backdrop campionato all’apertura e composizione alpha; non il motore ottico di FigCraft.',48,1012,1184,14,'secondary',h=70)
+        self.text(b,'Il runtime Rust 0.4 implementa questa UI. La pagina 08 contiene le catture reali.\nIl glass Windows usa un backdrop campionato all’apertura e composizione alpha; non il motore ottico di FigCraft.',48,1012,1184,14,'secondary',h=70)
         self.text(b,'Prototipo: navigazione delle 4 sezioni, cambio Light/Dark, correzione e salvataggio dimostrativo.',48,1096,1184,12,'secondary',h=40)
 
     def tray(self):
@@ -579,7 +543,7 @@ class System:
             self.m.call('export',ids=[b['id']],format='png',scale=1,includeBoundingBox=True,path=str(OUT/'previews'/filename))
         for old in (OUT/'previews').glob('*.png'):
             if old.name not in expected:old.unlink()
-        manifest={'file':path.name,'designVersion':'0.3.0','runtimeVersion':'0.3.0',
+        manifest={'file':path.name,'designVersion':'0.4.0','runtimeVersion':'0.4.0',
           'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'pages':len(doc['pages']),
           'mainComponents':len(mains),'componentSets':len(sets),'variables':len(self.variables),'textStyles':len(self.styles),
           'boards':self.boards,'components':inventory,
@@ -592,17 +556,18 @@ class System:
            'font':'Segoe UI Variable','unit':'Windows DIP at 96 DPI','glass':GLASS,
            'popup':{'background':'none','labels':False,'widthFormula':'72 * candidateCount + 8',
                     'height':80,'tileSize':64,'gap':8,'padding':8}},ensure_ascii=False,indent=2),encoding='utf-8')
-        mapping={'designVersion':'0.3.0','runtimeVersion':'0.3.0','status':'implemented / Windows self-test verified',
+        mapping={'designVersion':'0.4.0','runtimeVersion':'0.4.0','status':'implemented / 29 Rust tests, 32 Windows checks and repaint regression passed',
           'sourceOfTruth':path.name,'unit':'DIP','implementedChanges':[
             {'file':'crates/accento-windows/src/render.rs','implemented':'Layered BGRA surface, transparent root; independent keys at x = 8 + 72i, y = 8; no visible labels.'},
-            {'file':'crates/accento-windows/src/picker_material.rs','implemented':'Blurred and refracted backdrop sampled once per opening; solid alternative; alpha gaps at multiple DPI and text scales.'},
+            {'file':'crates/accento-windows/src/picker_material.rs','implemented':'Blurred and refracted backdrop sampled once per opening; OS accessibility fallback; alpha gaps at multiple DPI and text scales.'},
             {'file':'crates/accento-windows/src/app.rs','implemented':'Width 72n+8, height 80; no rectangular DWM backdrop; preserve no-activate and bottom-centre placement.'},
-            {'file':'crates/accento-windows/src/app/settings.rs','implemented':'Four sections; 40-DIP controls; compact tabs below 900 DIP; real clipped viewport and pinned footer, without width-based scaling.'},
-            {'file':'crates/accento-windows/src/glass.rs','implemented':'Quiet settings palette and shared drawing primitives; native title bar replaces the design title bar.'}],
-          'evidence':'docs/evidenze/0.3.0/build.json; 21 Rust tests, 35 Windows self-test checks',
+            {'file':'crates/accento-windows/src/app/settings.rs','implemented':'Three sections, four UI languages independent from character sets, per-item blacklist, runtime power switch. Stable viewport and footer; no-op wheel does not repaint.'},
+            {'file':'crates/accento-windows/src/glass.rs','implemented':'Quiet settings palette; buffered publishing of complete frames. Native title bar replaces the design title bar.'}],
+          'evidence':'docs/verifiche-0.4.0.md; 29 Rust tests, 32 Windows checks, 14 settings checks plus repaint regression. Embedded captures are version 0.4.0.',
+          'openingSelection':'First candidate is preselected when the popup opens; Space/Right advance, Left wraps to the last. Release letter confirms without additional navigation.',
           'unchangedProductContract':['Four language sets, stable deduplication','Letter + Space; release letter confirms; Esc cancels',
-             'Delay 100-1500 ms; theme system/light/dark; transparency preference','Explicit save, process-name exclusions, tray commands'],
-          'prototype':'Four-section navigation; appearance links; error -> corrected draft -> saved demonstration.',
+             'Delay 100-1500 ms; theme system/light/dark; Liquid Glass only','Explicit save, process-name exclusions, tray commands'],
+          'prototype':'Three-section navigation; theme and power links; error -> corrected draft -> saved demonstration.',
           'limitations':'Runtime verification is documented separately. The prototype does not execute hooks or persistence. Narrator, external apps and physical multi-monitor tests remain open.'}
         (OUT/'handoff.json').write_text(json.dumps(mapping,ensure_ascii=False,indent=2),encoding='utf-8')
         from figcraft_verify import verify
@@ -610,13 +575,13 @@ class System:
         print(json.dumps({k:v for k,v in manifest.items() if k not in ['components','boards','limitations']},ensure_ascii=False),flush=True)
 
     def runtime_evidence(self):
-        folder=OUT.parents[1]/'docs'/'evidenze'/'0.3.0'
+        folder=OUT.parents[1]/'docs'/'evidenze'/'0.4.0'
         report=folder/'build.json'
         if not report.exists():return
         data=json.loads(report.read_text(encoding='utf-8'))
         p=self.page('08 / Prodotto implementato')
-        self.text(p,'Accento 0.3 / Catture reali su Windows',0,0,3200,28,'on-accent',True,h=52)
-        self.text(p,'Eseguibile verificato · 21 test Rust · 35 controlli Windows · SHA256 '+data['sha256'],0,64,3200,13,'on-accent',h=32)
+        self.text(p,'Accento 0.4 / Catture reali su Windows',0,0,3200,28,'on-accent',True,h=52)
+        self.text(p,'Eseguibile verificato · 29 test Rust · 32 controlli Windows · regressione ridisegno superata · SHA256 '+data['sha256'],0,64,3200,13,'on-accent',h=32)
         self.text(p,'Le pagine 00–07 restano editabili. Qui sono incorporati i pixel effettivi del prodotto, inclusa la superficie con alpha.',0,108,3200,13,'on-accent',h=32)
         for i,entry in enumerate(data['images']):
             x,y=(i%3)*1100,220+(i//3)*860

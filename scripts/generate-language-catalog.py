@@ -25,5 +25,5 @@ for item in languages:
 lines += ['];','']
 (root/'crates/accento-core/src/catalog_generated.rs').write_text('\n'.join(lines),encoding='utf8')
 codes = ', '.join(json.dumps(item['code']) for item in languages)
-(root/'crates/accento-windows/src/i18n_locales.rs').write_text('// Generated from localization/languages.json.\npub const UI_CODES: [&str; '+str(len(languages))+'] = ['+codes+'];\n',encoding='utf8')
+(root/'crates/accento-platform/src/i18n_locales.rs').write_text('// Generated from localization/languages.json.\npub const UI_CODES: [&str; '+str(len(languages))+'] = ['+codes+'];\n',encoding='utf8')
 print(f'{len(languages)} shared language definitions generated.')
