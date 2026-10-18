@@ -18,6 +18,14 @@ mod portable;
 mod render;
 
 fn main() {
+    if std::env::args().any(|arg| arg == "--diagnostics") {
+        println!(
+            "{}",
+            serde_json::to_string_pretty(&platform_info::get_platform())
+                .expect("Cannot serialize platform diagnostics")
+        );
+        return;
+    }
     #[cfg(windows)]
     if let Err(error) =
         if std::env::args().any(|arg| matches!(arg.as_str(), "--self-test" | "--ui-test")) {

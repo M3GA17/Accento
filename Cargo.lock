@@ -4,14 +4,14 @@ version = 4
 
 [[package]]
 name = "accento-core"
-version = "0.5.0-beta.2"
+version = "0.5.0-beta.3"
 dependencies = [
  "serde_json",
 ]
 
 [[package]]
 name = "accento-platform"
-version = "0.5.0-beta.2"
+version = "0.5.0-beta.3"
 dependencies = [
  "accento-core",
  "enigo",
@@ -26,7 +26,7 @@ dependencies = [
 
 [[package]]
 name = "accento-windows"
-version = "0.5.0-beta.2"
+version = "0.5.0-beta.3"
 dependencies = [
  "accento-core",
  "accento-platform",

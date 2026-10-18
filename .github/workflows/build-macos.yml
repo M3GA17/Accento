@@ -1,0 +1,77 @@
+name: Build macOS beta
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: macos-beta-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  macos:
+    runs-on: macos-15
+    timeout-minutes: 60
+    env:
+      MACOSX_DEPLOYMENT_TARGET: '13.0'
+      APPLE_SIGNING_IDENTITY: '-'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install Rust and both Mac targets
+        run: |
+          rustup toolchain install 1.98.0 --profile minimal --component rustfmt,clippy --target aarch64-apple-darwin,x86_64-apple-darwin
+          rustup default 1.98.0
+      - uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: macos-universal-rust-1.98-${{ hashFiles('Cargo.lock') }}
+      - run: npm ci
+      - run: npx playwright install chromium
+      - name: Check and build universal beta
+        run: npm run bundle -- --target universal-apple-darwin
+      - name: Verify packaged app and native WebView startup
+        run: node scripts/test-macos.mjs dist/releases/v$(node -p "require('./package.json').version")/macos/Accento.app
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: accento-macos-universal
+          path: |
+            dist/releases/*/macos/*.dmg
+            dist/releases/*/macos/*.zip
+            dist/releases/*/macos/SHA256SUMS.txt
+            dist/releases/*/macos/macos-verification.json
+          if-no-files-found: error
+          retention-days: 14
+
+  macos-intel:
+    needs: macos
+    runs-on: macos-15-intel
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        with:
+          name: accento-macos-universal
+          path: macos-artifacts
+      - name: Verify the same universal app on Intel
+        run: |
+          version=$(node -p "require('./package.json').version")
+          ditto -x -k "macos-artifacts/Accento_${version}_universal_macos.zip" macos-artifacts
+          node scripts/test-macos.mjs macos-artifacts/Accento.app
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: accento-macos-intel-verification
+          path: macos-artifacts/macos-verification.json
+          if-no-files-found: error
+          retention-days: 14

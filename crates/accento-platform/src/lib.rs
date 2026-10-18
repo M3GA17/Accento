@@ -4,6 +4,8 @@ pub mod i18n;
 mod linux;
 #[cfg(target_os = "macos")]
 mod macos;
+#[cfg(target_os = "macos")]
+pub use macos::{PermissionStatus, permission_status};
 pub mod preferences;
 pub mod session;
 use accento_core::View;

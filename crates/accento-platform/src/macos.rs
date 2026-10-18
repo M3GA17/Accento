@@ -39,6 +39,8 @@ unsafe extern "C" {
     fn CGEventSourceCreate(state: i32) -> Ref;
     fn CGEventCreateKeyboardEvent(source: Ref, key: u16, down: bool) -> Event;
     fn CGEventPost(tap: u32, event: Event);
+    fn CGPreflightListenEventAccess() -> bool;
+    fn CGPreflightPostEventAccess() -> bool;
 }
 #[link(name = "CoreFoundation", kind = "framework")]
 unsafe extern "C" {
@@ -89,6 +91,23 @@ struct TimerContext {
     retain: Ref,
     release: Ref,
     description: Ref,
+}
+#[derive(serde::Serialize)]
+pub struct PermissionStatus {
+    accessibility: bool,
+    input_monitoring: bool,
+    post_events: bool,
+    secure_event_input: bool,
+}
+pub fn permission_status() -> PermissionStatus {
+    unsafe {
+        PermissionStatus {
+            accessibility: AXIsProcessTrusted(),
+            input_monitoring: CGPreflightListenEventAccess(),
+            post_events: CGPreflightPostEventAccess(),
+            secure_event_input: IsSecureEventInputEnabled(),
+        }
+    }
 }
 struct Owned(Ref);
 impl Drop for Owned {

@@ -1,0 +1,56 @@
+ACCENTO 0.5 BETA — PROVA SU MAC
+
+Questa beta serve a verificare Accento sul tuo Mac prima della versione 0.5 stabile.
+Il pacchetto universale contiene sia Intel sia Apple Silicon. Richiede macOS 13
+o successivo. La firma e' ad hoc: il produttore non e' verificato da Apple e
+la beta non e' notarizzata.
+
+INSTALLAZIONE
+1. Apri il DMG e trascina Accento in Applicazioni. In alternativa estrai lo ZIP
+   e sposta Accento.app in Applicazioni. Esegui una sola copia dell'app.
+2. Apri Accento. Se macOS blocca questa beta scaricata, dopo il tentativo vai in
+   Impostazioni di Sistema > Privacy e sicurezza > Apri comunque e conferma
+   soltanto dopo aver verificato provenienza e checksum del pacchetto.
+   Non disattivare Gatekeeper e non modificare le protezioni globali del Mac.
+3. Abilita Accento in Privacy e sicurezza > Accessibilita'. Se richiesto dal
+   sistema, abilita anche Monitoraggio input. Poi riattiva Accento dal suo
+   interruttore; se necessario scegli Esci e riapri la copia in Applicazioni.
+4. Metti in pausa altre utility che usano lo stesso gesto.
+
+PROVE (inizia in un documento vuoto di TextEdit)
+- Digita normalmente una frase: nessun carattere perso, duplicato o rallentamento.
+- Tieni premuta e, premi e rilascia Spazio, attendi la barra, rilascia e: deve
+  apparire e' con accento grave (U+00E8), sostituendo la sola lettera iniziale.
+- Ripeti e usa Destra: scegli l'accento acuto (U+00E9). Sinistra dalla prima
+  scelta raggiunge l'ultima; con italiano e Valute attivi e' il simbolo euro.
+- Shift + e e Caps Lock devono offrire le maiuscole accentate.
+- Esc annulla lasciando la lettera iniziale. Un gesto troppo rapido per aprire
+  la barra deve conservare lettera e Spazio della digitazione normale.
+- Mentre scegli, cambia finestra o fai click in un altro campo: nessun accento
+  deve finire nel nuovo destinatario. La barra non deve rubare il focus.
+- Prova Pausa/Riprendi e l'esclusione TextEdit nella BlackList.
+- Cambia ritardo, lingua e set, salva, esci e riapri: le scelte devono restare.
+- Chiudi le impostazioni con modifiche non salvate: deve apparire la conferma.
+  Senza modifiche, chiudi e riapri le impostazioni dall'icona nella barra menu.
+- Ripeti il gesto in Safari/Chrome (campo e area di testo), nel tuo editor e
+  nel terminale che usi. Annota ogni differenza rispetto a TextEdit.
+- Se disponibili, prova un secondo monitor, scala diversa, schermo intero
+  e VoiceOver. Il testo e la selezione devono restare leggibili.
+
+DA RIPORTARE
+Versione Accento: 0.5.0-beta.3
+Modello/processore (Intel, M1, M2...):
+Versione macOS:
+Layout tastiera:
+Applicazione e versione:
+Prova eseguita e sequenza esatta dei tasti:
+Risultato atteso / risultato osservato:
+Permessi concessi e messaggio mostrato da Accento:
+
+Per i dettagli tecnici, puoi eseguire dal Terminale:
+  /Applications/Accento.app/Contents/MacOS/Accento --diagnostics
+Il comando stampa versione, architettura e stato dei permessi, senza avviare
+il motore di digitazione o leggere il contenuto dei tuoi documenti.
+
+Le preferenze sono in ~/Library/Application Support/Accento/settings.json.
+Per rimuovere la beta scegli Esci e sposta Accento.app nel Cestino.

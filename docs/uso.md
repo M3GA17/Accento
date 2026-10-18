@@ -2,7 +2,7 @@
 
 > Il sorgente comprende ora backend Windows, Linux X11 e macOS. Questa guida descrive in dettaglio Windows; per installazione, permessi, percorsi e verifiche degli altri sistemi consulta [la guida cross-platform](cross-platform.md). Wayland nativo non è supportato e il collaudo completo macOS richiede ancora un Mac. I pacchetti Windows locali precedenti al porting restano solo Windows.
 
-Accento 0.5.0-beta.2 è una beta per Windows 11 x64. Inserisce accenti con tasti Glass indipendenti su fondo trasparente, lasciando il focus nel programma in cui scrivi. Le impostazioni usano React e Tauri e richiedono Microsoft Edge WebView2 Runtime. Sono incorporate nell’eseguibile e funzionano offline; non servono PowerToys o .NET.
+Accento 0.5.0-beta.3 comprende Windows 11 x64 e una beta universale macOS Intel / Apple Silicon. Questa guida descrive Windows; per installazione, permessi e prove Mac consulta [la checklist del tester](distribution/TEST-MACOS.it.txt). Inserisce accenti con tasti Glass indipendenti su fondo trasparente, lasciando il focus nel programma in cui scrivi. Su Windows le impostazioni React/Tauri richiedono Microsoft Edge WebView2 Runtime; su macOS usano la WebView di sistema. Le risorse sono incorporate e funzionano offline; non servono PowerToys o .NET.
 
 ## Avvio
 

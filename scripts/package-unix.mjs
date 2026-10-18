@@ -20,7 +20,7 @@ for(const type of process.platform==='darwin'?['dmg']:['deb','appimage']){
 }
 if(process.platform==='darwin'){
   const folder=path.join(output,'Accento.app');
-  await cp(path.join(bundle,'macos','Accento.app'),folder,{recursive:true});
+  await cp(path.join(bundle,'macos','Accento.app'),folder,{recursive:true,verbatimSymlinks:true});
   const name=`Accento_${version}_${target==='universal-apple-darwin'?'universal':process.arch}_macos.zip`;
   execFileSync('ditto',['-c','-k','--keepParent',folder,path.join(output,name)]);assets.push(name);
 }

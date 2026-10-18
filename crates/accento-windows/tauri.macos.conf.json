@@ -6,6 +6,7 @@
     ],
     "macOS": {
       "minimumSystemVersion": "13.0",
+      "signingIdentity": "-",
       "infoPlist": "Info.plist"
     }
   }

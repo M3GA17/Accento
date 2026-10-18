@@ -1,6 +1,8 @@
 # Accento on Windows, Linux and macOS
 
-Accento now has native input implementations for Windows, Linux X11 and macOS. They use the same deterministic gesture engine and catalog. The React settings and the preference schema are shared. **The 0.5.0-beta.2 prerelease ships Windows x64 binaries only, through the private [M3GA17/Accento repository](https://github.com/M3GA17/Accento/releases/tag/v0.5.0-beta.2).**
+Accento now has native input implementations for Windows, Linux X11 and macOS. They use the same deterministic gesture engine and catalog. The React settings and the preference schema are shared. **The 0.5.0-beta.3 prerelease targets Windows x64 and universal macOS, through the private [M3GA17/Accento repository](https://github.com/M3GA17/Accento/releases/tag/v0.5.0-beta.3).** The Mac package is for tester feedback before stable 0.5.0.
+
+The planned **stable 0.5.0 release targets Windows and macOS**, including Intel and Apple Silicon Macs. Linux X11 and Wayland are deferred to a later release. The Linux implementation and build instructions below describe development support; they do not add Linux to the 0.5.0 release scope. See [the release requirements](RELEASING.md#050-stable-release-scope).
 
 ## Implementation and verification scope
 
@@ -8,7 +10,7 @@ Accento now has native input implementations for Windows, Linux X11 and macOS. T
 | --- | --- | --- |
 | Windows 11 x64 | Existing Win32 hook, Unicode insertion and native glass picker | Rust tests, browser scenarios and native desktop integration |
 | Linux X11 | XInput2 grabs of physical keyboards; normal events forwarded through the separate XTEST virtual keyboard; Unicode through Enigo's X11 backend | Native Linux build and real insertion into an isolated Xvfb/Tk field, including navigation, cancellation, quick Space, uppercase and auto-repeat |
-| macOS Intel / Apple Silicon | Quartz event tap, Accessibility focus/protected-field checks, tagged UTF-16 events | Shared/native Rust module type-checked for both `x86_64-apple-darwin` and `aarch64-apple-darwin`; complete app build, permissions and live input still need a Mac |
+| macOS Intel / Apple Silicon | Quartz event tap, Accessibility focus/protected-field checks, tagged UTF-16 events | Universal build and packaged-app WebView/IPC checks are automated on native Mac runners with hooks disabled; permission flow and live typing await the tester. Attached verification reports identify the tested OS and architecture. |
 | Linux Wayland | No global input backend yet | Typing stays disabled, with an explanation in settings; XWayland does not confer access to native Wayland apps |
 
 Support here describes implemented source and the stated checks, not certification of every application, desktop or keyboard layout. The earlier local Windows beta packages predate this port and do not contain Linux/macOS executables.
@@ -56,7 +58,7 @@ npm run bundle -- --target universal-apple-darwin
 
 Move the app into Applications before granting **Privacy & Security → Accessibility** permission. macOS may also require **Input Monitoring**. If the event tap is denied, Accento starts its settings with typing paused and shows instructions. After granting permission, turn it on again; restart the installed app if required by macOS. Permissions belong to the application identity and may change when an unsigned build is replaced or moved.
 
-The native module ignores its own tagged events, handles complete UTF-16 candidate strings without changing the clipboard and avoids Secure Event Input / accessible secure text fields. The complete app has not been built or run on a Mac in this workspace. Local signing/notarization and Gatekeeper validation are separate from the implemented backend and still need a native release environment.
+The native module ignores its own tagged events, handles complete UTF-16 candidate strings without changing the clipboard and avoids Secure Event Input / accessible secure text fields. Beta 3 adds a GitHub-hosted universal build and native WebView/IPC checks on Apple Silicon and Intel. Those checks disable input hooks and use isolated preferences. The beta uses an ad-hoc signature and is not notarized; live input, real permission grants and Gatekeeper approval still require the tester's Mac. Follow [the Mac test checklist](distribution/TEST-MACOS.it.txt). `Accento.app/Contents/MacOS/Accento --diagnostics` prints version, architecture and permission status without starting the input engine.
 
 ## Preferences and exclusions
 

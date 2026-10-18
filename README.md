@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/badges.svg" width="590" alt="Beta 0.5 · Windows 11 x64 · Rust and Tauri · 47 language entries · MIT">
+  <img src="docs/assets/badges.svg" width="590" alt="Beta 0.5 · Windows and macOS · Rust and Tauri · 47 language entries · MIT">
 </p>
 
 <p align="center">
@@ -39,25 +39,31 @@ The **Currency** special set is enabled initially: `e` also offers `€`, after 
 
 ## Get started
 
-**[Download Accento 0.5.0-beta.2](https://github.com/M3GA17/Accento/releases/tag/v0.5.0-beta.2)** — Windows x64 installer, portable ZIP and SHA-256 checksums. This repository is private; downloads require repository access. Linux/macOS backends are included in the source; this release ships Windows binaries only. See the [release notes](docs/releases/v0.5.0-beta.2.md).
+**[Download Accento 0.5.0-beta.3](https://github.com/M3GA17/Accento/releases/tag/v0.5.0-beta.3)** — Windows x64 installer and portable ZIP, universal macOS app for Intel and Apple Silicon, and SHA-256 checksums. This repository is private; downloads require repository access. The Mac beta is ready for tester feedback on permissions and live typing before stable 0.5.0. See the [release notes](docs/releases/v0.5.0-beta.3.md).
 
 | Platform | Status |
 | --- | --- |
 | Windows 11 · Intel/AMD 64-bit | Native implementation; beta installer and portable ZIP available |
 | Linux X11 | Native backend implemented; Linux build and isolated live-input tests passed |
-| macOS Intel / Apple Silicon | Native backend implemented and type-checked for both architectures; full app and live-input verification need a Mac |
+| macOS 13+ Intel / Apple Silicon | Universal beta app; build/startup checks and the manual typing checklist are described in the release notes |
 
 The gesture engine and preferences are shared. Windows retains its Win32 backend; Linux uses XInput2/XTEST, and macOS uses Quartz and Accessibility. **Native Wayland input is not implemented** and remains disabled with an explanation in settings. See [platform setup, verification and limits](docs/cross-platform.md).
 
+Stable 0.5.0 targets Windows and macOS. Linux X11 and Wayland are deferred to a later release.
+
 ### Windows installer
 
-Run `Accento_0.5.0-beta.2_windows-x64-setup.exe`. It installs for your Windows user and can download Microsoft Edge WebView2 Runtime if needed. An internet connection may be required for that prerequisite; Accento itself works offline.
+Run `Accento_0.5.0-beta.3_windows-x64-setup.exe`. It installs for your Windows user and can download Microsoft Edge WebView2 Runtime if needed. An internet connection may be required for that prerequisite; Accento itself works offline.
 
 ### Portable ZIP
 
 Extract **the entire archive**, then open `Accento.exe`. Keep the guides and license files beside it. WebView2 must already be installed. Preferences live in `%LOCALAPPDATA%\Accento\settings.json`, so “portable” describes the app files rather than a fully isolated settings folder.
 
 Neither package needs PowerToys, .NET, Node.js or Rust to run. These beta binaries are unsigned and have no automatic updater. Verify the downloaded files against the supplied `SHA256SUMS.txt` on the release page.
+
+### macOS beta
+
+Open the DMG and move `Accento.app` to Applications, or extract the universal ZIP and move the app there. This beta has an ad-hoc signature and is not notarized. Follow [Apple's Open Anyway procedure](https://support.apple.com/en-us/102445) if macOS blocks this trusted download, then grant Accessibility permission and Input Monitoring if requested. Quit and reopen the installed app when required, then turn Accento on. The [Mac testing guide](docs/distribution/TEST-MACOS.it.txt) is included in the app resources and on the release page. Live typing and the permission flow await tester feedback.
 
 ## Screenshots
 
@@ -113,7 +119,7 @@ npm run desktop
 
 For a transient browser layout preview, use `npm run dev` and open `http://127.0.0.1:1421/?preview=1`. Preview data never changes your desktop preferences.
 
-See the [development guide](docs/DEVELOPMENT.md) for prerequisites, checks, packaging and architecture, and the [release guide](docs/RELEASING.md) for the local preparation and manual publication process. No release automation is enabled.
+See the [development guide](docs/DEVELOPMENT.md) for prerequisites, checks, packaging and architecture, and the [release guide](docs/RELEASING.md) for preparation and manual publication. A manually dispatched GitHub Actions workflow builds and checks the Mac beta; it does not publish releases.
 
 ## Contributing
 

@@ -17,6 +17,7 @@ const files={
   'docs/copertura-europa-fonti.md':'copertura-europa-fonti.md',
 };
 for(const [source,name]of Object.entries(files))await copyFile(source,path.join(output,name));
+if(platform==='darwin')await copyFile('docs/distribution/TEST-MACOS.it.txt',path.join(output,'TEST-MACOS.it.txt'));
 await writeFile(path.join(output,'LEGGIMI.md'),(await readFile('docs/uso.md','utf8')).replaceAll('](cross-platform.md)','](PLATFORMS.md)'));
 await cp('docs/locales',path.join(output,'guide'),{recursive:true});
 await writeFile(path.join(output,'copertura-europa.md'),(await readFile('docs/copertura-europa.md','utf8')).replaceAll('](locales/','](guide/'));

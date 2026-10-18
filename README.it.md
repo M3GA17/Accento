@@ -23,15 +23,17 @@ Il set **Valute** è attivo inizialmente: sulla `e` trovi anche `€`, dopo `è`
 
 ## Stato della beta
 
-**[Scarica Accento 0.5.0-beta.2](https://github.com/M3GA17/Accento/releases/tag/v0.5.0-beta.2)** — installer Windows x64, ZIP portabile e checksum SHA-256. Il repository è privato: per scaricare serve l’accesso al repository. Questa release distribuisce binari solo per Windows; i backend Linux/macOS sono inclusi nei sorgenti. [Note della release](docs/releases/v0.5.0-beta.2.md).
+**[Scarica Accento 0.5.0-beta.3](https://github.com/M3GA17/Accento/releases/tag/v0.5.0-beta.3)** — installer e ZIP portabile Windows x64, app universale macOS per Intel e Apple Silicon e checksum SHA-256. Il repository è privato: per scaricare serve l’accesso al repository. Questa beta raccoglie il feedback sulle prove reali Mac prima della 0.5 stabile. [Note della release](docs/releases/v0.5.0-beta.3.md).
 
 | Sistema | Stato |
 | --- | --- |
 | Windows 11 x64 Intel/AMD | Implementazione nativa; installer e ZIP portabile disponibili |
 | Linux X11 | Backend nativo implementato, build Linux e test reali di inserimento superati |
-| macOS Intel / Apple Silicon | Backend nativo implementato e verificato dal compilatore per entrambe le architetture; build completa e prova reale da eseguire su un Mac |
+| macOS 13+ Intel / Apple Silicon | App beta universale; controlli di build/avvio e prove manuali descritti nelle note della release |
 
 Il motore del gesto e le preferenze sono condivisi. Windows conserva il backend Win32; Linux usa XInput2/XTEST e macOS Quartz/Accessibility. **Wayland nativo non è ancora supportato**: l’inserimento resta disabilitato con una spiegazione nelle impostazioni. [Guida alle piattaforme e alle verifiche](docs/cross-platform.md). I pacchetti Windows locali precedenti al porting rimangono build solo Windows.
+
+La 0.5 stabile comprende Windows e macOS. Linux X11 e Wayland sono rinviati a una versione successiva.
 
 ## Pacchetti Windows
 
@@ -40,6 +42,10 @@ L'**installer** installa Accento per l'utente corrente e può scaricare Microsof
 Per il **portabile**, estrai l'intero ZIP e apri `Accento.exe`, conservando guide e licenze. WebView2 deve essere già installato. Le preferenze rimangono in `%LOCALAPPDATA%\Accento\settings.json`, separate dalla cartella del programma.
 
 Non servono PowerToys, .NET, Node.js o Rust per usare l'app. I binari beta non sono firmati e non hanno aggiornamenti automatici. I checksum dei due pacchetti sono in `SHA256SUMS.txt`.
+
+## Beta macOS
+
+Apri il DMG e trascina `Accento.app` in Applicazioni, oppure estrai lo ZIP universale e sposta lì l'app. La beta ha firma ad hoc e non è notarizzata: se macOS blocca il download attendibile, segui la [procedura Apple Apri comunque](https://support.apple.com/it-it/102445). Concedi Accessibilità e, se richiesto, Monitoraggio input. Esci e riapri la copia installata se necessario, poi riattiva Accento. La [guida alle prove Mac](docs/distribution/TEST-MACOS.it.txt) è inclusa nelle risorse dell'app e allegata alla release. Digitazione e flusso dei permessi attendono il riscontro del tester.
 
 ## Lingue e impostazioni
 

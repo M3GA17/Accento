@@ -34,6 +34,9 @@ impl From<View> for PickerView {
     }
 }
 use accento_platform::Command;
+fn desktop_test() -> bool {
+    std::env::args().any(|arg| arg == "--desktop-test")
+}
 pub struct State {
     snapshot: Mutex<Snapshot>,
     control: Mutex<Option<Worker>>,
@@ -161,6 +164,21 @@ fn get_picker(state: tauri::State<'_, Arc<State>>) -> Option<PickerView> {
     state.picker.lock().unwrap().clone()
 }
 #[tauri::command]
+fn finish_desktop_test(app: tauri::AppHandle, report: serde_json::Value) -> Result<(), String> {
+    if !desktop_test() {
+        return Err("Desktop verification is not enabled.".into());
+    }
+    let path = std::env::var_os("ACCENTO_DESKTOP_REPORT")
+        .ok_or("Desktop verification report path is missing.")?;
+    std::fs::write(
+        path,
+        serde_json::to_vec_pretty(&report).map_err(|e| e.to_string())?,
+    )
+    .map_err(|e| e.to_string())?;
+    app.exit(if report["passed"] == true { 0 } else { 1 });
+    Ok(())
+}
+#[tauri::command]
 fn quit_app(app: tauri::AppHandle) {
     app.exit(0);
 }
@@ -200,7 +218,7 @@ fn set_pause(app: &tauri::AppHandle, state: &Arc<State>, paused: bool) -> Result
         .unwrap()
         .as_ref()
         .is_some_and(|tx| tx.send(Command::Pause(paused)).is_ok());
-    if !paused && !alive {
+    if !paused && !alive && !desktop_test() {
         start(app, state)?;
     }
     {
@@ -252,9 +270,19 @@ pub fn run() -> Result<(), String> {
             save_settings,
             set_paused,
             get_picker,
+            finish_desktop_test,
             quit_app,
             crate::platform_info::get_platform
-        ]);
+        ])
+        .on_page_load(|webview, payload| {
+            if desktop_test()
+                && std::env::var_os("ACCENTO_DESKTOP_REPORT").is_some()
+                && webview.label() == "settings"
+                && payload.event() == tauri::webview::PageLoadEvent::Finished
+            {
+                let _ = webview.eval(include_str!("smoke.js"));
+            }
+        });
     let builder =
         if std::env::args().any(|arg| matches!(arg.as_str(), "--desktop-test" | "--input-test")) {
             builder
@@ -328,7 +356,7 @@ pub fn run() -> Result<(), String> {
             .visible(false)
             .resizable(false)
             .build()?;
-            if !std::env::args().any(|arg| arg == "--desktop-test")
+            if !desktop_test()
                 && let Err(error) = start(app.handle(), &setup_state)
             {
                 Ui {

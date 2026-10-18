@@ -4,6 +4,14 @@ Lo sviluppo procede dimostrando prima l'affidabilità dell'inserimento, poi la q
 
 L'[analisi REA di Quick Accent](reverse-engineering-quick-accent.md) identifica la versione installata 0.101.2362.0 e i punti delicati del flusso. Il [piano di ricreazione Rust](piano-ricreazione-rust.md) dettaglia queste fasi con il contratto proposto del gesto, le consegne R0–R5 e l'esperimento Glass nativo.
 
+## Perimetro della versione 0.5 ufficiale
+
+Decisione del 18 ottobre 2026: la versione stabile `0.5.0` comprende **Windows 11 x64 e macOS Intel / Apple Silicon**. Linux X11 e Wayland sono rinviati a una versione successiva. La beta `0.5.0-beta.2` già pubblicata resta solo Windows.
+
+Su Windows restano da completare le prove di input nelle applicazioni reali, installazione e aggiornamento su macchina pulita, accessibilità e DPI. Su macOS servono build complete e prove native sulle due architetture, gestione dei permessi, firma e notarizzazione, pacchetti e verifiche di installazione e accessibilità. I [criteri di rilascio](RELEASING.md#050-stable-release-scope) definiscono le consegne richieste; lo [stato delle piattaforme](cross-platform.md) distingue implementazione e verifiche già eseguite.
+
+Il prossimo rilascio è `0.5.0-beta.3` per Windows e macOS. La beta Mac viene preparata con controlli automatici di build e avvio; un tester eseguirà le prove reali con permessi e digitazione seguendo la [checklist Mac](distribution/TEST-MACOS.it.txt). Il suo riscontro e le eventuali correzioni precedono la versione `0.5.0` stabile.
+
 ## Fasi e condizioni di uscita
 
 | Fase | Consegna | Condizione per procedere |

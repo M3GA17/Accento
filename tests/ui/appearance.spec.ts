@@ -9,7 +9,12 @@ for (const viewport of [{width:1040,height:780},{width:640,height:620}]) {
     await expect(page.getByRole('heading',{name:'Generale',exact:true})).toBeVisible();
     const capture = async (name:string) => {
       await page.mouse.move(0,0);
-      await expect(page).toHaveScreenshot(`${viewport.width}-${name}.png`,{maxDiffPixels:0,threshold:0});
+      await expect.poll(()=>page.locator('.brand-mark').evaluate(element=>{
+        const image=element as HTMLImageElement;
+        return image.complete && image.naturalWidth>0;
+      })).toBe(true);
+      // Windows can round antialiased border colors by one RGB level between frames.
+      await expect(page).toHaveScreenshot(`${viewport.width}-${name}.png`,{maxDiffPixels:0,threshold:0.01});
     };
     await capture('general');
     await page.getByRole('textbox',{name:'Ritardo di apertura'}).fill('20');
