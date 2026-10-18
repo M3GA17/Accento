@@ -12,7 +12,8 @@ INSTALLAZIONE
    Impostazioni di Sistema > Privacy e sicurezza > Apri comunque e conferma
    soltanto dopo aver verificato provenienza e checksum del pacchetto.
    Non disattivare Gatekeeper e non modificare le protezioni globali del Mac.
-3. Abilita Accento in Privacy e sicurezza > Accessibilita'. Se richiesto dal
+3. Abilita Accento in Privacy e sicurezza > Accessibilita'. Se non compare,
+   usa il pulsante + e scegli la copia Accento.app in Applicazioni. Se richiesto dal
    sistema, abilita anche Monitoraggio input. Poi riattiva Accento dal suo
    interruttore; se necessario scegli Esci e riapri la copia in Applicazioni.
 4. Metti in pausa altre utility che usano lo stesso gesto.

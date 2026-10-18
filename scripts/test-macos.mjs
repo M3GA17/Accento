@@ -58,6 +58,10 @@ try {
   };
   await writeFile(path.join(path.dirname(app), 'macos-verification.json'), JSON.stringify(verification, null, 2) + '\n');
   console.log('Universal Mac bundle, signature, resources, native WebView, IPC and isolated persistence verified. Live input and permissions await the tester.');
+} catch (error) {
+  console.error(output);
+  console.error(await readFile(reportPath, 'utf8').catch(() => 'No native desktop report was produced.'));
+  throw error;
 } finally {
   if (child.exitCode === null) child.kill();
   await rm(profile, {recursive: true, force: true});

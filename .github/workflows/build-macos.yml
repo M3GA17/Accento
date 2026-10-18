@@ -40,14 +40,17 @@ jobs:
         run: npm run bundle -- --target universal-apple-darwin
       - name: Verify packaged app and native WebView startup
         run: node scripts/test-macos.mjs dist/releases/v$(node -p "require('./package.json').version")/macos/Accento.app
+      - name: Locate Mac release files
+        id: packages
+        run: echo "directory=dist/releases/v$(node -p "require('./package.json').version")/macos" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: accento-macos-universal
           path: |
-            dist/releases/*/macos/*.dmg
-            dist/releases/*/macos/*.zip
-            dist/releases/*/macos/SHA256SUMS.txt
-            dist/releases/*/macos/macos-verification.json
+            ${{ steps.packages.outputs.directory }}/*.dmg
+            ${{ steps.packages.outputs.directory }}/*.zip
+            ${{ steps.packages.outputs.directory }}/SHA256SUMS.txt
+            ${{ steps.packages.outputs.directory }}/macos-verification.json
           if-no-files-found: error
           retention-days: 14
 

@@ -22,6 +22,8 @@ try {
         $files = @{
             'docs/distribution/README.txt' = 'README.txt'
             'docs/uso.md' = 'LEGGIMI.md'
+            'docs/cross-platform.md' = 'PLATFORMS.md'
+            'docs/distribution/TEST-MACOS.it.txt' = 'TEST-MACOS.it.txt'
             'LICENSE' = 'LICENSE'
             'THIRD-PARTY-NOTICES.md' = 'THIRD-PARTY-NOTICES.md'
             'docs/copertura-europa-fonti.md' = 'copertura-europa-fonti.md'
@@ -31,6 +33,14 @@ try {
             Copy-Item -LiteralPath $source -Destination (Join-Path $resources $files[$source]) -Force
         }
         $guideFolder = Join-Path $resources 'guide'
+        foreach ($document in @('LEGGIMI.md', 'PLATFORMS.md')) {
+            $documentPath = Join-Path $resources $document
+            $text = Get-Content -LiteralPath $documentPath -Raw
+            $text = $text.Replace('](cross-platform.md)', '](PLATFORMS.md)')
+            $text = $text.Replace('](distribution/TEST-MACOS.it.txt)', '](TEST-MACOS.it.txt)')
+            $text = $text.Replace('](RELEASING.md#', "](https://github.com/M3GA17/Accento/blob/v$version/docs/RELEASING.md#")
+            [System.IO.File]::WriteAllText($documentPath, $text, [System.Text.UTF8Encoding]::new($false))
+        }
         New-Item -ItemType Directory -Path $guideFolder -Force | Out-Null
         Get-ChildItem -LiteralPath 'docs/locales' -File | ForEach-Object {
             Copy-Item -LiteralPath $_.FullName -Destination (Join-Path $guideFolder $_.Name) -Force
